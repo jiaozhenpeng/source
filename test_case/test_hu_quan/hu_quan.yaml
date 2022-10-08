@@ -1,0 +1,52 @@
+# 沪权数据
+
+# 普通开仓
+GeneralOpen:
+  sqlPath: F:\source\用例数据\沪权\普通开仓\futureinfo.sql
+  dbfPath: F:\source\用例数据\沪权\普通开仓\op_jsmx.dbf
+  txtPath: F:\source\用例数据\沪权\普通开仓\trns03.txt
+  excelPath: F:\source\用例数据\沪权\普通开仓\测试结果.xlsx
+
+# 普通平仓
+GeneralLiquidation:
+  sqlPath: F:\source\用例数据\沪权\普通平仓\stkinfo.sql
+  dbfPath: F:\source\用例数据\沪权\普通平仓
+  txtPath: F:\source\用例数据\沪权\普通平仓\trns03.txt
+  excelPath: F:\source\用例数据\沪权\普通平仓\清算结果.xlsx
+
+# 普通行权
+GeneralExercise:
+  sqlPath: F:\source\用例数据\沪权\普通行权\stkinfo.sql
+  dbfPath: F:\source\用例数据\沪权\普通行权
+  excelPath:
+
+
+# 备兑转换
+ReserveConversion:
+  sqlPath: F:\source\用例数据\沪权\备兑转换\futureinfo.sql
+  dbfPath: F:\source\用例数据\沪权\备兑转换
+  excelPath: F:\source\用例数据\沪权\备兑转换\测试结果.xlsx
+
+# 备兑后行权
+ReserveExercise:
+  sqlPath: F:\source\用例数据\沪权\备兑后行权\执行SQL.sql
+  dbfPath: F:\source\用例数据\沪权\备兑后行权
+  excelPath: F:\source\用例数据\沪权\备兑后行权\测试结果.xlsx
+
+# 对冲
+Hedging:
+  sqlPath: F:\source\用例数据\沪权\对冲\执行sql.sql
+  dbfPath: F:\source\用例数据\沪权\对冲
+  excelPath:
+
+# 过期
+Overdue:
+  sqlPath: F:\source\用例数据\沪权\过期\执行sql.sql
+  dbfPath: F:\source\用例数据\沪权\过期
+  excelPath:
+
+# 组合保证金
+PortfolioMargin:
+  sqlPath: F:\source\用例数据\沪权\组合保证金\futureinfo.sql
+  dbfPath: F:\source\用例数据\沪权\组合保证金
+  excelPath:

@@ -1,0 +1,92 @@
+import unittest
+
+from config import PathConfig
+from database.oracle_database import OracleDatabase
+from log.logger import logger
+from public_method.base_action import BaseAction
+from public_method.excel_operation import ExcelOperation
+
+
+class ContrastOrdinaryTransaction(unittest.TestCase):
+    """
+    沪港\普通交易\t日
+    """
+    yaml = BaseAction().read_yaml(path=PathConfig().hu_gang())['OrdinaryTransaction']
+
+    def test_ordinary_transaction(self):
+        """
+        沪港\普通交易\t日
+        :return:
+        """
+        logger().info('-------------------------------')
+        logger().info('开始执行：沪港\\普通交易\\t日 对比数据')
+        excel_path = self.yaml['excelPath']
+        excel = ExcelOperation(excel_path)
+        oracle = OracleDatabase()
+        begintime = oracle.get_last_update()
+        endtime = begintime[0:8] + '235959'
+        # 查询SQL
+        todaytraderslt_sql = " select * from TODAYTRADERSLT where STKID in ('00023','00257','00005','00001'," \
+                             "'00002','02880','01060') and EXCHID = '5' and DESKID = '00W40'and reckoningtime>={} " \
+                             "and reckoningtime<={}".format(begintime, endtime)
+        finalreckoningresult_sql = "select * from finalreckoningresult where EXCHID='5' and STKID in ('00023','00257'," \
+                                   "'00005','00001','00002','02880','01060') and DESKID = '00W40' and REGID in ('A117382000'," \
+                                   "'A117392000','A117392001') and ACCTID in ('000011738200','000011739200','000011739201')"
+        unprocessedreckoningresulthis_sql = "select * from unprocessedreckoningresulthis where EXCHID='5' and STKID " \
+                                            "in ('00023','00257','00005','00001','00002','02880','01060') and REGID in " \
+                                            "('A117382000','A117392000','A117392001') and ACCTID in ('000011738200'," \
+                                            "'000011739200','000011739201') and DESKID = '00W40'"
+        unprocessedreckoningresult_sql = "select * from unprocessedreckoningresult where EXCHID='5' and STKID " \
+                                         "in ('00023','00257','00005','00001','00002','02880','01060') and REGID in " \
+                                         "('A117382000','A117392000','A117392001') and ACCTID in ('000011738200'," \
+                                         "'000011739200','000011739201') and DESKID = '00W40'"
+        stklist_sql = "select * from STKLIST where EXCHID = '5' and REGID in( 'A117382000','A117382001','A117392000'," \
+                      "'A117392001') and STKID in ('00023','00257','00005','00001','00002','02880','01060') and DESKID = '00W40'"
+        # 获取数据库数据并排序
+        todaytraderslt_database = BaseAction().todaytraderslt_sort(oracle.dict_data(todaytraderslt_sql))
+        finalreckoningresult_database = BaseAction().finalreckoningresult_sort(
+            oracle.dict_data(finalreckoningresult_sql))
+        unprocessedreckoningresulthis_database = BaseAction().unprocessedreckoningresulthis_sort(
+            oracle.dict_data(unprocessedreckoningresulthis_sql))
+        unprocessedreckoningresult_database = BaseAction().unprocessedreckoningresult_sort(
+            oracle.dict_data(unprocessedreckoningresult_sql))
+        stklist_database = BaseAction().stklist_sort(oracle.dict_data(stklist_sql))
+        # 获取excel数据并排序
+        todaytraderslt_excel = BaseAction().todaytraderslt_sort(excel.read_excel('todaytraderslt'))
+        finalreckoningresult_excel = BaseAction().finalreckoningresult_sort(excel.read_excel('finalreckoningresult'))
+        unprocessedreckoningresulthis_excel = BaseAction().unprocessedreckoningresulthis_sort(
+            excel.read_excel('unprocessedreckoningresulthis'))
+        unprocessedreckoningresult_excel = BaseAction().unprocessedreckoningresult_sort(
+            excel.read_excel('unprocessedreckoningresult'))
+        stklist_excel = BaseAction().stklist_sort(excel.read_excel('stklist'))
+        # 可以忽略的字段
+        todaytraderslt_ignore = ('RECKONINGTIME', 'KNOCKTIME', 'SERIALNUM')
+        finalreckoningresult_ignore = ('KNOCKTIME',)
+        unprocessedreckoningresulthis_ignore = ('KNOCKTIME',)
+        unprocessedreckoningresult_ignore = ('KNOCKTIME',)
+        stklist_ignore = ()
+        # 对比数据
+        todaytraderslt_result = BaseAction().compare_dict(todaytraderslt_database, todaytraderslt_excel,
+                                                          'todaytraderslt',*todaytraderslt_ignore)
+        finalreckoningresult_result = BaseAction().compare_dict(finalreckoningresult_database,
+                                                                finalreckoningresult_excel, 'finalreckoningresult',
+                                                                *finalreckoningresult_ignore)
+        unprocessedreckoningresulthis_result = BaseAction().compare_dict(unprocessedreckoningresulthis_database,
+                                                                         unprocessedreckoningresulthis_excel,
+                                                                         'unprocessedreckoningresulthis',
+                                                                         *unprocessedreckoningresulthis_ignore)
+        unprocessedreckoningresult_result = BaseAction().compare_dict(unprocessedreckoningresult_database,
+                                                                      unprocessedreckoningresult_excel,
+                                                                      'unprocessedreckoningresult',
+                                                                      *unprocessedreckoningresult_ignore)
+        stklist_result = BaseAction().compare_dict(stklist_database, stklist_excel, 'stklist')
+        final_result = todaytraderslt_result + finalreckoningresult_result + unprocessedreckoningresulthis_result \
+                       + unprocessedreckoningresult_result + stklist_result
+        if not final_result:
+            logger().info('沪港\\普通交易\\t日 对比数据无异常')
+            assert True
+        else:
+            logger().error('沪港\\普通交易\\t日 对比数据异常')
+            assert False,final_result
+if __name__ == '__main__':
+    unittest.main()

@@ -1,0 +1,85 @@
+
+# 股转\QFII股份对账
+QfiiShareReconciliation:
+  dbfPath: F:\source\用例数据\股转\QFII股份对账\bjsjg.dbf
+  sqlPath: F:\source\用例数据\股转\QFII股份对账\stkinfo.sql
+  excelPath: F:\source\用例数据\股转\QFII股份对账\测试结果.xlsx
+# 股转\分红派息
+Dividend:
+  dbfPath: F:\source\用例数据\股转\分红派息
+  sqlPath: F:\source\用例数据\股转\分红派息\stkinfo.sql
+  excelPath: F:\source\用例数据\股转\分红派息\测试结果.xlsx
+# 股转\股份调账
+ShareAdjustment:
+  dbfPath: F:\source\用例数据\股转\股份调账
+  sqlPath: F:\source\用例数据\股转\股份调账\stkinfo.sql
+  excelPath: F:\source\用例数据\股转\股份调账\测试结果.xlsx
+# 股转\股份非交易过户
+NonTrading:
+  dbfPath: F:\source\用例数据\股转\股份非交易过户\dbf文件
+  sqlPath: F:\source\用例数据\股转\股份非交易过户\stkinfo.sql
+  excelPath: F:\source\用例数据\股转\股份非交易过户\测试结果.xlsx
+# 股转\普通买卖
+OrdinaryTrading:
+  dbfPath: F:\source\用例数据\股转\普通买卖
+  sqlPath: F:\source\用例数据\股转\普通买卖\stkinfo.sql
+  excelPath: F:\source\用例数据\股转\普通买卖\测试结果.xlsx
+# 股转\所得税
+IncomeTax:
+  # 股转\所得税
+  incomeTax:
+    dbfPath: F:\source\用例数据\股转\所得税
+    sqlPath: F:\source\用例数据\股转\所得税\stkinfo.sql
+    excelPath:
+  # 所得税\未开户挂账
+  notOpenAnAccount:
+    dbfPath: F:\source\用例数据\股转\所得税\未开户挂账
+    sqlPath: F:\source\用例数据\股转\所得税\未开户挂账\stkinfo.sql
+    excelPath:
+  # 股转\所得税\资金不足挂账
+  insufficientFunds:
+    dbfPath: F:\source\用例数据\股转\所得税\资金不足挂账
+    sqlPath: F:\source\用例数据\股转\所得税\资金不足挂账\stkinfo.sql
+    excelPath:
+# 股转\退出结算系统
+ExitSettlement:
+  dbfPath: F:\source\用例数据\股转\退出结算系统
+  sqlPath: F:\source\用例数据\股转\退出结算系统\stkinfo.sql
+  excelPath: F:\source\用例数据\股转\退出结算系统\测试结果.xlsx
+ # 股转\托管登记
+CustodyRegistration:
+  dbfPath: F:\source\用例数据\股转\托管登记
+  sqlPath: F:\source\用例数据\股转\托管登记\stkinfo.sql
+  excelPath: F:\source\用例数据\股转\托管登记\测试结果.xlsx
+# 股转\无限售流通股份转限售
+InfiniteLimit:
+  dbfPath: F:\source\用例数据\股转\无限售流通股份转限售
+  sqlPath: F:\source\用例数据\股转\无限售流通股份转限售\stkinfo.sql
+  excelPath: F:\source\用例数据\股转\无限售流通股份转限售\测试结果.xlsx
+# 股转\限售股份转无限售流通股
+LimitInfinite:
+  dbfPath: F:\source\用例数据\股转\限售股份转无限售流通股
+  sqlPath: F:\source\用例数据\股转\限售股份转无限售流通股\stkinfo.sql
+  excelPath: F:\source\用例数据\股转\限售股份转无限售流通股\测试结果.xlsx
+# 股转\协议交易
+AgreementTransaction:
+  # 股转\协议交易\A5
+  fiveA:
+    dbfPath: F:\source\用例数据\股转\协议交易\A5
+    sqlPath: F:\source\用例数据\股转\协议交易\A5\stkinfo.sql
+    excelPath: F:\source\用例数据\股转\协议交易\A5\测试结果.xlsx
+  # 股转\协议交易\E5数据\协议交易
+  fiveE:
+    dbfPath: F:\source\用例数据\股转\协议交易\E5数据\协议交易
+    sqlPath: F:\source\用例数据\股转\协议交易\E5数据\协议交易\stkinfo.sql
+    excelPath: F:\source\用例数据\股转\协议交易\E5数据\协议交易\测试结果.xlsx
+# 股转\优先股回售
+PreferredStockResale:
+  dbfPath: F:\source\用例数据\股转\优先股回售
+  sqlPath: F:\source\用例数据\股转\优先股回售\stkinfo.sql
+  excelPath: F:\source\用例数据\股转\优先股回售\测试结果.xlsx
+# 股转\优先股赎回
+PreferredStockRedeem:
+  dbfPath: F:\source\用例数据\股转\优先股赎回
+  sqlPath: F:\source\用例数据\股转\优先股赎回\stkinfo.sql
+  excelPath: F:\source\用例数据\股转\优先股赎回\测试结果.xlsx

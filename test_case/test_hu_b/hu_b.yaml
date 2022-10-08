@@ -1,0 +1,7 @@
+# 沪B
+
+# b转h
+BH:
+  sqlPath: F:\source\用例数据\沪B\B转H\T\openorder.sql
+  dbfPath: F:\source\用例数据\沪B\B转H\T
+  excelPath: F:\source\用例数据\沪B\B转H\T\清算结果.xlsx

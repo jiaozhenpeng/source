@@ -1,0 +1,124 @@
+
+# 股票买入
+stockPurchase:
+  stockPurchasePath: F:\source\用例数据\深A\股票买入\sjsmx1.dbf
+  sql: F:\source\用例数据\深A\股票买入\stkinfo.sql
+  excelPath: F:\source\用例数据\深A\股票买入\测试结果.xlsx
+  year: 2022
+
+# 股票买入虚拟股东
+shareholderPurchase:
+  shareholderPath: F:\source\用例数据\深A\股票买入虚拟股东\sjsmx1.dbf
+  sql: F:\source\用例数据\深A\股票买入虚拟股东\stkinfo.sql
+  excelPath: F:\source\用例数据\深A\股票买入虚拟股东\测试结果.xlsx
+  year: 2022
+
+# 深A/限售股转流通股
+restrictedCirculation:
+  dbfPath: F:\source\用例数据\深A\限售股转流通股\sjsjg.dbf
+  excelPath: F:\source\用例数据\深A\限售股转流通股\测试结果.xlsx
+  year: 2022
+  sql: F:\source\用例数据\深A\限售股转流通股\stkinfo.sql
+
+# 深A\协议回购\T日
+repo:
+  dbfPath: F:\source\用例数据\深A\协议回购\T日
+  excelPath: F:\source\用例数据\深A\协议回购\T日\测试结果.xlsx
+  sql: F:\source\用例数据\深A\协议回购\T日\stkinfo.sql
+
+# 证券转换
+SecuritiesConversion:
+  dbfPath: F:\source\用例数据\深A\证券转换\sjsjg.dbf
+  excel: F:\source\用例数据\深A\证券转换\测试结果.xlsx
+  sql: F:\source\用例数据\深A\证券转换\stkinfo.sql
+
+# 红股红利
+BonusDividend:
+  dbfPath:
+  excel:
+  sql:
+
+# 非交易转让
+NonTransactionTransfer:
+  dbfPath: F:\source\用例数据\深A\非交易转让\sjsjg.dbf
+  sqlPath: F:\source\用例数据\深A\非交易转让\stkinfo.sql
+  excelPath: F:\source\用例数据\深A\非交易转让\测试结果.xlsx
+
+
+# 转托管
+TransferTube:
+  dbfPath: F:\source\用例数据\深A\深圳转托管
+  sqlPath: F:\source\用例数据\深A\深圳转托管\stkinfo.sql
+  excelPath: F:\source\用例数据\深A\深圳转托管\清算结果.xlsx
+
+# 发行业务
+IssuanceBusiness:
+  # 按值配售
+  ValueBasedPlacement:
+    dbfPath: F:\source\用例数据\深A\发行业务\按值配售\T日
+    sqlPath: F:\source\用例数据\深A\发行业务\按值配售\T日\quotaorder.sql
+    excelPath: F:\source\用例数据\深A\发行业务\按值配售\T日\测试结果.xlsx
+
+# 红股红利
+BonusShares:
+  # 兑付/兑付当日
+  DateOfPayment:
+    dbfPath: F:\source\用例数据\深A\红股红利\兑付\兑付当日
+    sqlPath: F:\source\用例数据\深A\红股红利\兑付\兑付当日\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\红股红利\兑付\兑付当日\测试结果.xlsx
+
+# 缩股GSSG
+StockReduction:
+  dbfPath: F:\source\用例数据\深A\缩股GSSG
+  sqlPath: F:\source\用例数据\深A\缩股GSSG\stkinfo.sql
+  excelPath: F:\source\用例数据\深A\缩股GSSG\测试结果.xlsx
+
+# 特殊调账
+SpecialAdjustment:
+  dbfPath: F:\source\用例数据\深A\特殊调账
+  sqlPath: F:\source\用例数据\深A\特殊调账\stkinfo.sql
+  excelPath: F:\source\用例数据\深A\特殊调账\测试结果.xlsx
+
+# 债券分销登记
+BondDistribution:
+  dbfPath: F:\source\用例数据\深A\债券分销登记
+  sqlPath: F:\source\用例数据\深A\债券分销登记\stkinfo.sql
+  excelPath: F:\source\用例数据\深A\债券分销登记\测试结果.xlsx
+
+
+# 跨市场转托管
+CrossMarketCustodyTransfer:
+  dbfPath: F:\source\用例数据\深A\债券跨市场转托管
+  sqlPath: F:\source\用例数据\深A\债券跨市场转托管\sktinfo.sql
+  excelPath: F:\source\用例数据\深A\债券跨市场转托管\测试结果.xlsx
+
+
+# 证券分拆GS4B
+SecuritiesSpinOff:
+  dbfPath: F:\source\用例数据\深A\证券分拆GS4B
+  sqlPath: F:\source\用例数据\深A\证券分拆GS4B\stkinfo.sql
+  excelPath: F:\source\用例数据\深A\证券分拆GS4B\测试结果.xlsx
+
+# GDR数据
+GDR:
+  # 法人对账
+  LegalPersonReconciliation:
+    dbfPath: F:\source\用例数据\深A\GDR数据\法人对账
+    sqlPath: F:\source\用例数据\深A\GDR数据\法人对账\法人对账期初.sql
+    excelPath: F:\source\用例数据\深A\GDR数据\法人对账\测试结果.xlsx
+  # 交收失败
+  DeliveryFailed:
+    dbfPath: F:\source\用例数据\深A\GDR数据\交收失败
+    sqlPath: F:\source\用例数据\深A\GDR数据\交收失败\期初sql.sql
+    excelPath: F:\source\用例数据\深A\GDR数据\交收失败\测试结果.xlsx
+  # 限售股
+  RestrictedShares:
+    dbfPath: F:\source\用例数据\深A\GDR数据\限售股
+    sqlPath: F:\source\用例数据\深A\GDR数据\限售股\限售股期初.sql
+    excelPath: F:\source\用例数据\深A\GDR数据\限售股\测试结果.xlsx
+  # 虚拟股东
+  VirtualShareholders:
+    dbfPath: F:\source\用例数据\深A\GDR数据\虚拟股东
+    sqlPath: F:\source\用例数据\深A\GDR数据\虚拟股东\虚拟股东期初sql.sql
+    excelPath: F:\source\用例数据\深A\GDR数据\虚拟股东\测试结果.xlsx
+

@@ -1,0 +1,4 @@
+select * from         futureposition2021 where occurtime=20210720000000 and  exchid='F' and  offerregid in('00058049','F1008666','00060447') and stkid in('IF2108','IF2109','IF2112','IH2109','IH2112','IC2108','IC2109','IC2112','IF2109','T2109','T2112') ;
+select * from         futurepositiondetail2021 where occurtime=20210720000000 and  exchid='F' and  offerregid in('00058049','F1008666','00060447') and stkid in('IF2108','IF2109','IF2112','IH2109','IH2112','IC2108','IC2109','IC2112','IF2109','T2109','T2112') ;
+select * from         futuretraderslt2021 where occurtime=20210720000000
+select b.INTERIORDESC,a.* from futuretradinglog2021 a ,briefdefine b where a.briefid=b.briefid      and reckoningtime>=20210720000000   

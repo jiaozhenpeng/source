@@ -1,0 +1,4 @@
+# 日终通用数据
+GeneralData:
+  dbfPath: F:\source\用例数据\日终通用数据
+  excelPath: F:\source\用例数据\日终通用数据\测试结果.xlsx

@@ -1,0 +1,56 @@
+
+time=2022-05-12 11:03:04.449, nano=611975769531600, cost=1.6, sid=656, index=0, sql=SELECT reckoningTime, knockTime, custId, acctId, exchId, offerRegId, regId, subRegId, regName, contractNum, stkId, bsFlag, occurAmt, deskId, occurQty, knockPrice, verifyType, validFlag, dbfId, transDeskId, memo, virtualFlag, serialNum, rightOwnFlag, bankId, recordType, tradeMode, settleType, knockNum, deliveryCode, knockQty, price, deposit, returnCode, businessCode, stkId1, stampTax, handlingFee, exchTransFee, stkMngFee, commision, otherAmt2, otherAmt3, settleMode, tradeTransType, personalId, ventureFee, reckoningFee, settledate, settleDeskId, standby, rightsFlag, flag, date1, offSetFlag, coveredFlag, exchStkType, settleYear, internalOffSetFlag, internalCoveredFlag FROM StkOptionSettlement WHERE dbfId IN ('OP_CCBD', 'SQ_HYCB') AND offerRegId IS NOT NULL AND acctId IS NOT NULL AND regId IS NOT NULL ORDER BY knockTime;
+
+time=2022-05-12 11:03:04.461, nano=611975781210700, cost=11.628, sid=656, sql= UPDATE futureCombAction a  SET (a.contractTimes, a.strikePrice) =  (SELECT b.contractTimes, b.strikePrice  FROM futureInfo b  WHERE b.exchId = a.exchId  AND b.stkId = a.stkId  AND b.stkType = '4')  WHERE EXISTS (SELECT 'X'  FROM futureInfo b  WHERE b.exchId = a.exchId  AND b.stkId = a.stkId  AND b.stkType = '4') ;
+
+time=2022-05-12 11:03:04.463, nano=611975783513500, cost=2.258, sid=656, sql=update FutureCombAction f set knockQty=0 WHERE exchId IN (SELECT DISTINCT exchId FROM FutureInfo i WHERE i.stkType = '4' AND f.exchId = i.exchId AND f.stkId = i.stkId);
+
+time=2022-05-12 11:03:04.465, nano=611975785785000, cost=2.223, sid=656, index=0, sql=select s.*,c.custType,c.creditLevel from stkOptionSettlement s,Customer c where s.exchid in ('X','Y') and s.dbfid in ('OP_ZHCCMX','SQ_ZHCCMX') and s.custId=c.custId;
+
+time=2022-05-12 11:03:04.468, nano=611975788451000, cost=2.484, sid=656, index=0, sql=select c.custId,c.custType,c.creditLevel,f.* from FutureCombAction f,Account a,Customer c where f.acctId = a.acctId and a.currencyId='00' and a.custId = c.custId and exchId IN (SELECT DISTINCT exchId FROM FutureInfo i WHERE i.stkType = '4' AND f.exchId = i.exchId AND f.stkId = i.stkId) order by f.serialNum;
+
+time=2022-05-12 11:03:04.471, nano=611975791470800, cost=1.389, sid=656, index=0, sql=SELECT * FROM Registration WHERE exchId='X' AND offerRegId='A117212005' AND regId='A117212005';
+
+time=2022-05-12 11:03:04.488, nano=611975808264600, cost=16.499, sid=656, sql=INSERT INTO FutureCombAction (occurTime,serialNum,acctId,exchId,deskId,offerRegId,regId,subRegId,stkId,bsFlag,orderQty,knockQty,coveredFlag,F_hedgeFlag,tradeDate,basicExchId,basicStkId,strikePrice,optionType,lastTrdDate,contractTimes,marginUsedAmt,completeFlag,strategyId,combineNum,stkSum,openDate,closeDate,exchMarginUsedAmt,initMargin,groupId,sortSerial,openQty,ydOffsFrozPositionQty,combineType,offsetMarginAmt,exchInitMargin) VALUES(20220512110303,30050203,'000011721205','X','00W40','A117212005','A117212005','888','10003840','B',0,5,'0','SPEC',20220511000000,'0','510300',6.154,'P',20220622000000,10156,0.0,0,'BearPutSpread','2019121000000673',2,20220511000000,-1,0.0,0.0,'1',1,5,0,'NORMAL',0.0,0.0);
+
+time=2022-05-12 11:03:04.489, nano=611975809112700, cost=0.344, sid=656, index=0, sql=SELECT * FROM Registration WHERE exchId='X' AND offerRegId='A117212005' AND regId='A117212005';
+
+time=2022-05-12 11:03:04.490, nano=611975810387500, cost=1.144, sid=656, sql=INSERT INTO FutureCombAction (occurTime,serialNum,acctId,exchId,deskId,offerRegId,regId,subRegId,stkId,bsFlag,orderQty,knockQty,coveredFlag,F_hedgeFlag,tradeDate,basicExchId,basicStkId,strikePrice,optionType,lastTrdDate,contractTimes,marginUsedAmt,completeFlag,strategyId,combineNum,stkSum,openDate,closeDate,exchMarginUsedAmt,initMargin,groupId,sortSerial,openQty,ydOffsFrozPositionQty,combineType,offsetMarginAmt,exchInitMargin) VALUES(20220512110303,30050204,'000011721205','X','00W40','A117212005','A117212005','888','10003951','B',0,5,'0','SPEC',20220511000000,'0','510300',4.6,'C',20220622000000,10000,0.0,0,'BullCallSpread','2019120900000922',2,20220511000000,-1,0.0,0.0,'1',1,5,0,'NORMAL',0.0,0.0);
+
+time=2022-05-12 11:03:04.490, nano=611975810788300, cost=0.321, sid=656, index=0, sql=SELECT * FROM Registration WHERE exchId='X' AND offerRegId='A117212005' AND regId='A117212005';
+
+time=2022-05-12 11:03:04.492, nano=611975812502500, cost=1.567, sid=656, sql=INSERT INTO FutureCombAction (occurTime,serialNum,acctId,exchId,deskId,offerRegId,regId,subRegId,stkId,bsFlag,orderQty,knockQty,coveredFlag,F_hedgeFlag,tradeDate,basicExchId,basicStkId,strikePrice,optionType,lastTrdDate,contractTimes,marginUsedAmt,completeFlag,strategyId,combineNum,stkSum,openDate,closeDate,exchMarginUsedAmt,initMargin,groupId,sortSerial,openQty,ydOffsFrozPositionQty,combineType,offsetMarginAmt,exchInitMargin) VALUES(20220512110303,30050205,'000011721205','X','00W40','A117212005','A117212005','888','10003693','S',0,5,'0','SPEC',20220511000000,'0','510300',5.416,'C',20220622000000,10156,0.0,0,'BullCallSpread','2019120900000922',2,20220511000000,-1,0.0,0.0,'1',2,5,0,'NORMAL',0.0,0.0);
+
+time=2022-05-12 11:03:04.492, nano=611975812923200, cost=0.362, sid=656, index=0, sql=SELECT * FROM Registration WHERE exchId='X' AND offerRegId='A117212005' AND regId='A117212005';
+
+time=2022-05-12 11:03:04.493, nano=611975813598000, cost=0.59, sid=656, sql=INSERT INTO FutureCombAction (occurTime,serialNum,acctId,exchId,deskId,offerRegId,regId,subRegId,stkId,bsFlag,orderQty,knockQty,coveredFlag,F_hedgeFlag,tradeDate,basicExchId,basicStkId,strikePrice,optionType,lastTrdDate,contractTimes,marginUsedAmt,completeFlag,strategyId,combineNum,stkSum,openDate,closeDate,exchMarginUsedAmt,initMargin,groupId,sortSerial,openQty,ydOffsFrozPositionQty,combineType,offsetMarginAmt,exchInitMargin) VALUES(20220512110303,30050206,'000011721205','X','00W40','A117212005','A117212005','888','10003958','S',0,5,'0','SPEC',20220511000000,'0','510300',4.4,'P',20220622000000,10000,0.0,0,'BearPutSpread','2019121000000673',2,20220511000000,-1,0.0,0.0,'1',2,5,0,'NORMAL',0.0,0.0);
+
+time=2022-05-12 11:03:04.497, nano=611975817617500, cost=1.152, sid=656, sql=UPDATE FutureCombAction SET marginUsedAmt=0.0,exchMarginUsedAmt=0.0,initMargin=0.0,completeFlag=0 WHERE occurTime=20220512110303 AND serialNum=30050203;
+
+time=2022-05-12 11:03:04.497, nano=611975818073300, cost=0.433, sid=656, sql=UPDATE FutureCombAction SET marginUsedAmt=0.0,exchMarginUsedAmt=0.0,initMargin=15400.0,completeFlag=0 WHERE occurTime=20220512110303 AND serialNum=30050206;
+
+time=2022-05-12 11:03:04.498, nano=611975818584400, cost=0.434, sid=656, sql=UPDATE FutureCombAction SET marginUsedAmt=0.0,exchMarginUsedAmt=0.0,initMargin=0.0,completeFlag=0 WHERE occurTime=20220512110303 AND serialNum=30050204;
+
+time=2022-05-12 11:03:04.498, nano=611975818950500, cost=0.353, sid=656, sql=UPDATE FutureCombAction SET marginUsedAmt=0.0,exchMarginUsedAmt=0.0,initMargin=16201.85,completeFlag=0 WHERE occurTime=20220512110303 AND serialNum=30050205;
+
+time=2022-05-12 11:03:04.500, nano=611975820158800, cost=1.199, sid=656, sql=update futureposition f set offerQty=0,combMarginAmt=0 WHERE exchId IN (SELECT DISTINCT exchId FROM FutureInfo i WHERE i.stkType = '4' AND f.exchId = i.exchId AND f.stkId = i.stkId);
+
+time=2022-05-12 11:03:04.502, nano=611975822581800, cost=2.411, sid=656, index=0, sql=select sum(f.marginUsedAmt) marginUsedAmt,sum(f.knockQty) knockQty, f.exchId, f.stkId, f.regId,f.bsFlag,f.f_hedgeFlag,f.coveredFlag,f.acctId from FutureCombAction f WHERE f.exchId IN (SELECT DISTINCT exchId FROM FutureInfo i WHERE i.stkType = '4' AND f.exchId = i.exchId AND f.stkId = i.stkId) group by f.exchId, f.stkId, f.regId,f.bsflag,f.f_hedgeFlag,f.coveredFlag,f.acctId;
+
+time=2022-05-12 11:03:04.502, nano=611975823236900, cost=0.615, sid=656, sql= update futureposition  set offerQty=5 ,ydOfferQty=5 ,combMarginAmt=0.0 where exchId='X' and stkId='10003840' and regId='A117212005' and bsFlag='B' and f_hedgeFlag='SPEC' and coveredFlag='0';
+
+time=2022-05-12 11:03:04.503, nano=611975823863900, cost=0.592, sid=656, sql= update futureposition  set offerQty=5 ,ydOfferQty=5 ,combMarginAmt=0.0 where exchId='X' and stkId='10003958' and regId='A117212005' and bsFlag='S' and f_hedgeFlag='SPEC' and coveredFlag='0';
+
+time=2022-05-12 11:03:04.505, nano=611975825300800, cost=1.413, sid=656, sql= update futureposition  set offerQty=5 ,ydOfferQty=5 ,combMarginAmt=0.0 where exchId='X' and stkId='10003951' and regId='A117212005' and bsFlag='B' and f_hedgeFlag='SPEC' and coveredFlag='0';
+
+time=2022-05-12 11:03:04.505, nano=611975826104300, cost=0.757, sid=656, sql= update futureposition  set offerQty=5 ,ydOfferQty=5 ,combMarginAmt=0.0 where exchId='X' and stkId='10003693' and regId='A117212005' and bsFlag='S' and f_hedgeFlag='SPEC' and coveredFlag='0';
+
+time=2022-05-12 11:03:04.521, nano=611975842136200, cost=15.994, sid=656, sql=DELETE FROM futureCombActionRule2022 WHERE exchId IN ('X','Y') and occurTime=20220511000000;
+
+time=2022-05-12 11:03:04.523, nano=611975843694500, cost=1.516, sid=656, sql=DELETE FROM futureCombActionRuleList2022 WHERE exchId IN ('X','Y') and occurTime=20220511000000;
+
+time=2022-05-12 11:03:04.528, nano=611975848706100, cost=4.993, sid=656, sql=DELETE FROM FutureCombAction2022 WHERE exchId IN ('X','Y') and occurTime=20220511000000;
+
+time=2022-05-12 11:03:04.530, nano=611975850245800, cost=1.494, sid=656, sql=INSERT INTO futureCombActionRule2022 SELECT 20220511000000 , a.* FROM futureCombActionRule a WHERE a.exchId IN ('X','Y');
+
+time=2022-05-12 11:03:04.531, nano=611975851530600, cost=1.263, sid=656, sql=INSERT INTO futureCombActionRuleList2022 SELECT 20220511000000 , a.* FROM futureCombActionRuleList a WHERE a.exchId IN ('X','Y');

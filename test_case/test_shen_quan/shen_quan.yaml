@@ -1,0 +1,27 @@
+
+
+# 深权\普通开仓
+GeneralOpenShen:
+  sqlPath: F:\source\用例数据\深权\普通开仓\准备昨持仓数据\futureinfo.sql
+  sqlPath1: F:\source\用例数据\深权\普通开仓\stkinfo.sql
+  dbfPath1: F:\source\用例数据\深权\普通开仓\准备昨持仓数据\sjsdz.dbf
+  dbfPath2: F:\source\用例数据\深权\普通开仓\准备昨持仓数据\sjsjg.dbf
+  dbfPath3: F:\source\用例数据\深权\普通开仓\准备昨持仓数据\sq_bzjmx.dbf
+  dbfPath4: F:\source\用例数据\深权\普通开仓\准备昨持仓数据\sq_hycb.dbf
+  dbfPath5: F:\source\用例数据\深权\普通开仓\准备昨持仓数据\sq_hycc.dbf
+  dbfPath6: F:\source\用例数据\深权\普通开仓\准备昨持仓数据\sq_jsmx111.dbf
+  dbfPath7: F:\source\用例数据\深权\普通开仓\准备昨持仓数据\sq_zqje.dbf
+  dbfPath8: F:\source\用例数据\深权\普通开仓\sjsdz.dbf
+  dbfPath9: F:\source\用例数据\深权\普通开仓\sjsjg.dbf
+  dbfPath10: F:\source\用例数据\深权\普通开仓\sq_bzjmx.dbf
+  dbfPath11: F:\source\用例数据\深权\普通开仓\sq_hycb.dbf
+  dbfPath12: F:\source\用例数据\深权\普通开仓\sq_hycc.dbf
+  dbfPath13: F:\source\用例数据\深权\普通开仓\sq_jsmx.dbf
+  dbfPath14: F:\source\用例数据\深权\普通开仓\sq_zqje.dbf
+  excelPath: F:\source\用例数据\深权\普通开仓\测试结果.xlsx
+
+# 普通平仓
+GeneralLiquidation:
+  dbfPath: F:\source\用例数据\深权\普通平仓
+  sqlPath: F:\source\用例数据\深权\普通平仓\stkinfo.sql
+  excelPath: F:\source\用例数据\深权\普通平仓\测试结果.xlsx

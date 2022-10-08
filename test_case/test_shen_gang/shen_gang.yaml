@@ -1,0 +1,26 @@
+# 买卖
+Business:
+  sqlPath: F:\source\用例数据\深港\买卖\stkinfo.sql
+  dbfPath: F:\source\用例数据\深港\买卖
+  excelPath: F:\source\用例数据\深港\买卖\T日测试结果.xlsx
+  excelPath1: F:\source\用例数据\深港\买卖\T+1日测试结果.xlsx
+  excelPath2: F:\source\用例数据\深港\买卖\T+2日测试结果.xlsx
+
+# 红股
+BonusShare:
+  # 腾讯分京东
+  TencentJingdong:
+    sqlPath: F:\source\用例数据\深港\红股\腾讯分京东\stkinfo.sql
+    dbfPath: F:\source\用例数据\深港\红股\腾讯分京东
+    excelPath: F:\source\用例数据\深港\红股\腾讯分京东\测试结果.xlsx
+
+# 转托管
+TransferTube:
+  sqlPath: F:\source\用例数据\深港\红股\腾讯分京东\stkinfo.sql
+  dbfPath: F:\source\用例数据\深港\红股\腾讯分京东
+  excelPath: F:\source\用例数据\深港\红股\腾讯分京东\测试结果.xlsx
+
+# 证券组合费
+PortfolioFee:
+  dbfPath: F:\source\用例数据\深港\证券组合费
+  excelPath: F:\source\用例数据\深港\证券组合费\测试结果.xlsx

@@ -1,0 +1,41 @@
+
+# 所有D市场数据
+market_d:
+  # 期货市场\D市场交易数据\期货开仓 数据
+  FuturesOpen:
+    sqlPath: F:\source\用例数据\期货市场\D市场交易数据\期货开仓\futureinfo.sql
+    txtPath: F:\source\用例数据\期货市场\D市场交易数据\期货开仓\trddata.txt
+    excelPath: F:\source\用例数据\期货市场\D市场交易数据\期货开仓\测试结果.xlsx
+
+
+# 市场F
+MarketF:
+  # 股指期权
+  StockIndexOption:
+    sqlPath: F:\source\用例数据\期货市场\F市场\执行SQL.sql
+    txtPath: F:\source\用例数据\期货市场\F市场\opttrddata.txt
+    excelPath: F:\source\用例数据\期货市场\F市场\测试结果.xlsx
+
+
+# 市场F
+MarketF:
+  # 股指期权
+  StockIndexOption:
+    sqlPath: F:\source\用例数据\期货市场\F市场\股指期权\执行SQL.sql
+    txtPath: F:\source\用例数据\期货市场\F市场\股指期权\opttrddata.txt
+    excelPath: F:\source\用例数据\期货市场\F市场\股指期权\测试结果.xlsx
+    sqlPath1: F:\source\用例数据\期货市场\F市场\股指期权\T+1日\执行sql.sql
+    excelPath1: F:\source\用例数据\期货市场\F市场\股指期权\T+1日\测试结果.xlsx
+
+  # 期货
+  Futures:
+    sqlPath: F:\source\用例数据\期货市场\F市场\期货\T日\futureinfo.sql
+    txtPath: F:\source\用例数据\期货市场\F市场\期货\T日\trddata.txt
+    excelPath: F:\source\用例数据\期货市场\F市场\期货\T日\测试结果11.xlsx
+
+# 冲抵保证金
+OffsetMargin:
+  sqlPath: F:\source\用例数据\期货市场\冲抵保证金\globalconstcust.sql
+  txtPath: F:\source\用例数据\期货市场\冲抵保证金\otherfund.txt
+  excelPath: F:\source\用例数据\期货市场\冲抵保证金\测试结果.xlsx
+

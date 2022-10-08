@@ -1,0 +1,6 @@
+
+# 深B\深B转托管
+TransferTube:
+  dbfPath: F:\source\用例数据\深B\深B转托管
+  sqlPath: F:\source\用例数据\深B\深B转托管\stkinfo.sql
+  excelPath: F:\source\用例数据\深B\深B转托管\清算结果.xlsx

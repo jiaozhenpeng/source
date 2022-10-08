@@ -1,0 +1,10 @@
+
+# 沪港\普通交易
+OrdinaryTransaction:
+  sqlPath: F:\source\用例数据\沪港\普通交易\T日\stkinfo.sql
+  dbfPath: F:\source\用例数据\沪港\普通交易\T日
+  excelPath: F:\source\用例数据\沪港\普通交易\T日\测试结果.xlsx
+  excelPath1:
+  excelPath2:
+  dbfPath1:
+  dbfPath2:

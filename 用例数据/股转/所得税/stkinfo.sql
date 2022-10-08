@@ -1,0 +1,1 @@
+delete from CustSellLimitTax where exchid='6' and offerregid='GZ11721600';

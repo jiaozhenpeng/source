@@ -1,0 +1,164 @@
+
+# 三方回购转入转出
+tripartyrepo_inandout:
+  tripartyrepo_inandoutPath: F:\source\用例数据\沪A\上海三方回购\转入转出申报\jsmx.dbf
+  tripartyrepo_inandoutPath2: F:\source\用例数据\沪A\上海三方回购\转入转出申报\qtsl.dbf
+  tripartyrepo_inandoutPath3: F:\source\用例数据\沪A\上海三方回购\转入转出申报\zqbd.dbf
+  tripartyrepo_inandoutPath4: F:\source\用例数据\沪A\上海三方回购\转入转出申报\zqye.dbf
+  sql: F:\source\用例数据\沪A\上海三方回购\转入转出申报\stkinfo.sql
+  excelPath: F:\source\用例数据\沪A\上海三方回购\转入转出申报\测试结果.xlsx
+  year: 2022
+
+
+# 三方回购初始交易
+TripartyReposfcs:
+  tripartyrepo_sfcsPath: F:\source\用例数据\沪A\上海三方回购\初始交易\jsmx.dbf
+  tripartyrepo_sfcsPath2: F:\source\用例数据\沪A\上海三方回购\初始交易\qtsl.dbf
+  tripartyrepo_sfcsPath3: F:\source\用例数据\沪A\上海三方回购\初始交易\zqbd.dbf
+  tripartyrepo_sfcsPath4: F:\source\用例数据\沪A\上海三方回购\初始交易\zqye.dbf
+  sql: F:\source\用例数据\沪A\上海三方回购\初始交易\stkinfo.sql
+  excelPath: F:\source\用例数据\沪A\上海三方回购\初始交易\测试结果.xlsx
+  year: 2022
+
+# 合并申报
+Consolidated:
+  sqlPath: F:\source\用例数据\沪A\合并申报\stkinfo.sql
+  dbfPath: F:\source\用例数据\沪A\合并申报
+  excelPath: F:\source\用例数据\沪A\合并申报\测试结果.xlsx
+
+
+# 基金通
+FundsThrough:
+  # 场内转托管
+  OnSiteTrusteeship:
+    sqlPath: F:\source\用例数据\沪A\基金通\场内转托管\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\基金通\场内转托管
+    excelPath: F:\source\用例数据\沪A\基金通\场内转托管\清算结果.xlsx
+
+
+# 普通买卖
+OrdinaryTrading:
+# 股票买入
+  StockPurchase:
+    sqlPath: F:\source\用例数据\沪A\普通买卖\股票买入\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\普通买卖\股票买入
+    excelPath: F:\source\用例数据\沪A\普通买卖\股票买入\测试结果.xlsx
+# 股票买入虚拟股东
+  VirtualShareholderPurchase:
+    sqlPath: F:\source\用例数据\沪A\普通买卖\股票买入虚拟股东\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\普通买卖\股票买入虚拟股东
+    excelPath: F:\source\用例数据\沪A\普通买卖\股票买入虚拟股东\测试结果.xlsx
+
+
+# 定向可转债
+DirectionalConvertibleBond:
+  # 转股
+  ShareConversion:
+    sqlPath: F:\source\用例数据\沪A\定向可转债\转股\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\定向可转债\转股
+    excelPath: F:\source\用例数据\沪A\定向可转债\转股\测试结果.xlsx
+  # 转让
+  MakeOver:
+    sqlPath: F:\source\用例数据\沪A\定向可转债\转让\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\定向可转债\转让
+    excelPath: F:\source\用例数据\沪A\定向可转债\转让\测试结果.xlsx
+
+# 证券变动
+ChangesInSecurities:
+  # 00B
+  B:
+    sqlPath: F:\source\用例数据\沪A\各种证券变动\00B\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\各种证券变动\00B
+    excelPath: F:\source\用例数据\沪A\各种证券变动\00B\测试结果.xlsx
+  # 00C
+  C:
+    sqlPath: F:\source\用例数据\沪A\各种证券变动\00C\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\各种证券变动\00C
+    excelPath: F:\source\用例数据\沪A\各种证券变动\00C\测试结果.xlsx
+  # 00E
+  E:
+    sqlPath: F:\source\用例数据\沪A\各种证券变动\00E\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\各种证券变动\00E
+    excelPath: F:\source\用例数据\沪A\各种证券变动\00E\测试结果.xlsx
+  # 00F
+  F:
+    sqlPath: F:\source\用例数据\沪A\各种证券变动\00F\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\各种证券变动\00F
+    excelPath: F:\source\用例数据\沪A\各种证券变动\00F\测试结果.xlsx
+  # 00T
+  T:
+    sqlPath: F:\source\用例数据\沪A\各种证券变动\00T\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\各种证券变动\00T
+    excelPath: F:\source\用例数据\沪A\各种证券变动\00T\测试结果.xlsx
+  # 00U
+  U:
+    sqlPath: F:\source\用例数据\沪A\各种证券变动\00U\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\各种证券变动\00U
+    excelPath: F:\source\用例数据\沪A\各种证券变动\00U\测试结果.xlsx
+  # 00X
+  X:
+    sqlPath: F:\source\用例数据\沪A\各种证券变动\00X\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\各种证券变动\00X
+    excelPath: F:\source\用例数据\沪A\各种证券变动\00X\测试结果.xlsx
+  # 00Z
+  Z:
+    sqlPath: F:\source\用例数据\沪A\各种证券变动\00Z\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\各种证券变动\00Z
+    excelPath: F:\source\用例数据\沪A\各种证券变动\00Z\测试结果.xlsx
+
+# 科创板
+ScientificInnovationBoard:
+  # 大宗交易
+  BlockTrade:
+    sqlPath: F:\source\用例数据\沪A\科创板\大宗交易\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\科创板\大宗交易
+    excelPath:
+  # 盘后交易
+  AfterHoursDealing:
+    sqlPath: F:\source\用例数据\沪A\科创板\盘后交易\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\科创板\盘后交易
+    excelPath:
+  # 普通交易
+  OrdinaryTransaction:
+    sqlPath: F:\source\用例数据\沪A\科创板\普通交易\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\科创板\普通交易
+    excelPath:
+
+# ETF发行
+EtfIssue:
+  # T日
+  T:
+    sqlPath: F:\source\用例数据\沪A\上海ETF发行\T日\数据准备.sql
+    dbfPath: F:\source\用例数据\沪A\上海ETF发行\T日
+    excelPath: F:\source\用例数据\沪A\上海ETF发行\T日\测试结果.xlsx
+  # T+1日
+  T1:
+    dbfPath: F:\source\用例数据\沪A\上海ETF发行\T+1日
+    excelPath: F:\source\用例数据\沪A\上海ETF发行\T+1日\测试结果.xlsx
+
+# 配股配债
+MatchThighDebt:
+  # T日 权益发放
+  EquityDistribution:
+    sqlPath: F:\source\用例数据\沪A\上海配股配债\T日权益发放\stkinfo.txt
+    dbfPath: F:\source\用例数据\沪A\上海配股配债\T日权益发放
+    excelPath: F:\source\用例数据\沪A\上海配股配债\T日权益发放\清算结果.xlsx
+
+# 融资融券
+CreditTrade:
+  # 融资买入
+  CCB:
+    sqlPath: F:\source\用例数据\沪A\融资融券\融资买入\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\融资融券\融资买入
+    excelPath: F:\source\用例数据\沪A\融资融券\融资买入\清算结果.xlsx
+  # 融券卖出
+  CSS:
+    sqlPath: F:\source\用例数据\沪A\融资融券\融券卖出\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\融资融券\融券卖出
+    excelPath: F:\source\用例数据\沪A\融资融券\融券卖出\清算结果.xlsx
+
+# 担保品买卖
+  CreditBS:
+    sqlPath: F:\source\用例数据\沪A\融资融券\担保品买卖\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\融资融券\担保品买卖
+    excelPath: F:\source\用例数据\沪A\融资融券\担保品买卖\清算结果.xlsx

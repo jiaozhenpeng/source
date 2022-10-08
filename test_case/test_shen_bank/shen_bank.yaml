@@ -1,0 +1,37 @@
+#  深银行\互联互通数据 9位代码\QPDF QPPX TGZX
+qpdf_qppx_tgzx:
+  dbfPath: F:\source\用例数据\深银行\互联互通数据 9位代码\QPDF QPPX TGZX\szyh_sjsjg - qppx.dbf
+  sqlPath: F:\source\用例数据\深银行\互联互通数据 9位代码\QPDF QPPX TGZX\BQPPX,QPDF期初.sql
+  # account_sql 为查询account表对比Excel执行的sql
+  account_sql: select * from account a where a.acctid in ('000011721200','000011721201','000011725200','000011725201') and a.currencyid='00'
+  # stklist_sql 为查询stklist表对比Excel执行的sql
+  stklist_sql: select * from stklist where exchid='B' and offerregid in('0117212000','0117252000') and stkid='092103107'
+  # 预期结果Excel
+  excelPath: F:\source\用例数据\深银行\互联互通数据 9位代码\QPDF QPPX TGZX\测试结果.xlsx
+
+# 深银行\互联互通数据 9位代码\场景tzgf
+tzgf:
+  dbfPath: F:\source\用例数据\深银行\互联互通数据 9位代码\TZGF\szyh_sjsjg - tzgf.dbf
+  dbfPath1: F:\source\用例数据\深银行\互联互通数据 9位代码\TZGF\szyh_sjsjg - tzgf - fail.dbf
+  sqlPath: F:\source\用例数据\深银行\互联互通数据 9位代码\TZGF\B市场TZGF期初.sql
+  # stklistextend_sql 为查询stklistextend表对比Excel执行的sql
+  stklistextend_sql: select * FROM stklistextend a where a.exchid='B' and a.stkid ='092103107'  and a.acctid='000011721200'
+  # stklist_sql 为查询stklist表对比Excel执行的sql
+  stklist_sql: select * from stklist a where where a.exchid='B' and a.stkid ='092103107' and a.acctid='000011721200'
+  # stklist_sql 为查询stklist表对比Excel执行的sql
+  exchangerights_sql: select * from exchangerights a where a.stkid = '092103107' and a.exchid = 'B' and a.ORDERTYPE = 'TZGF'
+  # tradinglog_sql 为查询tradinglog表对比Excel执行的sql
+  tradinglog_sql: select * from tradinglog a where a.stkid = '092103107' and a.ORDERTYPE = 'TZGF'
+  stkinfo_sql: select * from stkinfo a where a.exchid='B' and  a.stkid = '092103107'
+  VirtualRegistrationRights_sql: select * from VirtualRegistrationRights a where a.exchid='B' and a.stkid = '092103107' and a.regid = '0117212000' and a.ORDERTYPE = 'TZGF'
+  # 预期结果Excel
+  excelPath: F:\source\用例数据\深银行\互联互通数据 9位代码\TZGF\测试结果-总.xlsx
+#  深银行\互联互通数据 9位代码\TGZF
+Tgzf:
+  dbfPath: F:\source\用例数据\深银行\互联互通数据 9位代码\TGZF\szyh_sjsjg - tgzf.dbf
+  sqlPath: F:\source\用例数据\深银行\互联互通数据 9位代码\TGZF\B-tgzf期初.sql
+  excelPath: F:\source\用例数据\深银行\互联互通数据 9位代码\测试结果.xlsx
+  stklist_sql: select * from stklist a where a.stkid in ('072004', '101660') and a.exchid ='B'
+  tradinglog_sql: select * from tradinglog a where a.stkid in ('072004', '101660')
+  exchangerights_sql: select * from exchangerights a where a.stkid in ('072004', '101660')
+  stklistextend_sql: select * FROM stklistextend a where a.exchid='B' and a.stkid in ('072004', '101660')  and a.acctid='000011760500'
