@@ -35,6 +35,3 @@ update openorder  a  set  a.occurtime=(select    substr(b.tradedate,0,8)||substr
 update openorder  a  set  a.offertime=(select    substr(b.tradedate,0,8)||substr(a.offertime,9,14)       from sysconfig b );
 update  openorder  a  set  a.ordertime=(select    substr(b.tradedate,0,8)||substr(a.ordertime,9,14)       from sysconfig b );
 
-
-
-

@@ -44,13 +44,13 @@ class ContrastVirtualShareholderPurchase(unittest.TestCase):
         account_excel = base.account_sort(excel.read_excel('account2021'))
         tradinglog_excel = base.tradinglog_sort(excel.read_excel('tradinglog2021'))
         # 忽略字段
-        stklist_ignore = ()
-        account_ignore = ()
+        stklist_ignore = ('OCCURTIME',)
+        account_ignore = ('OCCURTIME','DEPOSITSUM')
         tradinglog_ignore = (
         'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF')
         # 对比
-        stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist')
-        account_result = base.compare_dict(account_database, account_excel, 'account')
+        stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist',*stklist_ignore)
+        account_result = base.compare_dict(account_database, account_excel, 'account',*account_ignore)
         tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog', *tradinglog_ignore)
         # 断言
         final_result = stklist_result + account_result + tradinglog_result

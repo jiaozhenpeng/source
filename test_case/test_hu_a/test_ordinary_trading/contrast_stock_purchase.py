@@ -32,7 +32,7 @@ class ContrastStockPurchase(unittest.TestCase):
         account_sql= "select * from ACCOUNT{} where ACCTID = '000011729200' and CURRENCYID" \
                      "='00' and OCCURTIME = {} ".format(year,begintime)
         stklist_sql = "select * from STKLIST{} where EXCHID = '0' and REGID ='A117292000' and " \
-                      "STKID ='600000' and DESKID = '00W40'".format(year)
+                      "STKID ='600000' and DESKID = '00W40' and occurtime={}".format(year,begintime)
         tradinglog_sql = "select * from tradinglog{} where reckoningtime>={} and reckoningtime<={} and exchid= '0'" \
                          " and STKID ='600000' and briefid = '005_001_001' and REGID ='A117292000'".format(year,begintime,endtime)
         # 数据库数据
@@ -44,13 +44,13 @@ class ContrastStockPurchase(unittest.TestCase):
         stklist_excel = base.stklist_sort(excel.read_excel('stklist2021'))
         tradinglog_excel = base.tradinglog_sort(excel.read_excel('tradinglog2021'))
         # 忽略字段
-        account_ignore = ()
-        stklist_ignore = ()
+        account_ignore = ('OCCURTIME',)
+        stklist_ignore = ('OCCURTIME',)
         tradinglog_ignore = (
         'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF')
         # 对比
-        account_result = base.compare_dict(account_database, account_excel, 'account')
-        stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist')
+        account_result = base.compare_dict(account_database, account_excel, 'account', *account_ignore)
+        stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist', *stklist_ignore)
         tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog', *tradinglog_ignore)
         # 断言
         final_result = account_result + stklist_result + tradinglog_result

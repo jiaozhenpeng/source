@@ -26,26 +26,17 @@ class ContrastOrdinaryTransaction(unittest.TestCase):
         begintime = oracle.get_last_update()
         endtime = begintime[0:8] + '235959'
         # 查询SQL
-        todaytraderslt_sql = " select * from TODAYTRADERSLT where STKID in ('00023','00257','00005','00001'," \
-                             "'00002','02880','01060') and EXCHID = '5' and DESKID = '00W40'and reckoningtime>={} " \
-                             "and reckoningtime<={}".format(begintime, endtime)
-        finalreckoningresult_sql = "select * from finalreckoningresult where EXCHID='5' and STKID in ('00023','00257'," \
-                                   "'00005','00001','00002','02880','01060') and DESKID = '00W40' and REGID in ('A117382000'," \
-                                   "'A117392000','A117392001') and ACCTID in ('000011738200','000011739200','000011739201')"
+
         unprocessedreckoningresulthis_sql = "select * from unprocessedreckoningresulthis where EXCHID='5' and STKID " \
                                             "in ('00023','00257','00005','00001','00002','02880','01060') and REGID in " \
-                                            "('A117382000','A117392000','A117392001') and ACCTID in ('000011738200'," \
-                                            "'000011739200','000011739201') and DESKID = '00W40'"
+                                            "('A117382000','A117392000','A117392001')  and knocktime>={}".format(begintime,)
         unprocessedreckoningresult_sql = "select * from unprocessedreckoningresult where EXCHID='5' and STKID " \
                                          "in ('00023','00257','00005','00001','00002','02880','01060') and REGID in " \
-                                         "('A117382000','A117392000','A117392001') and ACCTID in ('000011738200'," \
-                                         "'000011739200','000011739201') and DESKID = '00W40'"
+                                         "('A117382000','A117392000','A117392001') and knocktime>={}".format(begintime,)
         stklist_sql = "select * from STKLIST where EXCHID = '5' and REGID in( 'A117382000','A117382001','A117392000'," \
                       "'A117392001') and STKID in ('00023','00257','00005','00001','00002','02880','01060') and DESKID = '00W40'"
         # 获取数据库数据并排序
-        todaytraderslt_database = BaseAction().todaytraderslt_sort(oracle.dict_data(todaytraderslt_sql))
-        finalreckoningresult_database = BaseAction().finalreckoningresult_sort(
-            oracle.dict_data(finalreckoningresult_sql))
+
         unprocessedreckoningresulthis_database = BaseAction().unprocessedreckoningresulthis_sort(
             oracle.dict_data(unprocessedreckoningresulthis_sql))
         unprocessedreckoningresult_database = BaseAction().unprocessedreckoningresult_sort(
@@ -62,15 +53,11 @@ class ContrastOrdinaryTransaction(unittest.TestCase):
         # 可以忽略的字段
         todaytraderslt_ignore = ('RECKONINGTIME', 'KNOCKTIME', 'SERIALNUM')
         finalreckoningresult_ignore = ('KNOCKTIME',)
-        unprocessedreckoningresulthis_ignore = ('KNOCKTIME',)
-        unprocessedreckoningresult_ignore = ('KNOCKTIME',)
+        unprocessedreckoningresulthis_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE','OFFERTIME')
+        unprocessedreckoningresult_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE','OFFERTIME')
         stklist_ignore = ()
         # 对比数据
-        todaytraderslt_result = BaseAction().compare_dict(todaytraderslt_database, todaytraderslt_excel,
-                                                          'todaytraderslt',*todaytraderslt_ignore)
-        finalreckoningresult_result = BaseAction().compare_dict(finalreckoningresult_database,
-                                                                finalreckoningresult_excel, 'finalreckoningresult',
-                                                                *finalreckoningresult_ignore)
+
         unprocessedreckoningresulthis_result = BaseAction().compare_dict(unprocessedreckoningresulthis_database,
                                                                          unprocessedreckoningresulthis_excel,
                                                                          'unprocessedreckoningresulthis',
@@ -80,8 +67,7 @@ class ContrastOrdinaryTransaction(unittest.TestCase):
                                                                       'unprocessedreckoningresult',
                                                                       *unprocessedreckoningresult_ignore)
         stklist_result = BaseAction().compare_dict(stklist_database, stklist_excel, 'stklist')
-        final_result = todaytraderslt_result + finalreckoningresult_result + unprocessedreckoningresulthis_result \
-                       + unprocessedreckoningresult_result + stklist_result
+        final_result =  unprocessedreckoningresulthis_result + unprocessedreckoningresult_result + stklist_result
         if not final_result:
             logger().info('沪港\\普通交易\\t日 对比数据无异常')
             assert True

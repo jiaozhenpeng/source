@@ -79,6 +79,7 @@ class BaseAction():
             return ['数据库：{}未获取到数据'.format(base_name)]
         list_result = []
         key_error = []
+        # print(set(args))
         if len(dict1) - len(dict2) != 0:
             list_result.append('表：{}列表中字典数据个数不一致'.format(base_name))
         keys = set(dict1[0].keys()) - set(args)
@@ -151,7 +152,7 @@ class BaseAction():
         :param :
         :return:
         '''
-        list_data.sort(key=lambda x: (x['SERIALNUM'],x['ACCTID'], x['REGID'], x['STKID'], x['RECKONINGAMT'], x['BRIEFID']))
+        list_data.sort(key=lambda x: ( x['BRIEFID'],x['EXCHID'], x['STKID'], x['REGID'],x['CONTRACTNUM'], x['RECKONINGAMT'],))
         return list_data
 
     def account_sort(self, list_data):
@@ -247,7 +248,7 @@ class BaseAction():
         :return:
         '''
         list_data.sort(
-            key=lambda x: (x['STKID'], x['EXCHID'], x['REGID'], x['KNOCKQTY'], x['KNOCKTIME'], x['OFFERTIME']))
+            key=lambda x: (x['EXCHID'], x['REGID'],x['STKID'],  x['BRIEFID'], x['CONTRACTNUM'], x['KNOCKCODE'],x['RECKONINGAMT']))
         return list_data
 
     def unduerepurchasebonds_sort(self, list_data):
@@ -297,7 +298,7 @@ class BaseAction():
         :return:
         '''
         list_data.sort(
-            key=lambda x: (x['STKID'], x['EXCHID'], x['KNOCKQTY'], x['KNOCKTIME'], x['KNOCKPRICE'], x['KNOCKAMT']))
+            key=lambda x: (x['EXCHID'], x['REGID'],x['STKID'],  x['BRIEFID'], x['CONTRACTNUM'], x['KNOCKCODE'],x['RECKONINGAMT']))
         return list_data
 
     def quoteRepoPledgeDtl_sort(self, list_data):
@@ -377,7 +378,7 @@ class BaseAction():
         :return:
         """
         list_data.sort(
-            key=lambda x: (x['STKID'], x['EXCHID'], x['REGID'],x['CONTRACTNUM'],x['PURCHASEDATE'],x['FUNDOCCURAMT']))
+            key=lambda x: (x['STKID'], x['DESKID'],x['CONTRACTNUM']))
         return list_data
 
     def cf_reckdata_sort(self,list_data):

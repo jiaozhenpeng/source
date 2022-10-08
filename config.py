@@ -4,7 +4,7 @@ class PathConfig:
     def mail(self):
         return r'F:\source\mail\email_config.yaml'  # mail 配置路径
     def log(self):
-        return r'F:\source\日志'  # log 日志配置路径
+        return r'F:\自动化日志'  # log 日志配置路径
     def dbf(self):
         return r'F:\source\public_method\dbf_config.yaml'  # dbf配置文件路径
     def shen_a(self):
