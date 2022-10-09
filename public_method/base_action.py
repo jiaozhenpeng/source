@@ -442,6 +442,16 @@ class BaseAction():
             key=lambda x: (x['DBFID'],x['UNIFIEDCODE'],x['REGID'],x['PERSONALID']))
         return list_data
 
+    def CustSellLimitTax_sort(self,list_data):
+        """
+        排序 CustSellLimitTax
+        :param list_data:
+        :return:
+        """
+        list_data.sort(
+            key=lambda x: (x['DBFID'],x['KNOCKTIME'],x['REGID'],x['CONTRACTNUM'],['KNOCKNUM']))
+        return list_data
+
     def get_dbf(self, path):
         '''
         传路径，获取当前路径下所有的dbf文件名
