@@ -152,7 +152,19 @@ class BaseAction():
         :param :
         :return:
         '''
-        list_data.sort(key=lambda x: ( x['BRIEFID'],x['EXCHID'], x['STKID'], x['REGID'],x['CONTRACTNUM'], x['RECKONINGAMT'],x['KNOCKQTY']))
+        list_data.sort(key=lambda x: ( x['BRIEFID'],x['EXCHID'], x['STKID'], x['REGID'],x['CONTRACTNUM'],
+                                       x['RECKONINGAMT'],x['KNOCKQTY']))
+        return list_data
+
+    def tradinglog_sort1(self, list_data):
+        '''
+        特殊排序tradinglog表数据，增加knockqty后，excel中的数据排序错误，使用这个特殊方法特殊处理，如下
+        股转\股份调账
+        :param :
+        :return:
+        '''
+        list_data.sort(key=lambda x: ( x['BRIEFID'],x['EXCHID'], x['STKID'], x['REGID'],x['CONTRACTNUM'],
+                                       x['RECKONINGAMT']))
         return list_data
 
     def account_sort(self, list_data):
@@ -180,7 +192,8 @@ class BaseAction():
         :return:
         '''
         list_data.sort(key=lambda x: (
-            x['STKID'], x['OFFERREGID'], x['EXCHID'], x['BRANCHSTKQTY'], x['EXCHTRUSTEESHIPQTY'], x['SUBSHAREATTR']))
+            x['STKID'], x['OFFERREGID'], x['EXCHID'], x['BRANCHSTKQTY'], x['EXCHTRUSTEESHIPQTY'],
+            x['SUBSHAREATTR'],x['AUDITINGERRORMSG']))
         return list_data
 
     def futureposition_sort(self, list_data):

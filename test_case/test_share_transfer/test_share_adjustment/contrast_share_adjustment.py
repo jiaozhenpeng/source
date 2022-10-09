@@ -38,16 +38,18 @@ class ContrastShareAdjustment(unittest.TestCase):
         # 获取数据库数据并排序
         stklist_database = BaseAction().stklist_sort(oracle.dict_data(stklist_sql))
         stklistextend_database = BaseAction().stklistextend_sort(oracle.dict_data(stklistextend_sql))
-        tradinglog_database = BaseAction().tradinglog_sort(oracle.dict_data(tradinglog_sql))
+        tradinglog_database = BaseAction().tradinglog_sort1(oracle.dict_data(tradinglog_sql))
+
         # 获取excel数据并排序
         stklist_excel = BaseAction().stklist_sort(excel.read_excel('stklist'))
         stklistextend_excel = BaseAction().stklistextend_sort(excel.read_excel('stklistextend'))
-        tradinglog_excel = BaseAction().tradinglog_sort(excel.read_excel('tradinglog2021'))
+        tradinglog_excel = BaseAction().tradinglog_sort1(excel.read_excel('tradinglog2021'))
+
         # 忽略字段
         stklist_ignore = ()
         stklistextend_ignore = ()
         tradinglog_ignore = (
-            'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF')
+            'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF','POSTAMT')
         # 对比数据
         stklist_result = BaseAction().compare_dict(stklist_database, stklist_excel, 'stklist')
         stklistextend_result = BaseAction().compare_dict(stklistextend_database, stklistextend_excel, 'stklistextend')
