@@ -152,7 +152,7 @@ class BaseAction():
         :param :
         :return:
         '''
-        list_data.sort(key=lambda x: ( x['BRIEFID'],x['EXCHID'], x['STKID'], x['REGID'],x['CONTRACTNUM'], x['RECKONINGAMT'],))
+        list_data.sort(key=lambda x: ( x['BRIEFID'],x['EXCHID'], x['STKID'], x['REGID'],x['CONTRACTNUM'], x['RECKONINGAMT'],x['KNOCKQTY']))
         return list_data
 
     def account_sort(self, list_data):
