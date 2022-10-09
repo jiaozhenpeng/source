@@ -27,30 +27,27 @@ class ContrastPreferredStockRedeem(unittest.TestCase):
         base = BaseAction()
         year = base.get_today_date()[:4]
         # 查询SQL
-        stklist_sql = "select * from STKLIST{} where EXCHID = '6' and REGID in( 'GZ11721600','GZ11721601')" \
-                      " and STKID = '820003' and DESKID = 'ANQ001'".format(year)
-        exchangerights_sql = "select * FROM exchangerights  where exchid='6' and stkid = '820003' " \
-                             "and DESKID ='ANQ001' and REGID in(  'GZ11721601','GZ11721600')"
+        stklist_sql = "select * from STKLIST where EXCHID = '6' and REGID in( 'GZ11721600','GZ11721601')" \
+                      " and STKID = '820003' and DESKID = 'ANQ001' "
         tradinglog_sql = "select * from tradinglog{} where reckoningtime>={} and reckoningtime<={} and exchid= '6' and " \
                          " stkid = '820003' and briefid in('005_005_005','005_004_004')".format(year, begintime, endtime)
         # 获取数据库数据
         stklist_database = base.stklist_sort(oracle.dict_data(stklist_sql))
-        exchangerights_database = base.exchangerights_sort(oracle.dict_data(exchangerights_sql))
         tradinglog_database = base.tradinglog_sort(oracle.dict_data(tradinglog_sql))
         # 获取excel数据
         stklist_excel = base.stklist_sort(excel.read_excel('stklist'))
-        exchangerights_excel = base.exchangerights_sort(excel.read_excel('exchangerights'))
         tradinglog_excel = base.tradinglog_sort(excel.read_excel('tradinglog2021'))
         # 忽略字段
         stklist_ignore = ()
         exchangerights_ignore = ()
-        tradinglog_ignore = ()
+        tradinglog_ignore = (
+            'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF',
+            'POSTAMT')
         # 对比
         stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist')
-        exchangerights_result = base.compare_dict(exchangerights_database, exchangerights_excel, 'exchangerights')
-        tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog')
+        tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog',*tradinglog_ignore)
         # 断言
-        final_result = stklist_result + exchangerights_result + tradinglog_result
+        final_result = stklist_result +  tradinglog_result
         if not final_result:
             logger().info('股转\优先股赎回 数据对比无异常')
             assert True

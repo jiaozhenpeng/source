@@ -41,7 +41,7 @@ class ContrastNonTrading(unittest.TestCase):
         # 忽略字段
         stklist_ignore = ()
         tradinglog_ignore = (
-            'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF')
+            'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF','POSTAMT')
         # 对比数据
         stklist_result = BaseAction().compare_dict(stklist_database, stklist_excel, 'stklist')
         tradinglog_result = BaseAction().compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog',
