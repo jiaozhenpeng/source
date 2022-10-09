@@ -30,17 +30,17 @@ IncomeTax:
   incomeTax:
     dbfPath: F:\source\用例数据\股转\所得税
     sqlPath: F:\source\用例数据\股转\所得税\stkinfo.sql
-    excelPath:
+    excelPath: F:\source\用例数据\股转\所得税\测试结果.xlsx
   # 所得税\未开户挂账
   notOpenAnAccount:
     dbfPath: F:\source\用例数据\股转\所得税\未开户挂账
     sqlPath: F:\source\用例数据\股转\所得税\未开户挂账\stkinfo.sql
-    excelPath:
+    excelPath: F:\source\用例数据\股转\所得税\未开户挂账\测试结果.xlsx
   # 股转\所得税\资金不足挂账
   insufficientFunds:
     dbfPath: F:\source\用例数据\股转\所得税\资金不足挂账
     sqlPath: F:\source\用例数据\股转\所得税\资金不足挂账\stkinfo.sql
-    excelPath:
+    excelPath: F:\source\用例数据\股转\所得税\未开户挂账\测试结果.xlsx
 # 股转\退出结算系统
 ExitSettlement:
   dbfPath: F:\source\用例数据\股转\退出结算系统
