@@ -35,31 +35,26 @@ class ContrastDateOfPayment(unittest.TestCase):
                          "  stkid = '118311' and briefid in('005_005_002','005_005_026','005_004_002'," \
                          "'005_005_063')".format(year,begintime,endtime)
         stkcheckin_sql = "select * from stkcheckin where EXCHID ='1' and STKID ='118311' and OCCURTIME ={} ".format(begintime)
-        exchangerights_sql = "select * FROM exchangerights  where exchid='1' and stkid = '118311' and DESKID ='077011'" \
-                             " and REGID in( '0117212000','0117212001','0117252000','0117252001','0809900000')"
+
         # 数据库数据
         stklist_database = base.stklist_sort(oracle.dict_data(stklist_sql))
         tradinglog_database = base.tradinglog_sort(oracle.dict_data(tradinglog_sql))
         stkcheckin_database = base.stkcheckin_sort(oracle.dict_data(stkcheckin_sql))
-        exchangerights_database = base.exchangerights_sort(oracle.dict_data(exchangerights_sql))
         # Excel数据
         stklist_excel = base.stklist_sort(excel.read_excel('stklist2022'))
         tradinglog_excel = base.tradinglog_sort(excel.read_excel('tradinglog2022'))
         stkcheckin_excel = base.stkcheckin_sort(excel.read_excel('stkcheckin'))
-        exchangerights_excel = base.exchangerights_sort(excel.read_excel('exchangerights'))
         # 忽略字段
-        stklist_ignore = ()
+        stklist_ignore = ('OCCURTIME',)
         tradinglog_ignore = (
-        'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF')
-        stkcheckin_ignore =()
-        exchangerights_ignore = ()
+        'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF','POSTAMT')
+        stkcheckin_ignore =('OCCURTIME','KEEPTODATE','BONUSRECEIVEDDATE')
         # 对比
-        stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist')
+        stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist',*stklist_ignore)
         tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog', *tradinglog_ignore)
-        stkcheckin_result = base.compare_dict(stkcheckin_database,stkcheckin_excel,'stkcheckin')
-        exchangerights_result = base.compare_dict(exchangerights_database, exchangerights_excel, 'exchangerights')
+        stkcheckin_result = base.compare_dict(stkcheckin_database,stkcheckin_excel,'stkcheckin',*stkcheckin_ignore)
         # 断言
-        final_result = stklist_result + tradinglog_result + stkcheckin_result + exchangerights_result
+        final_result = stklist_result + tradinglog_result + stkcheckin_result
         if not final_result:
             logger().info(' 深A\红股红利\兑付\兑付当日 对比数据无异常')
             assert True
