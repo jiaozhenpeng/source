@@ -1,17 +1,15 @@
 
 # 股票买入
-stockPurchase:
-  stockPurchasePath: F:\source\用例数据\深A\股票买入\sjsmx1.dbf
-  sql: F:\source\用例数据\深A\股票买入\stkinfo.sql
+StockTrade:
+  dbfPath: F:\source\用例数据\深A\股票买入
   excelPath: F:\source\用例数据\深A\股票买入\测试结果.xlsx
-  year: 2022
+  sqlPath: F:\source\用例数据\深A\股票买入\stkinfo.sql
 
 # 股票买入虚拟股东
-shareholderPurchase:
-  shareholderPath: F:\source\用例数据\深A\股票买入虚拟股东\sjsmx1.dbf
-  sql: F:\source\用例数据\深A\股票买入虚拟股东\stkinfo.sql
+StockTradeVirtual:
+  dbfPath: F:\source\用例数据\深A\股票买入虚拟股东
+  sqlPath: F:\source\用例数据\深A\股票买入虚拟股东\stkinfo.sql
   excelPath: F:\source\用例数据\深A\股票买入虚拟股东\测试结果.xlsx
-  year: 2022
 
 # 深A/限售股转流通股
 restrictedCirculation:
@@ -40,7 +38,7 @@ BonusDividend:
 
 # 非交易转让
 NonTransactionTransfer:
-  dbfPath: F:\source\用例数据\深A\非交易转让\sjsjg.dbf
+  dbfPath: F:\source\用例数据\深A\非交易转让
   sqlPath: F:\source\用例数据\深A\非交易转让\stkinfo.sql
   excelPath: F:\source\用例数据\深A\非交易转让\测试结果.xlsx
 

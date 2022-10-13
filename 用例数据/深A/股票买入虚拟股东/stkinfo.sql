@@ -9,4 +9,4 @@ update tradingresult  a  set  a.knocktime=(select    substr(b.tradedate,0,8)||su
 update tradingresult  a  set  a.ordertime=(select    substr(b.tradedate,0,8)||substr(a.ordertime,9,14)       from sysconfig b ) where contractnum = '22882235';
 update tradingresult  a  set  a.occurtime=(select    substr(b.tradedate,0,8)||substr(a.occurtime,9,14)       from sysconfig b ) where contractnum = '22882235';
 delete from stklist where exchid='1' and stkid='000001' and regid='0117282001';
-update account set previousamt=1000000,currentamt=1000000,usableamt=1000000 where acctid ='000011728201' and currencyid='00';
+update account set previousamt=1000000,currentamt=1000000,usableamt=1000000,DEPOSITSUM=0 where acctid ='000011728201' and currencyid='00';

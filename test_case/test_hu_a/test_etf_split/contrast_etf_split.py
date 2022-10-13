@@ -47,16 +47,16 @@ class ContrastEtfSplit(unittest.TestCase):
         stkcheckin_excel = base.stkcheckin_sort(excel.read_excel('stkcheckin'))
         stkinfo_excel = base.stkinfo_sort(excel.read_excel('stkinfo'))
         # 忽略字段
-        stklist_ignore = ()
+        stkinfo_ignore = ('FIVEDAY_EXCHAVGKNOCKQTY',)
         tradinglog_ignore = ('KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF',
             'POSTAMT')
-        stkceckin_ignore = ('OCCURTIME',)
+        stkceckin_ignore = ('OCCURTIME','KEEPTODATE')
         # 对比
 
         stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist')
         tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog', *tradinglog_ignore)
         stkcheckin_result = base.compare_dict(stkcheckin_database,stkcheckin_excel,'stkcheckin',*stkceckin_ignore)
-        stkinfo_result = base.compare_dict(stkinfo_database,stkinfo_excel,'stkinfo')
+        stkinfo_result = base.compare_dict(stkinfo_database,stkinfo_excel,'stkinfo',*stkinfo_ignore)
         # 断言
         final_result =  stklist_result+ tradinglog_result + stkinfo_result + stkcheckin_result
         if not final_result:

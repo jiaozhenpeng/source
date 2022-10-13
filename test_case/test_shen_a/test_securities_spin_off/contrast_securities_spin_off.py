@@ -43,7 +43,8 @@ class ContrastSecuritiesSpinOff(unittest.TestCase):
         # 忽略字段
         exchangerights_ignore = ()
         tradinglog_ignore = (
-            'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF','POSTAMT')
+            'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME','CONFIRMTIME',
+            'SETTLEDATE', 'TRANSACTIONREF','POSTAMT')
         stklist_ignore = ()
         # 对比
         stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist')

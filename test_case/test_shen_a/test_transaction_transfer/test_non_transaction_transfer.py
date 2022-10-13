@@ -1,42 +1,43 @@
-
 import unittest
 
 from config import PathConfig
 from database.oracle_database import OracleDatabase
 from log.logger import logger
 from public_method.base_action import BaseAction
-from public_method.dbf_operation import DbfOperation
+from public_method.dbf_operation import creat_new_dbf
 
-class NonTransactionTransfer():
-    '''
-    # 深A\非交易转让
-    '''
 
-    yaml = BaseAction().read_yaml(path=PathConfig().shen_a())
+class NonTransactionTransfer(unittest.TestCase):
+    """
+    深A\非交易转让
+    """
+    yaml = BaseAction().read_yaml(path=PathConfig().shen_a())['NonTransactionTransfer']
 
-    def test_non_transaction_transfer(self):
-        '''
-        测试  深A\非交易转让 准备数据
+    def test_special_adjustment(self):
+        """
+        深A\非交易转让
         :return:
-        '''
+        """
         logger().info('-------------------------------')
-        logger().info('开始执行：深A\非交易转让 数据准备')
-        test_yaml = NonTransactionTransfer().yaml['NonTransactionTransfer']
-        dbf_path = test_yaml['dbfPath']  # 获取股票买入dbf文件路径
-        dbf = DbfOperation(dbf_path)
-        oracle = OracleDatabase()
-        records = dbf.sjsjg_file()
-        dbf.creat_dbf(records, 'sjsjg')
-        sql_path = test_yaml['sql']
+        logger().info('开始执行：深A\非交易转让 准备数据')
+        dbf_path = self.yaml['dbfPath']
+        dbf_result = creat_new_dbf(dbf_path)
+        if not dbf_result:
+            logger().info('dbf文件数据准备完成')
+        else:
+            logger().error('dbf文件数据准备异常，：{}'.format(dbf_result))
+            assert False, dbf_result
+        sql_path = self.yaml['sqlPath']
         sql = BaseAction().read_sql(sql_path)
-        try:
-            oracle.update_sql(*sql)
-            logger().info('深A/限售股转流通股 数据准备完成')
+        oracle = OracleDatabase()
+        sql_result = oracle.update_sql(*sql)
+        if not sql_result:
+            logger().info('深A\非交易转让 准备数据完成')
             assert True
-        except Exception as e:
-            logger().error('深A/限售股转流通股 数据准备失败')
-            logger().error(e)
-            assert False
+        else:
+            logger().error('深A\非交易转让 准备数据异常')
+            assert False, sql_result
+
 
 if __name__ == '__main__':
     unittest.main()
