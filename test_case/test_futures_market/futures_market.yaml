@@ -12,15 +12,6 @@ market_d:
 MarketF:
   # 股指期权
   StockIndexOption:
-    sqlPath: F:\source\用例数据\期货市场\F市场\执行SQL.sql
-    txtPath: F:\source\用例数据\期货市场\F市场\opttrddata.txt
-    excelPath: F:\source\用例数据\期货市场\F市场\测试结果.xlsx
-
-
-# 市场F
-MarketF:
-  # 股指期权
-  StockIndexOption:
     sqlPath: F:\source\用例数据\期货市场\F市场\股指期权\执行SQL.sql
     txtPath: F:\source\用例数据\期货市场\F市场\股指期权\opttrddata.txt
     excelPath: F:\source\用例数据\期货市场\F市场\股指期权\测试结果.xlsx

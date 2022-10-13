@@ -30,25 +30,20 @@ class ContrastValueBasedPlacement(unittest.TestCase):
 
         # 查询sql
         newstkpurchaseinfo_sql = "select * from newstkpurchaseinfo where reckoningtime>={} and reckoningtime<={} and" \
-                                 "stkid in('300555','072004','002802') and regid = '0117605001' and " \
-                                 "exchid ='1'".format(begintime,endtime)
-        openorder_sql = "select * FROM openorder  where exchid='1' and stkid in('300555','072004','002802') and" \
-                        " DESKID ='077011' and REGID = '0117605001'"
+                                 "  stkid in('300555','072004','002802') and regid = '0117605001' and " \
+                                 "  exchid ='1'".format(begintime,endtime)
         # 数据库数据
         newstkpurchaseinfo_database = base.newstkpurchaseinfo_sort(oracle.dict_data(newstkpurchaseinfo_sql))
-        openorder_database = base.openorder_sort(oracle.dict_data(openorder_sql))
         # Excel数据
         newstkpurchaseinfo_excel = base.newstkpurchaseinfo_sort(excel.read_excel('newstkpurchaseinfo'))
-        openorder_excle = base.openorder_sort(excel.read_excel('openorder2021'))
         # 忽略字段
-        newstkpurchaseinfo_ignore =('RECKONINGTIME',)
+        newstkpurchaseinfo_ignore =('RECKONINGTIME','PATHDESKID','ALLOTDATE')
         openorder_ignore = ()
         # 对比
         newstkpurchaseinfo_result = base.compare_dict(newstkpurchaseinfo_database,newstkpurchaseinfo_excel,
                                                       'newstkpurchaseinfo',*newstkpurchaseinfo_ignore)
-        openorder_result = base.compare_dict(openorder_database, openorder_excle, 'openorder')
         # 断言
-        final_result = newstkpurchaseinfo_result + openorder_result
+        final_result = newstkpurchaseinfo_result
         if not final_result:
             logger().info('深A\发行业务\按值配售\T日 对比数据无异常')
             assert True

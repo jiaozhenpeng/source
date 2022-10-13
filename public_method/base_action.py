@@ -331,7 +331,7 @@ class BaseAction():
         :return:
         """
         list_data.sort(
-            key=lambda x: (x['STKID'], x['EXCHID'], x['SERIALNUM'], x['OCCURTIME']))
+            key=lambda x: (x['OCCURTIME'], x['EXCHID'], x['STKID'], x['MEMO']   ))
         return list_data
 
     def unduerepurchasebondshis_sort(self, list_data):
@@ -465,6 +465,16 @@ class BaseAction():
             key=lambda x: (x['DBFID'],x['KNOCKTIME'],x['REGID'],x['CONTRACTNUM'],['KNOCKNUM']))
         return list_data
 
+    def nominalholdingHis_sort(self,list_data):
+        """
+                排序 NominalholdingHis
+                :param list_data:
+                :return:
+                """
+        list_data.sort(
+            key=lambda x: (x['ORDERTYPE'], x['REGID'], x['STKID'], x['OCCURQTY']))
+        return list_data
+
     def get_dbf(self, path):
         '''
         传路径，获取当前路径下所有的dbf文件名
@@ -480,6 +490,16 @@ class BaseAction():
         except Exception as e:
             logger().error('获取dbf文件错误:{}'.format(e))
         return dbf_list
+
+    def stkinfo_sort(self,list_data):
+        """
+        排序 stkinfo
+        :param list_data:
+        :return:
+        """
+        list_data.sort(
+            key=lambda x: (x['EXCHID'], x['STKID']))
+        return list_data
 
 
 if __name__ == '__main__':

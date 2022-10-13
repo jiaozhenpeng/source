@@ -122,3 +122,8 @@ GDR:
     sqlPath: F:\source\用例数据\深A\GDR数据\虚拟股东\虚拟股东期初sql.sql
     excelPath: F:\source\用例数据\深A\GDR数据\虚拟股东\测试结果.xlsx
 
+  # 名义持有明细股份管理 TG20,TG21,TG22,TG23,TG90
+NominalHolding:
+  dbfPath: F:\source\用例数据\深A\名义持有明细股份管理
+  sqlPath: F:\source\用例数据\深A\名义持有明细股份管理\stkinfo.sql
+  excelPath: F:\source\用例数据\深A\名义持有明细股份管理\测试结果.xlsx

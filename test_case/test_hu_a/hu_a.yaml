@@ -162,3 +162,36 @@ CreditTrade:
     sqlPath: F:\source\用例数据\沪A\融资融券\担保品买卖\stkinfo.sql
     dbfPath: F:\source\用例数据\沪A\融资融券\担保品买卖
     excelPath: F:\source\用例数据\沪A\融资融券\担保品买卖\清算结果.xlsx
+
+# ETF拆分
+EtfSplit:
+  # 普通股拆分
+  PT:
+    sqlPath: F:\source\用例数据\沪A\ETF拆分\流通股分配\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\ETF拆分\流通股分配
+    excelPath: F:\source\用例数据\沪A\ETF拆分\流通股分配\测试结果.xlsx
+  # 限售股拆分
+  XL:
+    sqlPath: F:\source\用例数据\沪A\ETF拆分\限售股分配\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\ETF拆分\限售股分配
+    excelPath: F:\source\用例数据\沪A\ETF拆分\限售股分配\测试结果.xlsx
+  #非流通拆分
+  N:
+    sqlPath: F:\source\用例数据\沪A\ETF拆分\非流通分配\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\ETF拆分\非流通分配
+    excelPath: F:\source\用例数据\沪A\ETF拆分\非流通分配\测试结果.xlsx
+  #担保证券拆分合并
+  DBPMX:
+    sqlPath: F:\source\用例数据\沪A\ETF拆分\担保证券拆分合并\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\ETF拆分\担保证券拆分合并
+    excelPath: F:\source\用例数据\沪A\ETF拆分\担保证券拆分合并\测试结果.xlsx
+  #无持仓插入
+  INSERT:
+    sqlPath: F:\source\用例数据\沪A\ETF拆分\无持仓插入\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\ETF拆分\无持仓插入
+    excelPath: F:\source\用例数据\沪A\ETF拆分\无持仓插入\测试结果.xlsx
+  #F:\source\用例数据\沪A\ETF拆分\权益补偿
+  compensation:
+    sqlPath: F:\source\用例数据\沪A\ETF拆分\权益补偿\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\ETF拆分\权益补偿
+    excelPath: F:\source\用例数据\沪A\ETF拆分\权益补偿\测试结果.xlsx

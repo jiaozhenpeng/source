@@ -37,24 +37,19 @@ class ContrastConsolidated(unittest.TestCase):
         tradinglog_sql = "select * from tradinglog{} where reckoningtime>={} and reckoningtime<={} and exchid= '0' " \
                          "and  stkid in ('020056','130291') and briefid in('005_002_001'," \
                          "'005_001_001')".format(year,begintime,endtime)
-        # exchangerights_sql = "select * FROM exchangerights  where exchid='0' and stkid in ('020056','130291') and" \
-        #                      " DESKID ='00W40' and REGID in ( '0000301528','A117203000','A117392000')"
         # 数据库数据
-        # account_database = base.account_sort(oracle.dict_data(account_sql))
         stklist_database = base.stklist_sort(oracle.dict_data(stklist_sql))
         stklistcurrent_database = base.stklist_sort(oracle.dict_data(stklistcurrent_sql))
 
         tradinglog_database = base.tradinglog_sort(oracle.dict_data(tradinglog_sql))
-        # exchangerights_database = base.exchangerights_sort(oracle.dict_data(exchangerights_sql))
         # Excel数据
-        # account_excel = base.account_sort(excel.read_excel('account2021'))
         stklist_excel = base.stklist_sort(excel.read_excel('stklist2021'))
         stklistcurrent_excel = base.stklist_sort(excel.read_excel('stklist'))
         tradinglog_excel = base.tradinglog_sort(excel.read_excel('tradinglog2021'))
         # exchangerights_excel = base.exchangerights_sort(excel.read_excel('exchangerights'))
         # 忽略字段
         account_ignore = ()
-        stklist_ignore = ()
+        stklist_ignore = ('OCCURTIME',)
         tradinglog_ignore = (
         'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF','POSTAMT')
         # exchangerights_ignore = ()
@@ -62,9 +57,8 @@ class ContrastConsolidated(unittest.TestCase):
         # account_result = base.compare_dict(account_database, account_excel, 'account')
         stklistcurrent_result = base.compare_dict(stklistcurrent_database, stklistcurrent_excel, 'stklist')
 
-        stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist2022')
+        stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist2022',*stklist_ignore)
         tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog', *tradinglog_ignore)
-        # exchangerights_result = base.compare_dict(exchangerights_database, exchangerights_excel, 'exchangerights')
         # 断言
         final_result =  stklistcurrent_result+stklist_result + tradinglog_result
         if not final_result:

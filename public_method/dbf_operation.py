@@ -337,12 +337,12 @@ class DbfOperation():
                 elif rec['JGYWLB'] in (
                         'DJBG', 'DJ00', 'ZTZC', 'ZTZR', 'ZTXS', 'ZTTZ', 'ZJQ0', 'ZJQ1', 'ZJQ2', 'TGZX', 'FJZG',
                         'TZGF', 'GS4B', 'GSSG', 'XGJX', 'XGXS', 'ZQZH', 'ZQZD',
-                        'ZQZZ') or (rec['JGYWLB'] == 'ZQKZ' and rec['JGJSSL'] > 0):
+                        'ZQZZ','TG20','TG21','TG22','TG23') or (rec['JGYWLB'] == 'ZQKZ' and rec['JGJSSL'] > 0):
                     # 清算日期和交收日期和其他日期为空，成交日期、发送日期= T日
                     rec['JGQSRQ'], rec['JGJSRQ'], rec['JGQTRQ'] = None, None, None
                 elif rec['JGYWLB'] in ('QQSD',):  # 成交日期,其他日期为空，清算日期、交收日期、发送日期 = T日
                     rec['JGCJRQ'], rec['JGJSRQ'], rec['JGQTRQ'] = None, cjrq, None
-                elif rec['JGYWLB'] in ('QP90',):  # 发送日期 = T日,其他日期都是空
+                elif rec['JGYWLB'] in ('QP90','TG90'):  # 发送日期 = T日,其他日期都是空
                     rec['JGCJRQ'], rec['JGJSRQ'], rec['JGQSRQ'] = None, None, None
             records.append(record)
         table.close()
@@ -594,7 +594,7 @@ class DbfOperation():
         return self.get_data()
 
     def tzxx_file(self):
-        # 已验证 TZLB(通知类别) 006
+        # 已验证 TZLB(通知类别) 006,041
         return self.get_data(TZRQ=self.t, RQ1=self.t)
 
     def op_tzxx_file(self):
@@ -675,15 +675,15 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                if rec['JGYWLB'] in ('36', '37', 'DZ', '24', '20'):
+                if rec['JGYWLB'].strip() in ('36', '37', 'DZ', '24', '20'): #有部分类别读文件后，类型后有空格，需去空格后判断
                     rec['JGCJRQ'] = self.replace_time(rec['JGCJRQ'], cjrq)
                     rec['JGQSRQ'] = self.replace_time(rec['JGQSRQ'], qsrq)
                     rec['JGJSRQ'] = self.replace_time(rec['JGJSRQ'], jsrq)
                     rec['JGFSRQ'] = self.replace_time(rec['JGFSRQ'], fsrq)
-                elif rec['JGYWLB'] in ('B7', 'B5', 'BA', 'B6'):
+                elif rec['JGYWLB'].strip() in ('B7', 'B5', 'BA', 'B6'):
                     rec['JGCJRQ'] = self.replace_time(rec['JGCJRQ'], cjrq)
                     rec['JGFSRQ'] = self.replace_time(rec['JGFSRQ'], fsrq)
-                elif rec['JGYWLB'] in ('41', '40', 'ZG', '67', '66', '68', '69', '03'):
+                elif rec['JGYWLB'].strip() in ('41', '40', 'ZG', '67', '66', '68', '69', '03'):
                     rec['JGCJRQ'] = self.replace_time(rec['JGCJRQ'], cjrq)
                     rec['JGQSRQ'] = self.replace_time(rec['JGQSRQ'], qsrq)
                     rec['JGJSRQ'] = self.replace_time(rec['JGJSRQ'], cjrq)

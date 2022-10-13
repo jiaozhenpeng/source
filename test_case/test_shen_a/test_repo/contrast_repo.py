@@ -39,9 +39,8 @@ class ContrastRepo(unittest.TestCase):
                                       "'0117212001') and STKID in ('109517','100213','109516') and DESKID = '077011'"
         quoteRepoPledgeDtl_sql = "select * from quoteRepoPledgeDtl where REGID in ( '0117252001','0117212001') and " \
                                  "EXCHID = '1' and STKID in ('109517','100213','109516') "
-        exchangerights_sql = "select * FROM exchangerights  where exchid='1' and stkid in ('109517','100213','109516') and" \
-                             " DESKID ='077011' and REGID in ( '0117212000','0117252000','0117252001','0117212001')"
-        exchangemessage_sql = "select * from exchangemessage where STKID in ('109517','100213','109516') and EXCHID = '1'"
+        exchangemessage_sql = "select * from exchangemessage where occurtime>={}  and occurtime<={}  and "  \
+                              "STKID in ('109517','100213','109516') and EXCHID = '1'".format(begintime,endtime)
         # 查询数据库SQL数据并排序
         stklist_database = base.stklist_sort(oracle.dict_data(stklist_sql))
         tradinglog_database = base.tradinglog_sort(oracle.dict_data(tradinglog_sql))
@@ -49,7 +48,6 @@ class ContrastRepo(unittest.TestCase):
         unduerepurchasebondshis_database = base.unduerepurchasebondshis_sort(
             oracle.dict_data(unduerepurchasebondshis_sql))
         quoteRepoPledgeDtl_database = base.quoteRepoPledgeDtl_sort(oracle.dict_data(quoteRepoPledgeDtl_sql))
-        exchangerights_database = base.exchangerights_sort(oracle.dict_data(exchangerights_sql))
         exchangemessage_database = base.exchangemessage_sort(oracle.dict_data(exchangemessage_sql))
         # 查询excel数据并排序
         stklist_excel = base.stklist_sort(excel.read_excel('stklist'))
@@ -57,30 +55,28 @@ class ContrastRepo(unittest.TestCase):
         unduerepurchasebonds_excel = base.unduerepurchasebonds_sort(excel.read_excel('unduerepurchasebonds'))
         unduerepurchasebondshis_excel = base.unduerepurchasebondshis_sort(excel.read_excel('unduerepurchasebondshis'))
         quoteRepoPledgeDtl_excel = base.quoteRepoPledgeDtl_sort(excel.read_excel('quoteRepoPledgeDtl'))
-        exchangerights_excel = base.exchangerights_sort(excel.read_excel('exchangerights'))
         exchangemessage_excel = base.exchangemessage_sort(excel.read_excel('exchangemessage'))
         # 忽略字段
         stklist_ignore = ()
-        tradinglog_ignore = ()
-        unduerepurchasebonds_ignore = ()
-        unduerepurchasebondshis_ignore = ()
-        quoteRepoPledgeDtl_ignore = ()
-        exchangerights_ignore = ()
-        exchangemessage_ignore = ()
+        tradinglog_ignore = ('KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE',
+                             'TRANSACTIONREF','POSTAMT','OPENDATE')
+        unduerepurchasebonds_ignore = ('ORDERTIME','ROLLBACKDATE','KNOCKTIME','RETURNDATE')
+        quoteRepoPledgeDtl_ignore = ('OPTTIME','TRADEDATE','KNOCKTIME')
+        exchangemessage_ignore = ('MESSAGEDATE','PATHDESKID','SERIALNUM','OCCURTIME','DATE1')
         # 对比结果
         stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist')
-        tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog')
+        tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog',*tradinglog_ignore)
         unduerepurchasebonds_result = base.compare_dict(unduerepurchasebonds_database, unduerepurchasebonds_excel,
-                                                        'unduerepurchasebonds')
+                                                        'unduerepurchasebonds',*unduerepurchasebonds_ignore)
         unduerepurchasebondshis_result = base.compare_dict(unduerepurchasebondshis_database,
-                                                           unduerepurchasebondshis_excel, 'unduerepurchasebondshis')
+                        unduerepurchasebondshis_excel, 'unduerepurchasebondshis',*unduerepurchasebonds_ignore)
         quoteRepoPledgeDtl_result = base.compare_dict(quoteRepoPledgeDtl_database, quoteRepoPledgeDtl_excel,
-                                                      'quoteRepoPledgeDtl')
-        exchangerights_result = base.compare_dict(exchangerights_database, exchangerights_excel, 'exchangerights')
-        exchangemessage_result = base.compare_dict(exchangemessage_database, exchangemessage_excel, 'exchangemessage')
+                                                      'quoteRepoPledgeDtl',*quoteRepoPledgeDtl_ignore)
+        exchangemessage_result = base.compare_dict(exchangemessage_database, exchangemessage_excel
+                                                   , 'exchangemessage',*exchangemessage_ignore)
         # 断言
         final_result = stklist_result + tradinglog_result + unduerepurchasebonds_result + unduerepurchasebondshis_result\
-                       + quoteRepoPledgeDtl_result + exchangerights_result + exchangemessage_result
+                       + quoteRepoPledgeDtl_result + exchangemessage_result
 
         if not final_result:
             logger().info('深A\协议回购\T日 数据对比无异常')
