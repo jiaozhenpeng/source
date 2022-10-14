@@ -38,13 +38,13 @@ class ContrastPreferredStockRedeem(unittest.TestCase):
         stklist_excel = base.stklist_sort(excel.read_excel('stklist'))
         tradinglog_excel = base.tradinglog_sort(excel.read_excel('tradinglog2021'))
         # 忽略字段
-        stklist_ignore = ()
+        stklist_ignore = ('OCCURTIME')
         exchangerights_ignore = ()
         tradinglog_ignore = (
             'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF',
             'POSTAMT')
         # 对比
-        stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist')
+        stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist',*stklist_ignore)
         tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog',*tradinglog_ignore)
         # 断言
         final_result = stklist_result +  tradinglog_result

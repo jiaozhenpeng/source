@@ -38,7 +38,7 @@ class ContrastPreferredStockResale(unittest.TestCase):
         stklist_excel = base.stklist_sort(excel.read_excel('stklist2022'))
         tradinglog_excel = base.tradinglog_sort(excel.read_excel('tradinglog2021'))
         # 忽略字段
-        stklist_ignore = ('OCCURTIME')
+        stklist_ignore = ('OCCURTIME',)
         exchangerights_ignore = ()
         tradinglog_ignore = (
             'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF',

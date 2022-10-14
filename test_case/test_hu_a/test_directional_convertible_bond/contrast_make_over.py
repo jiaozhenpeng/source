@@ -45,7 +45,7 @@ class ContrastMakeOver(unittest.TestCase):
         tradinglog_excel = base.tradinglog_sort(excel.read_excel('tradinglog2020'))
         # 忽略字段
         tradinglog_ignore = (
-            'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF')
+            'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF','POSTAMT')
         stklist_ignore = ()
         exchjsmxdetailinfo_ignore = ()
         # 对比
