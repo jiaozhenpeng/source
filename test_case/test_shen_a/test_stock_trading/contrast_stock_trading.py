@@ -46,7 +46,7 @@ class ContrastStockTrading(unittest.TestCase):
         account_ignore = ()
         stklist_ignore = ()
         tradinglog_ignore = (
-        'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF')
+        'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF','POSTAMT')
         # 对比
         account_result = base.compare_dict(account_database, account_excel, 'account')
         stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist')

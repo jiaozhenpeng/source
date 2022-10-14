@@ -30,7 +30,7 @@ class DESY(unittest.TestCase):
 
         # 查询sql
         tradinglog_sql = "select * from tradinglog{} where reckoningtime>={} and reckoningtime<={} and exchid= '1' and " \
-                         " regid in ('0117252000','0117212000') and ordertype='DESY' and " \
+                         " regid in ('0117252000','0117212000','0117252001','0117212001') and ordertype='DESY' and " \
                          "briefid in( '005_005_062')".format(year, begintime, endtime)        # 数据库数据
         tradinglog_database = base.tradinglog_sort(oracle.dict_data(tradinglog_sql))
         # Excel数据
