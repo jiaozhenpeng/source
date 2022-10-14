@@ -401,6 +401,17 @@ class DbfOperation():
         table.close()
         return records
 
+    def dsfmx_file(self):
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                if rec['MXYWLB'] in ('DESY','DCBF'):
+                    rec['MXJYRQ'],rec['MXQSRQ'],rec['MXFSRQ'] = self.t,self.t,self.t
+            records.append(record)
+        table.close()
+        return records
+
     def sisdz_file(self, fsrq=None):
         if fsrq is None:
             fsrq = self.t

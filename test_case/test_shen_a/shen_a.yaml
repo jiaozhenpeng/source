@@ -127,3 +127,18 @@ NominalHolding:
   dbfPath: F:\source\用例数据\深A\名义持有明细股份管理
   sqlPath: F:\source\用例数据\深A\名义持有明细股份管理\stkinfo.sql
   excelPath: F:\source\用例数据\深A\名义持有明细股份管理\测试结果.xlsx
+
+  # 深圳实时代收付文件，dsfmx
+RealEraPayments:
+  #CDS保费支付
+  DCBF:
+    dbfPath: F:\source\用例数据\深A\实时代收付\CDS业务保费支付
+    sqlPath: F:\source\用例数据\深A\实时代收付\CDS业务保费支付\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\实时代收付\CDS业务保费支付\测试结果.xlsx
+  #货币基金收益
+  DESY:
+    dbfPath: F:\source\用例数据\深A\实时代收付\货币基金基金收益
+    sqlPath: F:\source\用例数据\深A\实时代收付\货币基金基金收益\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\实时代收付\货币基金基金收益\测试结果.xlsx
+
+
