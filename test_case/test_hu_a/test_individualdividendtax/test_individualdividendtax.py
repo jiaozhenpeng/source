@@ -27,6 +27,17 @@ class IndividualDividendTax(unittest.TestCase):
         else:
             logger().error('dbf文件数据准备异常，：{}'.format(dbf_result))
             assert False, dbf_result
+        #执行脚本
+        sql_path = self.yaml['sqlPath']
+        sql = BaseAction().read_sql(sql_path)
+        oracle = OracleDatabase()
+        sql_result = oracle.update_sql(*sql)
+        if not sql_result:
+            logger().info('沪A 股息红利税 准备数据完成')
+            assert True
+        else:
+            logger().error('沪A 股息红利税 准备数据异常')
+            assert False, sql_result
 
 if __name__ == '__main__':
     unittest.main()
