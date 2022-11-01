@@ -195,3 +195,8 @@ EtfSplit:
     sqlPath: F:\source\用例数据\沪A\ETF拆分\权益补偿\stkinfo.sql
     dbfPath: F:\source\用例数据\沪A\ETF拆分\权益补偿
     excelPath: F:\source\用例数据\沪A\ETF拆分\权益补偿\测试结果.xlsx
+
+# 股息红利税
+individualdividendtax:
+  dbfPath: F:\source\用例数据\沪A\差异化股息红利税
+  excelPath: F:\source\用例数据\沪A\差异化股息红利税\测试结果.xlsx

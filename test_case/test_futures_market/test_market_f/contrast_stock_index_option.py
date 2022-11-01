@@ -31,6 +31,7 @@ class ContrastStockIndexOption(unittest.TestCase):
 
 
 
+
         if not final_result:
             logger().info('F市场\股指期权 对比数据无异常')
             assert True

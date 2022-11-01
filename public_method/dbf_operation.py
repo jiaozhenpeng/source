@@ -135,6 +135,42 @@ class DbfOperation():
             cjrq = self.t
         return self.get_data(BCRQ=cjrq)
 
+    def abcsj_file(self, cjrq=None):
+        """
+        修改成交日期，获取修改日期后的dbf文件数据列表
+        :param cjrq:
+        :return:
+        """
+        if cjrq is None:
+            cjrq = self.t
+        return self.get_data(TZRQ=cjrq,RQ2 =cjrq)
+
+    def ywhb_file(self, cjrq=None, qsrq=None, jsrq=None):
+        """
+        修改成交日期，获取修改日期后的dbf文件数据列表
+        :param cjrq:
+        :return:
+        """
+        if cjrq is None:
+            cjrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                if rec['YWLX'] in ('419', ):  # 根据业务类型判断jsrq
+                    rec['SBRQ'] = cjrq
+                    rec['RQ'] = cjrq
+                # if rec['YWLX'] in ('680', '681'):  # 根据业务类型判断jsrq
+                #     rec['QTRQ'] = self.t
+                # if rec['YWLX'] in ('655', '656'):  # 根据业务类型判断jsrq
+                #     rec['JSRQ'] = self.t
+                # if rec['YWLX'] in ('419', ):  # 419股息红利税，无交易日期
+                #     rec['JYRQ'] = None
+
+            records.append(record)
+        table.close()
+        return records
+
     def jsmx_file(self, cjrq=None, qsrq=None, jsrq=None):
         """
         修改成交日期，获取修改日期后的dbf文件数据列表
@@ -160,6 +196,8 @@ class DbfOperation():
                     rec['QTRQ'] = self.t
                 if rec['YWLX'] in ('655', '656'):  # 根据业务类型判断jsrq
                     rec['JSRQ'] = self.t
+                if rec['YWLX'] in ('419', ):  # 419股息红利税，无交易日期
+                    rec['JYRQ'] = None
 
             records.append(record)
         table.close()

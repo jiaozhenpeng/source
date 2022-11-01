@@ -28,8 +28,6 @@ class ContrastFutures(unittest.TestCase):
         base = BaseAction()
         year = base.get_today_date()[:4]
         # 查询SQL
-        futuretraderslt_sql = "select * from futuretraderslt where exchid='F' and regid in ('00058049','F1008666'," \
-                              "'00888886','00060447') and stkid in('IC2108','IC2109','IC2112','IF2108','IF2109','IF2112','IH2109','T2109','T2112','TF2112')"
         futureposition_sql = "select * from futureposition{} WHERE regid in ('00058049','F1008666','00888886','00060447') and" \
                              " occurtime={} and stkid in('IC2108','IC2109','IC2112','IF2108','IF2109','IF2112'," \
                              "'IH2109','T2109','T2112','TF2112') and exchid = 'F'".format(year, begintime)
@@ -41,37 +39,43 @@ class ContrastFutures(unittest.TestCase):
                                " exchid='F' and regid in ('00058049','F1008666','00888886','00060447') and stkid in" \
                                "('IC2108','IC2109','IC2112','IF2108','IF2109','IF2112','IH2109','T2109','T2112','TF2112'" \
                                ")".format(year, begintime, endtime)
+        futureposition_current_sql = "select * from futureposition WHERE regid in ('00058049','F1008666','00888886','00060447') and" \
+                             " stkid in('IC2108','IC2109','IC2112','IF2108','IF2109','IF2112'," \
+                             "'IH2109','T2109','T2112','TF2112') and exchid = 'F'"
+        futurepositiondetail_current_sql = "select * from futurepositiondetail WHERE regid in ('00058049','F1008666'," \
+                                   "'00888886','00060447') and  stkid in('IC2108','IC2109','IC2112'," \
+                                   "'IF2108','IF2109','IF2112','IH2109','T2109','T2112'," \
+                                   "'TF2112') and exchid = 'F'"
         # 数据库数据
         futurepositiondetail_database = base.futurepositiondetail_sort(oracle.dict_data(futurepositiondetail_sql))
         futuretradinglog_database = base.futuretradinglog_sort(oracle.dict_data(futuretradinglog_sql))
         futureposition_database = base.futureposition_sort(oracle.dict_data(futureposition_sql))
-        futuretraderslt_database = base.futuretraderslt_sort(oracle.dict_data(futuretraderslt_sql))
-
+        futureposition_current_database = base.futureposition_sort((oracle.dict_data(futureposition_current_sql)))
+        futurepositiondetail_current_database = base.futurepositiondetail_sort(oracle.dict_data(futurepositiondetail_current_sql))
         # Excel数据
         futurepositiondetail_excel = base.futurepositiondetail_sort(excel.read_excel('futurepositiondetail2021'))
         futureposition_excel = base.futureposition_sort(excel.read_excel('fuutreposition2021'))
         futuretradinglog_excel = base.futuretradinglog_sort(excel.read_excel('futuretradinglog2021'))
-        futuretraderslt_excel = base.futuretraderslt_sort(excel.read_excel('futuretraderslt'))
-
+        futurepositiondetail_current_excel = base.futurepositiondetail_sort(excel.read_excel('futurepositiondetail'))
+        futureposition_current_excel = base.futureposition_sort(excel.read_excel('futureposition'))
         # 忽略字段
-        futurepositiondetail_ignore = ()
         futureposition_ignore = ('OCCURTIME',)
-        futuretradinglog_ignore = ()
-        futuretraderslt_ignore = ()
+        futurepositiondetail_ignore = ('OCCURTIME','CLOSEKNOCKTIME','KNOCKTIME','OPTTIME')
+        futuretradinglog_ignore = ('RECKONINGTIME', 'OCCURTIME', 'KNOCKTIME','POSTAMT','OPENDATE','SERIALNUM')
 
         # 对比结果
-        futureposition_result = base.compare_dict(futureposition_database, futureposition_excel, 'futureposition',
+        futureposition_result = base.compare_dict(futureposition_database, futureposition_excel, 'futureposition2021',
                                                   *(futureposition_ignore))
         futurepositiondetail_result = base.compare_dict(futurepositiondetail_database, futurepositiondetail_excel,
-                                                        'futurepositiondetail')
+                                                        'futurepositiondetail2021',*futurepositiondetail_ignore)
         futuretradinglog_result = base.compare_dict(futuretradinglog_database, futuretradinglog_excel,
-                                                    'futuretradinglog')
-        futuretraderslt_result = base.compare_dict(futuretraderslt_database, futuretraderslt_excel, 'futuretraderslt')
-
+                                                    'futuretradinglog',*futuretradinglog_ignore)
+        futureposition_current_result = base.compare_dict(futureposition_current_database, futureposition_current_excel,
+                                                          'futureposition')
+        futurepositiondetail_current_result = base.compare_dict(futurepositiondetail_current_database,
+                                                                futurepositiondetail_current_excel,'futurepositiondetail')
         # 断言
-        final_result = futureposition_result + futurepositiondetail_result + futuretradinglog_result + \
-                       futuretraderslt_result
-
+        final_result = futureposition_result + futurepositiondetail_result + futuretradinglog_result
 
 
         if not final_result:

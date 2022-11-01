@@ -1,6 +1,11 @@
-user: ctsdb1 # 数据库账号
-password: ctsdb1 # 数据库密码
-dsn: 192.168.1.84/ctsdb
+user: ctsdb # 数据库账号
+password: ctsdb # 数据库密码
+dsn: 192.168.4.1/ctsdb
+
+#user: qingsuan # 数据库账号
+#password: qingsuan # 数据库密码
+#dsn: 192.168.4.223/ctsdb
+
 sql:
   tradedate: select tradedate from sysconfig # 获取交易日期sql
   version: SELECT VERSION FROM VERSIONCONTROL WHERE TYPEID ='globalConst' # 获取cts版本

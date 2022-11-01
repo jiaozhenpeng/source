@@ -146,6 +146,15 @@ class BaseAction():
             key=lambda x: (x['STKID'], x['DESKID'], x['EXCHID'], x['REGID'], x['SHAREATTR'], x['CURRENTQTY']))
         return list_data
 
+    def individualdividendtax_sort(self, list_data):
+        '''
+        排序individualdividendtax 表数据
+        :return:
+        '''
+        list_data.sort(
+            key=lambda x: (x['EXCHID'], x['OFFERREGID'], x['KNOCKCODE'], x['DATE2'], x['AMT1']))
+        return list_data
+
     def tradinglog_sort(self, list_data):
         '''
         排序tradinglog表数据，根据briefid,acctid,regid,stkid,reckoningamt

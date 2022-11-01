@@ -43,16 +43,12 @@ class ContrastOrdinaryTransaction(unittest.TestCase):
             oracle.dict_data(unprocessedreckoningresult_sql))
         stklist_database = BaseAction().stklist_sort(oracle.dict_data(stklist_sql))
         # 获取excel数据并排序
-        todaytraderslt_excel = BaseAction().todaytraderslt_sort(excel.read_excel('todaytraderslt'))
-        finalreckoningresult_excel = BaseAction().finalreckoningresult_sort(excel.read_excel('finalreckoningresult'))
         unprocessedreckoningresulthis_excel = BaseAction().unprocessedreckoningresulthis_sort(
             excel.read_excel('unprocessedreckoningresulthis'))
         unprocessedreckoningresult_excel = BaseAction().unprocessedreckoningresult_sort(
             excel.read_excel('unprocessedreckoningresult'))
         stklist_excel = BaseAction().stklist_sort(excel.read_excel('stklist'))
         # 可以忽略的字段
-        todaytraderslt_ignore = ('RECKONINGTIME', 'KNOCKTIME', 'SERIALNUM')
-        finalreckoningresult_ignore = ('KNOCKTIME',)
         unprocessedreckoningresulthis_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE','OFFERTIME')
         unprocessedreckoningresult_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE','OFFERTIME')
         stklist_ignore = ()

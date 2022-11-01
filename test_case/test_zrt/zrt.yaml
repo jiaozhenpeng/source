@@ -1,6 +1,6 @@
 
 # 战略配售股份出借
-GeneralLiquidation:
+SEND_XL:
   dbfPath: F:\source\用例数据\深权\普通平仓
   sqlPath: F:\source\用例数据\深权\普通平仓\stkinfo.sql
   excelPath: F:\source\用例数据\深权\普通平仓\测试结果.xlsx
