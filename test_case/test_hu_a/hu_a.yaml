@@ -201,3 +201,20 @@ individualdividendtax:
   dbfPath: F:\source\用例数据\沪A\差异化股息红利税
   excelPath: F:\source\用例数据\沪A\差异化股息红利税\测试结果.xlsx
   sqlPath: F:\source\用例数据\沪A\差异化股息红利税\stkinfo.sql
+
+#DVP改革
+DVP:
+  Tday:
+    dbfPath: F:\source\用例数据\沪A\DVP改革\可售交收冻结（T日）
+    excelPath: F:\source\用例数据\沪A\DVP改革\可售交收冻结（T日）\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\DVP改革\可售交收冻结（T日）\stkinfo.sql
+
+  Tday1:
+    dbfPath: F:\source\用例数据\沪A\DVP改革\转处置冻结（T+1日）
+    excelPath: F:\source\用例数据\沪A\DVP改革\转处置冻结（T+1日）\测试结果.xlsx
+#    sqlPath: F:\source\用例数据\沪A\DVP改革\转处置冻结（T+1日）\stkinfo.sql
+
+  Tday2:
+    dbfPath: F:\source\用例数据\沪A\DVP改革\违约处置（T+2）
+    excelPath: F:\source\用例数据\沪A\DVP改革\违约处置（T+2）\测试结果.xlsx
+#    sqlPath: F:\source\用例数据\沪A\DVP改革\违约处置（T+2）\stkinfo.sql

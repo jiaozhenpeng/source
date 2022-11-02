@@ -160,8 +160,8 @@ class DbfOperation():
                 if rec['YWLX'] in ('419', ):  # 根据业务类型判断jsrq
                     rec['SBRQ'] = cjrq
                     rec['RQ'] = cjrq
-                # if rec['YWLX'] in ('680', '681'):  # 根据业务类型判断jsrq
-                #     rec['QTRQ'] = self.t
+                if rec['YWLX'] in ('830', '831'):  # 只有sbrq(申报日期)
+                    rec['RQ'] = cjrq
                 # if rec['YWLX'] in ('655', '656'):  # 根据业务类型判断jsrq
                 #     rec['JSRQ'] = self.t
                 # if rec['YWLX'] in ('419', ):  # 419股息红利税，无交易日期
@@ -241,7 +241,7 @@ class DbfOperation():
                 if rec['SJLX'] == '018':
                     rec['RQ'] = self.t1
                 else:
-                    rec['RQ'] = self.t
+                    rec['RQ'] = self.t  #020锁定得最后一次变化
             records.append(record)
         table.close()
         return records
@@ -373,7 +373,7 @@ class DbfOperation():
                 elif rec['JGYWLB'] == 'XYHY':  # 协议合约
                     rec['JGQSRQ'], rec['JGJSRQ'], rec['JGQTRQ'] = None, None, tempdate
                 elif rec['JGYWLB'] in (
-                        'DJBG', 'DJ00', 'ZTZC', 'ZTZR', 'ZTXS', 'ZTTZ', 'ZJQ0', 'ZJQ1', 'ZJQ2', 'TGZX', 'FJZG',
+                        'DJBG', 'DJ00','FGS6','FGSD', 'ZTZC', 'ZTZR', 'ZTXS', 'ZTTZ', 'ZJQ0', 'ZJQ1', 'ZJQ2', 'TGZX', 'FJZG',
                         'TZGF', 'GS4B', 'GSSG', 'XGJX', 'XGXS', 'ZQZH', 'ZQZD',
                         'ZQZZ','TG20','TG21','TG22','TG23') or (rec['JGYWLB'] == 'ZQKZ' and rec['JGJSSL'] > 0):
                     # 清算日期和交收日期和其他日期为空，成交日期、发送日期= T日
@@ -604,6 +604,9 @@ class DbfOperation():
 
     def szhk_sjsdz_file(self):
         return self.get_data(FSRQ=self.t)
+
+    def sjsdvpjg_file(self):
+        return self.get_data(JGFSRQ=self.t)
 
     def szhk_tzxx_file(self):
         return self.get_data(FSRQ=self.t)

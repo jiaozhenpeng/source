@@ -139,4 +139,19 @@ RealEraPayments:
     sqlPath: F:\source\用例数据\深A\实时代收付\货币基金基金收益\stkinfo.sql
     excelPath: F:\source\用例数据\深A\实时代收付\货币基金基金收益\测试结果.xlsx
 
+#DVP改革
+DVP:
+  Tday:
+    dbfPath: F:\source\用例数据\深A\DVP改革\可售交收冻结（T日）
+    excelPath: F:\source\用例数据\深A\DVP改革\可售交收冻结（T日）\测试结果.xlsx
+    sqlPath: F:\source\用例数据\深A\DVP改革\可售交收冻结（T日）\stkinfo.sql
 
+  Tday1:
+    dbfPath: F:\source\用例数据\深A\DVP改革\转处置冻结（T+1日）
+    excelPath: F:\source\用例数据\深A\DVP改革\转处置冻结（T+1日）\测试结果.xlsx
+#    sqlPath: F:\source\用例数据\深A\DVP改革\转处置冻结（T+1日）\stkinfo.sql
+
+  Tday2:
+    dbfPath: F:\source\用例数据\深A\DVP改革\违约处置（T+2）
+    excelPath: F:\source\用例数据\深A\DVP改革\违约处置（T+2）\测试结果.xlsx
+#    sqlPath: F:\source\用例数据\深A\DVP改革\违约处置（T+2）\stkinfo.sql
