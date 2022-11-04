@@ -157,7 +157,7 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                if rec['YWLX'] in ('419', ):  # 根据业务类型判断jsrq
+                if rec['YWLX'] in ('419','830', '831' ):  # 根据业务类型判断jsrq
                     rec['SBRQ'] = cjrq
                     rec['RQ'] = cjrq
                 if rec['YWLX'] in ('830', '831'):  # 只有sbrq(申报日期)
@@ -732,7 +732,7 @@ class DbfOperation():
                     rec['JGQSRQ'] = self.replace_time(rec['JGQSRQ'], qsrq)
                     rec['JGJSRQ'] = self.replace_time(rec['JGJSRQ'], jsrq)
                     rec['JGFSRQ'] = self.replace_time(rec['JGFSRQ'], fsrq)
-                elif rec['JGYWLB'].strip() in ('B7', 'B5', 'BA', 'B6'):
+                elif rec['JGYWLB'].strip() in ('B7', 'B5', 'BA', 'B6','BC','BD','7K','7L'):
                     rec['JGCJRQ'] = self.replace_time(rec['JGCJRQ'], cjrq)
                     rec['JGFSRQ'] = self.replace_time(rec['JGFSRQ'], fsrq)
                 elif rec['JGYWLB'].strip() in ('41', '40', 'ZG', '67', '66', '68', '69', '03'):

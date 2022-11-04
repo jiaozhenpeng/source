@@ -83,3 +83,20 @@ PreferredStockRedeem:
   dbfPath: F:\source\用例数据\股转\优先股赎回
   sqlPath: F:\source\用例数据\股转\优先股赎回\stkinfo.sql
   excelPath: F:\source\用例数据\股转\优先股赎回\测试结果.xlsx
+
+#DVP改革
+DVP:
+  Tday:
+    dbfPath: F:\source\用例数据\股转\DVP改革\可售交收锁定（T日）
+    excelPath: F:\source\用例数据\股转\DVP改革\可售交收锁定（T日）\测试结果.xlsx
+    sqlPath: F:\source\用例数据\股转\DVP改革\可售交收锁定（T日）\stkinfo.sql
+
+  Tday1:
+    dbfPath: F:\source\用例数据\股转\DVP改革\待处置交收锁定（T+1日）
+    excelPath: F:\source\用例数据\股转\DVP改革\待处置交收锁定（T+1日）\测试结果.xlsx
+#    sqlPath: F:\source\用例数据\深A\DVP改革\转处置冻结（T+1日）\stkinfo.sql
+
+  Tday2:
+    dbfPath: F:\source\用例数据\股转\DVP改革\违约处置（T+2）
+    excelPath: F:\source\用例数据\股转\DVP改革\违约处置（T+2）\测试结果.xlsx
+#    sqlPath: F:\source\用例数据\深A\DVP改革\违约处置（T+2）\stkinfo.sql
