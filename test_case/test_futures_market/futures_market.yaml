@@ -7,6 +7,13 @@ market_d:
     txtPath: F:\source\用例数据\期货市场\D市场交易数据\期货开仓\trddata.txt
     excelPath: F:\source\用例数据\期货市场\D市场交易数据\期货开仓\测试结果.xlsx
 
+#交易所行权
+  MarketExer:
+    sqlPath: F:\source\用例数据\期货市场\商品期权行权后自动对冲\D市场\futureinfo.sql
+    trddataPath: F:\source\用例数据\期货市场\商品期权行权后自动对冲\D市场\trddata.txt
+    optexerPath: F:\source\用例数据\期货市场\商品期权行权后自动对冲\D市场\optexerdata.txt
+    excelPath: F:\source\用例数据\期货市场\D市场交易数据\期货开仓\测试结果.xlsx
+
 
 # 市场F
 MarketF:
