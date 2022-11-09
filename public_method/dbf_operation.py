@@ -17,6 +17,7 @@ class DbfOperation():
     t = OracleDatabase().get_trade_date()
     t1 = OracleDatabase().get_trade_date(1)
     t2 = OracleDatabase().get_trade_date(2)
+    lasttradedate1 = OracleDatabase().get_last_trade_date()
 
     def __init__(self, path):
         self.dbf_file = dbf.Table(path, codepage='cp936')
@@ -233,6 +234,53 @@ class DbfOperation():
         table.close()
         return records
 
+    def jsmx02_file(self, cjrq=None, qsrq=None, jsrq=None):
+        """
+        修改成交日期，获取修改日期后的dbf文件数据列表
+        :param cjrq:
+        :return:
+        """
+        if cjrq is None:
+            cjrq = self.t
+        if qsrq is None:
+            qsrq = self.t
+        if jsrq is None:
+            jsrq = self.t1
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                rec['JYRQ'], rec['QSRQ'], rec['JSRQ'] = cjrq, qsrq, jsrq
+                records.append(record)
+        table.close()
+        return records
+
+    # 处理lofmxzf文件，除转托管转入外，其他成交日期小于确认日期
+    def lofmxzf_file(self, cjrq=None, qsrq=None, jsrq=None):
+        """
+        修改成交日期，获取修改日期后的dbf文件数据列表
+        :param cjrq:
+        :return:
+        """
+        if cjrq is None:
+            cjrq = self.lasttradedate1
+        if qsrq is None:
+            qsrq = self.t
+        if jsrq is None:
+            jsrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+
+                rec['FSRQ'], rec['QRRQ'], rec['CJRQ'] = qsrq, qsrq, cjrq
+                if rec['BZSM'] == '645':  # 场外转场内，发送日期、确认日期、成交日期相同
+                    rec['CJRQ'] = qsrq
+            records.append(record)
+        table.close()
+        return records
+
+    # 处理其他数量
     def qtsl_file(self):
         records = []
         table = self.dbf_file.open(mode=dbf.READ_WRITE)

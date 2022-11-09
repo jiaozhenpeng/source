@@ -218,3 +218,66 @@ DVP:
     dbfPath: F:\source\用例数据\沪A\DVP改革\违约处置（T+2）
     excelPath: F:\source\用例数据\沪A\DVP改革\违约处置（T+2）\测试结果.xlsx
 #    sqlPath: F:\source\用例数据\沪A\DVP改革\违约处置（T+2）\stkinfo.sql
+
+#上证lof
+#lof申购
+lofshengou:
+  Tday:
+    dbfPath: F:\source\用例数据\沪A\上证lof\申购\Tday
+    excelPath: F:\source\用例数据\沪A\上证lof\申购\Tday\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\上证lof\申购\Tday\stkinfo.sql
+
+  T1day:
+    dbfPath: F:\source\用例数据\沪A\上证lof\申购\T1day
+    excelPath: F:\source\用例数据\沪A\上证lof\申购\T1day\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\上证lof\申购\T1day\stkinfo.sql
+
+#lof赎回
+lofshuhui:
+  Tday:
+    dbfPath: F:\source\用例数据\沪A\上证lof\赎回\Tday
+    excelPath: F:\source\用例数据\沪A\上证lof\赎回\Tday\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\上证lof\赎回\Tday\stkinfo.sql
+
+    T1day:
+      dbfPath: F:\source\用例数据\沪A\上证lof\赎回\T+1日
+      excelPath: F:\source\用例数据\沪A\上证lof\赎回\T+1日\测试结果.xlsx
+      sqlPath: F:\source\用例数据\沪A\上证lof\赎回\T+1日\stkinfo.sql
+
+#lof竞价平台交易
+buysell:
+  dbfPath: F:\source\用例数据\沪A\上证lof\竞价平台交易
+  excelPath: F:\source\用例数据\沪A\上证lof\竞价平台交易\测试结果.xlsx
+  sqlPath: F:\source\用例数据\沪A\上证lof\竞价平台交易\stkinfo.sql
+
+#lof跨市场转托管转出
+lofztgzc:
+  Tday:
+    dbfPath: F:\source\用例数据\沪A\上证lof\lof跨市场转托管转出\Tday
+    excelPath: F:\source\用例数据\沪A\上证lof\lof跨市场转托管转出\Tday\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\上证lof\lof跨市场转托管转出\Tday\stkinfo.sql
+
+    T1day:
+      dbfPath: F:\source\用例数据\沪A\上证lof\lof跨市场转托管转出\Tday\T+1日
+      excelPath: F:\source\用例数据\沪A\上证lof\lof跨市场转托管转出\Tday\测试结果.xlsx
+      sqlPath: F:\source\用例数据\沪A\上证lof\lof跨市场转托管转出\Tday\stkinfo.sql
+
+#lof竞价平台交易
+lofztgzr:
+  dbfPath: F:\source\用例数据\沪A\上证lof\lof跨市场转托管转入
+  excelPath: F:\source\用例数据\沪A\上证lof\lof跨市场转托管转入\测试结果.xlsx
+  sqlPath: F:\source\用例数据\沪A\上证lof\lof跨市场转托管转入\stkinfo.sql
+
+#lof认购
+lofrengou:
+  Tday:
+    dbfPath: F:\source\用例数据\沪A\上证lof\lof认购\T日
+    excelPath: F:\source\用例数据\沪A\上证lof\lof认购\T日\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\上证lof\lof认购\T日\stkinfo.sql
+
+    T1day:
+      dbfPath: F:\source\用例数据\沪A\上证lof\lof跨市场转托管转出\Tday\T+1日
+      excelPath: F:\source\用例数据\沪A\上证lof\lof跨市场转托管转出\Tday\测试结果.xlsx
+      sqlPath: F:\source\用例数据\沪A\上证lof\lof跨市场转托管转出\Tday\stkinfo.sql
+
+
