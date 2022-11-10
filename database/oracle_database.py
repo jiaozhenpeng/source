@@ -145,6 +145,28 @@ class OracleDatabase:
         finally:
             self.close_connect(conn, cur)
 
+    def get_last_trade_date(self, date=0):
+        """
+        获取交易日期 T-N 交易日期 返回格式：20220101
+        :param date:
+        :return:
+        """
+        conn = self.pool.acquire()
+        cur = conn.cursor()
+        try:
+            sql = self.config['sql']['tradedate']
+            trade_date = str(self.select_sql(sql)[0][0][0])[:8]
+            for d in range(date):
+                new_date = trade_date[6:] + '-' + trade_date[4:6] + '-' + trade_date[:4]
+                trade_date = cur.callfunc('getPrevTradingDay', cx_Oracle.STRING, [new_date, '0'])
+                trade_date = trade_date[6:10] + trade_date[3:5] + trade_date[:2]
+            logger().info('交易日期获取成功，获取T-{}交易日期:{}'.format(date, trade_date))
+            return trade_date
+        except Exception as e:
+            logger().error('获取交易日期执行失败：{}'.format(e))
+        finally:
+            self.close_connect(conn, cur)
+
     def get_new_trade_date(self, data=0):
         """
         获取交易日期，返回格式为 2022-01-01

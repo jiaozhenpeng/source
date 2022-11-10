@@ -8,3 +8,8 @@ OrdinaryTransaction:
   excelPath2:
   dbfPath1:
   dbfPath2:
+
+# 沪港\投票
+Evote:
+  dbfPath: F:\source\用例数据\沪港\投票\T日
+  excelPath: F:\source\用例数据\沪港\投票\T日\测试结果.xlsx

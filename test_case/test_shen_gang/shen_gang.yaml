@@ -24,3 +24,8 @@ TransferTube:
 PortfolioFee:
   dbfPath: F:\source\用例数据\深港\证券组合费
   excelPath: F:\source\用例数据\深港\证券组合费\测试结果.xlsx
+
+# 投票
+Evote:
+  dbfPath: F:\source\用例数据\深港\投票\T日
+  excelPath: F:\source\用例数据\深港\投票\T日\测试结果.xlsx

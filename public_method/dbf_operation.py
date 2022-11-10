@@ -17,7 +17,7 @@ class DbfOperation():
     t = OracleDatabase().get_trade_date()
     t1 = OracleDatabase().get_trade_date(1)
     t2 = OracleDatabase().get_trade_date(2)
-    lasttradedate1 = OracleDatabase().get_last_trade_date()
+    lasttradedate1 = OracleDatabase().get_last_trade_date(1)
 
     def __init__(self, path):
         self.dbf_file = dbf.Table(path, codepage='cp936')
@@ -657,7 +657,19 @@ class DbfOperation():
         return self.get_data(JGFSRQ=self.t)
 
     def szhk_tzxx_file(self):
-        return self.get_data(FSRQ=self.t)
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                rec['FSRQ'] = self.t
+                if rec['TZLB'] in ('H06'):  # h06,投票开始日为前10天，截止日为后10天
+                    rec['RQ3'] = OracleDatabase().get_trade_date(10)
+                    rec['RQ2'] = OracleDatabase().get_last_trade_date(10)
+                    if rec['LX1'] in ('Y'):  # 有登记日是，设置登记日，没有登记日时不处理，
+                        rec['RQ2'] = self.lasttradedate1
+            records.append(record)
+        table.close()
+        return records
 
     def szyh_sjsqs_file(self, qsrq=None, jsrq=None, fsrq=None):
         if qsrq is None:
@@ -911,6 +923,22 @@ class DbfOperation():
 
     def hk_zqye_file(self):
         return self.get_data(JZRQ=self.t)
+
+    def hk_tzxx_file(self):
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                rec['TZRQ'] = self.t
+                if rec['TZLB'] in ('H06'): #h06,投票开始日为前10天，截止日为后10天
+                    rec['RQ3'] = OracleDatabase().get_trade_date(10)
+                    rec['RQ2'] = OracleDatabase().get_last_trade_date(10)
+                    print(rec['LX1'])
+                    if rec['LX1']  in ('Y'): #有登记日是，设置登记日，没有登记日时不处理，
+                        rec['RQ2'] = self.lasttradedate1
+            records.append(record)
+        table.close()
+        return records
 
     def bc9_file(self):
         # YWLX = B2H

@@ -340,7 +340,7 @@ class BaseAction():
         :return:
         """
         list_data.sort(
-            key=lambda x: (x['OCCURTIME'], x['EXCHID'], x['STKID'], x['MEMO']   ))
+            key=lambda x: (x['OCCURTIME'], x['EXCHID'], x['MESSAGETYPE'] ,x['STKID'], x['MEMO'] ,x['RIGHTSID'] ))
         return list_data
 
     def unduerepurchasebondshis_sort(self, list_data):
