@@ -155,3 +155,39 @@ DVP:
     dbfPath: F:\source\用例数据\深A\DVP改革\违约处置（T+2）
     excelPath: F:\source\用例数据\深A\DVP改革\违约处置（T+2）\测试结果.xlsx
 #    sqlPath: F:\source\用例数据\深A\DVP改革\违约处置（T+2）\stkinfo.sql
+
+
+#深圳lof
+lofshengou:
+  Tday:
+    dbfPath: F:\source\用例数据\深A\LOF基金\申购\T日
+    excelPath: F:\source\用例数据\深A\LOF基金\申购\T日\测试结果.xlsx
+    sqlPath: F:\source\用例数据\深A\LOF基金\申购\T日\stkinfo.sql
+
+  Tday1:
+    dbfPath: F:\source\用例数据\深A\DVP改革\转处置冻结（T+1日）
+    excelPath: F:\source\用例数据\深A\DVP改革\转处置冻结（T+1日）\测试结果.xlsx
+#    sqlPath: F:\source\用例数据\深A\DVP改革\转处置冻结（T+1日）\stkinfo.sql
+
+lofshuhui:
+  Tday:
+    dbfPath: F:\source\用例数据\深A\LOF基金\赎回\tday
+    excelPath: F:\source\用例数据\深A\LOF基金\赎回\tday\测试结果.xlsx
+    sqlPath: F:\source\用例数据\深A\LOF基金\赎回\tday\stkinfo.sql
+
+  Tday1:
+    dbfPath: F:\source\用例数据\深A\DVP改革\转处置冻结（T+1日）
+    excelPath: F:\source\用例数据\深A\DVP改革\转处置冻结（T+1日）\测试结果.xlsx
+#    sqlPath: F:\source\用例数据\深A\DVP改革\转处置冻结（T+1日）\stkinfo.sql
+
+lofbuysell:
+  dbfPath: F:\source\用例数据\深A\LOF基金\买卖
+  excelPath: F:\source\用例数据\深A\LOF基金\买卖\测试结果.xlsx
+  sqlPath: F:\source\用例数据\深A\LOF基金\买卖\stkinfo.sql
+
+#V5投票
+Evote:
+  filePath: F:\source\用例数据\深A\V5投票
+  excelPath: F:\source\用例数据\深A\V5投票
+
+

@@ -350,6 +350,32 @@ class DbfOperation():
         table.close()
         return records
 
+    # 处理lofjs文件，除转托管转入外，其他成交日期小于确认日期
+    def lofjs_file(self, cjrq=None, qsrq=None, jsrq=None):
+        """
+        修改成交日期，获取修改日期后的dbf文件数据列表
+        :param cjrq:
+        :return:
+        """
+        if cjrq is None:
+            cjrq = self.lasttradedate1
+        if qsrq is None:
+            qsrq = self.t
+        if jsrq is None:
+            jsrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                if rec['JSYWLB'] in('TA11','TA12','TA21' ,'TA22') :#TA11,TA12,TA21 ,TA222委托日期和发送日期相同，过户日期无效
+                    rec['JSWTRQ'], rec['JSFSRQ'] = qsrq, qsrq
+                if rec['JSYWLB'] in('TA13','TA23') : #
+                    rec['JSWTRQ'], rec['JSFSRQ'] = cjrq, qsrq
+            records.append(record)
+        table.close()
+        return records
+
+
     def szyh_sjsgb_file(self, cjrq=None, jsrq=None, nextTwoDay=None):
         """
         修改成交日期，获取修改日期后的dbf文件数据列表
