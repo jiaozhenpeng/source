@@ -1,0 +1,1 @@
+初始化后，根据exchangemessage插入VotestkInfo，votemettinginfo，暂时有点问题，改正后再补充数据

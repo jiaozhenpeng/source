@@ -1,0 +1,7 @@
+table:
+    stklist:
+        sql: select * from stklist WHERE EXCHID ='0' AND STKID IN('603890','688989','600693','688060') AND REGID ='A117213000'
+        ignore:
+    tradinglog:
+        sql: select * from tradinglog2022 WHERE EXCHID ='0' AND STKID IN('603890','688989','600693','688060') AND REGID ='A117213000' and RECKONINGTIME>={BEGINTIME} and RECKONINGTIME<={ENDTIME}
+        ignore: KNOCKTIME,RECKONINGTIME,TRANSACTIONREF,POSTAMT,OCCURTIME,SERIALNUM
