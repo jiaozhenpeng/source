@@ -219,6 +219,12 @@ DVP:
     excelPath: F:\source\用例数据\沪A\DVP改革\违约处置（T+2）\测试结果.xlsx
 #    sqlPath: F:\source\用例数据\沪A\DVP改革\违约处置（T+2）\stkinfo.sql
 
+#备付金改革
+  BFJGG:
+    dbfPath: F:\source\用例数据\沪A\DVP改革\备付金改革
+    excelPath: F:\source\用例数据\沪A\DVP改革\备付金改革\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\DVP改革\备付金改革\stkinfo.sql
+
 #上证lof
 #lof申购
 lofshengou:

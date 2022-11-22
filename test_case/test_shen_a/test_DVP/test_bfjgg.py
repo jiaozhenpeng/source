@@ -9,17 +9,17 @@ from public_method.dbf_operation import creat_new_dbf
 
 class BlockTrade(unittest.TestCase):
     """
-    股转\DVP改革\可售交收冻结（T日）
+    深A\DVP改革\备付金改革
     """
-    yaml = BaseAction().read_yaml(path=PathConfig().share_reconciliation())['DVP']['Tday']
+    yaml = BaseAction().read_yaml(path=PathConfig().shen_a())['DVP']['BFJGG']
 
     def test_block_trade(self):
         """
-        股转\DVP改革\可售交收冻结（T日）
+        深A\DVP改革\备付金改革
         :return:
         """
         logger().info('-------------------------------')
-        logger().info('开始执行：股转\DVP改革\可售交收冻结（T日） 准备数据')
+        logger().info('开始执行：深A\DVP改革\备付金改革 准备数据')
         dbf_path = self.yaml['dbfPath']
         dbf_result = creat_new_dbf(dbf_path)
         if not dbf_result:
@@ -32,10 +32,10 @@ class BlockTrade(unittest.TestCase):
         oracle = OracleDatabase()
         sql_result = oracle.update_sql(*sql)
         if not sql_result:
-            logger().info('股转\DVP改革\可售交收冻结（T日） 准备数据完成')
+            logger().info('深A\DVP改革\备付金改革 准备数据完成')
             assert True
         else:
-            logger().error('股转\DVP改革\可售交收冻结（T日） 准备数据异常')
+            logger().error('深A\DVP改革\备付金改革 准备数据异常')
             assert False, sql_result
 
 

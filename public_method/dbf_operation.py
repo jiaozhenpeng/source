@@ -17,6 +17,7 @@ class DbfOperation():
     t = OracleDatabase().get_trade_date()
     t1 = OracleDatabase().get_trade_date(1)
     t2 = OracleDatabase().get_trade_date(2)
+    t5 = OracleDatabase().get_trade_date(5)
     lasttradedate1 = OracleDatabase().get_last_trade_date(1)
 
     def __init__(self, path):
@@ -507,8 +508,10 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                if rec['FWSJLB'] in ('11', '13', '21', '22'):
+                if rec['FWSJLB'] in ('11', '13', '21', '22','01'):
                     rec['FWCLRQ'], rec['FWFSRQ'] = cjrq, fsrq
+                elif rec['FWSJLB'] in ('04','03'):
+                    rec['FWCLRQ'], rec['FWFSRQ'] = self.t5, fsrq
             records.append(record)
         table.close()
         return records
@@ -732,8 +735,18 @@ class DbfOperation():
         return self.get_data()
 
     def tzxx_file(self):
-        # 已验证 TZLB(通知类别) 006,041
-        return self.get_data(TZRQ=self.t, RQ1=self.t)
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                rec['TZRQ'] = self.t
+                if rec['TZLB'] in ('006','041'):
+                    rec['RQ1'] = self.t
+                elif rec['TZLB'] in ('020','030','050'):
+                    rec['RQ1'],rec['RQ2'] = self.t5,self.lasttradedate1
+            records.append(record)
+        table.close()
+        return records
 
     def op_tzxx_file(self):
         return self.get_data(TZRQ=self.t, RQ1=self.t)
@@ -910,7 +923,7 @@ class DbfOperation():
         table.close()
         return records
 
-    def bjggb_file(self, cjrq=None):
+    def bjsgb_file(self, cjrq=None):
         if cjrq is None:
             cjrq = self.t
         records = []
@@ -923,6 +936,23 @@ class DbfOperation():
             records.append(record)
         table.close()
         return records
+
+
+    def bjsfw_file(self, cjrq=None):
+        if cjrq is None:
+            cjrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                rec['FWCLRQ'] = self.replace_time(rec['FWCLRQ'], cjrq)
+                rec['FWFSRQ'] = self.replace_time(rec['FWCLRQ'], cjrq)
+                if rec['FWSJLB'] == '03':
+                    rec['FWCLRQ'] = self.replace_time(rec['FWCLRQ'], self.t5)
+            records.append(record)
+        table.close()
+        return records
+
 
     def bjgzj_file(self, cjrq=None):
         if cjrq is None:

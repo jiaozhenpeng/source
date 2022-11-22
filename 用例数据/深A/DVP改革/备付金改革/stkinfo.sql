@@ -1,0 +1,1 @@
+delete from exchangemessage where exchid='1' and messagetype in('01','03','04');
