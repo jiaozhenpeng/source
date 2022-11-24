@@ -1,0 +1,88 @@
+Socket=192.168.3.35@59916 clientId=282 serialNum=1223111503000000638 state=1 time=2019-12-23 11:16:54.489 cost=2.569 successflag=0 bcnt=1 ecnt=43
+head:	type=1250, len=98, MAC="086266275F52", srcAddr="192.168.3.35@59916", checkSum="0", flags=2, serial="0", funcCode="02500301"
+request:
+	field_0:  recordcnt=1,  compressflag=1,  guid="b1cbf2abd79b4d5caabee6d5ab37f288",  
+	field_1:  optid="99990",  optpwd="jLsk6z4R",  optmode="A0",  tacode="0",  filetype="06",  
+response:
+	field_0:  successflg=0,  recordcnt=43,  
+	field_1:  tacode="0",  filetype="06",  linenumber=1,  linelabel="OFDCFDAT",  linevalue="OFDCFDAT",  linetype="HEAD",  dicname="",  
+	field_2:  tacode="0",  filetype="06",  linenumber=2,  linelabel="VERSION",  linevalue="10",  linetype="HEAD",  dicname="",  
+	field_3:  tacode="0",  filetype="06",  linenumber=3,  linelabel="SENDER",  linevalue="",  linetype="HEAD",  dicname="",  
+	field_4:  tacode="0",  filetype="06",  linenumber=4,  linelabel="RECEIVER",  linevalue="",  linetype="HEAD",  dicname="",  
+	field_5:  tacode="0",  filetype="06",  linenumber=5,  linelabel="DATE",  linevalue="20191223",  linetype="HEAD",  dicname="",  
+	field_6:  tacode="0",  filetype="06",  linenumber=6,  linelabel="NEWLINE",  linevalue="NEWLINE",  linetype="HEAD",  dicname="",  
+	field_7:  tacode="0",  filetype="06",  linenumber=7,  linelabel="DESKID",  linevalue="",  linetype="HEAD",  dicname="",  
+	field_8:  tacode="0",  filetype="06",  linenumber=8,  linelabel="FIELDCOUNT",  linevalue="032",  linetype="FIELDCOUNT",  dicname="",  
+	field_9:  tacode="0",  filetype="06",  linenumber=9,  linelabel="FIELD1",  linevalue="FundCode",  linetype="FIELD",  dicname="stkId",  
+	field_10:  tacode="0",  filetype="06",  linenumber=10,  linelabel="FIELD2",  linevalue="TAAccountID",  linetype="FIELD",  dicname="offerRegId",  
+	field_11:  tacode="0",  filetype="06",  linenumber=11,  linelabel="FIELD3",  linevalue="BasisforCalculatingDividend",  linetype="FIELD",  dicname="basisforCalculatingDividend",  
+	field_12:  tacode="0",  filetype="06",  linenumber=12,  linelabel="FIELD4",  linevalue="TransactionCfmDate",  linetype="FIELD",  dicname="knockTime",  
+	field_13:  tacode="0",  filetype="06",  linenumber=13,  linelabel="FIELD5",  linevalue="VolOfDividendforReinvestment",  linetype="FIELD",  dicname="volOfDividendforReinvestment",  
+	field_14:  tacode="0",  filetype="06",  linenumber=14,  linelabel="FIELD6",  linevalue="DividentDate",  linetype="FIELD",  dicname="dividentDate",  
+	field_15:  tacode="0",  filetype="06",  linenumber=15,  linelabel="FIELD7",  linevalue="DividendAmount",  linetype="FIELD",  dicname="dividendAmount",  
+	field_16:  tacode="0",  filetype="06",  linenumber=16,  linelabel="FIELD8",  linevalue="XRDate",  linetype="FIELD",  dicname="XRDate",  
+	field_17:  tacode="0",  filetype="06",  linenumber=17,  linelabel="FIELD9",  linevalue="ConfirmedAmount",  linetype="FIELD",  dicname="reckoningAmt",  
+	field_18:  tacode="0",  filetype="06",  linenumber=18,  linelabel="FIELD10",  linevalue="RegistrationDate",  linetype="FIELD",  dicname="registrationDate",  
+	field_19:  tacode="0",  filetype="06",  linenumber=19,  linelabel="FIELD11",  linevalue="ReturnCode",  linetype="FIELD",  dicname="returnCode",  
+	field_20:  tacode="0",  filetype="06",  linenumber=20,  linelabel="FIELD12",  linevalue="TransactionAccountID",  linetype="FIELD",  dicname="transactionAccountId",  
+	field_21:  tacode="0",  filetype="06",  linenumber=21,  linelabel="FIELD13",  linevalue="DistributorCode",  linetype="FIELD",  dicname="distributorCode",  
+	field_22:  tacode="0",  filetype="06",  linenumber=22,  linelabel="FIELD14",  linevalue="BusinessCode",  linetype="FIELD",  dicname="businessCode",  
+	field_23:  tacode="0",  filetype="06",  linenumber=23,  linelabel="FIELD15",  linevalue="DividendPerUnit",  linetype="FIELD",  dicname="dividendPerUnit",  
+	field_24:  tacode="0",  filetype="06",  linenumber=24,  linelabel="FIELD16",  linevalue="DefDividendMethod",  linetype="FIELD",  dicname="defDividendMethod",  
+	field_25:  tacode="0",  filetype="06",  linenumber=25,  linelabel="FIELD17",  linevalue="Charge",  linetype="FIELD",  dicname="commision",  
+	field_26:  tacode="0",  filetype="06",  linenumber=26,  linelabel="FIELD18",  linevalue="AgencyFee",  linetype="FIELD",  dicname="agencyFee",  
+	field_27:  tacode="0",  filetype="06",  linenumber=27,  linelabel="FIELD19",  linevalue="TotalFrozenVol",  linetype="FIELD",  dicname="totalFrozenVol",  
+	field_28:  tacode="0",  filetype="06",  linenumber=28,  linelabel="FIELD20",  linevalue="NAV",  linetype="FIELD",  dicname="NAV",  
+	field_29:  tacode="0",  filetype="06",  linenumber=29,  linelabel="FIELD21",  linevalue="OtherFee1",  linetype="FIELD",  dicname="otherFee1",  
+	field_30:  tacode="0",  filetype="06",  linenumber=30,  linelabel="FIELD22",  linevalue="OtherFee2",  linetype="FIELD",  dicname="otherFee2",  
+	field_31:  tacode="0",  filetype="06",  linenumber=31,  linelabel="FIELD23",  linevalue="IndividualOrInstitution",  linetype="FIELD",  dicname="individualOrInstitution",  
+	field_32:  tacode="0",  filetype="06",  linenumber=32,  linelabel="FIELD24",  linevalue="DividendRatio",  linetype="FIELD",  dicname="dividendRatio",  
+	field_33:  tacode="0",  filetype="06",  linenumber=33,  linelabel="FIELD25",  linevalue="TASerialNO",  linetype="FIELD",  dicname="TASerialNO",  
+	field_34:  tacode="0",  filetype="06",  linenumber=34,  linelabel="FIELD26",  linevalue="StampDuty",  linetype="FIELD",  dicname="stampTax",  
+	field_35:  tacode="0",  filetype="06",  linenumber=35,  linelabel="FIELD27",  linevalue="FrozenBalance",  linetype="FIELD",  dicname="frozenBalance",  
+	field_36:  tacode="0",  filetype="06",  linenumber=36,  linelabel="FIELD28",  linevalue="TransferFee",  linetype="FIELD",  dicname="exchTransFee",  
+	field_37:  tacode="0",  filetype="06",  linenumber=37,  linelabel="FIELD29",  linevalue="ShareClass",  linetype="FIELD",  dicname="shareClass",  
+	field_38:  tacode="0",  filetype="06",  linenumber=38,  linelabel="FIELD30",  linevalue="FeeCalculator",  linetype="FIELD",  dicname="feeCalculator",  
+	field_39:  tacode="0",  filetype="06",  linenumber=39,  linelabel="FIELD31",  linevalue="DownLoaddate",  linetype="FIELD",  dicname="downLoaddate",  
+	field_40:  tacode="0",  filetype="06",  linenumber=40,  linelabel="FIELD32",  linevalue="CurrencyType",  linetype="FIELD",  dicname="currencyType",  
+	field_41:  tacode="0",  filetype="06",  linenumber=41,  linelabel="DATACOUNT",  linevalue="",  linetype="DATACOUNT",  dicname="",  
+	field_42:  tacode="0",  filetype="06",  linenumber=42,  linelabel="DATAAREA",  linevalue="",  linetype="DATA",  dicname="",  
+	field_43:  tacode="0",  filetype="06",  linenumber=43,  linelabel="OFDCFEND",  linevalue="OFDCFEND",  linetype="TAIL",  dicname="",  
+--------------------------- 02500301 ：获得接口文件结构定义 <2019-12-23 11:16:54.487,serialNum:1223111503000000638> begin ---------------------------;
+time=11:16:54 488, cost=0.428, sn=1223111503000000638, sid=218, index=0, sql=SELECT * FROM OFS_FileTypeStruct WHERE TACode='0' AND fileType IN ('06') ORDER BY TACode,fileType,lineNumber;
+--------------------------- 02500301 ：获得接口文件结构定义 <2019-12-23 11:16:54.489,serialNum:1223111503000000638> end ---------------------------;
+
+
+Socket=192.168.3.35@59839 clientId=253 serialNum=1223111503000000537 state=1 time=2019-12-23 11:16:39.16 cost=1.453 successflag=0 bcnt=1 ecnt=0
+head:	type=1050, len=106, MAC="086266275F52", srcAddr="192.168.3.35@59839", checkSum="0", flags=2, serial="0", funcCode="00501500"
+request:
+	field_0:  recordcnt=1,  compressflag=1,  guid="3c1cdfac917c4967b1aadf1b55442ac0",  
+	field_1:  optid="99990",  optpwd="jLsk6z4R",  optmode="A0",  exchid="0",  knocktime="2019-12-23",  
+response:
+	field_0:  successflg=0,  recordcnt=0,  
+--------------------------- 00501500 ：转入开放式基金交易数据前初始化 <2019-12-23 11:16:39.159,serialNum:1223111503000000537> begin ---------------------------;
+time=11:16:39 160, cost=0.479, sn=1223111503000000537, sid=593, index=0, sql=SELECT * FROM ReckoningOptLog WHERE occurTime=20191223000000 AND optItem='Delivery' AND exchId='0';
+--------------------------- 00501500 ：转入开放式基金交易数据前初始化 <2019-12-23 11:16:39.16,serialNum:1223111503000000537> end ---------------------------;
+
+	
+Socket=192.168.3.35@59842 clientId=256 serialNum=1223111503000000541 state=1 time=2019-12-23 11:16:39.344 cost=101.657 successflag=0 bcnt=1 ecnt=0
+head:	type=1052, len=209, MAC="086266275F52", srcAddr="192.168.3.35@59842", checkSum="0", flags=2, serial="0", funcCode="00520101"
+request:
+	field_0:  recordcnt=1,  compressflag=1,  guid="f6ee67dae9ea44bb816887875cfb7348",  
+	field_1:  optid="99990",  optpwd="jLsk6z4R",  optmode="A0",  exchid="0",  dbfid="JJK_KHL",  pathdeskid="20140",  status=1,  failinfo="",  pathflag=20,  totalnum=2,  mdbffullpath2="E:\清算文件\现货\沪市\场内开放式基金\khl20507.txt",  percentprogress=40,  jobid="B020",  
+response:
+	field_0:  successflg=0,  recordcnt=0,  
+	
+	
+	Socket=192.168.3.35@59841 clientId=255 serialNum=1223111503000000539 state=1 time=2019-12-23 11:16:39.237 cost=37.314 successflag=0 bcnt=2 ecnt=0
+head:	type=1050, len=1075, MAC="086266275F52", srcAddr="192.168.3.35@59841", checkSum="0", flags=2, serial="0", funcCode="00501510"
+request:
+	field_0:  recordcnt=2,  compressflag=1,  guid="36d97567ed244859b137e67fc2962950",  
+	field_1:  optid="99990",  optpwd="jLsk6z4R",  optmode="A0",  tacode="0",  dbfid="JJK_KHL",  exchid="0",  deskid="20507",  stkid="519008",  offerregid="A609285946",  basisforcalculatingdividend=91818.0,  knocktime="20180116",  volofdividendforreinvestment=0.0,  dividentdate="20180116",  dividendamount=10430.52,  xrdate="20180115",  reckoningamt=10430.52,  registrationdate="20180115",  returncode="0000",  transactionaccountid="20507A609285946",  distributorcode="101",  businesscode="143",  dividendperunit=1.13,  defdividendmethod="1",  commision=0.0,  agencyfee=0.0,  totalfrozenvol=0.0,  nav=0.0,  otherfee1=0.0,  otherfee2=0.0,  individualorinstitution="1",  dividendratio=0.0,  taserialno="99180115678000000003",  stamptax=0.0,  frozenbalance=0.0,  exchtransfee=0.0,  shareclass="0",  feecalculator="",  downloaddate="20180116",  currencyid="00",  currencytype="00",  
+	field_2:  tacode="0",  dbfid="JJK_KHL",  exchid="0",  deskid="20507",  stkid="519008",  offerregid="A609285946",  basisforcalculatingdividend=91818.0,  knocktime="20180116",  volofdividendforreinvestment=0.0,  dividentdate="20180116",  dividendamount=10430.52,  xrdate="20180115",  reckoningamt=10430.52,  registrationdate="20180115",  returncode="0000",  transactionaccountid="20507A609285946",  distributorcode="101",  businesscode="143",  dividendperunit=1.13,  defdividendmethod="1",  commision=0.0,  agencyfee=0.0,  totalfrozenvol=0.0,  nav=0.0,  otherfee1=0.0,  otherfee2=0.0,  individualorinstitution="1",  dividendratio=0.0,  taserialno="99180115678000000003",  stamptax=0.0,  frozenbalance=0.0,  exchtransfee=0.0,  shareclass="0",  feecalculator="",  downloaddate="20180116",  currencyid="00",  currencytype="00",  
+response:
+	field_0:  successflg=0,  recordcnt=0,  
+--------------------------- 00501510 ：转入开放式基金交易数据 <2019-12-23 11:16:39.2,serialNum:1223111503000000539> begin ---------------------------;
+time=11:16:39 202, cost=1.058, sn=1223111503000000539, sid=593, sql=INSERT INTO FundTradeResult (serialNum,reckoningTime,exchId,deskId,stkId,offerRegId,knockTime,knockQty,reckoningAmt,orderTime,orderQty,orderAmt,businessCode,TASerialNO,returnCode,backendLoad,discountRateOfCommission,commision,agencyFee,stampTax,rateFee,exchTransFee,handlingFee,otherFee1,otherFee2,NAV,shareClass,totalBackendLoad,feeCalculator,freezingDeadline,volumeByInterest,defDividendMethod,mark,basisforCalculatingDividend,volOfDividendforReinvestment,dividentDate,dividendAmount,XRDate,registrationDate,totalFrozenVol,individualOrInstitution,dividendRatio,frozenBalance,validFlag,dbfId,targetNAV,targetFundPrice,cfmVolOfTargetFund,knockQtyF,interest) VALUES(30150098,20191223111638,'0','20507','519008','A609285946',20180116000000,0.0,10430.52,20180116000000,0.0,0.0,'143','99180115678000000003','0000',0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,'0',0.0,'',-1,0.0,'1',0,91818.0,0.0,20180116000000,10430.52,20180115000000,20180115000000,0.0,'1',0.0,0.0,-1,'JJK_KHL',0.0,0.0,0.0,0.0,0.0);
+time=11:16:39 237, cost=6.771, sn=1223111503000000539, sid=593, index=0, sql=SELECT * FROM FundTradeResult WHERE orderTime=20180116000000 AND offerRegId='A609285946' AND exchId='0' AND deskId='20507' AND stkId='519008' AND businessCode='143';
+--------------------------- 00501510 ：转入开放式基金交易数据 <2019-12-23 11:16:39.237,serialNum:1223111503000000539> end ---------------------------;
