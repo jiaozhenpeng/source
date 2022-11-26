@@ -281,6 +281,76 @@ class DbfOperation():
         table.close()
         return records
 
+    # 处理cil文件，
+    def cil_kj_file(self, cjrq=None, qsrq=None, jsrq=None):
+        """
+        修改成交日期，获取修改日期后的dbf文件数据列表
+        :param cjrq:
+        :return:
+        """
+        if cjrq is None:
+            cjrq = self.lasttradedate1
+        if qsrq is None:
+            qsrq = self.t
+        if jsrq is None:
+            jsrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                if rec['ZJLX'] == '02':  # 02基金收益的成交日期交收日期都为当日
+                    rec['JSRQ'],rec['JYRQ'] = qsrq, qsrq
+            records.append(record)
+        table.close()
+        return records
+
+    # 处理cil文件，
+    def cil_ks_file(self, cjrq=None, qsrq=None, jsrq=None):
+        """
+        修改成交日期，获取修改日期后的dbf文件数据列表
+        :param cjrq:
+        :return:
+        """
+        if cjrq is None:
+            cjrq = self.lasttradedate1
+        if qsrq is None:
+            qsrq = self.t
+        if jsrq is None:
+            jsrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                if rec['ZJLX'] == '02':  # 02基金收益的成交日期交收日期都为当日
+                    rec['JSRQ'],rec['JYRQ'] = qsrq, qsrq
+            records.append(record)
+        table.close()
+        return records
+
+        # 处理cil文件，
+
+    def etftbk_file(self, cjrq=None, qsrq=None, jsrq=None):
+        """
+        修改成交日期，获取修改日期后的dbf文件数据列表
+        :param cjrq:
+        :return:
+        """
+        if cjrq is None:
+            cjrq = self.lasttradedate1
+        if qsrq is None:
+            qsrq = self.t
+        if jsrq is None:
+            jsrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                if rec['ZJLX'] == '203':  # 203基金收益的成交日期交收日期都为当日
+                    rec['JSRQ'], rec['JYRQ'] = qsrq, qsrq
+            records.append(record)
+        table.close()
+        return records
+
     # 处理其他数量
     def qtsl_file(self):
         records = []

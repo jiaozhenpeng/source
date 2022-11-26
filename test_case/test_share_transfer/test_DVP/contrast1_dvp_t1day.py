@@ -11,7 +11,7 @@ class ContrastRestrictedShares(unittest.TestCase):
     """
     股转\DVP改革\转处置冻结（T+1日）
     """
-    yaml = BaseAction().read_yaml(path=PathConfig().shen_a())['DVP']['Tday1']
+    yaml = BaseAction().read_yaml(path=PathConfig().share_reconciliation())['DVP']['Tday1']
 
     def test_restricted_shares(self):
         """

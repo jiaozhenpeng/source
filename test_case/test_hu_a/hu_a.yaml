@@ -248,6 +248,17 @@ lofshuhui:
     dbfPath: F:\source\用例数据\沪A\上证lof\赎回\T+1日
     excelPath: F:\source\用例数据\沪A\上证lof\赎回\T+1日\测试结果.xlsx
 
+#    申购赎回同一天
+lofshenshu:
+  Tday:
+    dbfPath: F:\source\用例数据\沪A\上证lof\当天同时申购赎回\Tday
+    excelPath: F:\source\用例数据\沪A\上证lof\当天同时申购赎回\Tday\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\上证lof\当天同时申购赎回\Tday\stkinfo.sql
+
+  T1day:
+    dbfPath: F:\source\用例数据\沪A\上证lof\当天同时申购赎回\T+1日
+    excelPath: F:\source\用例数据\沪A\上证lof\当天同时申购赎回\T+1日\测试结果.xlsx
+
 #lof竞价平台交易
 buysell:
   dbfPath: F:\source\用例数据\沪A\上证lof\竞价平台交易
@@ -281,5 +292,15 @@ lofrengou:
   T1day:
     dbfPath: F:\source\用例数据\沪A\上证lof\lof认购\T+1日
     excelPath: F:\source\用例数据\沪A\上证lof\lof认购\T+1日\测试结果.xlsx
+
+#货币etf基金收益 第一天验证cil，第二天验证etftbk
+etfjjsy:
+  cil:
+    dbfPath: F:\source\用例数据\沪A\ETF业务\基金收益\使用cil
+    excelPath: F:\source\用例数据\沪A\ETF业务\基金收益\使用cil\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\ETF业务\基金收益\使用cil\stkinfo.sql
+  etftbk:
+    dbfPath: F:\source\用例数据\沪A\ETF业务\基金收益\使用etftbk
+    excelPath: F:\source\用例数据\沪A\ETF业务\基金收益\使用etftbk\测试结果.xlsx
 
 

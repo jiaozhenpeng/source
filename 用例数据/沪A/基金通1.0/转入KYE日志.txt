@@ -1,3 +1,5 @@
+注意：入参中席位是路径的席位
+
 Socket=192.168.3.35@59917 clientId=283 serialNum=1223111503000000639 state=1 time=2019-12-23 11:16:54.494 cost=1.91 successflag=0 bcnt=1 ecnt=20
 head:	type=1250, len=98, MAC="086266275F52", srcAddr="192.168.3.35@59917", checkSum="0", flags=2, serial="0", funcCode="02500301"
 request:
@@ -30,57 +32,89 @@ time=11:16:54 493, cost=0.471, sn=1223111503000000639, sid=218, index=0, sql=SEL
 --------------------------- 02500301 ：获得接口文件结构定义 <2019-12-23 11:16:54.494,serialNum:1223111503000000639> end ---------------------------;
 
 
-Socket=192.168.3.35@59845 clientId=258 serialNum=1223111503000000544 state=1 time=2019-12-23 11:16:39.477 cost=7.632 successflag=0 bcnt=1 ecnt=0
-head:	type=1050, len=106, MAC="086266275F52", srcAddr="192.168.3.35@59845", checkSum="0", flags=2, serial="0", funcCode="00501500"
+Socket=192.168.4.1@60260 clientId=538 serialNum=1125090326000000625 state=1 time=2022-11-25 09:06:31.745 cost=5.616 successflag=0 bcnt=1 ecnt=0
+head:	type=1050, len=24, MAC="70B5E8707235", srcAddr="192.168.4.1@60260", checkSum="-3990", flags=257, serial="148", funcCode="00501540"
 request:
-	field_0:  recordcnt=1,  compressflag=1,  guid="a9d782a620564a099174785c27ac2862",  
-	field_1:  optid="99990",  optpwd="jLsk6z4R",  optmode="A0",  exchid="0",  knocktime="2019-12-23",  
+	field_0:  recordcnt=1,  apitype="Stock",  apiversion="2.2.7.0",  terminalinfo="PC;IIP=NA;IPORT=NA;LIP=192.168.4.1;MAC=70B5E8707235;HD=417AZRZMS;PCN=JIAOZHENPENG;CPU=BFEBFBFF000A0671;PI=C^NTFS^138.25G;VOL=0005-2FC7",  compressflag=1,  
+	field_1:  optmode="A0",  optid="99990",  optpwd="qpi21uyC ",  exchid="0",  deskid="00W40",  knocktime="2022-11-25",  
 response:
-	field_0:  successflg=0,  recordcnt=0,  
---------------------------- 00501500 ：转入开放式基金交易数据前初始化 <2019-12-23 11:16:38.402,serialNum:1223111503000000526> begin ---------------------------;
-time=11:16:38 440, cost=0.279, sn=1223111503000000526, sid=412, index=0, sql=SELECT * FROM ReckoningOptLog WHERE occurTime=20191223000000 AND optItem='Delivery' AND exchId='0';
---------------------------- 00501500 ：转入开放式基金交易数据前初始化 <2019-12-23 11:16:38.44,serialNum:1223111503000000526> end ---------------------------;
+	field_0:  successflg=0,  recordcnt=0,  guid="",  
+
+--------------------------- 00501540 ：转入开放式基金份额对帐数据前初始化 <2022-11-25 09:06:31.739, nano:49610593918200, serialNum:1125090326000000625> begin ---------------------------;
+
+time=2022-11-25 09:06:31.741, nano=49610595465100, cost=0.251, sn=1125090326000000625, sid=4, index=0, sql=SELECT * FROM ReckoningOptLog WHERE occurTime=20221125000000 AND optItem='Delivery' AND exchId='0';
+
+time=2022-11-25 09:06:31.744, nano=49610599055400, cost=2.428, sn=1125090326000000625, sid=4, sql=DELETE FROM FundAuditingError WHERE exchId='0' AND deskId='00W40' AND occurTime>=20221125000000 AND occurTime<=20221125235959;
+
+--------------------------- 00501540 ：转入开放式基金份额对帐数据前初始化 <2022-11-25 09:06:31.744, nano:49610599229100, serialNum:1125090326000000625> end ---------------------------;
 
 
-
-
-
-Socket=192.168.3.35@59848 clientId=260 serialNum=1223111503000000546 state=1 time=2019-12-23 11:16:39.667 cost=36.092 successflag=0 bcnt=2 ecnt=0
-head:	type=1050, len=461, MAC="086266275F52", srcAddr="192.168.3.35@59848", checkSum="0", flags=2, serial="0", funcCode="00501550"
+Socket=192.168.4.1@60261 clientId=539 serialNum=1125090326000000626 state=1 time=2022-11-25 09:06:31.775 cost=2.622 successflag=0 bcnt=2 ecnt=0
+head:	type=1050, len=24, MAC="70B5E8707235", srcAddr="192.168.4.1@60261", checkSum="-11453", flags=257, serial="149", funcCode="00501550"
 request:
-	field_0:  recordcnt=2,  compressflag=1,  guid="b64a4356e7184678bd1c312339e758d1",  
-	field_1:  optid="99990",  optpwd="jLsk6z4R",  optmode="A0",  tacode="0",  dbfid="JJK_KYE",  exchid="0",  deskid="20140",  stkid="519008",  regid="A110328000",  availablevol=91617.0,  totalvolofdistributorinta=91818.0,  totalfrozenvol=201.0,  totalbackendload=0.0,  accountstatus="0",  undistributemonetaryincome=0.0,  guaranteedamount=0.0,  
-	field_2:  tacode="0",  dbfid="JJK_KYE",  exchid="0",  deskid="20140",  stkid="519909",  regid="A609285946",  availablevol=3.0,  totalvolofdistributorinta=3.0,  totalfrozenvol=0.0,  totalbackendload=0.0,  accountstatus="0",  undistributemonetaryincome=0.0,  guaranteedamount=0.0,  
+	field_0:  recordcnt=2,  apitype="Stock",  apiversion="2.2.7.0",  terminalinfo="PC;IIP=NA;IPORT=NA;LIP=192.168.4.1;MAC=70B5E8707235;HD=417AZRZMS;PCN=JIAOZHENPENG;CPU=BFEBFBFF000A0671;PI=C^NTFS^138.25G;VOL=0005-2FC7",  compressflag=1,  
+	field_1:  optmode="A0",  optid="99990",  optpwd="qpi21uyC ",  tacode="0",  dbfid="JJK_KYE",  exchid="0",  deskid="00W40",  stkid="519002",  regid="A117322000",  availablevol=91818.0,  totalvolofdistributorinta=91818.0,  totalfrozenvol=0.0,  totalbackendload=0.0,  accountstatus="0",  undistributemonetaryincome=0.0,  guaranteedamount=0.0,  
+	field_2:  tacode="0",  dbfid="JJK_KYE",  exchid="0",  deskid="00W40",  stkid="519001",  regid="A117322000",  availablevol=3.0,  totalvolofdistributorinta=3.0,  totalfrozenvol=0.0,  totalbackendload=0.0,  accountstatus="0",  undistributemonetaryincome=0.0,  guaranteedamount=0.0,  
 response:
-	field_0:  successflg=0,  recordcnt=0,  
---------------------------- 00501550 ：转入开放式基金份额对帐数据 <2019-12-23 11:16:39.633,serialNum:1223111503000000546> begin ---------------------------;
-time=11:16:39 662, cost=24.533, sn=1223111503000000546, sid=399, sql=INSERT INTO FundAuditingError VALUES(20191223111639,'0','20140','A110328000','519008',91617.0,0,91818.0,0,201.0,0,0.0,'0',0.0,0.0,-1,'JJK_KYE','');
-time=11:16:39 664, cost=0.99, sn=1223111503000000546, sid=399, sql=INSERT INTO FundAuditingError VALUES(20191223111639,'0','20140','A609285946','519909',3.0,0,3.0,0,0.0,0,0.0,'0',0.0,0.0,-1,'JJK_KYE','');
---------------------------- 00501550 ：转入开放式基金份额对帐数据 <2019-12-23 11:16:39.667,serialNum:1223111503000000546> end ---------------------------;
+	field_0:  successflg=0,  recordcnt=0,  guid="",  
+--------------------------- 00501550 ：转入开放式基金份额对帐数据 <2022-11-25 09:06:31.773, nano:49610627269800, serialNum:1125090326000000626> begin ---------------------------;
+
+time=2022-11-25 09:06:31.774, nano=49610628248000, cost=0.805, sn=1125090326000000626, sid=4, sql=INSERT INTO FundAuditingError VALUES(20221125090631,'0','00W40','A117322000','519002',91818.0,0,91818.0,0,0.0,0,0.0,'0',0.0,0.0,-1,'JJK_KYE','');
+
+time=2022-11-25 09:06:31.774, nano=49610629087700, cost=0.444, sn=1125090326000000626, sid=4, sql=INSERT INTO FundAuditingError VALUES(20221125090631,'0','00W40','A117322000','519001',3.0,0,3.0,0,0.0,0,0.0,'0',0.0,0.0,-1,'JJK_KYE','');
+
+--------------------------- 00501550 ：转入开放式基金份额对帐数据 <2022-11-25 09:06:31.775, nano:49610629491200, serialNum:1125090326000000626> end ---------------------------;
 
 
-
-
-Socket=192.168.3.35@59851 clientId=261 serialNum=1223111503000000548 state=1 time=2019-12-23 11:16:39.776 cost=105.73 successflag=0 bcnt=1 ecnt=0
-head:	type=1052, len=209, MAC="086266275F52", srcAddr="192.168.3.35@59851", checkSum="0", flags=2, serial="0", funcCode="00520101"
+Socket=192.168.4.1@60262 clientId=540 serialNum=1125090326000000627 state=1 time=2022-11-25 09:06:31.878 cost=72.704 successflag=0 bcnt=1 ecnt=0
+head:	type=1050, len=24, MAC="70B5E8707235", srcAddr="192.168.4.1@60262", checkSum="15555", flags=257, serial="150", funcCode="00501560"
 request:
-	field_0:  recordcnt=1,  compressflag=1,  guid="c1856a601e044610bdb7208a3dc7b10c",  
-	field_1:  optid="99990",  optpwd="jLsk6z4R",  optmode="A0",  exchid="0",  dbfid="JJK_KYE",  pathdeskid="20140",  status=1,  failinfo="",  pathflag=20,  totalnum=2,  mdbffullpath2="E:\清算文件\现货\沪市\场内开放式基金\kye20140.txt",  percentprogress=60,  jobid="B020",  
+	field_0:  recordcnt=1,  apitype="Stock",  apiversion="2.2.7.0",  terminalinfo="PC;IIP=NA;IPORT=NA;LIP=192.168.4.1;MAC=70B5E8707235;HD=417AZRZMS;PCN=JIAOZHENPENG;CPU=BFEBFBFF000A0671;PI=C^NTFS^138.25G;VOL=0005-2FC7",  compressflag=1,  
+	field_1:  optmode="A0",  optid="99990",  optpwd="qpi21uyC ",  exchid="0",  deskid="00W40",  
 response:
-	field_0:  successflg=0,  recordcnt=0,  
---------------------------- 00520101 ：新清算设置文件转入状态 <2019-12-23 11:16:39.67,serialNum:1223111503000000548> begin ---------------------------;
-time=11:16:39 692, cost=1.128, sn=1223111503000000548, sid=399, sql=UPDATE todayTradeRslt SET reckoningFlag = 0 WHERE exchId = '0' AND dbfId = 'JJK_KYE' AND (knockQty < 0 OR SUBSTR(orderType, 2, 1) = 'C' OR SUBSTR(orderType, 2, 1) = 'c') AND reckoningFlag = 1;
-time=11:16:39 705, cost=9.741, sn=1223111503000000548, sid=399, sql=DELETE FROM todayTradeRslt WHERE (exchId, deskId) NOT IN (('1', '077000'),('1', '077001'),('F', '001lsl'),('0', '20178'),('4', 'XYHHG'),('5', '11112'),('S', '10210'),('Z', '000001'),('S', '10330'),('0', '10000'),('1', '202010'),('1', '876521'),('0', 'XYHSH'),('0', '70311'),('1', 'KXY1'),('0', '10001'),('Z', '13000'),('D', '010722'),('F', '010728'),('Z', '010724'),('D', '13000'),('4', '211800'),('F', '100505'),('X', '10001'),('1', 'GRSQQ'),('X', '10000'),('1', '077022'),('F', '030303'),('X', '20142'),('F', '100501'),('X', '20141'),('F', '100502'),('X', '20140'),('Z', '22222222'),('D', '100300'),('F', '014501'),('1', '20000'),('F', '12238'),('4', '003719'),('Y', '077001'),('7', '700001'),('4', '555021'),('1', '077011'),('Y', 'GRSQQ'),('Y', '20000'),('S', '0005cac'),('F', '000001'),('0', '20140'),('0', '20142'),('D', '010501'),('0', '20141'),('4', '277300'),('Y', '077011'),('0', '21748'),('0', '00009'),('Y', '003719'),('0', '88845'),('Z', '030303'),('F', '100200'),('0', '88847'),('0', '05023'),('S', '13000'),('D', 'D00002'),('D', 'D00001'),('1', 'XYHSZ'),('1', '054322'),('5', '20142'),('D', '10210'),('5', '20144'),('4', '675112'),('Z', '10330'),('5', 'KXY0'),('S', '030303'),('5', '20140'),('5', '67511'),('D', '10330'),('Z', '10210'),('F', '66666'),('8', 'TY0001'),('N', '10000'),('S', '0003cac'),('3', '055021'),('3', 'HB0000'),('0', '13200'),('5', 'M0001'),('4', 'KXY1'),('Z', '10000'),('F', '13000'),('N', '10210'),('S', '0004cac'),('D', '054322'),('3', '000689'),('3', '555022'),('3', '003719'),('0', '11111'),('1', '000090'),('Y', '888888'),('D', '66666'),('F', '204301'),('X', '11111'),('1', '66666'),('S', '000001'),('1', '022011'),('S', '010723'),('F', '123123'),('1', '888477'),('1', '211800'),('D', '10000'),('0', '12389'),('4', '077001'),('N', 'NY0001'),('1', '077077'),('0', '18021'),('S', '66666'),('Y', '66666'),('1', '277300'),('X', '12389'),('0', '13000'),('X', '70016'),('Y', '277300'),('1', '18202'),('3', '008888'),('2', 'hb001'),('1', '555021'),('1', '003719'),('5', 'SSSlu'),('Y', '555021'),('F', '10330'),('1', '555024'),('1', '555023'),('F', '10210'),('2', '00001'),('1', '675112'),('Y', '555024'),('Y', '555023'),('0', 'KXY0'),('0', '78562'),('0', '00040'),('X', '21748'),('N', '66666'),('Y', '123456'),('0', 'M0001'),('X', 'GGQQX'),('D', '002lsl'),('F', '010402'),('0', 'qwgrp'),('F', '010401'),('8', '20146'),('Z', '66666'),('Y', '70311'),('Z', '00611000'),('1', 'luZZZZ'),('Z', '00310090'),('1', '055021'),('N', '13000'),('3', 'XYHSZB'),('F', '010404'),('F', '010406'),('6', 'ANQ001'),('1', '00041'),('2', '67511'),('5', 'XYHSG'),('D', '030303'),('1', '008888'),('1', 'C00011'),('1', '000002'),('4', 'ZZZZlu'),('F', '82018'),('1', '555185'),('5', '88845'),('0', '54322'),('2', 'XYHHB'),('1', '30000'),('S', '054322'),('4', '077022'),('5', '21748'),('Z', '03303'),('1', '555188'),('X', '13000'),('0', '67511'),('D', '000001'),('0', 'luSSS'),('1', '123456'),('1', 'C00001'),('0', '00W40'),('X', '66666'),('S', '10000'),('Y', '30001'),('Y', '30000'),('4', '055021'),('1', '54322'),('F', '10000')) AND dbfId = 'JJK_KYE' AND reckoningFlag = 1;
-time=11:16:39 713, cost=3.48, sn=1223111503000000548, sid=399, sql=UPDATE todayTradeRslt a SET reckoningFlag = 0 WHERE  a.exchId = '0' AND a.dbfId = 'JJK_KYE' AND reckoningFlag = 1 and orderType ='B'  AND EXISTS (SELECT 'X' FROM stkInfo s   WHERE a.exchId=s.exchId AND a.stkId=s.stkId AND s.tradeType IN ('A5','A6','A7'));
-time=11:16:39 717, cost=3.154, sn=1223111503000000548, sid=399, sql= update newStkPurchaseInfo n                  set n.stktype = (select s.stktype                           from stkinfo s                               where rownum = 1                               and n.exchid = s.exchid                      and n.stkid = s.stkid)      where n.reckoningtime >=20191223000000  and n.reckoningtime <=20191223235959 AND n.dbfId ='JJK_KYE' AND n.pathdeskId='0^20140'  and exists (select 'x'                                  from stkinfo s                               where n.exchid = s.exchid                      and n.stkid = s.stkid)        ;
-time=11:16:39 719, cost=0.344, sn=1223111503000000548, sid=399, sql= update newStkPurchase  n                      set n.stktype = (select s.stktype                               from stkinfo s                                where rownum = 1                                and n.exchid = s.exchid                       and n.stkid = s.stkid)    where n.reckoningtime >=20191223000000   and n.reckoningtime <=20191223235959   and n.exchid ='0'   and exists (select 'x'                                    from stkinfo s                                where n.exchid = s.exchid                       and n.stkid = s.stkid)       ;
-time=11:16:39 741, cost=19.906, sn=1223111503000000548, sid=399, sql= UPDATE ( SELECT * FROM newStkPurchaseInfo a WHERE EXISTS (SELECT * FROM newStkPurchase b,(select c.exchId,c.stkId,c.contractnum ,c.offerregId,MIN(c.purchasedate) purchasedate   FROM newStkPurchase c,newStkPurchaseInfo d where c.contractnum = d.contractnum AND c.exchId = d.exchId AND ( (c.exchId = '0' AND ((SUBSTR(c.stkId, 4, 3)= SUBSTR(d.stkId, 4, 3) and c.stktype<>'A8') or      (SUBSTR(c.stkId, 1, 5)= SUBSTR(d.stkId, 1, 5) and c.stkType='A8'))    OR (c.exchId = '1' AND c.stkId = d.stkId)) ) AND d.offerRegId = c.offerRegId AND d.acctId IS Null   GROUP BY c.exchId,c.stkId,c.contractnum ,c.offerregId)e  WHERE b.contractNum = a.contractNum AND b.exchId = a.exchId AND ( (b.exchId = '0' AND ((SUBSTR(b.stkId, 4, 3)= SUBSTR(a.stkId, 4, 3) and b.stktype<>'A8') or       (SUBSTR(b.stkId, 1, 5)= SUBSTR(a.stkId, 1, 5) and b.stkType='A8'))    OR (b.exchId = '1' AND b.stkId = a.stkId)) ) AND a.regId = b.offerRegId  AND b.stkId = e.stkId  AND b.exchId = e.exchId  AND b.offerRegId = e.offerRegId AND b.contractNum = e.contractNum AND b.purchasedate= e.purchasedate) AND  a.exchId = '0' AND a.acctId IS NULL AND a.dbfId = 'JJK_KYE' AND a.reckoningTime >= 20191223000000 AND a.reckoningTime <= 20191223235959 ) a SET a.regId =  (SELECT b.regId  FROM newStkPurchase b,(select c.exchId,c.stkId,c.contractnum ,c.offerregId,MIN(c.purchasedate) purchasedate  FROM  newStkPurchase c,newStkPurchaseInfo d where c.contractnum = d.contractnum AND c.exchId = d.exchId AND ( (c.exchId = '0' AND ((SUBSTR(c.stkId, 4, 3)= SUBSTR(d.stkId, 4, 3) and c.stktype<>'A8')  or      (SUBSTR(c.stkId, 1, 5)= SUBSTR(d.stkId, 1, 5) and c.stkType='A8'))    OR (c.exchId = '1' AND c.stkId = d.stkId)) ) AND d.offerRegId = c.offerRegId  AND d.acctId IS Null   GROUP BY c.exchId,c.stkId,c.contractnum ,c.offerregId)e   WHERE b.contractNum = a.contractNum AND b.exchId = a.exchId AND ( (b.exchId = '0' AND ((SUBSTR(b.stkId, 4, 3)= SUBSTR(a.stkId, 4, 3) and b.stktype<>'A8')  or     (SUBSTR(b.stkId, 1, 5)= SUBSTR(a.stkId, 1, 5) and b.stkType='A8'))    OR (b.exchId = '1' AND b.stkId = a.stkId)) ) AND a.regId = b.offerRegId  AND b.stkId = e.stkId  AND b.exchId = e.exchId  AND b.offerRegId = e.offerRegId AND b.contractNum = e.contractNum AND b.purchasedate= e.purchasedate );
-time=11:16:39 754, cost=11.304, sn=1223111503000000548, sid=399, sql=UPDATE newStkPurchaseInfo a SET (a.regName, a.acctId, a.branchId, a.custId,a.creditfundflag) =  (SELECT b.regName, b.acctId, b.branchId, b.custId,c.creditfundflag FROM registration b,account c WHERE b.regId = a.regId AND b.exchId = a.exchId AND b.acctId = c.acctId AND b.currencyId =c.currencyId) WHERE  a.exchId = '0' AND a.acctId IS NULL AND a.dbfId = 'JJK_KYE' AND a.reckoningTime >= 20191223000000 AND a.reckoningTime <= 20191223235959 AND　EXISTS (SELECT 'x'             FROM registration b,account c            WHERE b.regId = a.regId              AND b.exchId = a.exchId              AND b.acctId = c.acctId              AND b.currencyId =c.currencyId);
-time=11:16:39 757, cost=1.057, sn=1223111503000000548, sid=399, index=0, sql=SELECT exchId, regId FROM newStkPurchase WHERE acctId IS NULL AND exchId = '0' AND dbfId = 'JJK_KYE' AND reckoningTime >= 20191223000000 AND reckoningTime <= 20191223235959;
-time=11:16:39 760, cost=1.19, sn=1223111503000000548, sid=399, index=0, sql=SELECT exchId, regId FROM newStkPurchaseInfo WHERE acctId IS NULL AND exchId = '0' AND dbfId = 'JJK_KYE' AND reckoningTime >= 20191223000000 AND reckoningTime <= 20191223235959;
-time=11:16:39 762, cost=1.174, sn=1223111503000000548, sid=399, index=0, sql=SELECT contractNum FROM (SELECT contractNum, COUNT(*) count FROM newStkPurchase WHERE reckoningTime >= 20191223000000 AND exchId = '0' AND dbfId = 'JJK_KYE' GROUP BY contractNum, SUBSTR(purchaseDate, 1, 8) ) WHERE count > 1;
-time=11:16:39 770, cost=7.928, sn=1223111503000000548, sid=399, sql=UPDATE TodayTradeRslt SET reckoningFlag = 0 WHERE exchId ='1' AND dbfId = 'CJK_HB' AND purchaseFlag = 5 AND contractNum IN (SELECT contractNum  FROM TodayTradeRslt tr, EtfBaseInfo ei WHERE tr.exchId = ei.exchId AND tr.stkId = ei.fundCode AND tr.purchaseFlag = 5 AND ei.etfType in ('2', '6', '3') );
-time=11:16:39 772, cost=2.013, sn=1223111503000000548, sid=399, sql=UPDATE TodayTradeRslt SET reckoningFlag = 0 WHERE exchId ='0' AND purchaseFlag = 5 AND orderType ='S'  AND stkId in (SELECT cashId2 FROM EtfBaseInfo e    WHERE e.etfType = '3'   AND e.exchId ='0' );
-time=11:16:39 774, cost=0.013, sn=1223111503000000548, sid=399, sqlPrepare=@70ac8400, sql=UPDATE TRANSDBFPATH SET qty1 = ?,status = ?,failInfo = ?,mdbfFullPath2=?  WHERE dbfId = ? AND deskId = ? AND exchId = ? AND pathFlag = ?;
-time=11:16:39 774, cost=0.007, sn=1223111503000000548, sid=399, sqlPrepare=@75b6d154, sql= Update AutoNewreck_flowlog Set  progress = ?  Where stepid =?;
---------------------------- 00520101 ：新清算设置文件转入状态 <2019-12-23 11:16:39.775,serialNum:1223111503000000548> end ---------------------------;
+	field_0:  successflg=0,  recordcnt=0,  guid="",  
+--------------------------- 00501560 ：开放式基金份额对帐 <2022-11-25 09:06:31.806, nano:49610660652500, serialNum:1125090326000000627> begin ---------------------------;
+
+time=2022-11-25 09:06:31.861, nano=49610715754400, cost=54.989, sn=1125090326000000627, sid=4, index=0, sql=SELECT f.exchId, f.regId, f.stkId, f.deskId,  f.totalVolOfDistributorInTA- NVL(s.currentQty,0) as occurQty  FROM FundAuditingError f, StkList s WHERE  f.exchId=s.exchId(+) AND f.regId=s.regId(+) AND f.stkId=s.stkId(+) AND f.deskId=s.deskId(+) AND occurTime >= 20221125000000 AND occurTime <= 20221125235959 AND (f.exchId, f.regId) IN (SELECT exchId, regId FROM tradingLog2022  WHERE BRIEFID=  '006_003_019' AND stkId='799999' AND reckoningTime >= 20221125000000 AND reckoningTime <= 20221125235959 AND exchId ='0' AND f.totalVolOfDistributorInTA- NVL(s.currentQty,0) !=0 );
+
+time=2022-11-25 09:06:31.864, nano=49610718606900, cost=2.776, sn=1125090326000000627, sid=4, sql= UPDATE stklist a SET a.tradeType = (select b.tradetype from stkinfo b where a.exchid = b.exchid and a.stkid = b.stkid) where a.tradetype <> (select b.tradetype from stkinfo b where a.exchid = b.exchid and a.stkid = b.stkid);
+
+time=2022-11-25 09:06:31.871, nano=49610725631200, cost=6.69, sn=1125090326000000627, sid=4, index=0, sql= SELECT f.occurTime, f.exchId, f.deskId, f.regId, f.stkId, f.availableVol,f.totalVolOfDistributorInTA, f.totalFrozenVol, s.usableQty, s.currentQty, s.exceptFrozenQty   FROM fundAuditingError f,(SELECT exchId,deskId,offerRegId,stkId, SUM(currentQty-exceptFrozenQty) usableQty, SUM(currentQty) currentQty,SUM(exceptFrozenQty) exceptFrozenQty FROM Stklist WHERE stkType='C2' AND tradeType='C0' AND stkId not like '5198%' GROUP BY exchId,deskId,offerRegId,stkId ) s  WHERE  f.exchId=s.exchId AND  f.deskId=s.deskId AND  f.regId=s.offerRegId AND   f.stkId=s.stkId AND f.exchId='0'  AND f.deskId = '00W40' AND  f.occurtime>=20221125000000 AND f.occurtime<=20221125235959;
+
+time=2022-11-25 09:06:31.873, nano=49610727799000, cost=2.114, sn=1125090326000000627, sid=4, index=0, sql= SELECT offerRegId, stkId, SUM(currentQty-exceptFrozenQty), SUM(currentQty), SUM(exceptFrozenQty),deskId  FROM stkList s WHERE stkType = 'C2' AND tradeType='C0' AND exchId = '0'  AND s.deskId = '00W40' AND stkId not like '5198%' GROUP BY deskId,offerRegId,stkId  HAVING (deskId,offerRegId,stkid) NOT IN (SELECT distinct deskId,regId,stkid FROM fundAuditingError f   WHERE exchId =  '0' AND f.deskId = '00W40' AND occurtime>=20221125000000 AND occurtime<=20221125235959) ;
+
+time=2022-11-25 09:06:31.877, nano=49610731844900, cost=4.025, sn=1125090326000000627, sid=4, index=0, sql= SELECT occurTime,regId,stkId,deskId FROM fundauditingerror f WHERE exchId = '0' AND f.deskId = '00W40' AND (regId,stkid) NOT IN  (SELECT distinct offerRegId,stkid FROM stkList s WHERE exchId = '0' AND s.deskId = '00W40' AND stkType = 'C2' AND tradeType='C0' ) AND stkId NOT IN (SELECT distinct stkId FROM stkInfo WHERE stkType = 'C2' AND tradeType='A0');
+
+time=2022-11-25 09:06:31.877, nano=49610732123100, cost=0.231, sn=1125090326000000627, sid=4, sql=UPDATE TradingLog a SET creditFundFlag =(SELECT creditFundFlag FROM Account b WHERE a.acctId = b.acctId AND a.currencyId = b.currencyId AND b.creditFundFlag <> '0') WHERE EXISTS (SELECT acctId FROM Account b WHERE a.acctId = b.acctId AND a.currencyId = b.currencyId AND b.creditFundFlag <> '0');
+
+time=2022-11-25 09:06:31.878, nano=49610732549000, cost=0.382, sn=1125090326000000627, sid=4, sql=INSERT INTO Syslog (occurTime,serialNum,optId,briefId,sysSetType,operationMAC,optLevel,optBranchId,memo) VALUES(20221125090631,30150016,'99990','001_004_002_003',0,'70B5E8707235|50001','A9','000W40','开放式基金份额对帐');
+
+--------------------------- 00501560 ：开放式基金份额对帐 <2022-11-25 09:06:31.878, nano:49610733026400, serialNum:1125090326000000627> end ---------------------------;
+
+
+
+
+Socket=192.168.4.1@60263 clientId=541 serialNum=1125090326000000628 state=1 time=2022-11-25 09:06:31.917 cost=27.801 successflag=0 bcnt=1 ecnt=4
+head:	type=1050, len=351, MAC="70B5E8707235", srcAddr="192.168.4.1@60263", checkSum="-29632", flags=257, serial="151", funcCode="00501570"
+request:
+	field_0:  recordcnt=1,  apitype="Stock",  apiversion="2.2.7.0",  terminalinfo="PC;IIP=NA;IPORT=NA;LIP=192.168.4.1;MAC=70B5E8707235;HD=417AZRZMS;PCN=JIAOZHENPENG;CPU=BFEBFBFF000A0671;PI=C^NTFS^138.25G;VOL=0005-2FC7",  compressflag=1,  
+	field_1:  optmode="A0",  optid="99990",  optpwd="qpi21uyC ",  exchid="0",  
+response:
+	field_0:  successflg=0,  recordcnt=4,  guid="",  
+	field_1:  memo="席位^股东代码^基金代码^券商方可用基金份数^确认可用基金份数^券商方基金总份数(含冻结)^确认基金总份数(含冻结)^券商方冻结总份数^确认冻结总份数^异常信息",  
+	field_2:  memo="00W40^A117322000^519005^12500^0^12500^0^0^0^仅系统有",  
+	field_3:  memo="00W40^A117322000^519002^500^0^500^0^0^0^仅系统有",  
+	field_4:  memo="00W40^A117322000^519003^400^0^400^0^0^0^仅系统有",  
+--------------------------- 00501570 ：获取开放式基金份额对帐异常数据 <2022-11-25 09:06:31.889, nano:49610743868400, serialNum:1125090326000000628> begin ---------------------------;
+
+time=2022-11-25 09:06:31.890, nano=49610745207500, cost=1.266, sn=1125090326000000628, sid=4, index=0, sql=SELECT f.deskId, f.regId, f.stkId,f.usableQty, f.currentQty, f.exceptFrozenQty ,f.availableVol, f.totalVolOfDistributorInTA, f.totalFrozenVol,f.auditingErrorMsg  FROM fundAuditingError f  WHERE f.auditingerrormsg IS NOT NULL AND f.exchId='0' AND  f.occurtime>=20221125000000 AND f.occurtime<=20221125235959;
+
+time=2022-11-25 09:06:31.902, nano=49610756568100, cost=9.73, sn=1125090326000000628, sid=4, sql=INSERT INTO CheckageLog VALUES(20221125090631,30150017,'99990','04','1',3);
+
+time=2022-11-25 09:06:31.915, nano=49610769560900, cost=9.978, sn=1125090326000000628, sid=4, sql=INSERT INTO CheckageDetail VALUES(20221125090631,30150017,'00','','0','00W40','','','','','A117322000','519005','海富股票',12500.0,0.0,0.0,0.0,'仅系统有，券商方可用数：12500；基金方可用数：0.0；券商方总份额（含冻结）：12500；基金方总份额（含冻结）：0.0；券商方冻结份额：0；基金方冻结份额：0.0');
+
+time=2022-11-25 09:06:31.915, nano=49610770250800, cost=0.626, sn=1125090326000000628, sid=4, sql=INSERT INTO CheckageDetail VALUES(20221125090631,30150017,'00','','0','00W40','','','','','A117322000','519002','安信消费',500.0,0.0,0.0,0.0,'仅系统有，券商方可用数：500；基金方可用数：0.0；券商方总份额（含冻结）：500；基金方总份额（含冻结）：0.0；券商方冻结份额：0；基金方冻结份额：0.0');
+
+time=2022-11-25 09:06:31.916, nano=49610770894000, cost=0.551, sn=1125090326000000628, sid=4, sql=INSERT INTO CheckageDetail VALUES(20221125090631,30150017,'00','','0','00W40','','','','','A117322000','519003','海富收益',400.0,0.0,0.0,0.0,'仅系统有，券商方可用数：400；基金方可用数：0.0；券商方总份额（含冻结）：400；基金方总份额（含冻结）：0.0；券商方冻结份额：0；基金方冻结份额：0.0');
+
+--------------------------- 00501570 ：获取开放式基金份额对帐异常数据 <2022-11-25 09:06:31.917, nano:49610771377400, serialNum:1125090326000000628> end ---------------------------;
