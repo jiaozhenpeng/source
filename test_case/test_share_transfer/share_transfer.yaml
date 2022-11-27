@@ -125,3 +125,25 @@ dxkzz:
     dbfPath: F:\source\用例数据\股转\定向可转债\转股\债转股所有债券不足一股
     excelPath: F:\source\用例数据\股转\定向可转债\转股\债转股所有债券不足一股\测试结果.xlsx
     sqlPath: F:\source\用例数据\股转\定向可转债\转股\债转股所有债券不足一股\stkinfo.sql
+
+ #兑付
+  qbdfdx:  #全部兑付兑息
+    dbfPath: F:\source\用例数据\股转\定向可转债\兑付\全部兑付兑息
+    excelPath: F:\source\用例数据\股转\定向可转债\兑付\全部兑付兑息\测试结果.xlsx
+    sqlPath: F:\source\用例数据\股转\定向可转债\兑付\全部兑付兑息\stkinfo.sql
+  qbdjdf: #全部冻结兑付
+    dbfPath: F:\source\用例数据\股转\定向可转债\兑付\全部冻结兑付
+    excelPath: F:\source\用例数据\股转\定向可转债\兑付\全部冻结兑付\测试结果.xlsx
+    sqlPath: F:\source\用例数据\股转\定向可转债\兑付\全部冻结兑付\stkinfo.sql
+  djdfdx:  #冻结兑付兑息
+    dbfPath: F:\source\用例数据\股转\定向可转债\兑付\冻结兑付兑息
+    excelPath: F:\source\用例数据\股转\定向可转债\兑付\冻结兑付兑息\测试结果.xlsx
+    sqlPath: F:\source\用例数据\股转\定向可转债\兑付\冻结兑付兑息\stkinfo.sql
+  bfdfdx:   #部分兑付兑息
+    dbfPath: F:\source\用例数据\股转\定向可转债\兑付\部分兑付兑息
+    excelPath: F:\source\用例数据\股转\定向可转债\兑付\部分兑付兑息\测试结果.xlsx
+    sqlPath: F:\source\用例数据\股转\定向可转债\兑付\部分兑付兑息\stkinfo.sql
+  xiaobili:   #小比例分配
+    dbfPath: F:\source\用例数据\股转\定向可转债\兑付\小比例
+    excelPath: F:\source\用例数据\股转\定向可转债\兑付\小比例\测试结果.xlsx
+    sqlPath: F:\source\用例数据\股转\定向可转债\兑付\小比例\stkinfo.sql

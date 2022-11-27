@@ -896,12 +896,12 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                if rec['JGYWLB'].strip() in ('36', '37', 'DZ', '24', '20','30'): #有部分类别读文件后，类型后有空格，需去空格后判断
+                if rec['JGYWLB'].strip() in ('36', '37', 'DZ', '24', '20','30','31'): #有部分类别读文件后，类型后有空格，需去空格后判断
                     rec['JGCJRQ'] = self.replace_time(rec['JGCJRQ'], cjrq)
                     rec['JGQSRQ'] = self.replace_time(rec['JGQSRQ'], qsrq)
                     rec['JGJSRQ'] = self.replace_time(rec['JGJSRQ'], jsrq)
                     rec['JGFSRQ'] = self.replace_time(rec['JGFSRQ'], fsrq)
-                elif rec['JGYWLB'].strip() in ('B7', 'B5', 'BA', 'B6','BC','BD','7K','7L'):
+                elif rec['JGYWLB'].strip() in ('B7', 'B5', 'BA', 'B6','BC','BD','7K','7L','7B','DJ','B2'):
                     rec['JGCJRQ'] = self.replace_time(rec['JGCJRQ'], cjrq)
                     rec['JGFSRQ'] = self.replace_time(rec['JGFSRQ'], fsrq)
                 elif rec['JGYWLB'].strip() in ('41', '40', 'ZG', '67', '66', '68', '69', '03'):
