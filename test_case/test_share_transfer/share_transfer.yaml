@@ -70,9 +70,9 @@ AgreementTransaction:
     excelPath: F:\source\用例数据\股转\协议交易\A5\测试结果.xlsx
   # 股转\协议交易\E5数据\协议交易
   fiveE:
-    dbfPath: F:\source\用例数据\股转\协议交易\E5数据\协议交易
-    sqlPath: F:\source\用例数据\股转\协议交易\E5数据\协议交易\stkinfo.sql
-    excelPath: F:\source\用例数据\股转\协议交易\E5数据\协议交易\测试结果.xlsx
+    dbfPath: F:\source\用例数据\股转\定向可转债\协议交易
+    sqlPath: F:\source\用例数据\股转\定向可转债\协议交易\stkinfo.sql
+    excelPath: F:\source\用例数据\股转\定向可转债\协议交易\测试结果.xlsx
 # 股转\优先股回售
 PreferredStockResale:
   dbfPath: F:\source\用例数据\股转\优先股回售
@@ -106,3 +106,22 @@ DVP:
     dbfPath: F:\source\用例数据\股转\DVP改革\备付金改革
     excelPath: F:\source\用例数据\股转\DVP改革\备付金改革\测试结果.xlsx
     sqlPath: F:\source\用例数据\股转\DVP改革\备付金改革\stkinfo.sql
+
+#定向可转债转股
+dxkzz:
+  wlzzj:  #债转股无零债资金
+    dbfPath: F:\source\用例数据\股转\定向可转债\转股\债转股无零债资金
+    excelPath: F:\source\用例数据\股转\定向可转债\转股\债转股无零债资金\测试结果.xlsx
+    sqlPath: F:\source\用例数据\股转\定向可转债\转股\债转股无零债资金\stkinfo.sql
+  ylzzj:
+    dbfPath: F:\source\用例数据\股转\定向可转债\转股\债转股有零债资金
+    excelPath: F:\source\用例数据\股转\定向可转债\转股\债转股有零债资金\测试结果.xlsx
+    sqlPath: F:\source\用例数据\股转\定向可转债\转股\债转股有零债资金\stkinfo.sql
+  qzzg:
+    dbfPath: F:\source\用例数据\股转\定向可转债\转股\强制转股
+    excelPath: F:\source\用例数据\股转\定向可转债\转股\强制转股\测试结果.xlsx
+    sqlPath: F:\source\用例数据\股转\定向可转债\转股\强制转股\stkinfo.sql
+  buzu:
+    dbfPath: F:\source\用例数据\股转\定向可转债\转股\债转股所有债券不足一股
+    excelPath: F:\source\用例数据\股转\定向可转债\转股\债转股所有债券不足一股\测试结果.xlsx
+    sqlPath: F:\source\用例数据\股转\定向可转债\转股\债转股所有债券不足一股\stkinfo.sql

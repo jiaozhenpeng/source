@@ -896,7 +896,7 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                if rec['JGYWLB'].strip() in ('36', '37', 'DZ', '24', '20'): #有部分类别读文件后，类型后有空格，需去空格后判断
+                if rec['JGYWLB'].strip() in ('36', '37', 'DZ', '24', '20','30'): #有部分类别读文件后，类型后有空格，需去空格后判断
                     rec['JGCJRQ'] = self.replace_time(rec['JGCJRQ'], cjrq)
                     rec['JGQSRQ'] = self.replace_time(rec['JGQSRQ'], qsrq)
                     rec['JGJSRQ'] = self.replace_time(rec['JGJSRQ'], jsrq)
