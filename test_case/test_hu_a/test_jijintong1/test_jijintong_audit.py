@@ -23,10 +23,10 @@ class Futures(unittest.TestCase):
         txt_path = self.yaml['txtPath']
         txt = TxtOperation(txt_path)
         # 创建文件
-        txt_result = txt.creat_txt('trddata')
+        txt_result = txt.replace_txt('kye',txt_path)
         if txt_result is False:
-            logger().error('trddata.txt文件创建失败')
-            assert False, 'trddata.txt文件创建失败'
+            logger().error('kye.txt文件创建失败')
+            assert False, 'kye.txt文件创建失败'
         sql_path = self.yaml['sqlPath']
         sql = BaseAction().read_sql(sql_path)
         oracle = OracleDatabase()

@@ -303,13 +303,25 @@ etfjjsy:
     dbfPath: F:\source\用例数据\沪A\ETF业务\基金收益\使用etftbk
     excelPath: F:\source\用例数据\沪A\ETF业务\基金收益\使用etftbk\测试结果.xlsx
 
+cil:
+  dbfPath: F:\source\用例数据\沪A\ETF业务\货币基金权益结转
+  excelPath: F:\source\用例数据\沪A\ETF业务\货币基金权益结转\测试结果.xlsx
+  sqlPath: F:\source\用例数据\沪A\ETF业务\货币基金权益结转\stkinfo.sql
 
 #基金通1.0
 jijintong1:
   stkaudit:
-    txtPath: F:\source\用例数据\沪A\基金通1.0\持仓对账
+    txtPath: F:\source\用例数据\沪A\基金通1.0\持仓对账\kye.txt   #写死复制kye文件
     excelPath: F:\source\用例数据\沪A\基金通1.0\持仓对账\测试结果.xlsx
     sqlPath: F:\source\用例数据\沪A\基金通1.0\持仓对账\stkinfo.sql
   etftbk:
     dbfPath: F:\source\用例数据\沪A\ETF业务\基金收益\使用etftbk
     excelPath: F:\source\用例数据\沪A\ETF业务\基金收益\使用etftbk\测试结果.xlsx
+
+#    公司债现券交易
+companybond:
+  trade:
+    dbfPath: F:\source\用例数据\沪A\公司债\公司债现券交易
+    txtPath: F:\source\用例数据\沪A\公司债\公司债现券交易\zqgh.txt
+    excelPath: F:\source\用例数据\沪A\公司债\公司债现券交易\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\公司债\公司债现券交易\stkinfo.sql

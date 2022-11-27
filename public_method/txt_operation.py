@@ -48,21 +48,26 @@ class TxtOperation():
             with open(self.txt, 'r', encoding='utf-8') as file:
                 for record in file:
                     a = record.split('|')
-                    a[10] = today
+                    a[10] = today  # trans03第11个字段为日期
                     record = '|'.join(a)
                     data_list.append(record)
             logger().info('修改trns03日期')
             return data_list
 
-        elif 'jjgh' in txt_file:
+        elif txt_file in ('jjgh','zqgh'):
             with open(self.txt, 'r', encoding='utf-8') as file:
                 for record in file:
                     a = record.split('|')
-                    a[1] = today  # jjgh第二个字段为日期
+                    a[1] = today  # jjgh和zqgh第二个字段为日期
                     record = '|'.join(a)
                     data_list.append(record)
-            logger().info('修改jjgh日期')
+            if txt_file == 'jjgh':
+                logger().info('修改jjgh日期')
+            elif txt_file == 'zqgh':
+                logger().info('修改zqgh日期')
             return data_list
+
+
 
         else:
             logger().error('未匹配到{}文本获取数据的方法'.format(txt_file))
@@ -87,7 +92,7 @@ class TxtOperation():
             logger().info('创建路径：{}'.format(path))
         try:
             with open(new_path, 'a+') as file:
-                if os.path.getsize(new_path) > 0:  # 检查文件是否为空，如果有数据，先换行，再写入
+                if os.path.getsize(new_path) > 0:
                     file.write('\n')
                 file.writelines(list_data)
                 file.flush()
@@ -97,6 +102,37 @@ class TxtOperation():
             return False
 
 
+    def replace_txt(self, filename, sourcepath):
+        """
+        创建TXT文件，传文件名，保存路径为dbf_config.yaml
+        文件全文替换日期
+        :param filename:
+        :param list_data:
+        :return:
+        """
+        dbf_config = BaseAction().read_yaml(path=PathConfig().dbf())
+        path = os.path.join(dbf_config['savePath'], OracleDatabase().get_trade_date())
+        # 处理源文件路径
+        filename = filename.lower() + '.txt'
+        new_path = os.path.join(path, filename)
+        # 获取交易日期 YYYYMMDD
+        today = OracleDatabase().get_trade_date()
+        # 检查当日清算目录是否存在，如果不存在，创建一个清算目录
+        if os.path.exists(path) is False:
+            os.mkdir(path)
+            logger().info('创建路径：{}'.format(path))
+        try:
+            with open(sourcepath, 'r') as file:
+                a = file.read()
+                final = a.replace('20221125', today)
+            with open(new_path, 'w') as f:
+                f.write(final)
+            logger().info('{}文件创建成功'.format(new_path))
+        except Exception as e:
+            logger().error('{}文件创建失败，错误信息：{}'.format(new_path, e))
+            return False
+
+
 if __name__ == '__main__':
-    txt = TxtOperation(r'D:\optexerdata.TXT')
+    txt = TxtOperation(r'F:\source\用例数据\沪A\公司债\公司债现券交易\zqgh.txt')
     print(txt.get_data())
