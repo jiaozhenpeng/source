@@ -304,3 +304,12 @@ etfjjsy:
     excelPath: F:\source\用例数据\沪A\ETF业务\基金收益\使用etftbk\测试结果.xlsx
 
 
+#基金通1.0
+jijintong1:
+  stkaudit:
+    txtPath: F:\source\用例数据\沪A\基金通1.0\持仓对账
+    excelPath: F:\source\用例数据\沪A\基金通1.0\持仓对账\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\基金通1.0\持仓对账\stkinfo.sql
+  etftbk:
+    dbfPath: F:\source\用例数据\沪A\ETF业务\基金收益\使用etftbk
+    excelPath: F:\source\用例数据\沪A\ETF业务\基金收益\使用etftbk\测试结果.xlsx
