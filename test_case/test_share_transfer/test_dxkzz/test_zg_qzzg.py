@@ -11,7 +11,7 @@ class BlockTrade(unittest.TestCase):
     """
     股转\定向可转债\转股\强制转股
     """
-    yaml = BaseAction().read_yaml(path=PathConfig().share_reconciliation())['dxkzz']['buzu']
+    yaml = BaseAction().read_yaml(path=PathConfig().share_reconciliation())['dxkzz']['qzzg']
 
     def test_block_trade(self):
         """
