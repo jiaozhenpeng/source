@@ -11,7 +11,7 @@ class EtfSplit(unittest.TestCase):
     """
     沪A\ETF业务\货币基金权益结转
     """
-    yaml = BaseAction().read_yaml(PathConfig().hu_a())['etfjjsy']['cil']
+    yaml = BaseAction().read_yaml(PathConfig().hu_a())['bd100']
 
     def test_etfsplit(self):
         """
