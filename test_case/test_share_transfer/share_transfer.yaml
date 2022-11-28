@@ -147,3 +147,41 @@ dxkzz:
     dbfPath: F:\source\用例数据\股转\定向可转债\兑付\小比例
     excelPath: F:\source\用例数据\股转\定向可转债\兑付\小比例\测试结果.xlsx
     sqlPath: F:\source\用例数据\股转\定向可转债\兑付\小比例\stkinfo.sql
+
+
+    #兑息
+  qbdx:  #全部兑息
+    dbfPath: F:\source\用例数据\股转\定向可转债\兑息\无冻结兑息
+    excelPath: F:\source\用例数据\股转\定向可转债\兑息\无冻结兑息\测试结果.xlsx
+    sqlPath: F:\source\用例数据\股转\定向可转债\兑息\无冻结兑息\stkinfo.sql
+  djdx: #冻结兑息
+    dbfPath: F:\source\用例数据\股转\定向可转债\兑息\有冻结兑息
+    excelPath: F:\source\用例数据\股转\定向可转债\兑息\有冻结兑息\测试结果.xlsx
+    sqlPath: F:\source\用例数据\股转\定向可转债\兑息\有冻结兑息\stkinfo.sql
+  qbdjdx:  #全部冻结兑息
+    dbfPath: F:\source\用例数据\股转\定向可转债\兑息\全部冻结兑息
+    excelPath: F:\source\用例数据\股转\定向可转债\兑息\全部冻结兑息\测试结果.xlsx
+    sqlPath: F:\source\用例数据\股转\定向可转债\兑息\全部冻结兑息\stkinfo.sql
+
+
+ #赎回
+  qbsh:  #全部赎回
+    dbfPath: F:\source\用例数据\股转\定向可转债\赎回\全部赎回
+    excelPath: F:\source\用例数据\股转\定向可转债\赎回\全部赎回\测试结果.xlsx
+    sqlPath: F:\source\用例数据\股转\定向可转债\赎回\全部赎回\stkinfo.sql
+  qbdjsh: #全部冻结赎回
+    dbfPath: F:\source\用例数据\股转\定向可转债\赎回\全部冻结赎回
+    excelPath: F:\source\用例数据\股转\定向可转债\赎回\全部冻结赎回\测试结果.xlsx
+    sqlPath: F:\source\用例数据\股转\定向可转债\赎回\全部冻结赎回\stkinfo.sql
+  djsh:  #冻结赎回
+    dbfPath: F:\source\用例数据\股转\定向可转债\赎回\冻结赎回
+    excelPath: F:\source\用例数据\股转\定向可转债\赎回\冻结赎回\测试结果.xlsx
+    sqlPath: F:\source\用例数据\股转\定向可转债\赎回\冻结赎回\stkinfo.sql
+  bfsh:   #部分赎回
+    dbfPath: F:\source\用例数据\股转\定向可转债\赎回\部分赎回
+    excelPath: F:\source\用例数据\股转\定向可转债\赎回\部分赎回\测试结果.xlsx
+    sqlPath: F:\source\用例数据\股转\定向可转债\赎回\部分赎回\stkinfo.sql
+  xiaobilish:   #小比例分配
+    dbfPath: F:\source\用例数据\股转\定向可转债\赎回\小比例赎回
+    excelPath: F:\source\用例数据\股转\定向可转债\赎回\小比例赎回\测试结果.xlsx
+    sqlPath: F:\source\用例数据\股转\定向可转债\赎回\小比例赎回\stkinfo.sql
