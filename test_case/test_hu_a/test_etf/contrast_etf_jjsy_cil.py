@@ -30,10 +30,10 @@ class ContrastRestrictedShares(unittest.TestCase):
 
         # 查询sql
         stklist_sql = "select * from  stklist where exchid='0' and offerregid in('A117212000') " \
-                      "and stkid in('517080','510410', '511860', '511990', '511980');"
+                      "and stkid in('517080','510410', '511860', '511990', '511980')"
         tradinglog_sql = "select * from tradinglog{} where reckoningtime>={} and reckoningtime<={} and exchid= '0'  " \
                          "and stkid  in('517080','510410', '511860', '511990', '511980')" \
-                         "  and  briefid in('005_002_012')".format(year, begintime, endtime)
+                         "  and  briefid in('005_002_012','005_005_062')".format(year, begintime, endtime)
 
         # 获取数据库数据并排序
 
