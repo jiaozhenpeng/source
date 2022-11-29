@@ -11,7 +11,7 @@ class ContrastQfiiShareReconciliation(unittest.TestCase):
     '''
     对比股转\QFII股份对账
     '''
-    yaml = BaseAction().read_yaml(path=PathConfig().share_reconciliation())
+    yaml = BaseAction().read_yaml(path=PathConfig().share_reconciliation())['QfiiShareReconciliation']
 
     def test_share_reconciliation(self):
         '''
@@ -20,14 +20,16 @@ class ContrastQfiiShareReconciliation(unittest.TestCase):
         '''
         logger().info('-------------------------')
         logger().info('开始对比  股转\QFII股份对账 数据')
-        test_yaml = ContrastQfiiShareReconciliation.yaml['QfiiShareReconciliation']
-        excel_path = test_yaml['excelPath']
-        oracle = OracleDatabase()
+        excel_path = self.yaml['excelPath']
         excel = ExcelOperation(excel_path)
-        begin_time = oracle.get_last_update()
+        oracle = OracleDatabase()
+        begintime = oracle.get_last_update()
+        endtime = begintime[0:8] + '235959'
+        base = BaseAction()
+        year = base.get_today_date()[:4]
         # 查询数据SQL
         stkauditingerror_sql = " select * from stkauditingerror where businessdate={} and offerregid ='GZ11721400' and" \
-                               " stkid in ('400001','400006','400008','400009')".format(begin_time)
+                               " stkid in ('400001','400006','400008','400009')".format(begintime)
         # 需要忽略的字段
         stkauditingerror_ignore = ('OCCURTIME', 'KNOCKTIME', 'BUSINESSDATE')
         # 获取数据库数据并排序

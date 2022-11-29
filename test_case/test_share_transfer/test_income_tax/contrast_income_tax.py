@@ -39,7 +39,7 @@ class ContrastIncomeTax(unittest.TestCase):
         CustSellLimitTax_excel = base.CustSellLimitTax_sort(excel.read_excel('CustSellLimitTax'))
         tradinglog_excel = base.tradinglog_sort(excel.read_excel('tradinglog2021'))
         # 忽略字段
-        CustSellLimitTax_ignore = ('OCCURTIME','KNOCKTIME')
+        CustSellLimitTax_ignore = ('OCCURTIME','KNOCKTIME','SERIALNUM')
         tradinglog_ignore = (
             'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF',
             'POSTAMT')

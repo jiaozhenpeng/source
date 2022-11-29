@@ -10,7 +10,7 @@ class InsufficientFunds(unittest.TestCase):
     """
     股转\所得税\资金不足挂账
     """
-    yaml = BaseAction().read_yaml(PathConfig().share_reconciliation())['IncomeTax']['insufficientFunds']
+    # yaml = BaseAction().read_yaml(PathConfig().share_reconciliation())['IncomeTax']['insufficientFunds']
     def test_insufficient_funds(self):
         """
         股转\所得税\资金不足挂账
