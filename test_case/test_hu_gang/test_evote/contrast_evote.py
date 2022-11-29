@@ -25,7 +25,7 @@ class ContrastBusiness(unittest.TestCase):
         exchangemessage_sql = "select * from exchangemessage where exchid={} and messagedate={} and " \
                       "messagetype in('H12','H06')".format('5',str(begintime[:8]))
 
-        exchangemessage_ignore = ()
+        exchangemessage_ignore = ('MESSAGEDATE','OCCURTIME','DATE3','DATE2','SERIALNUM')
         # 获取数据库数据并排序
         exchangemessage_database = BaseAction().exchangemessage_sort(oracle.dict_data(exchangemessage_sql))
         # 获取excel数据并排序
