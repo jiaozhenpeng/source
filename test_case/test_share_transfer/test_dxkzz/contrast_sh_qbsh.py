@@ -1,0 +1,67 @@
+import unittest
+
+from config import PathConfig
+from database.oracle_database import OracleDatabase
+from log.logger import logger
+from public_method.base_action import BaseAction
+from public_method.excel_operation import ExcelOperation
+
+
+class ContrastEtfSplit(unittest.TestCase):
+    """
+    股转\定向可转债\赎回\全部赎回
+    """
+    yaml = BaseAction().read_yaml(path=PathConfig().share_reconciliation())['dxkzz']['qbsh']
+
+    def test_etf_split(self):
+        """
+        股转\定向可转债\赎回\全部赎回
+        :return:
+        """
+        logger().info('-------------------------------')
+        logger().info('开始执行：股转\定向可转债\赎回\全部赎回 对比数据')
+        excel_path = self.yaml['excelPath']
+        excel = ExcelOperation(excel_path)
+        oracle = OracleDatabase()
+        begintime = oracle.get_last_update()
+        endtime = begintime[0:8] + '235959'
+        base = BaseAction()
+        year = base.get_today_date()[:4]
+
+        # 查询sql
+        stklist_sql = "select * from STKLIST where exchid='6' and stkid in('810027') and " \
+                      "offerregid in('GZ11721600')"
+        tradinglog_sql = "select * from tradinglog{} where reckoningtime>={} and reckoningtime<={} and exchid= '6'  " \
+                         "and stkid in ('810027') and briefid in('005_004_004','005_005_007')".format(year,begintime,endtime)
+        stklisthis_sql = "select * from STKLIST{} where occurtime={}  and exchid= '6'  " \
+                         "and stkid in ('810027') and offerregid in('GZ11721600')".format(year,begintime)
+
+        # 数据库数据
+        stklist_database = base.stklist_sort(oracle.dict_data(stklist_sql))
+        tradinglog_database = base.tradinglog_sort(oracle.dict_data(tradinglog_sql))
+        stklisthis_database = base.stklist_sort(oracle.dict_data(stklisthis_sql))
+
+
+        # Excel数据
+        stklisthis_excel = base.stklist_sort(excel.read_excel('stklist2022'))
+        tradinglog_excel = base.tradinglog_sort(excel.read_excel('tradinglog'))
+
+        # 忽略字段
+        tradinglog_ignore = ('KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF',
+            'POSTAMT')
+        # 对比
+
+        stklisthis_result = base.compare_dict(stklisthis_database, stklisthis_excel, 'stklist2022')
+        tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog', *tradinglog_ignore)
+        # 断言
+        final_result =  stklisthis_result+ tradinglog_result
+        if not final_result and not stklist_database:
+            logger().info('股转\定向可转债\赎回\全部赎回 对比数据无异常')
+            assert True
+        else:
+            logger().error('股转\定向可转债\赎回\全部赎回 对比数据异常')
+            assert False, final_result
+
+
+if __name__ == '__main__':
+    unittest.main()
