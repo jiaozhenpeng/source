@@ -50,3 +50,9 @@ PortfolioMargin:
   sqlPath: F:\source\用例数据\沪权\组合保证金\futureinfo.sql
   dbfPath: F:\source\用例数据\沪权\组合保证金
   excelPath:
+
+
+virtualregistrationrights:
+  dbfPath: F:\source\用例数据\深权\分配虚拟股东
+  sqlPath: F:\source\用例数据\深权\分配虚拟股东\futureinfo.sql
+  excelPath: F:\source\用例数据\深权\分配虚拟股东\测试结果.xlsx
