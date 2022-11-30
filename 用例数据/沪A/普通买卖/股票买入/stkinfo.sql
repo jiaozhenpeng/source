@@ -9,4 +9,4 @@ update  openorder  a  set  a.ordertime=(select    substr(b.tradedate,0,8)||subst
 update tradingresult  a  set  a.knocktime=(select    substr(b.tradedate,0,8)||substr(a.knocktime,9,14)       from sysconfig b ) where contractnum = '0000860188';
 update tradingresult  a  set  a.ordertime=(select    substr(b.tradedate,0,8)||substr(a.ordertime,9,14)       from sysconfig b ) where contractnum = '0000860188';
 update tradingresult  a  set  a.occurtime=(select    substr(b.tradedate,0,8)||substr(a.occurtime,9,14)       from sysconfig b ) where contractnum = '0000860188';
-update account set previousamt=1000000,currentamt=1000000,usableamt=1000000,DEPOSITSUM=0 where acctid ='000011729200' and currencyid='00';
+update account set previousamt=1000000,currentamt=1000000,usableamt=1000000,TUSABLEAMT=1000000,DEPOSITSUM=0 where acctid ='000011729200' and currencyid='00';

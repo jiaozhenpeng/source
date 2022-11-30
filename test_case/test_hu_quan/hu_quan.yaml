@@ -53,6 +53,6 @@ PortfolioMargin:
 
 
 virtualregistrationrights:
-  dbfPath: F:\source\用例数据\深权\分配虚拟股东
-  sqlPath: F:\source\用例数据\深权\分配虚拟股东\futureinfo.sql
-  excelPath: F:\source\用例数据\深权\分配虚拟股东\测试结果.xlsx
+  dbfPath: F:\source\用例数据\沪权\分配虚拟股东
+  sqlPath: F:\source\用例数据\沪权\分配虚拟股东\futureinfo.sql
+  excelPath: F:\source\用例数据\沪权\分配虚拟股东\测试结果.xlsx

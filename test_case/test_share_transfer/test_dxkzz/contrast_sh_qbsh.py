@@ -49,9 +49,10 @@ class ContrastEtfSplit(unittest.TestCase):
         # 忽略字段
         tradinglog_ignore = ('KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF',
             'POSTAMT')
+        stklist_ignore = ('OCCURTIME',)
         # 对比
 
-        stklisthis_result = base.compare_dict(stklisthis_database, stklisthis_excel, 'stklist2022')
+        stklisthis_result = base.compare_dict(stklisthis_database, stklisthis_excel, 'stklist2022',*stklist_ignore)
         tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog', *tradinglog_ignore)
         # 断言
         final_result =  stklisthis_result+ tradinglog_result
