@@ -415,6 +415,8 @@ class DbfOperation():
                     rec['GBRQ1'], rec['GBRQ2'] = cjrq, jsrq  # 计息起始日和截止日，随便写的
                 elif rec['GBLB'] in ('MZ',):  # 面值适用日期，下一交易日
                     rec['GBRQ1'] = jsrq
+                elif rec['GBLB'] in ('FX',):  # 发行的权益日期，T-2
+                    rec['GBRQ1'] = OracleDatabase().get_last_trade_date(2)
                 elif rec['GBLB'] in ('ZS',):  # 折算率起始日期和截止日期，下两个交易日
                     rec['GBRQ1'], rec['GBRQ2'] = nextTwoDay, nextTwoDay
             records.append(record)
@@ -473,6 +475,17 @@ class DbfOperation():
                     rec['GBRQ1'] = jsrq
                 elif rec['GBLB'] in ('ZS',):  # 折算率起始日期和截止日期，下两个交易日
                     rec['GBRQ1'], rec['GBRQ2'] = nextTwoDay, nextTwoDay
+            records.append(record)
+        table.close()
+        return records
+
+    # 发行可申购额度信息库
+    def sjsks_file(self):
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                rec['KSFSRQ'] = self.replace_time(rec['KSFSRQ'], self.t)
             records.append(record)
         table.close()
         return records

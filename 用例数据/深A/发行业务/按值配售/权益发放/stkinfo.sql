@@ -1,0 +1,1 @@
+delete from iporights where exchid='1' and offerregid in('0117212000','0000117252000');

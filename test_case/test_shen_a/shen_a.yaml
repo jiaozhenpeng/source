@@ -49,13 +49,19 @@ TransferTube:
   sqlPath: F:\source\用例数据\深A\深圳转托管\stkinfo.sql
   excelPath: F:\source\用例数据\深A\深圳转托管\清算结果.xlsx
 
-# 发行业务
+# 按值配售
 IssuanceBusiness:
-  # 按值配售
+  # 配号
   ValueBasedPlacement:
-    dbfPath: F:\source\用例数据\深A\发行业务\按值配售\T日
-    sqlPath: F:\source\用例数据\深A\发行业务\按值配售\T日\quotaorder.sql
-    excelPath: F:\source\用例数据\深A\发行业务\按值配售\T日\测试结果.xlsx
+    dbfPath: F:\source\用例数据\深A\发行业务\按值配售\认购配号
+    sqlPath: F:\source\用例数据\深A\发行业务\按值配售\认购配号\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\发行业务\按值配售\认购配号\测试结果.xlsx
+
+  # 权益发放
+  iporights:
+    dbfPath: F:\source\用例数据\深A\发行业务\按值配售\权益发放
+    sqlPath: F:\source\用例数据\深A\发行业务\按值配售\权益发放\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\发行业务\按值配售\权益发放\测试结果.xlsx
 
 # 红股红利
 BonusShares:
