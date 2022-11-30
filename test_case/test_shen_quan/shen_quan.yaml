@@ -25,3 +25,8 @@ GeneralLiquidation:
   dbfPath: F:\source\用例数据\深权\普通平仓
   sqlPath: F:\source\用例数据\深权\普通平仓\stkinfo.sql
   excelPath: F:\source\用例数据\深权\普通平仓\测试结果.xlsx
+
+virtualregistrationrights:
+  dbfPath: F:\source\用例数据\深权\虚拟股东分配
+  sqlPath: F:\source\用例数据\深权\虚拟股东分配\futureinfo.sql
+  excelPath: F:\source\用例数据\深权\虚拟股东分配\测试结果.xlsx
