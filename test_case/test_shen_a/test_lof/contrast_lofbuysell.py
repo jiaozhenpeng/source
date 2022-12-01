@@ -42,7 +42,8 @@ class ContrastRestrictedShares(unittest.TestCase):
         tradinglog_excel = base.tradinglog_sort(excel.read_excel('tradinglog2022'))
         # 忽略字段
         stklist_ignore = ()
-        tradinglog_ignore = ('KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE')
+        tradinglog_ignore = ('KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME',
+                             'CONFIRMTIME','SETTLEDATE','POSTAMT')
         # 对比
         stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist')
         tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog2022', *tradinglog_ignore)

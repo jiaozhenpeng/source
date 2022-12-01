@@ -77,3 +77,7 @@ values (300010, '1', '000001', '0117322001', '焦振鹏LOF虚拟股东', '011732
 update openorder  a  set  a.occurtime=(select    substr(b.tradedate,0,8)||substr(a.occurtime,9,14)       from sysconfig b );
 update openorder  a  set  a.offertime=(select    substr(b.tradedate,0,8)||substr(a.offertime,9,14)       from sysconfig b );
 update  openorder  a  set  a.ordertime=(select    substr(b.tradedate,0,8)||substr(a.ordertime,9,14)       from sysconfig b );
+delete  from unprocessedreckoningresult where EXCHID='1' and STKID in ('160515','160516','160518','160517') and REGID in ('0117322000','0117322001') ;
+delete  from unprocessedreckoningresulthis where EXCHID='1' and STKID in ('160515','160516','160518','160517') and REGID in ('0117322000','0117322001') ;
+
+
