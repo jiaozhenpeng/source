@@ -214,6 +214,17 @@ class BaseAction():
         list_data.sort(key=lambda x: (x['STKID'], x['REGID'], x['BSFLAG'], x['EXCHID'], x['PRODUCTCODE']))
         return list_data
 
+    def iporights_sort(self, list_data):
+        '''
+        排序表iporights，根据字段['EXCHID'],['OFFERREGID'],['DESKID']
+        :param list_data:
+        :return:
+        '''
+        list_data.sort(key=lambda x: (x['EXCHID'], x['OFFERREGID'], x['DESKID']))
+        return list_data
+
+
+
     def stkcheckin_sort(self,list_data):
         """
         排序表 stkcheckin
@@ -340,7 +351,7 @@ class BaseAction():
         :return:
         """
         list_data.sort(
-            key=lambda x: (x['OCCURTIME'], x['EXCHID'], x['MESSAGETYPE'] ,x['STKID'], x['MEMO'] ,x['RIGHTSID'] ))
+            key=lambda x: (x['OCCURTIME'], x['EXCHID'], x['MESSAGETYPE'] ,x['SECURITIESNUM'],x['STKID'], x['MEMO'] ,x['RIGHTSID'] ))
         return list_data
 
     def unduerepurchasebondshis_sort(self, list_data):
@@ -461,7 +472,7 @@ class BaseAction():
         :return:
         """
         list_data.sort(
-            key=lambda x: (x['DBFID'],x['UNIFIEDCODE'],x['REGID'],x['PERSONALID']))
+            key=lambda x: (x['DBFID'],x['UNIFIEDCODE'],x['REGID'],x['PERSONALID'],x['KNOCKCODE']))
         return list_data
 
     def CustSellLimitTax_sort(self,list_data):
