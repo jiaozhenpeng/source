@@ -36,7 +36,7 @@ class ContrastValueBasedPlacement(unittest.TestCase):
         # Excel数据
         iporights_excel = base.iporights_sort(excel.read_excel('iporights'))
         # 忽略字段
-        iporights_ignore =('IMPUTTIME','RIGHTSDATE','SENDDATE')
+        iporights_ignore =('IMPTIME','RIGHTSDATE','SENDDATE')
         # 对比
         iporights_result = base.compare_dict(iporights_database,iporights_excel,
                                                       'iporights',*iporights_ignore)
