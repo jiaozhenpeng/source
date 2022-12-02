@@ -32,7 +32,7 @@ class ContrastEquityDistribution(unittest.TestCase):
         regrights_sql = "select * from regrights where EXCHID='0' and STKID in ('700489','760099') and REGID in" \
                         " ('A117605000','A117605001') and DESKID ='00W40'"
         stklist_sql = "select * from STKLIST where EXCHID = '0' and REGID in('A117605000','A117605001') and STKID" \
-                      " in ('A117605000','A117605001') and DESKID = '00W40'"
+                      " in ('601099','600489') and DESKID = '00W40'"
         tradinglog_sql = "select * from tradinglog{} where reckoningtime>={} and reckoningtime<={} and exchid= '0'  " \
                          "and REGID in('A117605000','A117605001') and  stkid in ('700489','760099') and DESKID" \
                          " ='00W40'".format(year, begintime, endtime)
@@ -59,7 +59,7 @@ class ContrastEquityDistribution(unittest.TestCase):
         regrights_result = base.compare_dict(regrights_database, regrights_excel, 'regrights',*regrights_ignore)
         stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist')
         tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog', *tradinglog_ignore)
-        stkcheckin_result = base.compare_dict(stkcheckin_database, stkcheckin_excel, 'tradinglog', *stkcheckin_ignore)
+        stkcheckin_result = base.compare_dict(stkcheckin_database, stkcheckin_excel, 'stkcheckin', *stkcheckin_ignore)
 
         # 断言
         final_result = regrights_result + stklist_result + tradinglog_result + stkcheckin_result
