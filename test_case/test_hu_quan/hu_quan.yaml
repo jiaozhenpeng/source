@@ -29,7 +29,7 @@ ReserveConversion:
 
 # 备兑后行权
 ReserveExercise:
-  sqlPath: F:\source\用例数据\沪权\备兑后行权\执行SQL.sql
+  sqlPath: F:\source\用例数据\沪权\备兑后行权\futureinfo.sql
   dbfPath: F:\source\用例数据\沪权\备兑后行权
   excelPath: F:\source\用例数据\沪权\备兑后行权\测试结果.xlsx
 
