@@ -33,28 +33,22 @@ class ContrastGeneralOpenShen(unittest.TestCase):
         futurepositiondetail_sql = "select * from futurepositiondetail{} WHERE regid='0117212005'  and occurtime={} " \
                                    "and stkid in('90000500','90000501','90000503','90000504','90000511','90000512') \
                                    and EXCHID = 'Y'".format(year, begintime)
-        stkoptionsettlement_sql = "select * from stkoptionsettlement{} where reckoningtime>={} and reckoningtime<={} " \
-                                  "and exchid='Y' and regid='0117212005' and stkid in('90000500','90000501','90000503'," \
-                                  "'90000504','90000511','90000512')".format(year, begintime, endtime)
         futuretradinglog_sql = "select * from futuretradinglog{}  where reckoningtime>={} and reckoningtime<={} " \
                                "and exchid='Y' and regid='0117212005' and stkid in('90000500','90000501','90000503'," \
                                "'90000504','90000511','90000512')".format(year, begintime, endtime)
         # 忽略的字段
         futureposition_ignore = ('OCCURTIME',)
         futurepositiondetail_ignore = ('OCCURTIME', 'CLOSEKNOCKTIME', 'KNOCKTIME', 'OPTTIME')
-        stkoptionsettlement_ignore = ('RECKONINGTIME', 'KNOCKTIME', 'SERIALNUM')
         futuretradinglog_ignore = ('RECKONINGTIME', 'OCCURTIME', 'KNOCKTIME', 'POSTAMT', 'OPENDATE', 'SERIALNUM')
         # 获取数据库数据并排序
         futureposition_database = BaseAction().futureposition_sort(oracle.dict_data(futureposition_sql))
         futurepositiondetail_database = BaseAction().futurepositiondetail_sort(
             oracle.dict_data(futurepositiondetail_sql))
-        stkoptionsettlement_database = BaseAction().stkoptionsettlement_sort(oracle.dict_data(stkoptionsettlement_sql))
         futuretradinglog_database = BaseAction().futuretradinglog_sort(oracle.dict_data(futuretradinglog_sql))
         # 获取excel数据并排序
         futureposition_excel = BaseAction().futureposition_sort(excel.read_excel('futureposition2021'))
         futurepositiondetail_excel = BaseAction().futurepositiondetail_sort(
             excel.read_excel('futurepositiondetail2021'))
-        stkoptionsettlement_excel = BaseAction().stkoptionsettlement_sort(excel.read_excel('stkoptionsettlement2021'))
         futuretradinglog_excel = BaseAction().futuretradinglog_sort(excel.read_excel('futuretradinglog2021'))
         # 对比数据
         futureposition_result = BaseAction().compare_dict(futureposition_database, futureposition_excel,
@@ -62,11 +56,9 @@ class ContrastGeneralOpenShen(unittest.TestCase):
         futurepositiondetail_result = BaseAction().compare_dict(futurepositiondetail_database,
                                                                 futurepositiondetail_excel,'futurepositiondetail',
                                                                 *futurepositiondetail_ignore)
-        stkoptionsettlement_result = BaseAction().compare_dict(stkoptionsettlement_database, stkoptionsettlement_excel,
-                                                               'stkoptionsettlement',*stkoptionsettlement_ignore)
         futuretradinglog_result = BaseAction().compare_dict(futuretradinglog_database, futuretradinglog_excel,
                                                             'futuretradinglog',*futuretradinglog_ignore)
-        end_result = futureposition_result + futurepositiondetail_result + stkoptionsettlement_result + futuretradinglog_result
+        end_result = futureposition_result + futurepositiondetail_result  + futuretradinglog_result
         if not end_result:
             logger().info('深权\普通开仓 对比数据无异常')
             assert True
