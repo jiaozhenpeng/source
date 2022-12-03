@@ -52,9 +52,9 @@ class ContrastEquityDistribution(unittest.TestCase):
         # 忽略字段
         regrights_ignore = ('POSTAMT','OCCURTIME')
         stklist_ignore = ()
-        stkcheckin_ignore = ('OCCURTIME',)
+        stkcheckin_ignore = ('OCCURTIME','KEEPTODATE')
         tradinglog_ignore = ('KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME',
-                             'SETTLEDATE', 'TRANSACTIONREF','PSOTAMT')
+                             'SETTLEDATE', 'TRANSACTIONREF','POSTAMT')
         # 对比
         regrights_result = base.compare_dict(regrights_database, regrights_excel, 'regrights',*regrights_ignore)
         stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist')
