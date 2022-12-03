@@ -1,24 +1,12 @@
 
-# 三方回购转入转出
-tripartyrepo_inandout:
-  tripartyrepo_inandoutPath: F:\source\用例数据\沪A\上海三方回购\转入转出申报\jsmx.dbf
-  tripartyrepo_inandoutPath2: F:\source\用例数据\沪A\上海三方回购\转入转出申报\qtsl.dbf
-  tripartyrepo_inandoutPath3: F:\source\用例数据\沪A\上海三方回购\转入转出申报\zqbd.dbf
-  tripartyrepo_inandoutPath4: F:\source\用例数据\沪A\上海三方回购\转入转出申报\zqye.dbf
-  sql: F:\source\用例数据\沪A\上海三方回购\转入转出申报\stkinfo.sql
-  excelPath: F:\source\用例数据\沪A\上海三方回购\转入转出申报\测试结果.xlsx
-  year: 2022
+# 三方回购
+tripartyrepo:
+  Tday:
+    dbfPath: F:\source\用例数据\沪A\上海三方回购\T日
+    sqlPath: F:\source\用例数据\沪A\上海三方回购\T日\stkinfo.sql
+    excelPath: F:\source\用例数据\沪A\上海三方回购\T日\测试结果.xlsx
 
 
-# 三方回购初始交易
-TripartyReposfcs:
-  tripartyrepo_sfcsPath: F:\source\用例数据\沪A\上海三方回购\初始交易\jsmx.dbf
-  tripartyrepo_sfcsPath2: F:\source\用例数据\沪A\上海三方回购\初始交易\qtsl.dbf
-  tripartyrepo_sfcsPath3: F:\source\用例数据\沪A\上海三方回购\初始交易\zqbd.dbf
-  tripartyrepo_sfcsPath4: F:\source\用例数据\沪A\上海三方回购\初始交易\zqye.dbf
-  sql: F:\source\用例数据\沪A\上海三方回购\初始交易\stkinfo.sql
-  excelPath: F:\source\用例数据\沪A\上海三方回购\初始交易\测试结果.xlsx
-  year: 2022
 
 # 合并申报
 Consolidated:

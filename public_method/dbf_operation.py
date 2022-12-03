@@ -189,18 +189,22 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-
                 rec['JYRQ'], rec['QSRQ'], rec['JSRQ'] = cjrq, qsrq, jsrq  # 011,037
                 if rec['YWLX'] in ('691', '605', '684', '685'):  # 根据业务类型判断jsrq
                     rec['JSRQ'] = cjrq
-                    rec['QTRQ'] = self.t
-                if rec['YWLX'] in ('680', '681'):  # 根据业务类型判断jsrq
-                    rec['QTRQ'] = self.t
+                elif rec['YWLX'] in ('680', ):  # 根据业务类型判断jsrq
+                    if rec['SQBH'] in ('70','77','79','80'):
+                        rec['QTRQ'] = (datetime.date.today()+datetime.timedelta(days=1)).strftime('%Y%m%d')
+                    elif rec['SQBH'] in ('72','74'):
+                        rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=7)).strftime('%Y%m%d')
+                    elif rec['SQBH'] in ('76',):
+                        rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=14)).strftime('%Y%m%d')
+                    elif rec['SQBH'] in ('36',):
+                        rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=184)).strftime('%Y%m%d')
                 if rec['YWLX'] in ('655', '656'):  # 根据业务类型判断jsrq
                     rec['JSRQ'] = self.t
                 if rec['YWLX'] in ('419', ):  # 419股息红利税，无交易日期
                     rec['JYRQ'] = None
-
             records.append(record)
         table.close()
         return records
@@ -253,6 +257,31 @@ class DbfOperation():
             with record as rec:
                 rec['JYRQ'], rec['QSRQ'], rec['JSRQ'] = cjrq, qsrq, jsrq
                 records.append(record)
+        table.close()
+        return records
+
+
+    def wdq_file(self, cjrq=None):
+        """
+        修改成交日期，获取修改日期后的dbf文件数据列表
+        :param cjrq:
+        :return:
+        """
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                rec['CJRQ'] = self.t
+                if rec['WDQLB'] in ('008', ):  # 根据业务类型判断jsrq
+                    if rec['CJXLH'] in ('70','77','79','80'):
+                        rec['QTRQ'] = (datetime.date.today()+datetime.timedelta(days=1)).strftime('%Y%m%d')
+                    elif rec['CJXLH'] in ('72','74'):
+                        rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=7)).strftime('%Y%m%d')
+                    elif rec['CJXLH'] in ('76',):
+                        rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=14)).strftime('%Y%m%d')
+                    elif rec['CJXLH'] in ('36',):
+                        rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=184)).strftime('%Y%m%d')
+            records.append(record)
         table.close()
         return records
 
