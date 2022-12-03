@@ -14,6 +14,10 @@ class ContrastBusiness(unittest.TestCase):
     yaml = BaseAction().read_yaml(path=PathConfig().shen_gang())['Evote']
 
     def test_shen_business(self):
+        '''
+        深港\\投票
+        :return:
+        '''
         logger().info('-------------------------------')
         logger().info('开始执行：深港\\投票 对比数据')
         excel_path = self.yaml['excelPath']

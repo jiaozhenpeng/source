@@ -291,7 +291,7 @@ etfjjsy:
     dbfPath: F:\source\用例数据\沪A\ETF业务\基金收益\使用etftbk
     excelPath: F:\source\用例数据\沪A\ETF业务\基金收益\使用etftbk\测试结果.xlsx
 
-cil:
+bd100:
   dbfPath: F:\source\用例数据\沪A\ETF业务\货币基金权益结转
   excelPath: F:\source\用例数据\沪A\ETF业务\货币基金权益结转\测试结果.xlsx
   sqlPath: F:\source\用例数据\沪A\ETF业务\货币基金权益结转\stkinfo.sql
