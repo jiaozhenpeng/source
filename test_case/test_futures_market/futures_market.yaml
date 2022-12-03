@@ -19,9 +19,9 @@ market_d:
 MarketF:
   # 股指期权
   StockIndexOption:
-    sqlPath: F:\source\用例数据\期货市场\F市场\股指期权\执行SQL.sql
-    txtPath: F:\source\用例数据\期货市场\F市场\股指期权\opttrddata.txt
-    excelPath: F:\source\用例数据\期货市场\F市场\股指期权\测试结果.xlsx
+    sqlPath: F:\source\用例数据\期货市场\F市场\股指期权\T日\futureinfo.sql
+    txtPath: F:\source\用例数据\期货市场\F市场\股指期权\T日\opttrddata.txt
+    excelPath: F:\source\用例数据\期货市场\F市场\股指期权\T日\测试结果.xlsx
     sqlPath1: F:\source\用例数据\期货市场\F市场\股指期权\T+1日\执行sql.sql
     excelPath1: F:\source\用例数据\期货市场\F市场\股指期权\T+1日\测试结果.xlsx
 
@@ -29,7 +29,7 @@ MarketF:
   Futures:
     sqlPath: F:\source\用例数据\期货市场\F市场\期货\T日\futureinfo.sql
     txtPath: F:\source\用例数据\期货市场\F市场\期货\T日\trddata.txt
-    excelPath: F:\source\用例数据\期货市场\F市场\期货\T日\测试结果11.xlsx
+    excelPath: F:\source\用例数据\期货市场\F市场\期货\T日\测试结果.xlsx
 
 # 冲抵保证金
 OffsetMargin:
