@@ -13,3 +13,5 @@ insert into openorder (SERIALNUM, EXCHID, BRANCHID, REGID, REGNAME, OFFERREGID, 
 update openorder  a  set  a.occurtime=(select    substr(b.tradedate,0,8)||substr(a.occurtime,9,14)       from sysconfig b );
 update openorder  a  set  a.offertime=(select    substr(b.tradedate,0,8)||substr(a.offertime,9,14)       from sysconfig b );
 update  openorder  a  set  a.ordertime=(select    substr(b.tradedate,0,8)||substr(a.ordertime,9,14)       from sysconfig b );
+delete from unprocessedreckoningresult where exchid='4'  and stkid in('00476','01217','23131') ;
+delete from unprocessedreckoningresulthis where exchid='4'  and stkid in('00476','01217','23131') ;
