@@ -15,7 +15,7 @@ class ContrastRestrictedShares(unittest.TestCase):
 
     def test_restricted_shares(self):
         """
-        沪A\上证lof\申购\Tday
+        沪A\上证lof\赎回\Tday
         :return:
         """
         logger().info('-------------------------------')

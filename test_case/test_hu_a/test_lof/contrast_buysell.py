@@ -1,0 +1,73 @@
+import unittest
+
+from config import PathConfig
+from database.oracle_database import OracleDatabase
+from log.logger import logger
+from public_method.base_action import BaseAction
+from public_method.excel_operation import ExcelOperation
+
+
+class ContrastRestrictedShares(unittest.TestCase):
+    """
+    沪A\上证lof\竞价平台交易
+    """
+    yaml = BaseAction().read_yaml(path=PathConfig().hu_a())['lofbuysell']
+
+    def test_restricted_shares(self):
+        """
+        沪A\上证lof\竞价平台交易
+        :return:
+        """
+        logger().info('-------------------------------')
+        logger().info('开始执行：沪A\上证lof\竞价平台交易 对比数据')
+        excel_path = self.yaml['excelPath']
+        excel = ExcelOperation(excel_path)
+        oracle = OracleDatabase()
+        begintime = oracle.get_last_update()
+        endtime = begintime[0:8] + '235959'
+        base = BaseAction()
+        year = base.get_today_date()[:4]
+
+        # 查询sql
+        tradinglog_sql = "select * from tradinglog{} where EXCHID='0' and STKID in ('501003','501004','501005','501006') and " \
+                         "REGID in ('A117322000','A117322001') and reckoningtime>={} " \
+                         "and reckoningtime<={}".format(year,begintime,endtime )
+        stklist_sql = "select * from   stklist where regid ='A117322001' and stkid  in('501003','501004','501005','501006')"
+        stklisthis_sql = "select * from   stklist{}  where occurtime={} and regid ='A117322001' and stkid  in('501003'," \
+                         "'501004','501005','501006')".format(year,begintime)
+        # 获取数据库数据并排序
+
+
+        tradinglog_database = BaseAction().tradinglog_sort(oracle.dict_data(tradinglog_sql))
+        stklist_database = BaseAction().stklist_sort(oracle.dict_data(stklist_sql))
+        stklisthis_database = BaseAction().stklist_sort(oracle.dict_data(stklisthis_sql))
+        # 获取excel数据并排序
+
+        tradinglog_excel = BaseAction().tradinglog_sort(excel.read_excel('tradinglog'))
+        stklist_excel = BaseAction().stklist_sort(excel.read_excel('stklist'))
+        stklisthis_excel = BaseAction().stklist_sort(excel.read_excel('stklist2022'))
+        # 可以忽略的字段
+        tradinglog_ignore = ('KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME',
+                             'SETTLEDATE', 'TRANSACTIONREF','POSTAMT')
+        stklisthis_ignore = ('OCCURTIME',)
+        # 对比数据
+
+        tradinglog_result = BaseAction().compare_dict(tradinglog_database,tradinglog_excel,
+                                                                      'tradinglog',*tradinglog_ignore)
+        stklist_result = BaseAction().compare_dict(stklist_database, stklist_excel, 'stklist')
+        stklisthis_result = BaseAction().compare_dict(stklisthis_database, stklisthis_excel, 'stklist2022',*stklisthis_ignore)
+
+
+        final_result =   tradinglog_result + stklist_result + stklisthis_result
+
+        # 断言
+        if not final_result :
+            logger().info('沪A\上证lof\竞价平台交易 对比数据无异常')
+            assert True
+        else:
+            logger().error('沪A\上证lof\竞价平台交易 对比数据异常')
+            assert False, final_result
+
+
+if __name__ == '__main__':
+    unittest.main()

@@ -9,13 +9,13 @@ from public_method.dbf_operation import creat_new_dbf
 
 class BlockTrade(unittest.TestCase):
     """
-    沪A\上证lof\申购\Tday
+    沪A\上证lof\竞价平台交易
     """
-    yaml = BaseAction().read_yaml(path=PathConfig().hu_a())['buysell']
+    yaml = BaseAction().read_yaml(path=PathConfig().hu_a())['lofbuysell']
 
     def test_block_trade(self):
         """
-        沪A\上证lof\申购\Tday
+        沪A\上证lof\竞价平台交易
         :return:
         """
         logger().info('-------------------------------')
