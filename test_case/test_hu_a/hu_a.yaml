@@ -100,17 +100,17 @@ ScientificInnovationBoard:
   BlockTrade:
     sqlPath: F:\source\用例数据\沪A\科创板\大宗交易\stkinfo.sql
     dbfPath: F:\source\用例数据\沪A\科创板\大宗交易
-    excelPath:
+    excelPath: F:\source\用例数据\沪A\科创板\大宗交易\测试结果.xlsx
   # 盘后交易
   AfterHoursDealing:
     sqlPath: F:\source\用例数据\沪A\科创板\盘后交易\stkinfo.sql
     dbfPath: F:\source\用例数据\沪A\科创板\盘后交易
-    excelPath:
+    excelPath: F:\source\用例数据\沪A\科创板\盘后交易\测试结果.xlsx
   # 普通交易
   OrdinaryTransaction:
     sqlPath: F:\source\用例数据\沪A\科创板\普通交易\stkinfo.sql
     dbfPath: F:\source\用例数据\沪A\科创板\普通交易
-    excelPath:
+    excelPath: F:\source\用例数据\沪A\科创板\普通交易\测试结果.xlsx
 
 # ETF发行
 EtfIssue:
