@@ -248,7 +248,7 @@ lofshenshu:
     excelPath: F:\source\用例数据\沪A\上证lof\当天同时申购赎回\T+1日\测试结果.xlsx
 
 #lof竞价平台交易
-buysell:
+lofbuysell:
   dbfPath: F:\source\用例数据\沪A\上证lof\竞价平台交易
   excelPath: F:\source\用例数据\沪A\上证lof\竞价平台交易\测试结果.xlsx
   sqlPath: F:\source\用例数据\沪A\上证lof\竞价平台交易\stkinfo.sql
@@ -264,7 +264,7 @@ lofztgzc:
     dbfPath: F:\source\用例数据\沪A\上证lof\lof跨市场转托管转出\T1day
     excelPath: F:\source\用例数据\沪A\上证lof\lof跨市场转托管转出\T1day\测试结果.xlsx
 
-#lof竞价平台交易
+#lof跨市场转托管转入
 lofztgzr:
   dbfPath: F:\source\用例数据\沪A\上证lof\lof跨市场转托管转入
   excelPath: F:\source\用例数据\沪A\上证lof\lof跨市场转托管转入\测试结果.xlsx
