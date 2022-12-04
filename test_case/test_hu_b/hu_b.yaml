@@ -1,7 +1,22 @@
 # 沪B
 
 # b转h
-BH:
-  sqlPath: F:\source\用例数据\沪B\B转H\T\openorder.sql
-  dbfPath: F:\source\用例数据\沪B\B转H\T
-  excelPath: F:\source\用例数据\沪B\B转H\T\清算结果.xlsx
+BtoH:
+  tday:
+    sqlPath: F:\source\用例数据\沪B\B转H\T日\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪B\B转H\T日
+    excelPath: F:\source\用例数据\沪B\B转H\T日\清算结果.xlsx
+  t1day:
+    dbfPath: F:\source\用例数据\沪B\B转H\T+1日
+    excelPath: F:\source\用例数据\沪B\B转H\T+1日\清算结果.xlsx
+  t2day:
+    dbfPath: F:\source\用例数据\沪B\B转H\T+2日
+    excelPath: F:\source\用例数据\沪B\B转H\T+2日\清算结果.xlsx
+
+#B股普通买卖
+OrdinaryTrade:
+  Tday:
+    dbfPath: F:\source\用例数据\沪B\普通交易\T日
+    sqlPath: F:\source\用例数据\沪B\普通交易\T日\stkinfo.sql
+    excelPath: F:\source\用例数据\沪B\普通交易\T日\清算结果.xlsx
+

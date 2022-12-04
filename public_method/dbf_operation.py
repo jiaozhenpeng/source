@@ -488,22 +488,13 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         if cjrq is None:
             cjrq = self.t
-        if jsrq is None:
-            jsrq = self.t1
-        if nextTwoDay is None:
-            nextTwoDay = OracleDatabase().get_trade_date(2)
         for record in table:
             with record as rec:
-                logger().info('修改字段{}，修改前是:{},修改后为：{}'.format('GBRQ', rec['GBRQ'], cjrq))
                 rec['GBRQ'] = cjrq
-                if rec['GBLB'] in ('QP',):
+                if rec['GBLB'] == 'QP' and rec['GBDM2'] == 'X': #交易所测试给的兑息是登记日是当日，到账日是下一日
+                    rec['GBRQ1'] ,rec['GBRQ2']= cjrq, self.t1
+                elif rec['GBLB'] == 'QP' and rec['GBDM2'] == 'D': #交易所测试给的兑付登记日和到账日都是当日
                     rec['GBRQ1'], rec['GBRQ2'] = cjrq, cjrq
-                elif rec['GBLB'] in ('LX',):
-                    rec['GBRQ1'], rec['GBRQ2'] = cjrq, jsrq  # 计息起始日和截止日，随便写的
-                elif rec['GBLB'] in ('MZ',):  # 面值适用日期，下一交易日
-                    rec['GBRQ1'] = jsrq
-                elif rec['GBLB'] in ('ZS',):  # 折算率起始日期和截止日期，下两个交易日
-                    rec['GBRQ1'], rec['GBRQ2'] = nextTwoDay, nextTwoDay
             records.append(record)
         table.close()
         return records
@@ -528,6 +519,16 @@ class DbfOperation():
         if cjrq is None:
             cjrq = self.t
         return self.get_data(ZJJZRQ=cjrq)
+
+    def szyh_sjsdz_file(self, cjrq=None):
+        if cjrq is None:
+            cjrq = self.t
+        return self.get_data(DZFSRQ=cjrq)
+
+    def szyh_sjsfw_file(self, cjrq=None):
+        if cjrq is None:
+            cjrq = self.t
+        return self.get_data(FWCLRQ=cjrq,FWFSRQ= cjrq)
 
     def sjstj_file(self, cjrq=None):
         if cjrq is None:
@@ -586,27 +587,30 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                if rec['JGQTRQ'].replace(' ', '') and rec['JGCJRQ'].replace(' ',
-                                                                            ''):  # 只有其他日期和交易日期都存在时，才会计算其他日期和交易日期的差值
-                    temp = datetime.strptime(rec['JGQTRQ'], '%y%m%d') - datetime.strptime(rec['JGCJRQ'],
-                                                                                          '%y%m%d') + datetime.strptime(
-                        cjrq, '%Y%m%d')
-                    tempdate = temp.strftime('%y%m%d')
-                rec['JGCJRQ'], rec['JGQSRQ'], rec['JGJSRQ'], rec['JGFSRQ'], rec['JGQTRQ'] = cjrq, qsrq, jsrq, fsrq, qtrq
-                if rec['JGYWLB'] == 'XYCS':  # 协议初始
-                    rec['JGQTRQ'] = tempdate
-                if rec['JGYWLB'] == 'XYHY':  # 协议合约
-                    rec['JGQSRQ'], rec['JGJSRQ'], rec['JGQTRQ'] = None, None, tempdate
-                elif rec['JGYWLB'] in (
-                        'DJBG', 'DJ00', 'ZTZC', 'ZTZR', 'ZTXS', 'ZTTZ', 'ZJQ0', 'ZJQ1', 'ZJQ2', 'TGZX', 'FJZG',
-                        'TZGF', 'GS4B', 'GSSG', 'XGJX', 'DJ00', 'XGXS', 'ZQZH', 'ZQZD',
-                        'ZQZZ') or (rec['JGYWLB'] == 'ZQKZ' and rec['JGJSSL'] > 0):
-                    # 清算日期和交收日期和其他日期为空，成交日期、发送日期= T日
-                    rec['JGQSRQ'], rec['JGJSRQ'], rec['JGQTRQ'] = None, None, None
-                elif rec['JGYWLB'] in ('QQSD',):  # 成交日期,其他日期为空，清算日期、交收日期、发送日期 = T日
-                    rec['JGCJRQ'], rec['JGJSRQ'], rec['JGQTRQ'] = None, cjrq, None
-                elif rec['JGYWLB'] in ('QP90',):  # 发送日期 = T日,其他日期都是空
-                    rec['JGCJRQ'], rec['JGJSRQ'], rec['JGQSRQ'] = None, None, None
+                if rec['JGYWLB'] in('JY03','QPPX','QPDF') :
+                    rec['JGCJRQ'], rec['JGQSRQ'], rec['JGJSRQ'], rec['JGFSRQ'] = cjrq, qsrq, qsrq, fsrq
+                elif rec['JGYWLB'] in('TGZX','DJ00','DJBG') :
+                    rec['JGCJRQ'], rec['JGFSRQ'] = cjrq, fsrq
+            records.append(record)
+        table.close()
+        return records
+
+
+    def szyh_sjsmx0_file(self, cjrq=None, qsrq=None, jsrq=None, fsrq=None, qtrq=None):
+        if cjrq is None:
+            cjrq = self.t
+        if qsrq is None:
+            qsrq = self.t
+        if jsrq is None:
+            jsrq = self.t1
+        if fsrq is None:
+            fsrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                if rec['MXYWLB'] in('JY03','') :
+                    rec['MXCJRQ'], rec['MXQSRQ'], rec['MXJSRQ'], rec['MXFSRQ'] = cjrq, qsrq, qsrq, fsrq
             records.append(record)
         table.close()
         return records
@@ -823,13 +827,7 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                rec['QSQSRQ'] = qsrq
-                rec['QSJSRQ'] = qsrq
-                rec['QSFSRQ'] = fsrq
-                if rec['QSYWLB'] == 'TGZH':
-                    rec['QSQSRQ'] = qsrq
-                    rec['QSJSRQ'] = jsrq
-                    rec['QSFSRQ'] = fsrq
+                rec['QSCJRQ'],rec['QSQSRQ'],rec['QSJSRQ'],rec['QSFSRQ'] = qsrq,qsrq,qsrq,qsrq
             records.append(record)
         table.close()
         return records
@@ -1111,6 +1109,9 @@ class DbfOperation():
         table.close()
         return records
 
+    def bc1_file(self):
+        return self.get_data(TRADE_DATE=self.t, SETTLEDATE=self.t2)
+
     def bc9_file(self):
         # YWLX = B2H
         return self.get_data(JYRQ=self.t, QSRQ=self.t, JSRQ=self.t2)
@@ -1188,22 +1189,3 @@ def creat_new_dbf(path):
 if __name__ == '__main__':
     dbf_file = DbfOperation(r'D:\sjsfx.dbf')
     dbf_file.delete_record()
-    # for i in dbf_file.get_data():
-    #     print(i)
-
-    # dbf_record = dbf_file.bjsjg_file()
-    # dbf_file.creat_dbf(dbf_record,'bjsjg')
-    # d = creat_new_dbf('F:\source\用例数据\深权\普通开仓\准备昨持仓数据\\')
-    # print(d)
-
-    # dbf_file.creat_dbf(filename='gh', records=dbf_file.gh_file())
-    # dbf_re = dbf_file.szyh_sjsjg_file()
-    # for i in dbf_re:
-    #     print(i)
-    # dbf_file.creat_dbf(dbf_re, 'szyh_sjsjg')
-    # print(dbf_file.get_data())
-    # dbf2 = DbfOperation(r'D:\GH.dbf')
-    # DBF2 = dbf2.gh_file()
-    # for x in DBF2:
-    #     print(x)
-    # dbf2.creat_dbf(DBF2,'gh')
