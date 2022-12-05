@@ -161,7 +161,7 @@ class BaseAction():
         :param :
         :return:
         '''
-        list_data.sort(key=lambda x: ( x['BRIEFID'],x['EXCHID'], x['STKID'], x['REGID'],x['CONTRACTNUM'],
+        list_data.sort(key=lambda x: ( x['BRIEFID'],x['EXCHID'], x['STKID'], x['REGID'],x['CONTRACTNUM'],x['KNOCKAMT'],
                                        x['RECKONINGAMT'],x['POSTQTY'],x['SHAREATTR'])) #knockqty排序不生效，使用postqty代替
         return list_data
 
