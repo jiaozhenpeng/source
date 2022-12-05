@@ -32,3 +32,8 @@ dx:
     sqlPath: F:\source\用例数据\深银行\兑息\普通兑息\T+1日\stkinfo.sql
     excelPath: F:\source\用例数据\深银行\兑息\普通兑息\T+1日\测试结果.xlsx
 
+#深银行广播信息新增证券信息
+gbxzxx:
+  dbfPath: F:\source\用例数据\深银行\广播插入证券信息
+  sqlPath: F:\source\用例数据\深银行\广播插入证券信息\stkinfo.sql
+  excelPath: F:\source\用例数据\深银行\广播插入证券信息\测试结果.xlsx

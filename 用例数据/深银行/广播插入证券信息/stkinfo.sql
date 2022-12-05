@@ -1,0 +1,1 @@
+delete from stkinfo where exchid='B' and stkid in('102002117','061605001');
