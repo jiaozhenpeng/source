@@ -64,7 +64,8 @@ class ContrastRestrictedShares(unittest.TestCase):
                                                                       unprocessedreckoningresult_excel,
                                                                       'unprocessedreckoningresult',
                                                                       *unprocessedreckoningresult_ignore)
-        stklist_result = BaseAction.compare_dict(stklist_database,stklist_excel,'stklist')
+        stklist_result = BaseAction().compare_dict(stklist_database, stklist_excel, 'stklist' )
+
         final_result = unprocessedreckoningresulthis_result + unprocessedreckoningresult_result + stklist_result
 
         # 断言

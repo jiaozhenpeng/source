@@ -587,7 +587,7 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                if rec['JGYWLB'] in('JY03','QPPX','QPDF') :
+                if rec['JGYWLB'] in('JY03','QPPX','QPDF','DJDJ') :
                     rec['JGCJRQ'], rec['JGQSRQ'], rec['JGJSRQ'], rec['JGFSRQ'] = cjrq, qsrq, qsrq, fsrq
                 elif rec['JGYWLB'] in('TGZX','DJ00','DJBG') :
                     rec['JGCJRQ'], rec['JGFSRQ'] = cjrq, fsrq
