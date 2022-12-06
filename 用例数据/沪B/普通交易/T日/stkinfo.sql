@@ -31,3 +31,5 @@ values ('2', '000000003522', '000000003522', '0000AB3522', '焦振鹏沪B股虚�
 update openorder  a  set  a.occurtime=(select    substr(b.tradedate,0,8)||substr(a.occurtime,9,14)       from sysconfig b );
 update openorder  a  set  a.offertime=(select    substr(b.tradedate,0,8)||substr(a.offertime,9,14)       from sysconfig b );
 update  openorder  a  set  a.ordertime=(select    substr(b.tradedate,0,8)||substr(a.ordertime,9,14)       from sysconfig b );
+delete from unprocessedreckoningresult where exchid='2' and stkid  in('900909','900947');
+

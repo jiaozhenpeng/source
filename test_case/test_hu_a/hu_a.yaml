@@ -200,7 +200,7 @@ DVP:
   Tday1:
     dbfPath: F:\source\用例数据\沪A\DVP改革\转处置冻结（T+1日）
     excelPath: F:\source\用例数据\沪A\DVP改革\转处置冻结（T+1日）\测试结果.xlsx
-#    sqlPath: F:\source\用例数据\沪A\DVP改革\转处置冻结（T+1日）\stkinfo.sql
+    sqlPath: F:\source\用例数据\沪A\DVP改革\转处置冻结（T+1日）\stkinfo.sql
 
   Tday2:
     dbfPath: F:\source\用例数据\沪A\DVP改革\违约处置（T+2）
