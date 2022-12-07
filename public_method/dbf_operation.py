@@ -17,6 +17,7 @@ class DbfOperation():
     t = OracleDatabase().get_trade_date()
     t1 = OracleDatabase().get_trade_date(1)
     t2 = OracleDatabase().get_trade_date(2)
+    t3 = OracleDatabase().get_trade_date(3)
     t5 = OracleDatabase().get_trade_date(5)
     lasttradedate1 = OracleDatabase().get_last_trade_date(1)
 
@@ -615,6 +616,25 @@ class DbfOperation():
         table.close()
         return records
 
+
+    def sjsmx2_file(self, qsrq=None, jsrq=None, fsrq=None):
+        if qsrq is None:
+            qsrq = self.t
+        if jsrq is None:
+            jsrq = self.t1
+        if fsrq is None:
+            fsrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                if rec['MXYWLB'] == 'BG1C':
+                    rec['MXQSRQ'] ,rec['MXCJRQ'] ,rec['MXFSRQ'] = qsrq,qsrq,fsrq
+                    rec['MXJSRQ'],rec['MXQTRQ'] = self.t3,self.t3
+            records.append(record)
+        table.close()
+        return records
+
     def sjsfw_file(self, cjrq=None, fsrq=None):
         if cjrq is None:
             cjrq = self.t
@@ -744,9 +764,7 @@ class DbfOperation():
         for record in table:
             with record as rec:
                 if rec['YWLB'] == 'TGZH':
-                    rec['QSRQ'] = qsrq
-                    rec['JSRQ'] = jsrq
-                    rec['FSRQ'] = fsrq
+                    rec['QSRQ'] ,rec['JSRQ'] ,rec['FSRQ'] = qsrq,jsrq,fsrq
             records.append(record)
         table.close()
         return records

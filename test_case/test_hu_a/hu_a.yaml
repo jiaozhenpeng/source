@@ -313,3 +313,11 @@ companybond:
     txtPath: F:\source\用例数据\沪A\公司债\公司债现券交易\zqgh.txt
     excelPath: F:\source\用例数据\沪A\公司债\公司债现券交易\测试结果.xlsx
     sqlPath: F:\source\用例数据\沪A\公司债\公司债现券交易\stkinfo.sql
+
+#   企业债可转债交易
+qybond:
+  trade:
+    dbfPath: F:\source\用例数据\沪A\企业债\企业债买卖
+    txtPath: F:\source\用例数据\沪A\企业债\企业债买卖\zqgh.txt
+    excelPath: F:\source\用例数据\沪A\企业债\企业债买卖\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\企业债\企业债买卖\stkinfo.sql

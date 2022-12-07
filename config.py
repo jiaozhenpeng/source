@@ -7,6 +7,8 @@ class PathConfig:
         return r'F:\自动化日志'  # log 日志配置路径
     def dbf(self):
         return r'F:\source\public_method\dbf_config.yaml'  # dbf配置文件路径
+    def table_ignore(self):
+        return r'F:\source\public_method/table_ignore.yaml'  # dbf配置文件路径
     def shen_a(self):
         return r'F:\source\test_case\test_shen_a\shen_a.yaml'
     def market_b(self):

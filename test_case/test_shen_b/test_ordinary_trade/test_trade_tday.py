@@ -1,3 +1,5 @@
+
+
 import unittest
 
 from config import PathConfig
@@ -6,18 +8,20 @@ from log.logger import logger
 from public_method.base_action import BaseAction
 from public_method.dbf_operation import creat_new_dbf
 
-class SZYH(unittest.TestCase):
+
+class TransferTube(unittest.TestCase):
     """
-    深银行\兑息\普通兑息\T日
+    深B\普通交易\普通交易\T日
     """
-    yaml =  BaseAction().read_yaml(path=PathConfig().shen_bank())['dx']['ptdxtday']
-    def test_b_turn_h(self):
+    yaml = BaseAction().read_yaml(path=PathConfig().shen_b())['OrdinaryTrade']['Tday']
+
+    def test_transfer_tube(self):
         """
-        深银行\兑息\普通兑息\T日
+        深B\普通交易\普通交易\T日
         :return:
         """
         logger().info('-------------------------------')
-        logger().info('开始执行：深银行\兑息\普通兑息\T日 准备数据')
+        logger().info('开始执行：深B\普通交易\普通交易\T日 准备数据')
         dbf_path = self.yaml['dbfPath']
         dbf_result = creat_new_dbf(dbf_path)
         if not dbf_result:
@@ -30,11 +34,12 @@ class SZYH(unittest.TestCase):
         oracle = OracleDatabase()
         sql_result = oracle.update_sql(*sql)
         if not sql_result:
-            logger().info('深银行\兑息\普通兑息\T日 准备数据完成')
+            logger().info('深B\普通交易\普通交易\T日 准备数据完成')
             assert True
         else:
-            logger().error('深银行\兑息\普通兑息\T日 准备数据异常')
+            logger().error('深B\普通交易\普通交易\T日 准备数据异常')
             assert False, sql_result
+
 
 if __name__ == '__main__':
     unittest.main()

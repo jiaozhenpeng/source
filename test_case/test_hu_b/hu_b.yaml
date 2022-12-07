@@ -18,5 +18,5 @@ OrdinaryTrade:
   Tday:
     dbfPath: F:\source\用例数据\沪B\普通交易\T日
     sqlPath: F:\source\用例数据\沪B\普通交易\T日\stkinfo.sql
-    excelPath: F:\source\用例数据\沪B\普通交易\T日\清算结果.xlsx
+    excelPath: F:\source\用例数据\沪B\普通交易\T日\测试结果.xlsx
 
