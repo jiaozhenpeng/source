@@ -203,3 +203,20 @@ Evote:
   excelPath: F:\source\用例数据\深A\V5投票
 
 
+#信用保护合约
+XYBHHY:
+  CSTZ:  #信用保护合约提前终止
+    dbfPath: F:\source\用例数据\深A\信用保护合约\CSTZ提前终止
+    excelPath: F:\source\用例数据\深A\信用保护合约\CSTZ提前终止\测试结果.xlsx
+
+  CSXX:  #信用保护合约信用事件现金结算
+    dbfPath: F:\source\用例数据\深A\信用保护合约\CSTZ提前终止
+    excelPath: F:\source\用例数据\深A\信用保护合约\CSTZ提前终止\测试结果.xlsx
+
+  CSSX:  #信用保护合约信用事件实物结算
+    dbfPath: F:\source\用例数据\深A\信用保护合约\CSSX实物结算
+    sqlPath: F:\source\用例数据\深A\信用保护合约\CSSX实物结算\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\信用保护合约\CSSX实物结算\测试结果.xlsx
+
+
+

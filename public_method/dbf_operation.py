@@ -570,7 +570,9 @@ class DbfOperation():
                 elif rec['JGYWLB'] in ('QQSD',):  # 成交日期,其他日期为空，清算日期、交收日期、发送日期 = T日
                     rec['JGCJRQ'], rec['JGJSRQ'], rec['JGQTRQ'] = None, cjrq, None
                 elif rec['JGYWLB'] in ('QP90','TG90'):  # 发送日期 = T日,其他日期都是空
-                    rec['JGCJRQ'], rec['JGJSRQ'], rec['JGQSRQ'] = None, None, None
+                    rec['JGCJRQ'], rec['JGJSRQ'], rec['JGQSRQ'],rec['JGQTRQ'] = None, None, None, None
+                elif rec['JGYWLB'] in ('CSTZ','CSXX','CSXX'):   #RTGS交收的，四个日期为T日，其他日期空
+                    rec['JGJSRQ'],rec['JGQTRQ'] = cjrq,None
             records.append(record)
         table.close()
         return records
@@ -631,6 +633,26 @@ class DbfOperation():
                 if rec['MXYWLB'] == 'BG1C':
                     rec['MXQSRQ'] ,rec['MXCJRQ'] ,rec['MXFSRQ'] = qsrq,qsrq,fsrq
                     rec['MXJSRQ'],rec['MXQTRQ'] = self.t3,self.t3
+                elif rec['MXYWLB'] == 'CSFY':
+                    rec['MXCJRQ'],rec['MXQSRQ'],rec['MXJSRQ'],rec['MXFSRQ'] = qsrq,qsrq,jsrq,fsrq
+
+            records.append(record)
+        table.close()
+        return records
+
+    def sjsmx0_file(self, qsrq=None, jsrq=None, fsrq=None):
+        if qsrq is None:
+            qsrq = self.t
+        if jsrq is None:
+            jsrq = self.t1
+        if fsrq is None:
+            fsrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                if rec['MXYWLB'] in ('CSTZ','CSXX','CSSX'):
+                    rec['MXQSRQ'] ,rec['MXCJRQ'] ,rec['MXFSRQ'],rec['MXJSRQ'] = qsrq,qsrq,fsrq,qsrq
             records.append(record)
         table.close()
         return records
