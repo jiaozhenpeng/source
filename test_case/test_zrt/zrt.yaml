@@ -1,6 +1,30 @@
 
-# 战略配售股份出借
-SEND_XL:
-  dbfPath: F:\source\用例数据\深权\普通平仓
-  sqlPath: F:\source\用例数据\深权\普通平仓\stkinfo.sql
-  excelPath: F:\source\用例数据\深权\普通平仓\测试结果.xlsx
+# 出借交易单元报备
+CJJYDYBBQR:
+  dbfPath: F:\source\用例数据\转融通\出借交易单元报备
+  sqlPath: F:\source\用例数据\转融通\出借交易单元报备\stkinfo.sql
+  excelPath: F:\source\用例数据\转融通\出借交易单元报备\测试结果.xlsx
+
+
+ZLPSCJ:
+  tday:
+    dbfPath: F:\source\用例数据\转融通\转融通出借\战略股份出借
+    sqlPath: F:\source\用例数据\转融通\转融通出借\战略股份出借\stkinfo.sql
+    excelPath: F:\source\用例数据\转融通\转融通出借\战略股份出借\测试结果.xlsx
+
+
+ZRQ_PT:
+  tday:
+    dbfPath: F:\source\用例数据\转融通\转融券\流通股转融券\新合约
+    sqlPath: F:\source\用例数据\转融通\转融券\流通股转融券\新合约\stkinfo.sql
+    excelPath: F:\source\用例数据\转融通\转融券\流通股转融券\新合约\测试结果.xlsx
+
+
+
+ZRZ:  #转融资
+  tday:
+    dbfPath: F:\source\用例数据\转融通\转融资\转融资到期\新合约
+    sqlPath: F:\source\用例数据\转融通\转融资\转融资到期\新合约\stkinfo.sql
+    excelPath: F:\source\用例数据\转融通\转融资\转融资到期\新合约\测试结果.xlsx
+
+

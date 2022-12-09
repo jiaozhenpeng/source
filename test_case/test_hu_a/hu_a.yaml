@@ -321,3 +321,11 @@ qybond:
     txtPath: F:\source\用例数据\沪A\企业债\企业债买卖\zqgh.txt
     excelPath: F:\source\用例数据\沪A\企业债\企业债买卖\测试结果.xlsx
     sqlPath: F:\source\用例数据\沪A\企业债\企业债买卖\stkinfo.sql
+
+#   国债
+treasury_bond:
+  trade:
+    dbfPath: F:\source\用例数据\沪A\国债\普通交易
+    txtPath: F:\source\用例数据\沪A\国债\普通交易\zqgh.txt
+    excelPath: F:\source\用例数据\沪A\国债\普通交易\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\国债\普通交易\stkinfo.sql

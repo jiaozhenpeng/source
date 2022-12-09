@@ -1198,6 +1198,60 @@ class DbfOperation():
     def zqzhzl_file(self):
         return self.get_data(KHRQ=self.t)
 
+    def cjjydybbqr_file(self, cjrq=None):
+        """
+        修改成交日期，获取修改日期后的dbf文件数据列表
+        :param cjrq:
+        :return:
+        """
+        if cjrq is None:
+            cjrq = self.t
+        return self.get_data(SBRQ=cjrq,FSRQ =cjrq)
+
+    #转融通新合约信息
+    def zrtxhyxx_file(self, cjrq=None):
+        if cjrq is None:
+            cjrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                QX = rec['QX']
+                rec['QSRQ'],rec['CJRQ'],rec['HYDQR'] = cjrq,cjrq,OracleDatabase().get_trade_date(QX)
+            records.append(record)
+        table.close()
+        return records
+
+    #转融通合约对账
+    def zrthydz_file(self, cjrq=None):
+        if cjrq is None:
+            cjrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                QX = rec['QX']
+                rec['QSRQ'],rec['CJRQ'],rec['LLDQR'],rec['HYDQR'] = cjrq,cjrq,OracleDatabase().get_trade_date(QX),\
+                                                                    OracleDatabase().get_trade_date(QX)
+            records.append(record)
+        table.close()
+        return records
+
+
+    #转融通T+1日交收通知
+    def zrtjstz_file(self, cjrq=None):
+        if cjrq is None:
+            cjrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                if rec['ZQDM'].strip()  in ('304001',):
+                    rec['QSRQ'],rec['CJRQ'],rec['JSRQ'] = cjrq,cjrq,self.t1
+            records.append(record)
+        table.close()
+        return records
+
 
 def creat_new_dbf(path):
     """
