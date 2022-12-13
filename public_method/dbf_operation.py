@@ -1248,6 +1248,9 @@ class DbfOperation():
             with record as rec:
                 if rec['ZQDM'].strip()  in ('304001',):
                     rec['QSRQ'],rec['CJRQ'],rec['JSRQ'] = cjrq,cjrq,self.t1
+                elif rec['HYBH'] == '2021032700000006':
+                    rec['QSRQ'], rec['CJRQ'], rec['JSRQ'] = cjrq, cjrq, self.t1
+
             records.append(record)
         table.close()
         return records
