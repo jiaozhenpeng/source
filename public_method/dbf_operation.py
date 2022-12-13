@@ -1256,6 +1256,39 @@ class DbfOperation():
         return records
 
 
+    def fi_jsmx_file(self, cjrq=None):
+        if cjrq is None:
+            cjrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                rec['QSRQ'],rec['JYRQ'],rec['JSRQ'] = cjrq,cjrq,cjrq
+            records.append(record)
+        table.close()
+        return records
+
+    def fi_zqbd_file(self, cjrq=None):
+        """
+        修改成交日期，获取修改日期后的dbf文件数据列表
+        :param cjrq:
+        :return:
+        """
+        if cjrq is None:
+            cjrq = self.t
+        return self.get_data(BDRQ=cjrq)
+
+    def fi_zqye_file(self, cjrq=None):
+        """
+        修改成交日期，获取修改日期后的dbf文件数据列表
+        :param cjrq:
+        :return:
+        """
+        if cjrq is None:
+            cjrq = self.t
+        return self.get_data()
+
+
 def creat_new_dbf(path):
     """
     传路径，操作路径下所有dbf文件，修改日期并放至当前交易日期目录下

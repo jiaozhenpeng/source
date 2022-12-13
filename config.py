@@ -35,5 +35,7 @@ class PathConfig:
         return r'F:\source\test_case\test_day_end\day_end.yaml'
     def shen_bank(self):
         return r'F:\source\test_case\test_shen_bank\shen_bank.yaml'
+    def hu_bank(self):
+        return r'F:\source\test_case/test_hu_bank/hu_bank.yaml'
     def zrt(self):
         return r'F:\source\test_case\test_zrt\zrt.yaml'

@@ -1,0 +1,33 @@
+# 沪银行
+
+ordinary_trade:
+  buy:
+    dbfPath: F:\source\用例数据\沪银行\买卖交易\买方交收成功
+    sqlPath: F:\source\用例数据\沪银行\买卖交易\买方交收成功\stkinfo.sql
+    excelPath: F:\source\用例数据\沪银行\买卖交易\买方交收成功\测试结果.xlsx
+
+  buy_bankfailed:
+    dbfPath: F:\source\用例数据\沪银行\买卖交易\买方银行间交易作废
+    sqlPath: F:\source\用例数据\沪银行\买卖交易\买方银行间交易作废\stkinfo.sql
+    excelPath: F:\source\用例数据\沪银行\买卖交易\买方银行间交易作废\测试结果.xlsx
+
+  buy_yijifailed:
+    dbfPath: F:\source\用例数据\沪银行\买卖交易\买方银行间一级交收失败
+    sqlPath: F:\source\用例数据\沪银行\买卖交易\买方银行间一级交收失败\stkinfo.sql
+    excelPath: F:\source\用例数据\沪银行\买卖交易\买方银行间一级交收失败\测试结果.xlsx
+
+  sell:
+    dbfPath: F:\source\用例数据\沪银行\买卖交易\卖方交收成功
+    sqlPath: F:\source\用例数据\沪银行\买卖交易\卖方交收成功\stkinfo.sql
+    excelPath: F:\source\用例数据\沪银行\买卖交易\卖方交收成功\测试结果.xlsx
+
+  sell_bankfailed:
+    dbfPath: F:\source\用例数据\沪银行\买卖交易\卖方银行间交易作废
+    sqlPath: F:\source\用例数据\沪银行\买卖交易\卖方银行间交易作废\stkinfo.sql
+    excelPath: F:\source\用例数据\沪银行\买卖交易\卖方银行间交易作废\测试结果.xlsx
+
+  sell_yijifailed:
+    dbfPath: F:\source\用例数据\沪银行\买卖交易\卖方银行间一级交收失败
+    sqlPath: F:\source\用例数据\沪银行\买卖交易\卖方银行间一级交收失败\stkinfo.sql
+    excelPath: F:\source\用例数据\沪银行\买卖交易\卖方银行间一级交收失败\测试结果.xlsx
+
