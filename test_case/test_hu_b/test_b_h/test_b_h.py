@@ -10,7 +10,7 @@ class BH(unittest.TestCase):
     """
     沪B-b转h
     """
-    yaml =  BaseAction().read_yaml(path=PathConfig().hu_b())['BH']
+    yaml =  BaseAction().read_yaml(path=PathConfig().hu_b())['BtoH']['tday']
     def test_b_turn_h(self):
         """
         沪B-b转h

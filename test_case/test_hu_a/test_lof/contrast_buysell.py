@@ -48,7 +48,7 @@ class ContrastRestrictedShares(unittest.TestCase):
         stklisthis_excel = BaseAction().stklist_sort(excel.read_excel('stklist2022'))
         # 可以忽略的字段
         tradinglog_ignore = ('KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME',
-                             'SETTLEDATE', 'TRANSACTIONREF','POSTAMT')
+                             'SETTLEDATE', 'TRANSACTIONREF','POSTAMT','CONFIRMTIME')
         stklisthis_ignore = ('OCCURTIME',)
         # 对比数据
 

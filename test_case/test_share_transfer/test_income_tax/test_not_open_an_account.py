@@ -10,7 +10,7 @@ class NotOpenAnAccount(unittest.TestCase):
     """
     股转\所得税\未开户挂账
     """
-    # yaml = BaseAction().read_yaml(PathConfig().share_reconciliation())['IncomeTax']['notOpenAnAccount']
+    yaml = BaseAction().read_yaml(PathConfig().share_reconciliation())['IncomeTax']['notOpenAnAccount']
     def test_not_open(self):
         """
         股转\所得税\未开户挂账

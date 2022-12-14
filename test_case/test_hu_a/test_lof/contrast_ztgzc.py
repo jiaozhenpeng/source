@@ -11,7 +11,7 @@ class ContrastRestrictedShares(unittest.TestCase):
     """
     沪A\上证lof\lof跨市场转托管转出
     """
-    yaml = BaseAction().read_yaml(path=PathConfig().hu_a())['lofztgzr']
+    yaml = BaseAction().read_yaml(path=PathConfig().hu_a())['lofztgzc']['Tday']
 
     def test_restricted_shares(self):
         """

@@ -11,7 +11,7 @@ class ContrastOrdinaryTransaction(unittest.TestCase):
     """
     沪港\普通交易\t日
     """
-    yaml = BaseAction().read_yaml(path=PathConfig().hu_gang())['OrdinaryTransaction']
+    yaml = BaseAction().read_yaml(path=PathConfig().hu_gang())['OrdinaryTransaction']['Tday']
 
     def test_ordinary_transaction(self):
         """
@@ -49,7 +49,7 @@ class ContrastOrdinaryTransaction(unittest.TestCase):
             excel.read_excel('unprocessedreckoningresult'))
         stklist_excel = BaseAction().stklist_sort(excel.read_excel('stklist'))
         # 可以忽略的字段
-        unprocessedreckoningresulthis_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE','OFFERTIME')
+        unprocessedreckoningresulthis_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE','OFFERTIME','FIRSTCASHSETTLEDATE')
         unprocessedreckoningresult_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE','OFFERTIME')
         stklist_ignore = ()
         # 对比数据

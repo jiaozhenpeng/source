@@ -39,11 +39,11 @@ class ContrastRestrictedShares(unittest.TestCase):
 
         # 获取数据库数据并排序
 
-        tradinglog_database = base.tradinglog_sort(oracle.dict_data(tradinglog_sql))
+        tradinglog_database = base.tradinglog_sort2(oracle.dict_data(tradinglog_sql))
         stklist_database = base.stklist_sort(oracle.dict_data(stklist_sql))
         stklistextend_database = base.stklistextend_sort(oracle.dict_data(stklistextend_sql))
         # 获取excel数据并排序
-        tradinglog_excel =  base.tradinglog_sort(excel.read_excel('tradinglog'))
+        tradinglog_excel =  base.tradinglog_sort2(excel.read_excel('tradinglog'))
         stklist_excel =  base.stklist_sort(excel.read_excel('stklist'))
         stklistextend_excel =  base.stklistextend_sort(excel.read_excel('stklistextend'))
         # 可以忽略的字段

@@ -1,7 +1,7 @@
 
 # 股转\QFII股份对账
 QfiiShareReconciliation:
-  dbfPath: F:\source\用例数据\股转\QFII股份对账\bjsjg.dbf
+  dbfPath: F:\source\用例数据\股转\QFII股份对账
   sqlPath: F:\source\用例数据\股转\QFII股份对账\stkinfo.sql
   excelPath: F:\source\用例数据\股转\QFII股份对账\测试结果.xlsx
 # 股转\分红派息

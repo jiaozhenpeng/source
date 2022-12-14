@@ -176,6 +176,17 @@ class BaseAction():
                                        x['RECKONINGAMT']))
         return list_data
 
+    def tradinglog_sort2(self, list_data):
+        '''
+        特殊排序tradinglog表数据，不加stkid，如下
+        深A\信用保护合约\CSSX实物结算
+        :param :
+        :return:
+        '''
+        list_data.sort(key=lambda x: ( x['BRIEFID'],x['EXCHID'], x['REGID'],x['CONTRACTNUM'],
+                                       x['RECKONINGAMT'],x['KNOCKQTY']))
+        return list_data
+
     def account_sort(self, list_data):
         '''
         排序account表，根据字段currencyid,acctid

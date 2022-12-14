@@ -34,8 +34,8 @@ class ContrastTencentJingdong(unittest.TestCase):
         tradinglog_sql = "select * from tradinglog where reckoningtime>={} and reckoningtime<={} and exchid= '4'  " \
                          "and REGID in( '0117212000','0117252000') and stkid in ('00700','09618') and DESKID " \
                          "='077011'".format(begintime,endtime)
-        stkcheckin_sql = "select * from stkcheckin where EXCHID ='4' and STKID in ('00700','09618')' and OCCURTIME " \
-                         "={}".format(begintime)
+        stkcheckin_sql = "select * from stkcheckin where EXCHID ='4' and STKID in ('00700','09618') and OCCURTIME " \
+                         "={}".format(begintime,)
         # 数据库数据
         stklist_database = base.stklist_sort(oracle.dict_data(stklist_sql))
         tradinglog_database = base.tradinglog_sort(oracle.dict_data(tradinglog_sql))
