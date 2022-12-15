@@ -187,6 +187,17 @@ class BaseAction():
                                        x['RECKONINGAMT'],x['KNOCKQTY']))
         return list_data
 
+    def tradinglog_sort3(self, list_data):
+        '''
+        特殊排序tradinglog表数据，只要briefid和市场
+        适应没有证券代码和合同号，并且记录较少的数据
+        沪银行买卖
+        :param :
+        :return:
+        '''
+        list_data.sort(key=lambda x: (x['BRIEFID'], x['EXCHID']))
+        return list_data
+
     def account_sort(self, list_data):
         '''
         排序account表，根据字段currencyid,acctid

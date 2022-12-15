@@ -329,3 +329,14 @@ treasury_bond:
     txtPath: F:\source\用例数据\沪A\国债\普通交易\zqgh.txt
     excelPath: F:\source\用例数据\沪A\国债\普通交易\测试结果.xlsx
     sqlPath: F:\source\用例数据\沪A\国债\普通交易\stkinfo.sql
+
+#信用保护凭证
+xybhpz:
+  pledge:  #质押入库
+    dbfPath: F:\source\用例数据\沪A\信用保护凭证\信用保护凭证质押入库
+    excelPath: F:\source\用例数据\沪A\信用保护凭证\信用保护凭证质押入库\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\信用保护凭证\信用保护凭证质押入库\stkinfo.sql
+  shangshi: #上市，单位是张
+    dbfPath: F:\source\用例数据\沪A\信用保护凭证\上市
+    excelPath: F:\source\用例数据\沪A\信用保护凭证\上市\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\信用保护凭证\上市\stkinfo.sql

@@ -183,7 +183,7 @@ class DbfOperation():
         for record in table:
             with record as rec:
                 rec['JYRQ'], rec['QSRQ'], rec['JSRQ'] = cjrq, qsrq, jsrq  # 011,037
-                if rec['YWLX'] in ('691', '605', '684', '685'):  # 根据业务类型判断jsrq
+                if rec['YWLX'] in ('691', '605', '684', '685','692','693'):  # 根据业务类型判断，交易日期、清算日期、交收日期都是T日
                     rec['JSRQ'] = cjrq
                 elif rec['YWLX'] in ('680', ):  # 根据业务类型判断jsrq
                     if rec['SQBH'] in ('70','77','79','80'):
@@ -382,7 +382,7 @@ class DbfOperation():
                 if rec['SJLX'] == '018':
                     rec['RQ'] = self.t1
                 else:
-                    rec['RQ'] = self.t  #020锁定得最后一次变化
+                    rec['RQ'] = self.t  #020,锁定得最后一次变化  022
             records.append(record)
         table.close()
         return records
