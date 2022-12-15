@@ -41,9 +41,11 @@ class ContrastTransferTube(unittest.TestCase):
         unprocessedreckoningresulthis_sql = "select * from unprocessedreckoningresulthis where EXCHID='4' and DESKID " \
                                             "= '077011' and STKID ='00004' and REGID ='0117212000' and ACCTID " \
                                             "='000011721200' and knocktime>={}".format(begintime,)
-        stklist_sql = "select * from STKLIST{} where EXCHID = '4' and REGID in('0117212001','0117252000','0117212000') " \
+        stklisthis_sql = "select * from STKLIST{} where EXCHID = '4' and REGID in('0117212001','0117252000','0117212000') " \
                       "and STKID in ('00004','00006','00008','00011') and DESKID = '077011' and OCCURTIME = " \
                       "{}".format(year,begintime)
+        stklist_sql = "select * from STKLIST where EXCHID = '4' and REGID in('0117212001','0117252000','0117212000') " \
+                      "and STKID in ('00004','00006','00008','00011') and DESKID = '077011' ".format(year,begintime)
         # 数据库数据
         tradinglog_database = base.tradinglog_sort(oracle.dict_data(tradinglog_sql))
         regrights_database = base.regrights_sort(oracle.dict_data(regrights_sql))
@@ -51,6 +53,7 @@ class ContrastTransferTube(unittest.TestCase):
             oracle.dict_data(unprocessedreckoningresult_sql))
         unprocessedreckoningresulthis_database = base.unprocessedreckoningresulthis_sort(
             oracle.dict_data(unprocessedreckoningresulthis_sql))
+        stklisthis_database = base.stklist_sort(oracle.dict_data(stklisthis_sql))
         stklist_database = base.stklist_sort(oracle.dict_data(stklist_sql))
         # Excel数据
         tradinglog_excel = base.tradinglog_sort(excel.read_excel('tradinglog'))
@@ -59,17 +62,18 @@ class ContrastTransferTube(unittest.TestCase):
             excel.read_excel('unprocessedreckoningresult'))
         unprocessedreckoningresulthis_excel = base.unprocessedreckoningresulthis_sort(
             excel.read_excel('unprocessedreckoningresulthis'))
+        stklisthis_excel = base.stklist_sort(excel.read_excel('stklist2021'))
         stklist_excel = base.stklist_sort(excel.read_excel('stklist'))
         # 忽略字段
-        regrights_ignore = ()
-        tradinglog_ignore = ('KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE')
-        regrights_ignore = ()
-        unprocessedreckoningresult_ignore = ('KNOCKTIME',)
+        tradinglog_ignore = ('KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME',
+                             'TRANSACTIONREF','SETTLEDATE','POSTAMT')
+        regrights_ignore = ('OCCURTIME',)
+        unprocessedreckoningresult_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE')
         unprocessedreckoningresulthis_ignore = ('KNOCKTIME',)
-        stklist_ignore = ()
+        stklist_ignore = ('OCCURTIME',)
         # 对比
         tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog', *tradinglog_ignore)
-        regrights_result = base.compare_dict(regrights_database, regrights_excel, 'regrights')
+        regrights_result = base.compare_dict(regrights_database, regrights_excel, 'regrights',*regrights_ignore)
         unprocessedreckoningresult_result = base.compare_dict(unprocessedreckoningresult_database,
                                                               unprocessedreckoningresult_excel,
                                                               'unprocessedreckoningresult',
@@ -78,11 +82,13 @@ class ContrastTransferTube(unittest.TestCase):
                                                                  unprocessedreckoningresulthis_excel,
                                                                  'unprocessedreckoningresulthis',
                                                                  *unprocessedreckoningresulthis_ignore)
+        stklisthis_result = base.compare_dict(stklisthis_database, stklisthis_excel, 'stklist2022',*stklist_ignore)
         stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist')
+
 
         # 断言
         final_result =  tradinglog_result + regrights_result + unprocessedreckoningresult_result \
-                       + unprocessedreckoningresulthis_result + stklist_result
+                       + unprocessedreckoningresulthis_result + stklist_result + stklisthis_result
         if not final_result:
             logger().info('深港\深港转托管 对比数据无异常')
             assert True

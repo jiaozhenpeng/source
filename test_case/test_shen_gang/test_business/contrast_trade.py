@@ -31,7 +31,7 @@ class ContrastBusiness(unittest.TestCase):
                                          "REGID in( '0117222000','0117222001')"
         # 需要忽略的字段
         stklist_ignore = ()
-        unprocessedreckoningresult_ignore = ()
+        unprocessedreckoningresult_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE','OFFERTIME','FIRSTCASHSETTLEDATE')
         # 获取数据库数据并排序
         stklist_database = BaseAction().stklist_sort(oracle.dict_data(stklist_sql))
         unprocessedreckoningresult_database = BaseAction().unprocessedreckoningresult_sort(
@@ -44,7 +44,7 @@ class ContrastBusiness(unittest.TestCase):
         stklist_result = BaseAction().compare_dict(stklist_database, stklist_excel, 'stklist')
         unprocessedreckoningresult_result = BaseAction().compare_dict(unprocessedreckoningresult_database,
                                                                       unprocessedreckoningresult_excel,
-                                                                      'unprocessedreckoningresult')
+                                                                      'unprocessedreckoningresult',*unprocessedreckoningresult_ignore)
         if not stklist_result and not unprocessedreckoningresult_result:
             logger().info('深港\\买卖T日清算 对比数据无异常')
             assert True

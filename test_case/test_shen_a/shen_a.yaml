@@ -223,3 +223,15 @@ XYBHHY:
 
 
 
+individualtax:  #差异化股息红利税
+  dbfPath: F:\source\用例数据\深A\股息红利税
+  sqlPath: F:\source\用例数据\深A\股息红利税\stkinfo.sql
+  excelPath: F:\source\用例数据\深A\股息红利税\测试结果.xlsx
+
+
+Reits:  #公募reits
+  TGQP: #基金清盘
+    dbfPath: F:\source\用例数据\深A\公募reits\基金清盘
+    sqlPath: F:\source\用例数据\深A\公募reits\基金清盘\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\公募reits\基金清盘\测试结果.xlsx
+

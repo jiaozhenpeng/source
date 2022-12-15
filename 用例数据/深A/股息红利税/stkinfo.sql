@@ -1,0 +1,1 @@
+delete from individualdividendtax where exchid='1';

@@ -146,7 +146,7 @@ class DbfOperation():
         """
         if cjrq is None:
             cjrq = self.t
-        return self.get_data(TZRQ=cjrq,RQ2 =cjrq)
+        return self.get_data(TZRQ=cjrq)
 
     def ywhb_file(self, cjrq=None, qsrq=None, jsrq=None):
         """
@@ -160,16 +160,8 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                if rec['YWLX'] in ('419','830', '831' ):  # 根据业务类型判断jsrq
+                if rec['YWLX'] in ('419','830', '831'):  # 只有sbrq(申报日期)需要变更，419的RQ为减持日期
                     rec['SBRQ'] = cjrq
-                    rec['RQ'] = cjrq
-                if rec['YWLX'] in ('830', '831'):  # 只有sbrq(申报日期)
-                    rec['RQ'] = cjrq
-                # if rec['YWLX'] in ('655', '656'):  # 根据业务类型判断jsrq
-                #     rec['JSRQ'] = self.t
-                # if rec['YWLX'] in ('419', ):  # 419股息红利税，无交易日期
-                #     rec['JYRQ'] = None
-
             records.append(record)
         table.close()
         return records
@@ -690,54 +682,30 @@ class DbfOperation():
             fsrq = self.t
         return self.get_data(DZFSRQ=fsrq)
 
-    def zsmx_file(self, cjrq=None, jsrq=None, fsrq=None):
-        if cjrq is None:
-            cjrq = self.t
-        if jsrq is None:
-            jsrq = self.t1
+    def zsmx_file(self,fsrq=None):
         if fsrq is None:
-            fsrq = self.t
+            fsrq = self.t #转入后，人工生成申报文件，和正常操作一致
         records = []
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                rec['MXJCRQ'] = self.replace_time(rec['MXJCRQ'], cjrq)
-                rec['MXJSRQ'] = self.replace_time(rec['MXJSRQ'], jsrq)
                 rec['MXFSRQ'] = self.replace_time(rec['MXFSRQ'], fsrq)
             records.append(record)
         table.close()
         return records
 
-    def zmsxfk_file(self, jsrq=None, fsrq=None):
-
-        if jsrq is None:
-            jsrq = self.t1
-        if fsrq is None:
+    def zsmxfk_file(self,  fsrq=None):
+        if fsrq is None: #征税明细反馈和征税明细匹配条件是结算账户、结算日期，结算流水号
             fsrq = self.t
         records = []
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                rec['FKJSRQ'] = self.replace_time(rec['FKJSRQ'], jsrq)
                 rec['FKFSRQ'] = self.replace_time(rec['FKFSRQ'], fsrq)
             records.append(record)
         table.close()
         return records
 
-    def zsmxsb_file(self, jsrq=None, fsrq=None):
-        if jsrq is None:
-            jsrq = self.t1
-        if fsrq is None:
-            fsrq = self.t
-        records = []
-        table = self.dbf_file.open(mode=dbf.READ_WRITE)
-        for record in table:
-            with record as rec:
-                rec['SBJSRQ'] = self.replace_time(rec['SBJSRQ'], jsrq)
-                rec['SBFSRQ'] = self.replace_time(rec['SBFSRQ'], fsrq)
-            records.append(record)
-        table.close()
-        return records
 
     def szhk_sjsjg_file(self, cjrq=None, qsrq=None, jsrq=None, fsrq=None):
         if cjrq is None:

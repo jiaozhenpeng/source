@@ -58,8 +58,8 @@ class ContrastGeneralLiquidation(unittest.TestCase):
         futurepositiondetail_excel = base.futurepositiondetail_sort(excel.read_excel('futurepositiondetail'))
         # 忽略字段
         futureposition_ignore = ()
-        futuretradinglog_ignore = ()
-        futurepositiondetail_ignore = ()
+        futuretradinglog_ignore = ('RECKONINGTIME', 'OCCURTIME', 'KNOCKTIME','POSTAMT','OPENDATE','SERIALNUM')
+        futurepositiondetail_ignore = ('CLOSEKNOCKTIME','KNOCKTIME','OPTTIME')
         # 对比
         futureposition_result = base.compare_dict(futureposition_database, futureposition_excel, 'futureposition')
         futuretradinglog_result = base.compare_dict(futuretradinglog_database, futuretradinglog_excel,

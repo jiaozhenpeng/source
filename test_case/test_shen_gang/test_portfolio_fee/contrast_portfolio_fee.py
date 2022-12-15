@@ -28,10 +28,10 @@ class ContrastPortfolioFee(unittest.TestCase):
 
         # 查询sql
         unprocessedreckoningresult_sql = "select * from unprocessedreckoningresult where EXCHID='4' and DESKID = " \
-                                         "'077011' and ORDERTYPE ='TGZH' and REGID='0117222000' and ACCTID='000011722200'" \
+                                         "'077011' and ORDERTYPE ='TGZH' and REGID in( '0117222000','0117222001')" \
                                          "and knocktime>={}".format(begintime,)
         unprocessedreckoningresulthis_sql = "select * from unprocessedreckoningresulthis where exchid='4' and ORDERTYPE" \
-                                            " ='TGZH' and REGID='0117222000' and ACCTID='000011722200' and knocktime" \
+                                            " ='TGZH' and REGID in( '0117222000','0117222001') and knocktime" \
                                             ">={}".format(begintime,)
         # 数据库数据
         unprocessedreckoningresult_database = base.unprocessedreckoningresult_sort(
