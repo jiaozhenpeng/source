@@ -54,7 +54,7 @@ class ContrastFutures(unittest.TestCase):
         futurepositiondetail_current_database = base.futurepositiondetail_sort(oracle.dict_data(futurepositiondetail_current_sql))
         # Excel数据
         futurepositiondetail_excel = base.futurepositiondetail_sort(excel.read_excel('futurepositiondetail2021'))
-        futureposition_excel = base.futureposition_sort(excel.read_excel('fuutreposition2021'))
+        futureposition_excel = base.futureposition_sort(excel.read_excel('futureposition2021'))
         futuretradinglog_excel = base.futuretradinglog_sort(excel.read_excel('futuretradinglog2021'))
         futurepositiondetail_current_excel = base.futurepositiondetail_sort(excel.read_excel('futurepositiondetail'))
         futureposition_current_excel = base.futureposition_sort(excel.read_excel('futureposition'))
@@ -65,17 +65,18 @@ class ContrastFutures(unittest.TestCase):
 
         # 对比结果
         futureposition_result = base.compare_dict(futureposition_database, futureposition_excel, 'futureposition2021',
-                                                  *(futureposition_ignore))
+                                                  *futureposition_ignore)
         futurepositiondetail_result = base.compare_dict(futurepositiondetail_database, futurepositiondetail_excel,
                                                         'futurepositiondetail2021',*futurepositiondetail_ignore)
         futuretradinglog_result = base.compare_dict(futuretradinglog_database, futuretradinglog_excel,
                                                     'futuretradinglog',*futuretradinglog_ignore)
         futureposition_current_result = base.compare_dict(futureposition_current_database, futureposition_current_excel,
-                                                          'futureposition')
+                                                          'futureposition',*futureposition_ignore)
         futurepositiondetail_current_result = base.compare_dict(futurepositiondetail_current_database,
-                                                                futurepositiondetail_current_excel,'futurepositiondetail')
+                                                                futurepositiondetail_current_excel,'futurepositiondetail',*futurepositiondetail_ignore)
         # 断言
-        final_result = futureposition_result + futurepositiondetail_result + futuretradinglog_result
+        final_result = futureposition_result + futurepositiondetail_result + futuretradinglog_result\
+                       + futureposition_current_result + futurepositiondetail_current_result
 
 
         if not final_result:

@@ -11,3 +11,15 @@ stklisthis: ['OCCURTIME',]
 stkinfo: ['INPUTTIME',]
 
 stkauditingerror: ['OCCURTIME','KNOCKTIME','BUSINESSDATE']
+
+newstkpurchaseinfo: ['RECKONINGTIME','ALLOTDATE']
+
+iporights: ['IMPTIME','RIGHTSDATE']
+
+futurepositiondetail: ['CLOSEKNOCKTIME','KNOCKTIME','OPTTIME']
+
+futurepositiondetailhis: ['OCCURTIME','CLOSEKNOCKTIME','KNOCKTIME','OPTTIME']
+
+futurepositionhis: ['OCCURTIME',]
+
+futuretradinglog: ['RECKONINGTIME', 'OCCURTIME', 'KNOCKTIME','POSTAMT','OPENDATE','SERIALNUM']

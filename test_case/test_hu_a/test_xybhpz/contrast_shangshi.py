@@ -54,7 +54,7 @@ class ContrastEtfSplit(unittest.TestCase):
 
         stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist')
         tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog', *tradinglog_ignore)
-        stkinfo_result = base.compare_dict(stkinfo_database,stkinfo_excel,'stkinfo')
+        stkinfo_result = base.compare_dict(stkinfo_database,stkinfo_excel,'stkinfo',*stkinfo_ignore)
         # 断言
         final_result =  stklist_result + tradinglog_result + stkinfo_result
         if not final_result:

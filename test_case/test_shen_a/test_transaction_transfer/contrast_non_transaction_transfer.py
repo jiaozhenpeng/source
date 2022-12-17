@@ -10,12 +10,14 @@ from public_method.excel_operation import ExcelOperation
 class ContrastNonTransactionTransfer(unittest.TestCase):
     """
     对比 深A\非交易转让
+    postqty 300和400的差异没有关系
     """
     yaml = BaseAction().read_yaml(path=PathConfig().shen_a())['NonTransactionTransfer']
 
     def test_non_transaction_transfer(self):
         """
         深A\非交易转让 FJZG、FJZR
+        postqty 300和400的差异没有关系
         :return:
         """
         logger().info('-------------------------------')

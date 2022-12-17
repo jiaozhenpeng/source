@@ -31,9 +31,9 @@ class ContrastTencentJingdong(unittest.TestCase):
         # 查询sql
         stklist_sql = "select * from STKLIST where EXCHID = '4' and REGID in( '0117212000','0117252000') and STKID " \
                       "in ('09618') and DESKID = '077011'"
-        tradinglog_sql = "select * from tradinglog where reckoningtime>={} and reckoningtime<={} and exchid= '4'  " \
+        tradinglog_sql = "select * from tradinglog{} where reckoningtime>={} and reckoningtime<={} and exchid= '4'  " \
                          "and REGID in( '0117212000','0117252000') and stkid in ('00700','09618') and DESKID " \
-                         "='077011'".format(begintime,endtime)
+                         "='077011'".format(year,begintime,endtime)
         stkcheckin_sql = "select * from stkcheckin where EXCHID ='4' and STKID in ('00700','09618') and OCCURTIME " \
                          "={}".format(begintime,)
         # 数据库数据

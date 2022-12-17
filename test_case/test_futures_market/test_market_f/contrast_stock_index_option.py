@@ -29,11 +29,12 @@ class ContrastFutures(unittest.TestCase):
         year = base.get_today_date()[:4]
         # 查询SQL
         futureposition_sql = "select * from futureposition{} WHERE  (stkid like 'IO2107%' OR stkid like 'IO2108%') " \
-                             " and exchid = 'F'".format(year, begintime)
+                             " and exchid = 'F' and custid='000000000009' and occurtime={}".format(year, begintime)
         futurepositiondetail_sql = "select * from futurepositiondetail{} WHERE (stkid like 'IO2107%' OR " \
-                                   "stkid like 'IO2108%') and exchid = 'F'".format(year, begintime)
+                                   "stkid like 'IO2108%') and exchid = 'F' and occurtime={} ".format(year, begintime)
         futuretradinglog_sql = "select * from futuretradinglog{}  where reckoningtime>={} and reckoningtime<={} and " \
-                               "(stkid like 'IO2107%' OR stkid like 'IO2108%') and exchid = 'F'".format(year, begintime, endtime)
+                               "(stkid like 'IO2107%' OR stkid like 'IO2108%')  and custid='000000000009' " \
+                               "and exchid = 'F'".format(year, begintime, endtime)
         futureposition_current_sql = "select * from futureposition WHERE (stkid like 'IO2107%' OR stkid like 'IO2108%') " \
                              " and exchid = 'F'"
         futurepositiondetail_current_sql = "select * from futurepositiondetail WHERE (stkid like 'IO2107%' OR " \
@@ -53,6 +54,8 @@ class ContrastFutures(unittest.TestCase):
         # 忽略字段
         futureposition_ignore = ('OCCURTIME',)
         futurepositiondetail_ignore = ('OCCURTIME','CLOSEKNOCKTIME','KNOCKTIME','OPTTIME')
+        futurepositiondetailcurrent_ignore = ('CLOSEKNOCKTIME','KNOCKTIME','OPTTIME')
+
         futuretradinglog_ignore = ('RECKONINGTIME', 'OCCURTIME', 'KNOCKTIME','POSTAMT','OPENDATE','SERIALNUM')
 
         # 对比结果
@@ -65,9 +68,10 @@ class ContrastFutures(unittest.TestCase):
         futureposition_current_result = base.compare_dict(futureposition_current_database, futureposition_current_excel,
                                                           'futureposition')
         futurepositiondetail_current_result = base.compare_dict(futurepositiondetail_current_database,
-                                                                futurepositiondetail_current_excel,'futurepositiondetail')
+                             futurepositiondetail_current_excel,'futurepositiondetail',*futurepositiondetailcurrent_ignore)
         # 断言
-        final_result = futureposition_result + futurepositiondetail_result + futuretradinglog_result
+        final_result = futureposition_result + futurepositiondetail_result + futuretradinglog_result \
+                       + futureposition_current_result + futurepositiondetail_current_result
 
 
         if not final_result:

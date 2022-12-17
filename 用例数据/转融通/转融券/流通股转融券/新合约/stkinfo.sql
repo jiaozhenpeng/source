@@ -42,6 +42,4 @@ update rc_tradeapply  a  set  a.orderdate=(select    substr(b.tradedate,0,8) fro
 update rc_tradeapply  a  set  a.offertime=(select    substr(b.tradedate,0,8)||substr(a.occurtime,9,14)       from sysconfig b );
 update RC_TradeCfm  a  set  a.occurtime=(select    substr(b.tradedate,0,8)||substr(a.occurtime,9,14)       from sysconfig b );
 update RC_TradeCfm  a  set  a.orderdate=(select    substr(b.tradedate,0,8) from sysconfig b );
-
-
-
+delete from rc_shareborrowlog;

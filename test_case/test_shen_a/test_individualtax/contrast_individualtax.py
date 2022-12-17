@@ -32,7 +32,8 @@ class ContrastRestrictedShares(unittest.TestCase):
         tradinglog_sql = "select * from tradinglog{} where reckoningtime>={} and reckoningtime<={} and exchid= '1'  " \
                          "and  briefid in('005_005_059')".format(year, begintime, endtime)
         individualdividendtax_sql = "select * from individualdividendtax where  exchid ='1' "
-        individualdividendtaxhis_sql = "select * from individualdividendtax{} where  exchid ='1' ".format(year, )
+        individualdividendtaxhis_sql = "select * from individualdividendtax{} where  exchid ='1' " \
+                                       "and occurtime={}".format(year, begintime)
         # 数据库数据
         tradinglog_database = base.tradinglog_sort(oracle.dict_data(tradinglog_sql))
         individualdividendtax_database = base.individualdividendtax_sort(oracle.dict_data(individualdividendtax_sql))

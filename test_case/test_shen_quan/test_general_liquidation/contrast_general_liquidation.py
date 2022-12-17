@@ -12,6 +12,8 @@ class ContrastGeneralLiquidation(unittest.TestCase):
     深权\普通平仓
     """
     yaml = BaseAction().read_yaml(path=PathConfig().shen_quan())['GeneralLiquidation']
+    ignore = BaseAction().read_yaml(path=PathConfig().table_ignore())
+
 
     def test_general_liquidation(self):
         """
@@ -63,9 +65,9 @@ class ContrastGeneralLiquidation(unittest.TestCase):
         # 对比
         futureposition_result = base.compare_dict(futureposition_database, futureposition_excel, 'futureposition')
         futuretradinglog_result = base.compare_dict(futuretradinglog_database, futuretradinglog_excel,
-                                                    'futuretradinglog')
+                                                    'futuretradinglog',*futuretradinglog_ignore)
         futurepositiondetail_result = base.compare_dict(futurepositiondetail_database, futurepositiondetail_excel,
-                                                        'futurepositiondetail')
+                                                        'futurepositiondetail',*futurepositiondetail_ignore)
         # 断言
         final_result = futureposition_result + futuretradinglog_result + futurepositiondetail_result
         if not final_result:

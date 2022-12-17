@@ -37,3 +37,5 @@ values (9, '0', '000001', 'A117322001', '焦振鹏LOF虚拟股东', 'A117322000'
 update openorder  a  set  a.occurtime=(select    substr(b.tradedate,0,8)||substr(a.occurtime,9,14)       from sysconfig b );
 update openorder  a  set  a.offertime=(select    substr(b.tradedate,0,8)||substr(a.offertime,9,14)       from sysconfig b );
 update  openorder  a  set  a.ordertime=(select    substr(b.tradedate,0,8)||substr(a.ordertime,9,14)       from sysconfig b );
+delete from unprocessedreckoningresult where  exchid='0' and stkid in('501061','501062','501063');
+delete from unprocessedreckoningresulthis where  exchid='0' and stkid in('501061','501062','501063');

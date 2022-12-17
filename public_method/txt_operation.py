@@ -54,10 +54,10 @@ class TxtOperation():
             logger().info('修改trns03日期')
             return data_list
 
-        elif txt_file in ('jjgh','zqgh'):
+        elif txt_file in ('jjgh','zqgh','ipogh'):
             with open(self.txt, 'r', encoding='utf-8') as file:
                 for record in file:
-                    a = record.split('|')
+                    a = record.split('|')  #以竖线为分割符
                     a[1] = today  # jjgh和zqgh第二个字段为日期
                     record = '|'.join(a)
                     data_list.append(record)
@@ -65,6 +65,8 @@ class TxtOperation():
                 logger().info('修改jjgh日期')
             elif txt_file == 'zqgh':
                 logger().info('修改zqgh日期')
+            elif txt_file == 'ipogh':
+                logger().info('修改ipogh日期')
             return data_list
 
 

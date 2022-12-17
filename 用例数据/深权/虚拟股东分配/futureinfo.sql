@@ -70,3 +70,5 @@ update futureopenorder  a  set  a.offertime=(select    substr(b.tradedate,0,8)||
 update  futureopenorder  a  set  a.ordertime=(select    substr(b.tradedate,0,8)||substr(a.ordertime,9,14)       from sysconfig b );
 update futuretradingresult  a  set  a.knocktime=(select    substr(b.tradedate,0,8)||substr(a.knocktime,9,14)       from sysconfig b );
 update futuretradingresult  a  set  a.occurtime=(select    substr(b.tradedate,0,8)||substr(a.occurtime,9,14)       from sysconfig b );
+delete futureposition where  exchid='Y'  AND stkid   in('90001180','90001181','90001182','90001183');
+delete futurepositiondetail where  exchid='Y'  AND stkid   in('90001180','90001181','90001182','90001183');

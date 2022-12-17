@@ -136,7 +136,7 @@ class DbfOperation():
         """
         if cjrq is None:
             cjrq = self.t
-        return self.get_data(BCRQ=cjrq)
+        return self.get_data(DJRQ=self.lasttradedate1)
 
     def abcsj_file(self, cjrq=None):
         """
@@ -396,6 +396,32 @@ class DbfOperation():
         if cjrq is None:
             cjrq = self.t
         return self.get_data(BDRQ=cjrq)
+
+
+    def zjhz_file(self, qsrq=None, jsrq=None):
+        """
+        修改成交日期，获取修改日期后的dbf文件数据列表
+        :param cjrq:
+        :return:
+        """
+        if qsrq is None:
+            qsrq = self.t
+        if jsrq is None:
+            jsrq = self.t1
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                if rec['QSBZ'] in ('01D','01A','01B','01C','01E' ):  # 根据清算标志判断jsrq
+                    rec['QSRQ'],rec['JSRQ'] = self.t,self.t
+            records.append(record)
+        table.close()
+        return records
+
+    def zjbd_file(self, cjrq=None):
+        if cjrq is None:
+            cjrq = self.t
+        return self.get_data(FSRQ=cjrq)
 
     def sjmx1_file(self, cjrq=None, qsrq=None, jsrq=None, fsrq=None):
         """
@@ -1231,7 +1257,25 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                rec['QSRQ'],rec['JYRQ'],rec['JSRQ'] = cjrq,cjrq,cjrq
+                if rec['YWLX'] in('701','702','703'):
+                    rec['QSRQ'],rec['JYRQ'],rec['JSRQ'] = cjrq,cjrq,cjrq
+                elif rec['YWLX'] in('704',):
+                    rec['QSRQ'], rec['JSRQ'] = cjrq, cjrq
+            records.append(record)
+        table.close()
+        return records
+
+    def fi_tzxx_file(self, cjrq=None):
+        if cjrq is None:
+            cjrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                if rec['TZLB'] == '009':
+                    rec['TZRQ'],rec['RQ1'] = cjrq,cjrq
+                elif rec['TZLB'] in('010',):
+                    rec['TZRQ'], rec['RQ1'] = cjrq, self.lasttradedate1
             records.append(record)
         table.close()
         return records
@@ -1247,14 +1291,14 @@ class DbfOperation():
         return self.get_data(BDRQ=cjrq)
 
     def fi_zqye_file(self, cjrq=None):
-        """
-        修改成交日期，获取修改日期后的dbf文件数据列表
-        :param cjrq:
-        :return:
-        """
         if cjrq is None:
             cjrq = self.t
-        return self.get_data()
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            records.append(record)
+        table.close()
+        return records
 
 
 def creat_new_dbf(path):

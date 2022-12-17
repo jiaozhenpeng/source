@@ -33,7 +33,7 @@ class ContrastGeneralOpen(unittest.TestCase):
         futurepositiondetail_sql = "select * from futurepositiondetail{} WHERE regid='A117212005'  and occurtime={} " \
                                    "and stkid in('10002851','10002833','10002845','10002846')".format(year, begintime)
         futuretradinglog_sql = "select * from futuretradinglog{}  where reckoningtime>={} and reckoningtime<={} " \
-                               "and exchid='F' and regid='A117212005' and stkid in('10002851','10002833','10002845'," \
+                               "and exchid='X' and regid='A117212005' and stkid in('10002851','10002833','10002845'," \
                                "'10002846')".format(year, begintime, endtime)
         # 忽略的字段
         futureposition_ignore = ('OCCURTIME',)

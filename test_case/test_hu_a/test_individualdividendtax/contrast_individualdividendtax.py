@@ -43,7 +43,7 @@ class IndividualDividendTax(unittest.TestCase):
         individualdividendtaxhis_excel = base.individualdividendtax_sort(excel.read_excel('individualdividendtax2022'))
         # 忽略字段
         tradinglog_ignore = ('KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF',
-            'POSTAMT')
+            'POSTAMT','MEMO') #memo记录计税日期，同data4
         individualdividendtaxhis_ignore = ('OCCURTIME','IMPTIME','MESSAGEDATE','DATE2','DATE4','SENDDATE','RETURNDATE')
         individualdividendtax_ignore = ('IMPTIME','MESSAGEDATE','DATE2','DATE4','SENDDATE','RETURNDATE')
 

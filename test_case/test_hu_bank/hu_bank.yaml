@@ -31,3 +31,42 @@ ordinary_trade:
     sqlPath: F:\source\用例数据\沪银行\买卖交易\卖方银行间一级交收失败\stkinfo.sql
     excelPath: F:\source\用例数据\沪银行\买卖交易\卖方银行间一级交收失败\测试结果.xlsx
 
+shangshi:
+  dbfPath: F:\source\用例数据\沪银行\上市
+  sqlPath: F:\source\用例数据\沪银行\上市\stkinfo.sql
+  excelPath: F:\source\用例数据\沪银行\上市\测试结果.xlsx
+
+
+qpdf: #兑付
+  zhugudong:  #主股东
+    dbfPath: F:\source\用例数据\沪银行\兑付\主股东
+    sqlPath: F:\source\用例数据\沪银行\兑付\主股东\stkinfo.sql
+    excelPath: F:\source\用例数据\沪银行\兑付\主股东\测试结果.xlsx
+
+  zigudong: #子股东
+    dbfPath: F:\source\用例数据\沪银行\兑付\子股东
+    sqlPath: F:\source\用例数据\沪银行\兑付\子股东\stkinfo.sql
+    excelPath: F:\source\用例数据\沪银行\兑付\子股东\测试结果.xlsx
+
+  zhuzigudong: #主子股东
+    dbfPath: F:\source\用例数据\沪银行\兑付\主子股东
+    sqlPath: F:\source\用例数据\沪银行\兑付\主子股东\stkinfo.sql
+    excelPath: F:\source\用例数据\沪银行\兑付\主子股东\测试结果.xlsx
+
+
+qpdx: #兑息
+  zhugudong:  #主股东
+    dbfPath: F:\source\用例数据\沪银行\兑息\主股东
+    sqlPath: F:\source\用例数据\沪银行\兑息\主股东\stkinfo.sql
+    excelPath: F:\source\用例数据\沪银行\兑息\主股东\测试结果.xlsx
+
+  zigudong: #子股东
+    dbfPath: F:\source\用例数据\沪银行\兑息\子股东
+    sqlPath: F:\source\用例数据\沪银行\兑息\子股东\stkinfo.sql
+    excelPath: F:\source\用例数据\沪银行\兑息\子股东\测试结果.xlsx
+
+  zhuzigudong: #主子股东
+    dbfPath: F:\source\用例数据\沪银行\兑息\主子股东
+    sqlPath: F:\source\用例数据\沪银行\兑息\主子股东\stkinfo.sql
+    excelPath: F:\source\用例数据\沪银行\兑息\主子股东\测试结果.xlsx
+

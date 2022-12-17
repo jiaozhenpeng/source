@@ -35,15 +35,15 @@ ReserveExercise:
 
 # 对冲
 Hedging:
-  sqlPath: F:\source\用例数据\沪权\对冲\执行sql.sql
+  sqlPath: F:\source\用例数据\沪权\对冲\futureinfo.sql
   dbfPath: F:\source\用例数据\沪权\对冲
-  excelPath:
+  excelPath: F:\source\用例数据\沪权\对冲\测试结果.xlsx
 
 # 过期
 Overdue:
-  sqlPath: F:\source\用例数据\沪权\过期\执行sql.sql
   dbfPath: F:\source\用例数据\沪权\过期
-  excelPath:
+  sqlPath: F:\source\用例数据\沪权\过期\futureinfo.sql
+  excelPath: F:\source\用例数据\沪权\过期\测试结果.xlsx
 
 # 组合保证金
 PortfolioMargin:

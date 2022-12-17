@@ -340,3 +340,31 @@ xybhpz:
     dbfPath: F:\source\用例数据\沪A\信用保护凭证\上市
     excelPath: F:\source\用例数据\沪A\信用保护凭证\上市\测试结果.xlsx
     sqlPath: F:\source\用例数据\沪A\信用保护凭证\上市\stkinfo.sql
+
+
+IPO:
+  iporights:
+    dbfPath: F:\source\用例数据\沪A\按值配售\权益文件转入
+    sqlPath: F:\source\用例数据\沪A\按值配售\权益文件转入\stkinfo.sql
+    excelPath: F:\source\用例数据\沪A\按值配售\权益文件转入\测试结果.xlsx
+
+  peihao: #认购配号日
+    txtPath: F:\source\用例数据\沪A\按值配售\T日\ipogh.txt
+    sqlPath: F:\source\用例数据\沪A\按值配售\T日\stkinfo.sql
+    excelPath: F:\source\用例数据\沪A\按值配售\T日\测试结果.xlsx
+
+  zhongqian: #中签日
+    txtPath: F:\source\用例数据\沪A\按值配售\T+1日\ipogh.txt
+    excelPath: F:\source\用例数据\沪A\按值配售\T+1日\测试结果.xlsx
+
+  dongjie: #资金冻结日
+    excelPath: F:\source\用例数据\沪A\按值配售\T+2日\测试结果.xlsx
+
+  jiaokuan: #资金缴款日
+    dbfPath: F:\source\用例数据\沪A\按值配售\T+3日
+    sqlPath: F:\source\用例数据\沪A\按值配售\T+3日\stkinfo.sql
+    excelPath: F:\source\用例数据\沪A\按值配售\T+3日\测试结果.xlsx
+
+  shangshi: #正股上市日
+    dbfPath: F:\source\用例数据\沪A\按值配售\T+n日
+    excelPath: F:\source\用例数据\沪A\按值配售\T+n日\测试结果.xlsx
