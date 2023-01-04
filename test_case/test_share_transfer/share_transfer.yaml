@@ -185,3 +185,9 @@ dxkzz:
     dbfPath: F:\source\用例数据\股转\定向可转债\赎回\小比例赎回
     excelPath: F:\source\用例数据\股转\定向可转债\赎回\小比例赎回\测试结果.xlsx
     sqlPath: F:\source\用例数据\股转\定向可转债\赎回\小比例赎回\stkinfo.sql
+
+# 股转\优先股赎回
+individualtax:
+  dbfPath: F:\source\用例数据\股转\股息红利税
+  sqlPath: F:\source\用例数据\股转\股息红利税\stkinfo.sql
+  excelPath: F:\source\用例数据\股转\股息红利税\测试结果.xlsx

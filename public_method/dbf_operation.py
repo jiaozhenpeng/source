@@ -1009,6 +1009,44 @@ class DbfOperation():
         table.close()
         return records
 
+
+    def bjzsmx_file(self,  fsrq=None):
+        '''
+        :param fsrq:
+        :return:
+        '''
+        if fsrq is None:
+            fsrq = self.t
+        jcrq = self.lasttradedate1
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                rec['MXJCRQ'] = self.replace_time(rec['MXJCRQ'], jcrq)
+                rec['MXJSRQ'] = self.replace_time(rec['MXJSRQ'], fsrq)
+                rec['MXFSRQ'] = self.replace_time(rec['MXFSRQ'], fsrq)
+            records.append(record)
+        table.close()
+        return records
+
+
+    def bjzsmxfk_file(self,  fsrq=None):
+        '''
+        :param fsrq:
+        :return:
+        '''
+        if fsrq is None:
+            fsrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                rec['FKJSRQ'] = self.replace_time(rec['FKJSRQ'], fsrq)
+                rec['FKFSRQ'] = self.replace_time(rec['FKFSRQ'], fsrq)
+            records.append(record)
+        table.close()
+        return records
+
     def bjstj_file(self, cjrq=None):
         if cjrq is None:
             cjrq = self.t
