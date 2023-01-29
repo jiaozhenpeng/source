@@ -30,9 +30,9 @@ class ContrastEtfSplit(unittest.TestCase):
         year = base.get_today_date()[:4]
 
         # 查询sql
-        stklist_sql = "select * from STKLIST where exchid='C' and stkid in('092103107') "
+        stklist_sql = "select * from STKLIST where exchid='C' and stkid in('012280566') "
         tradinglog_sql = "select * from tradinglog{} where reckoningtime>={} and reckoningtime<={} and exchid= 'C'  " \
-                         "and stkid in ('092103107') ".format(year, begintime, endtime)
+                         "and stkid in ('012280566') ".format(year, begintime, endtime)
 
         # 数据库数据
         stklist_database = base.stklist_sort(oracle.dict_data(stklist_sql))

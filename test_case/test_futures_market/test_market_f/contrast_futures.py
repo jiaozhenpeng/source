@@ -12,6 +12,7 @@ class ContrastFutures(unittest.TestCase):
     F市场\期货\T日
     """
     yaml = BaseAction().read_yaml(path=PathConfig().futures_market())['MarketF']['Futures']
+    ignore = BaseAction().read_yaml(path=PathConfig().table_ignore())
 
     def test_futures(self):
         """
@@ -59,9 +60,9 @@ class ContrastFutures(unittest.TestCase):
         futurepositiondetail_current_excel = base.futurepositiondetail_sort(excel.read_excel('futurepositiondetail'))
         futureposition_current_excel = base.futureposition_sort(excel.read_excel('futureposition'))
         # 忽略字段
-        futureposition_ignore = ('OCCURTIME',)
-        futurepositiondetail_ignore = ('OCCURTIME','CLOSEKNOCKTIME','KNOCKTIME','OPTTIME')
-        futuretradinglog_ignore = ('RECKONINGTIME', 'OCCURTIME', 'KNOCKTIME','POSTAMT','OPENDATE','SERIALNUM')
+        futureposition_ignore = self.ignore['futurepositionhis']
+        futurepositiondetail_ignore = self.ignore['futurepositiondetailhis']
+        futuretradinglog_ignore = self.ignore['futuretradinglog']
 
         # 对比结果
         futureposition_result = base.compare_dict(futureposition_database, futureposition_excel, 'futureposition2021',

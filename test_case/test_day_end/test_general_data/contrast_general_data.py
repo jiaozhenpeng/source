@@ -28,7 +28,7 @@ class ContrastGeneralData(unittest.TestCase):
         base = BaseAction()
         # 查询sql
         unifiedinfiledata_sql = "select * from unifiedinfiledata where DBFID in ('TYZH_F01_YWLS','TYZH_F07_QTZHZL'" \
-                                ",'TYZH_F08_QTSYXX','TYZH_F09_QTSDXGL','TYZH_F16_HSTGDZ') and imptime>={}".format(begintime)
+                                ",'TYZH_F08_QTSYXX','TYZH_F09_QTSDXGL','TYZH_F16_HSTGDZ') and filetime={}".format(begintime)
         # 数据库数据
         unifiedinfiledata_database = base.unifiedinfiledata_sort(oracle.dict_data(unifiedinfiledata_sql))
         # Excel数据

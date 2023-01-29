@@ -37,3 +37,13 @@ OffsetMargin:
   txtPath: F:\source\用例数据\期货市场\冲抵保证金\otherfund.txt
   excelPath: F:\source\用例数据\期货市场\冲抵保证金\测试结果.xlsx
 
+#智能开平
+intelligent:
+  delivery:
+    sqlPath: F:\source\用例数据\期货市场\F市场\智能开平\智能开平交割\futureinfo.sql
+    txtPath: F:\source\用例数据\期货市场\F市场\智能开平\智能开平交割\trddata.txt
+    txtPath2: F:\source\用例数据\期货市场\F市场\智能开平\智能开平交割\delivdetails.txt
+    excelPath: F:\source\用例数据\期货市场\F市场\智能开平\智能开平交割\测试结果.xlsx
+
+
+

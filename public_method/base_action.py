@@ -273,7 +273,7 @@ class BaseAction():
         :param list_data:
         :return:
         '''
-        list_data.sort(key=lambda x: (x['STKID'], x['REGID'], x['KNOCKTIME'], x['BSFLAG'], x['EXCHID'], x['KNOCKCODE']))
+        list_data.sort(key=lambda x: (x['STKID'], x['REGID'], x['KNOCKTIME'], x['BSFLAG'], x['EXCHID'], x['KNOCKCODE'],x['CLOSEKNOCKCODE']))
         return list_data
 
     def futuretradinglog_sort(self, list_data):
@@ -283,7 +283,7 @@ class BaseAction():
         :return:
         '''
         list_data.sort(
-            key=lambda x: (x['STKID'], x['RECKONINGTIME'], x['SERIALNUM'], x['EXCHID'], x['REGID'], x['KNOCKQTY']))
+            key=lambda x: (x['RECKONINGTIME'],x['BRIEFID'],x['EXCHID'],x['STKID'],  x['REGID'],x['BSFLAG'], x['KNOCKQTY']))
         return list_data
 
     def stkoptionsettlement_sort(self, list_data):

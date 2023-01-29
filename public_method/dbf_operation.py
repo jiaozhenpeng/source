@@ -975,7 +975,7 @@ class DbfOperation():
                     rec['JGQSRQ'] = self.replace_time(rec['JGQSRQ'], qsrq)
                     rec['JGJSRQ'] = self.replace_time(rec['JGJSRQ'], jsrq)
                     rec['JGFSRQ'] = self.replace_time(rec['JGFSRQ'], fsrq)
-                elif rec['JGYWLB'].strip() in ('B7', 'B5', 'BA', 'B6','BC','BD','7K','7L','7B','DJ','B2'):
+                elif rec['JGYWLB'].strip() in ('B7', 'B5', 'BA', 'B6','BC','BD','7K','7L','7B','DJ','B2','76'):
                     rec['JGCJRQ'] = self.replace_time(rec['JGCJRQ'], cjrq)
                     rec['JGFSRQ'] = self.replace_time(rec['JGFSRQ'], fsrq)
                 elif rec['JGYWLB'].strip() in ('41', '40', 'ZG', '67', '66', '68', '69', '03'):

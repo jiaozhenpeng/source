@@ -9,13 +9,13 @@ from public_method.excel_operation import ExcelOperation
 
 class ContrastTransferTube(unittest.TestCase):
     """
-    深A\公募reits\基金清盘
+    深A\公募reits\基金清盘(没分配虚拟股东，先保留错误)
     """
     yaml = BaseAction().read_yaml(path=PathConfig().shen_a())['Reits']['TGQP']
 
     def test_transfer_tube(self):
         """
-        深A\公募reits\基金清盘
+        深A\公募reits\基金清盘(没分配虚拟股东，先保留错误)
         :return:
         """
         logger().info('-------------------------------')

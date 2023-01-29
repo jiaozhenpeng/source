@@ -42,7 +42,7 @@ class ContrastEtfSplit(unittest.TestCase):
         iporights_ignore = self.ignore['iporights']
         # 对比
 
-        iporights_result = base.compare_dict(iporights_database, iporights_excel, 'iporights')
+        iporights_result = base.compare_dict(iporights_database, iporights_excel, 'iporights',*iporights_ignore)
         # 断言
         final_result =  iporights_result 
         if not final_result:

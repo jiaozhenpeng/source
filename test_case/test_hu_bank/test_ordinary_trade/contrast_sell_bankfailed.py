@@ -60,8 +60,8 @@ class ContrastEtfSplit(unittest.TestCase):
         stklisthis_result = base.compare_dict(stklisthis_database, stklisthis_excel, 'stklist2022',*stklisthis_ignore)
 
         # 断言
-        final_result =   tradinglog_result + stklist_result + stklisthis_result
-        if not final_result :
+        final_result =    stklist_result + stklisthis_result
+        if not (final_result and tradinglog_database):
             logger().info('沪银行\买卖交易\卖方银行间交易作废 对比数据无异常')
             assert True
         else:

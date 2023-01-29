@@ -12,6 +12,7 @@ class ContrastFuturesOpen(unittest.TestCase):
     期货市场\D市场交易数据\期货开仓 对比数据
     """
     yaml = BaseAction().read_yaml(path=PathConfig().futures_market())
+    ignore = BaseAction().read_yaml(path=PathConfig().table_ignore())
 
     def test_futures_opening(self):
         """
@@ -42,9 +43,9 @@ class ContrastFuturesOpen(unittest.TestCase):
                                "'fb2001','fb2002','fb2003')".format(
             year, begintime, endtime)
         # 需要忽略的字段
-        futureposition_ignore = ('OCCURTIME',)
-        futurepositiondetail_ignore = ('OCCURTIME','CLOSEKNOCKTIME','KNOCKTIME','OPTTIME')
-        futuretradinglog_ignore = ('RECKONINGTIME', 'OCCURTIME', 'KNOCKTIME','POSTAMT','OPENDATE','SERIALNUM')
+        futureposition_ignore = self.ignore['futurepositionhis']
+        futurepositiondetail_ignore = self.ignore['futurepositiondetailhis']
+        futuretradinglog_ignore = self.ignore['futuretradinglog']
         # 获取数据库数据并排序
         futureposition_database = BaseAction().futureposition_sort(oracle.dict_data(futureposition_sql))
         futurepositiondetail_database = BaseAction().futurepositiondetail_sort(
