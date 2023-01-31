@@ -8,7 +8,7 @@ from test_case.HTMLTestRunner_cn import HTMLTestRunner
 
 
 def run_case():
-    testCases = unittest.defaultTestLoader.discover(r'F:\source\test_case',pattern='contrast_*.py')
+    testCases = unittest.defaultTestLoader.discover(r'F:\source\test_case\test_futures_market\test_market_G',pattern='contrast_*.py')
     # 创建测试套件
     testSuite=unittest.TestSuite()
     # 添加执行的文件
