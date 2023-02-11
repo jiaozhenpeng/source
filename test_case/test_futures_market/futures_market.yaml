@@ -37,6 +37,11 @@ OffsetMargin:
   txtPath: F:\source\用例数据\期货市场\冲抵保证金\otherfund.txt
   excelPath: F:\source\用例数据\期货市场\冲抵保证金\测试结果.xlsx
 
+# custfund
+custfund:
+  txtPath: F:\source\用例数据\期货市场\custfund\cusfund.txt
+  excelPath: F:\source\用例数据\期货市场\custfund\测试结果.xlsx
+
 #智能开平
 intelligent:
   delivery:

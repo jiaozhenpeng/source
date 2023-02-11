@@ -26,7 +26,7 @@ class ContrastSecuritiesConversion(unittest.TestCase):
         base = BaseAction()
         # 查询SQL
         stklist_sql = "select * from STKLIST where EXCHID = '1' and REGID in( '0117212000','0117212001','0117252000'," \
-                      "'0117252001') and STKID in ('184721','184720') and DESKID = '077011'"
+                      "'0117252001') and STKID in ('184721','184720') and DESKI = '077011'"
         # 查询数据库数据并排序
         stklist_database = base.stklist_sort(oracle.dict_data(stklist_sql))
         # 查询excel数据

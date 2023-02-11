@@ -12,7 +12,7 @@ class BlockTrade(unittest.TestCase):
     """
     深A\V5投票
     """
-    yaml = BaseAction().read_yaml(path=PathConfig().shen_a())['lofbuysell']
+    yaml = BaseAction().read_yaml(path=PathConfig().shen_a())['Evote']
 
     def test_block_trade(self):
         """

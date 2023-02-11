@@ -12,6 +12,7 @@ class ContrastTencentJingdong(unittest.TestCase):
     深港\红股\腾讯分京东
     """
     yaml = BaseAction().read_yaml(path=PathConfig().shen_gang())['BonusShare']['TencentJingdong']
+    ignore = BaseAction().read_yaml(path=PathConfig().table_ignore())
 
     def test_tencent_jingdong(self):
         """
@@ -46,8 +47,7 @@ class ContrastTencentJingdong(unittest.TestCase):
         stkcheckin_excel = base.stkcheckin_sort(excel.read_excel('stkcheckin'))
         # 忽略字段
         stklist_ignore = ()
-        tradinglog_ignore = (
-        'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE')
+        tradinglog_ignore = self.ignore['tradinglog']
         stkcheckin_ignore = ()
         # 对比
         stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist')

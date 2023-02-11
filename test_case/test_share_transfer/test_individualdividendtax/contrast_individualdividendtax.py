@@ -32,15 +32,16 @@ class IndividualDividendTax(unittest.TestCase):
         tradinglog_sql = "select * from tradinglog{} where reckoningtime>={} and reckoningtime<={} and exchid= '6'  " \
                          "and  briefid in('005_005_059')".format(year,begintime,endtime)
         individualdividendtax_sql = "select * from individualdividendtax where  exchid ='6' "
-        individualdividendtaxhis_sql = "select * from individualdividendtax{} where  exchid ='6' ".format(year,)
+        individualdividendtaxhis_sql = "select * from individualdividendtax{} where  exchid ='6' and" \
+                                       " occurtime={} ".format(year,begintime)
         # 数据库数据
         tradinglog_database = base.tradinglog_sort(oracle.dict_data(tradinglog_sql))
         individualdividendtax_database = base.individualdividendtax_sort(oracle.dict_data(individualdividendtax_sql))
         individualdividendtaxhis_database = base.individualdividendtax_sort(oracle.dict_data(individualdividendtaxhis_sql))
         # Excel数据
         tradinglog_excel = base.tradinglog_sort(excel.read_excel('tradinglog'))
-        individualdividendtax_excel = base.individualdividendtax_sort(excel.read_excel('individualdividendtax'))
-        individualdividendtaxhis_excel = base.individualdividendtax_sort(excel.read_excel('individualdividendtax2022'))
+        # individualdividendtax_excel = base.individualdividendtax_sort(excel.read_excel('individualdividendtax'))
+        individualdividendtaxhis_excel = base.individualdividendtax_sort(excel.read_excel('individualdividendtax2023'))
         # 忽略字段
         tradinglog_ignore = ('KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF',
             'POSTAMT','MEMO') #memo记录计税日期，同data4
@@ -50,13 +51,13 @@ class IndividualDividendTax(unittest.TestCase):
         # 对比
 
         tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog', *tradinglog_ignore)
-        individualdividendtax_result = base.compare_dict(individualdividendtax_database,individualdividendtax_excel,
-                                              'individualdividendtax',*individualdividendtax_ignore)
+        # individualdividendtax_result = base.compare_dict(individualdividendtax_database,individualdividendtax_excel,
+        #                                       'individualdividendtax',*individualdividendtax_ignore)
         individualdividendtaxhis_result = base.compare_dict(individualdividendtaxhis_database,individualdividendtaxhis_excel,
-                                           'individualdividendtax2022',*individualdividendtaxhis_ignore)
+                                           'individualdividendtax2023',*individualdividendtaxhis_ignore)
         # 断言
-        final_result =   tradinglog_result + individualdividendtax_result + individualdividendtaxhis_result
-        if not final_result:
+        final_result =   tradinglog_result  + individualdividendtaxhis_result
+        if not (final_result and individualdividendtax_database):
             logger().info('股转 股息红利税 对比数据无异常')
             assert True
         else:

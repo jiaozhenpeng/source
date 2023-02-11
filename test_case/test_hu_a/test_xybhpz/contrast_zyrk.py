@@ -35,7 +35,7 @@ class ContrastEtfSplit(unittest.TestCase):
                       "offerregid in('A117212000','A117252000')"
         tradinglog_sql = "select * from tradinglog{} where reckoningtime>={} and reckoningtime<={} and exchid= '0'  " \
                          "and stkid in ('170023','170024') ".format(year,begintime,endtime)
-        stkauditingerror_sql = " select * from stkauditingerror where  exchid='0' and stkid in('170001','170002') and " \
+        stkauditingerror_sql = " select * from stkauditingerror where  exchid='0' and dbfid='DZK_QTSL' and stkid in('170023','170024','170001') and " \
                                "  businessdate={}".format(begintime,)
 
         # 数据库数据

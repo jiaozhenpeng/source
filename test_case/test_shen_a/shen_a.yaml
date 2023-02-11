@@ -200,7 +200,7 @@ lofbuysell:
 #V5投票
 Evote:
   filePath: F:\source\用例数据\深A\V5投票
-  excelPath: F:\source\用例数据\深A\V5投票
+  excelPath: F:\source\用例数据\深A\V5投票\测试结果.xlsx
 
 
 #信用保护合约
@@ -235,3 +235,28 @@ Reits:  #公募reits
     sqlPath: F:\source\用例数据\深A\公募reits\基金清盘\stkinfo.sql
     excelPath: F:\source\用例数据\深A\公募reits\基金清盘\测试结果.xlsx
 
+# 私募债
+simubond:
+  rtgstrade:  #RTGS买卖
+    dbfPath: F:\source\用例数据\深A\私募债\RTGH私募债买卖
+    sqlPath: F:\source\用例数据\深A\私募债\RTGH私募债买卖\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\私募债\RTGH私募债买卖\测试结果.xlsx
+
+  ZQHG:  #私募债换股
+    dbfPath: F:\source\用例数据\深A\私募债\私募债换股
+    sqlPath: F:\source\用例数据\深A\私募债\私募债换股\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\私募债\私募债换股\测试结果.xlsx
+
+
+
+# 双创债
+shuangchuangbond:
+  Tday:  #转股申报日
+    dbfPath: F:\source\用例数据\深A\双创可转债\双创可转债转股申报日
+    sqlPath: F:\source\用例数据\深A\双创可转债\双创可转债转股申报日\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\双创可转债\双创可转债转股申报日\测试结果.xlsx
+
+  T1day:  #私募债换股
+    dbfPath: F:\source\用例数据\深A\私募债\私募债换股
+    sqlPath: F:\source\用例数据\深A\私募债\私募债换股\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\私募债\私募债换股\测试结果.xlsx

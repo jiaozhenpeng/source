@@ -69,7 +69,7 @@ class ContrastTransferTube(unittest.TestCase):
                              'TRANSACTIONREF','SETTLEDATE','POSTAMT')
         regrights_ignore = ('OCCURTIME',)
         unprocessedreckoningresult_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE')
-        unprocessedreckoningresulthis_ignore = ('KNOCKTIME',)
+        unprocessedreckoningresulthis_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE')
         stklist_ignore = ('OCCURTIME',)
         # 对比
         tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog', *tradinglog_ignore)

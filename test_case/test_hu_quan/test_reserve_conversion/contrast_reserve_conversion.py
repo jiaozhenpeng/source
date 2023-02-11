@@ -55,11 +55,11 @@ class ContrastReserveConversion(unittest.TestCase):
         futureposition_excel = base.futureposition_sort(excel.read_excel('futureposition'))
         futurepositiondetail_excel = base.futurepositiondetail_sort(excel.read_excel('futurepositiondetail'))
 
-        # 忽略字段
-        futuretradinglog_ignore = self.ignore['futuretradinglog']
+        # 忽略字段  合同号和成交编号自动生成，需忽略
+        futuretradinglog_ignore = self.ignore['futuretradinglog1']
         futurepositionhis_ignore = self.ignore['futurepositionhis']
-        futurepositiondetail_ignore = self.ignore['futurepositiondetail']
-        futurepositiondetailhis_ignore = self.ignore['futurepositiondetailhis']
+        futurepositiondetail_ignore = self.ignore['futurepositiondetail1']
+        futurepositiondetailhis_ignore = self.ignore['futurepositiondetailhis1']
 
         # 对比结果
         futuretradinglog_result = base.compare_dict(futuretradinglog_database, futuretradinglog_excel,

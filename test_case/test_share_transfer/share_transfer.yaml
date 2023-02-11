@@ -24,6 +24,13 @@ OrdinaryTrading:
   dbfPath: F:\source\用例数据\股转\普通买卖
   sqlPath: F:\source\用例数据\股转\普通买卖\stkinfo.sql
   excelPath: F:\source\用例数据\股转\普通买卖\测试结果.xlsx
+
+# 股转\普通买卖
+doubleTrading:
+  dbfPath: F:\source\用例数据\股转\双边单
+  sqlPath: F:\source\用例数据\股转\双边单\stkinfo.sql
+  excelPath: F:\source\用例数据\股转\双边单\测试结果.xlsx
+
 # 股转\所得税
 IncomeTax:
   # 股转\所得税

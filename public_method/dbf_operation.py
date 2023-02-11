@@ -510,9 +510,9 @@ class DbfOperation():
         for record in table:
             with record as rec:
                 rec['GBRQ'] = cjrq
-                if rec['GBLB'] == 'QP' and rec['GBDM2'] == 'X': #交易所测试给的兑息是登记日是当日，到账日是下一日
+                if rec['GBLB'].strip() == 'QP' and rec['GBDM2'].strip() == 'X': #交易所测试给的兑息是登记日是当日，到账日是下一日
                     rec['GBRQ1'] ,rec['GBRQ2']= cjrq, self.t1
-                elif rec['GBLB'] == 'QP' and rec['GBDM2'] == 'D': #交易所测试给的兑付登记日和到账日都是当日
+                elif rec['GBLB'].strip() == 'QP' and rec['GBDM2'].strip() == 'D': #交易所测试给的兑付登记日和到账日都是当日
                     rec['GBRQ1'], rec['GBRQ2'] = cjrq, cjrq
             records.append(record)
         table.close()
@@ -581,16 +581,19 @@ class DbfOperation():
                     rec['JGQSRQ'], rec['JGJSRQ'], rec['JGQTRQ'] = None, None, tempdate
                 elif rec['JGYWLB'] in (
                         'DJBG', 'DJ00','FGS6','FGSD', 'ZTZC', 'ZTZR', 'ZTXS', 'ZTTZ', 'ZJQ0', 'ZJQ1', 'ZJQ2', 'TGZX', 'FJZG',
-                        'TZGF', 'GS4B', 'GSSG', 'XGJX', 'XGXS', 'ZQZH', 'ZQZD',
-                        'ZQZZ','TG20','TG21','TG22','TG23') or (rec['JGYWLB'] == 'ZQKZ' and rec['JGJSSL'] > 0):
+                        'TZGF', 'GS4B', 'GSSG', 'XGJX', 'XGXS', 'GSZH', 'ZQZD',
+                        'ZQZZ','TG20','TG21','TG22','TG23') or (rec['JGYWLB'] == 'ZQKZ' and rec['JGJSSL'] > 0) or\
+                        (rec['JGYWLB'] == 'ZQHG' and rec['JGJSSL'] <= 0):
                     # 清算日期和交收日期和其他日期为空，成交日期、发送日期= T日
                     rec['JGQSRQ'], rec['JGJSRQ'], rec['JGQTRQ'] = None, None, None
                 elif rec['JGYWLB'] in ('QQSD',):  # 成交日期,其他日期为空，清算日期、交收日期、发送日期 = T日
                     rec['JGCJRQ'], rec['JGJSRQ'], rec['JGQTRQ'] = None, cjrq, None
                 elif rec['JGYWLB'] in ('QP90','TG90'):  # 发送日期 = T日,其他日期都是空
                     rec['JGCJRQ'], rec['JGJSRQ'], rec['JGQSRQ'],rec['JGQTRQ'] = None, None, None, None
-                elif rec['JGYWLB'] in ('CSTZ','CSXX','CSXX'):   #RTGS交收的，四个日期为T日，其他日期空
+                elif rec['JGYWLB'] in ('CSTZ','CSXX','CSXX','JY01'):   #RTGS交收的，四个日期为T日，其他日期空
                     rec['JGJSRQ'],rec['JGQTRQ'] = cjrq,None
+                elif rec['JGYWLB'] in ('ZQHG') and rec['JGJSSL'] > 0:   #其他日期空
+                    rec['JGQTRQ'] = None
             records.append(record)
         table.close()
         return records
@@ -669,7 +672,7 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                if rec['MXYWLB'] in ('CSTZ','CSXX','CSSX'):
+                if rec['MXYWLB'] in ('CSTZ','CSXX','CSSX','JY01'):
                     rec['MXQSRQ'] ,rec['MXCJRQ'] ,rec['MXFSRQ'],rec['MXJSRQ'] = qsrq,qsrq,fsrq,qsrq
             records.append(record)
         table.close()
@@ -846,6 +849,8 @@ class DbfOperation():
                     rec['RQ2'] = OracleDatabase().get_last_trade_date(10)
                     if rec['LX1'] in ('Y'):  # 有登记日是，设置登记日，没有登记日时不处理，
                         rec['RQ2'] = self.lasttradedate1
+                elif rec['TZLB'] in ('H01'):  # h01,权益登记日期
+                    rec['RQ1'] = self.t
             records.append(record)
         table.close()
         return records
@@ -1288,6 +1293,46 @@ class DbfOperation():
         return records
 
 
+    #中登担保资金对账
+    def dbpzjye_file(self, cjrq=None):
+        if cjrq is None:
+            cjrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                rec['DZRQ'] = cjrq
+            records.append(record)
+        table.close()
+        return records
+
+    #保证金追缴通知库
+    def zrtbzjzjtz_file(self, cjrq=None):
+        if cjrq is None:
+            cjrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                rec['QSRQ'] = cjrq
+            records.append(record)
+        table.close()
+        return records
+
+    #中登担保证券对账
+    def dbpzqye_file(self, cjrq=None):
+        if cjrq is None:
+            cjrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                rec['DZRQ'] = cjrq
+            records.append(record)
+        table.close()
+        return records
+
+
     def fi_jsmx_file(self, cjrq=None):
         if cjrq is None:
             cjrq = self.t
@@ -1297,7 +1342,7 @@ class DbfOperation():
             with record as rec:
                 if rec['YWLX'] in('701','702','703'):
                     rec['QSRQ'],rec['JYRQ'],rec['JSRQ'] = cjrq,cjrq,cjrq
-                elif rec['YWLX'] in('704',):
+                elif rec['YWLX'] in('704','705'):
                     rec['QSRQ'], rec['JSRQ'] = cjrq, cjrq
             records.append(record)
         table.close()

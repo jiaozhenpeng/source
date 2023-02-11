@@ -27,4 +27,12 @@ ZRZ:  #转融资
     sqlPath: F:\source\用例数据\转融通\转融资\转融资到期\新合约\stkinfo.sql
     excelPath: F:\source\用例数据\转融通\转融资\转融资到期\新合约\测试结果.xlsx
 
-
+DBPDZ:  #担保品对账
+  dbzj:  #担保资金
+    dbfPath: F:\source\用例数据\转融通\担保品对账\担保资金对账
+    sqlPath: F:\source\用例数据\转融通\担保品对账\担保资金对账\stkinfo.sql
+    excelPath: F:\source\用例数据\转融通\担保品对账\担保资金对账\测试结果.xlsx
+  dbzq: #担保证券
+    dbfPath: F:\source\用例数据\转融通\担保品对账\担保证券对账
+    sqlPath: F:\source\用例数据\转融通\担保品对账\担保证券对账\stkinfo.sql
+    excelPath: F:\source\用例数据\转融通\担保品对账\担保证券对账\测试结果.xlsx

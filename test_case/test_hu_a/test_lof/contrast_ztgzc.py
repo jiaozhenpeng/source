@@ -9,13 +9,13 @@ from public_method.excel_operation import ExcelOperation
 
 class ContrastRestrictedShares(unittest.TestCase):
     """
-    沪A\上证lof\lof跨市场转托管转出
+    沪A\上证lof\lof跨市场转托管转出(虚拟股东可能有问题)
     """
     yaml = BaseAction().read_yaml(path=PathConfig().hu_a())['lofztgzc']['Tday']
 
     def test_restricted_shares(self):
         """
-        沪A\上证lof\lof跨市场转托管转出
+        沪A\上证lof\lof跨市场转托管转出(虚拟股东可能有问题)
         :return:
         """
         logger().info('-------------------------------')

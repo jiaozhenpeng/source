@@ -314,11 +314,11 @@ function hide_img(obj){
 <div class='heading'>
 <h1 style="font-family: Microsoft YaHei">自动化测试报告</h1>
 <p class='attribute'><strong>测试人员 : </strong> 焦振鹏</p>
-<p class='attribute'><strong>开始时间 : </strong> 2023-01-31 19:02:20</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:00:00.401924</p>
-<p class='attribute'><strong>测试结果 : </strong> 共 1，通过 1，通过率= 100.00%</p>
+<p class='attribute'><strong>开始时间 : </strong> 2023-02-10 14:44:44</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:00.873121</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 7，通过 7，通过率= 100.00%</p>
 
-<p class='description'>测试版本：CTS_23.1.0.0_20230130</p>
+<p class='description'>测试版本CTS_23.1.0.0_20230130</p>
 </div>
 
 
@@ -326,8 +326,8 @@ function hide_img(obj){
 <p id='show_detail_line'>
 <a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
-<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 1 }</a>
-<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 1 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 7 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 7 }</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
 <colgroup>
@@ -350,7 +350,7 @@ function hide_img(obj){
 </tr>
 
 <tr class='passClass warning'>
-    <td>contrast_intelligent_open.ContrastFuturesOpen</td>
+    <td>test_buysell.BlockTrade</td>
     <td class="text-center">1</td>
     <td class="text-center">1</td>
     <td class="text-center">0</td>
@@ -360,15 +360,111 @@ function hide_img(obj){
 </tr>
 
 <tr id='pt1_1' class='hiddenRow'>
-    <td class='passCase'><div class='testcase'>test_futures_opening: 广期所\智能开平账户开仓</div></td>
+    <td class='passCase'><div class='testcase'>test_block_trade: 沪A\上证lof\竞价平台交易</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+    <td>无截图</td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_rengou.BlockTrade</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c2',1)" class="detail" id='c2'>详细</a></td>
+        <td>&nbsp;</td>
+</tr>
+
+<tr id='pt2_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_block_trade: 沪A\上证lof\lof认购\T日</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+    <td>无截图</td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_shengou_tday.BlockTrade</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c3',1)" class="detail" id='c3'>详细</a></td>
+        <td>&nbsp;</td>
+</tr>
+
+<tr id='pt3_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_block_trade: 沪A\上证lof\申购\Tday</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+    <td>无截图</td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_shenshu_tday.BlockTrade</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c4',1)" class="detail" id='c4'>详细</a></td>
+        <td>&nbsp;</td>
+</tr>
+
+<tr id='pt4_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_block_trade: 沪A\上证lof\申赎同日\Tday</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+    <td>无截图</td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_shuhui_tday.BlockTrade</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c5',1)" class="detail" id='c5'>详细</a></td>
+        <td>&nbsp;</td>
+</tr>
+
+<tr id='pt5_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_block_trade: 沪A\上证lof\赎回\Tday</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+    <td>无截图</td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_ztgzc.BlockTrade</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c6',1)" class="detail" id='c6'>详细</a></td>
+        <td>&nbsp;</td>
+</tr>
+
+<tr id='pt6_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_block_trade: 沪A\上证lof\lof跨市场转托管转出\Tday</div></td>
+    <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
+    <td>无截图</td>
+</tr>
+
+<tr class='passClass warning'>
+    <td>test_ztgzr.BlockTrade</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c7',1)" class="detail" id='c7'>详细</a></td>
+        <td>&nbsp;</td>
+</tr>
+
+<tr id='pt7_1' class='hiddenRow'>
+    <td class='passCase'><div class='testcase'>test_block_trade: 沪A\上证lof\lof跨市场转托管转出\Tday</div></td>
     <td colspan='5' align='center'><span class="label label-success success">通过</span></td>
     <td>无截图</td>
 </tr>
 
 <tr id='total_row' class="text-center active">
     <td>总计</td>
-    <td>1</td>
-    <td>1</td>
+    <td>7</td>
+    <td>7</td>
     <td>0</td>
     <td>0</td>
     <td>&nbsp;</td>
@@ -378,7 +474,7 @@ function hide_img(obj){
 
 <script>
     showCase(1);
-    drawCircle(1, 0, 0);
+    drawCircle(7, 0, 0);
 </script>
 
 <div id='ending'>&nbsp;</div>

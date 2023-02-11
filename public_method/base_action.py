@@ -236,6 +236,16 @@ class BaseAction():
         list_data.sort(key=lambda x: (x['STKID'], x['REGID'], x['BSFLAG'], x['EXCHID'], x['PRODUCTCODE']))
         return list_data
 
+
+    def FutureClientCapitalDetail_sort(self, list_data):
+        '''
+        排序表FutureClientCapitalDetail，根据字段['PARTICIPANTID'],['CASHID'],['OFFERREGID'],['OCCURAMT']
+        :param list_data:
+        :return:
+        '''
+        list_data.sort(key=lambda x: (x['PARTICIPANTID'],x['CASHID'],x['OFFERREGID'],x['OCCURAMT']))
+        return list_data
+
     def iporights_sort(self, list_data):
         '''
         排序表iporights，根据字段['EXCHID'],['OFFERREGID'],['DESKID']
@@ -283,7 +293,7 @@ class BaseAction():
         :return:
         '''
         list_data.sort(
-            key=lambda x: (x['RECKONINGTIME'],x['BRIEFID'],x['EXCHID'],x['STKID'],  x['REGID'],x['BSFLAG'], x['KNOCKQTY']))
+            key=lambda x: (x['BRIEFID'],x['EXCHID'],x['STKID'],  x['REGID'],x['BSFLAG'], x['KNOCKQTY'],x['KNOCKCODE']))
         return list_data
 
     def stkoptionsettlement_sort(self, list_data):
@@ -374,7 +384,7 @@ class BaseAction():
         """
         list_data.sort(
             key=lambda x: (x['OCCURTIME'], x['EXCHID'], x['MESSAGETYPE'] ,x['SECURITIESNUM'],x['STKID'],
-                           x['MEMO'] ,x['RIGHTSID'] , x['RIGHTSSTKID']))
+                           x['MEMO'] ,x['RIGHTSID'] , x['RIGHTSSTKID'],x['RESERVEDACCTID1']))
         return list_data
 
     def unduerepurchasebondshis_sort(self, list_data):
@@ -424,7 +434,7 @@ class BaseAction():
         :return:
         """
         list_data.sort(
-            key=lambda x: (x['STKID'], x['EXCHID'], x['REGID'],x['ALLOTCOUNT'],x['ALLOTDATE'],x['STKTYPE']))
+            key=lambda x: ( x['EXCHID'],x['DBFID'],x['STKID'], x['REGID'],x['ALLOTCOUNT'],x['ALLOTDATE'],x['STKTYPE']))
         return list_data
 
     def newstkpurchase_sort(self,list_data):

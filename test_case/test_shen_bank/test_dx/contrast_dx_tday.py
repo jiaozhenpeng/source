@@ -26,11 +26,13 @@ class ContrastEtfSplit(unittest.TestCase):
         oracle = OracleDatabase()
         begintime = oracle.get_last_update()
         endtime = begintime[0:8] + '235959'
+        lasttradedate = oracle.get_last_update()
         base = BaseAction()
         year = base.get_today_date()[:4]
 
         # 查询sql
-        stkcheckin_sql = "select * from stkcheckin where exchid='B' and stkid in ('102100865','102100866') "
+        stkcheckin_sql = "select * from stkcheckin where exchid='B' and stkid in ('102100865','102100866')" \
+                         " and occurtime = {}".format(lasttradedate,)
 
         # 数据库数据
         stkcheckin_database = base.stkcheckin_sort(oracle.dict_data(stkcheckin_sql))

@@ -31,7 +31,7 @@ class TxtOperation():
         data_list = []
         # 修改保证金监控中心文件日期
         file_name = (
-            'trddata', 'holddata', 'opttrddata', 'optholddata', 'optexerdata', 'custfund', 'otherfund', 'fundchg',
+            'trddata', 'holddata', 'opttrddata', 'optholddata', 'optexerdata', 'cusfund', 'otherfund', 'fundchg',
             'delivdetails')
         if txt_file in file_name:
             patten = r'[\d]{4}-[\d]{2}-[\d]{2}'

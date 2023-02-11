@@ -44,8 +44,8 @@ class ContrastGeneralOpen(unittest.TestCase):
         futurepositiondetail_database = BaseAction().futurepositiondetail_sort(oracle.dict_data(futurepositiondetail_sql))
         futuretradinglog_database = BaseAction().futuretradinglog_sort(oracle.dict_data(futuretradinglog_sql))
         # 获取excel数据并排序
-        futureposition_excel = BaseAction().futureposition_sort(excel.read_excel('futureposition'))
-        futurepositiondetail_excel = BaseAction().futurepositiondetail_sort(excel.read_excel('futurepositiondetail'))
+        futureposition_excel = BaseAction().futureposition_sort(excel.read_excel('futureposition2022'))
+        futurepositiondetail_excel = BaseAction().futurepositiondetail_sort(excel.read_excel('futurepositiondetail2022'))
         futuretradinglog_excel = BaseAction().futuretradinglog_sort(excel.read_excel('futuretradinglog'))
         # 对比数据
         futureposition_result = BaseAction().compare_dict(futureposition_database, futureposition_excel,
