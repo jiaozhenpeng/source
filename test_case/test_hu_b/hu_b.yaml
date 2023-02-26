@@ -20,3 +20,8 @@ OrdinaryTrade:
     sqlPath: F:\source\用例数据\沪B\普通交易\T日\stkinfo.sql
     excelPath: F:\source\用例数据\沪B\普通交易\T日\测试结果.xlsx
 
+#沪B股息红利税
+individualdividendtax:
+  dbfPath: F:\source\用例数据\沪B\股息红利税
+  excelPath: F:\source\用例数据\沪B\股息红利税\测试结果.xlsx
+  sqlPath: F:\source\用例数据\沪B\股息红利税\stkinfo.sql

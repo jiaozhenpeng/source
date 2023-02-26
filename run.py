@@ -8,7 +8,7 @@ from test_case.HTMLTestRunner_cn import HTMLTestRunner
 
 
 def run_case():
-    testCases = unittest.defaultTestLoader.discover(r'F:\source\test_case\test_hu_a\test_lof',pattern='test_*.py')
+    testCases = unittest.defaultTestLoader.discover(r'F:\source\test_case',pattern='test_*.py')
     # 套件里面添加需要执行的方法 方法需要双引号
     # testSuite.addTest(TestA("test02"))
     # 创建测试套件

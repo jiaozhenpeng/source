@@ -205,3 +205,9 @@ buyassumpsit:
     dbfPath: F:\source\用例数据\股转\要约收购\预受要约
     sqlPath: F:\source\用例数据\股转\要约收购\预受要约\stkinfo.sql
     excelPath: F:\source\用例数据\股转\要约收购\预受要约\测试结果.xlsx
+
+
+shengjiang: #升降层
+  dbfPath: F:\source\用例数据\股转\证券升降层
+  sqlPath: F:\source\用例数据\股转\证券升降层\stkinfo.sql
+  excelPath: F:\source\用例数据\股转\证券升降层\测试结果.xlsx

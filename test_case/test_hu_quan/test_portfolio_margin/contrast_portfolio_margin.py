@@ -12,6 +12,7 @@ class ContrastPortfolioMargin(unittest.TestCase):
     沪权\组合保证金
     """
     yaml = BaseAction().read_yaml(path=PathConfig().hu_quan())['PortfolioMargin']
+    ignore = BaseAction().read_yaml(path=PathConfig().table_ignore())
 
     def test_portfolio_margin(self):
         """
@@ -28,8 +29,6 @@ class ContrastPortfolioMargin(unittest.TestCase):
         base = BaseAction()
         year = base.get_today_date()[:4]
 
-        # 查询SQL
-        stkoptionsettlement_sql = ""
         futurecombaction_sql = "select * from futurecombaction where EXCHID = 'X' and REGID = 'A117212005' and " \
                                "STKID in ('10003693','10003951','10003840','10003958','10003964','10003963','10003997'," \
                                "'10004033','10004106','10004105','10004024','10003893') and DESKID = '00W40'"
@@ -49,35 +48,29 @@ class ContrastPortfolioMargin(unittest.TestCase):
         futurecombaction_database = base.futurecombaction_sort(oracle.dict_data(futurecombaction_sql))
         futurepositiondetail_database = base.futurepositiondetail_sort(oracle.dict_data(futurepositiondetail_sql))
         futuretradinglog_database = base.futuretradinglog_sort(oracle.dict_data(futuretradinglog_sql))
-        stkoptionsettlement_database = base.stkoptionsettlement_sort(oracle.dict_data(stkoptionsettlement_sql))
 
         # excel数据
-        futureposition_excel = base.futureposition_sort(excel.read_excel('futureposition2021'))
-        futurecombaction_excel = base.futurecombaction_sort(excel.read_excel(futurecombaction_sql))
+        futureposition_excel = base.futureposition_sort(excel.read_excel('futureposition'))
+        futurecombaction_excel = base.futurecombaction_sort(excel.read_excel('futurecombaction'))
         futurepositiondetail_excel = base.futurepositiondetail_sort(excel.read_excel('futurepositiondetail'))
-
         futuretradinglog_excel = base.futuretradinglog_sort(excel.read_excel('futuretradinglog'))
-        stkoptionsettlement_excel = base.stkoptionsettlement_sort(excel.read_excel('stkoptionsettlement'))
         # 忽略字段
         futureposition_ignore = ('OCCURTIME',)
         futurecombaction_ignore = ()
-        futurepositiondetail_ignore = ()
-        futuretradinglog_ignore = ()
+        futurepositiondetail_ignore = self.ignore['futurecombaction']
+        futuretradinglog_ignore = self.ignore['futuretradinglog']
         stkoptionsettlement_ignore = ()
         # 排序
-        futureposition_result = base.compare_dict(futureposition_database, futureposition_excel, 'futureposition',
-                                                  *(futureposition_ignore))
+        futureposition_result = base.compare_dict(futureposition_database, futureposition_excel, 'futureposition')
         futurecombaction_result = base.compare_dict(futurecombaction_database, futurecombaction_excel,
                                                     'futurecombaction')
         futurepositiondetail_result = base.compare_dict(futurepositiondetail_database, futurepositiondetail_excel,
                                                         'futurepositiondetail')
         futuretradinglog_result = base.compare_dict(futuretradinglog_database, futuretradinglog_excel,
-                                                    'futuretradinglog')
-        stkoptionsettlement_result = base.compare_dict(stkoptionsettlement_database, stkoptionsettlement_excel,
-                                                       'stkoptionsettlement')
+                                                    'futuretradinglog',*futuretradinglog_ignore)
 
         final_result = futureposition_result + futurecombaction_result + futurepositiondetail_result + \
-                       futuretradinglog_result + stkoptionsettlement_result
+                       futuretradinglog_result
 
         if not final_result:
             logger().info('沪权\组合保证金 对比数据无异常')

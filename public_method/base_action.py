@@ -137,6 +137,14 @@ class BaseAction():
                                       x['EXCEPTFROZENQTY'],x['NEWPRICE']))
         return list_data
 
+    def registration_sort(self, list_data):
+        '''
+        排序registration表数据根据exchid,regid
+        :return:
+        '''
+        list_data.sort(key=lambda x: (x['EXCHID'], x['REGID']))
+        return list_data
+
     def stklistextend_sort(self, list_data):
         '''
         排序stklistextend 表数据
@@ -184,7 +192,16 @@ class BaseAction():
         :return:
         '''
         list_data.sort(key=lambda x: ( x['BRIEFID'],x['EXCHID'], x['REGID'],x['CONTRACTNUM'],
-                                       x['RECKONINGAMT'],x['KNOCKQTY']))
+                                       x['RECKONINGAMT'],x['KNOCKQTY'],x['SHAREATTR']))
+        return list_data
+
+    def tradinglog_sort4(self, list_data):
+        '''
+        特殊排序tradinglog表数据，深圳证券转换
+        :param :
+        :return:
+        '''
+        list_data.sort(key=lambda x: ( x['BRIEFID'],x['EXCHID'], x['REGID'],x['STKID'],x['SHAREATTR'],x['KNOCKQTY']))
         return list_data
 
     def tradinglog_sort3(self, list_data):
@@ -205,6 +222,42 @@ class BaseAction():
         :return:
         '''
         list_data.sort(key=lambda x: (x['ACCTID'], x['CURRENCYID'], x['CUSTID'], x['CASHSAVESUM']))
+        return list_data
+
+    def votelistinfo_sort(self, list_data):
+        '''
+        排序votelistinfo表，根据字段MEETINGSEQ, BASICEXCHID, VOTEID
+        :param :
+        :return:
+        '''
+        list_data.sort(key=lambda x: (str(x['MEETINGSEQ']), str(x['BASICEXCHID']), str(x['VOTEID'])))
+        return list_data
+
+    def custchglog_sort(self, list_data):
+        '''
+        排序custchglog表，根据字段BRIEFID, EXCHID, REGID,ACCTID
+        :param :
+        :return:
+        '''
+        list_data.sort(key=lambda x: (str(x['BRIEFID']), str(x['EXCHID']), str(x['REGID']), str(x['ACCTID'])))
+        return list_data
+
+    def votestkinfo_sort(self, list_data):
+        '''
+        排序votestkinfo表，根据字段MEETINGSEQ, BASICEXCHID, STKID, EXCHID
+        :param :
+        :return:
+        '''
+        list_data.sort(key=lambda x: (x['MEETINGSEQ'], x['BASICEXCHID'], x['STKID'], x['EXCHID']))
+        return list_data
+
+    def votemettinginfo_sort(self, list_data):
+        '''
+        排序votemettinginfo表，根据字段MEETINGSEQ, BASICEXCHID
+        :param :
+        :return:
+        '''
+        list_data.sort(key=lambda x: (x['MEETINGSEQ'], x['BASICEXCHID']))
         return list_data
 
     def openorder_sort(self, list_data):
@@ -233,7 +286,7 @@ class BaseAction():
         :param list_data:
         :return:
         '''
-        list_data.sort(key=lambda x: (x['STKID'], x['REGID'], x['BSFLAG'], x['EXCHID'], x['PRODUCTCODE']))
+        list_data.sort(key=lambda x: (x['STKID'], x['REGID'], x['BSFLAG'], x['EXCHID'], x['PRODUCTCODE'],x['COVEREDFLAG']))
         return list_data
 
 
@@ -293,7 +346,18 @@ class BaseAction():
         :return:
         '''
         list_data.sort(
-            key=lambda x: (x['BRIEFID'],x['EXCHID'],x['STKID'],  x['REGID'],x['BSFLAG'], x['KNOCKQTY'],x['KNOCKCODE']))
+            key=lambda x: (x['BRIEFID'],x['EXCHID'],x['STKID'],  x['REGID'],x['BSFLAG'],
+                           x['KNOCKQTY'],x['KNOCKCODE']))
+        return list_data
+
+    def futuretradinglog_sort2(self, list_data):
+        '''
+        排序futuretradinglog表
+        :param list_data:
+        :return:
+        '''
+        list_data.sort(
+            key=lambda x: (x['BRIEFID'],x['MEMO'],x['HANDLINGFEE']))
         return list_data
 
     def stkoptionsettlement_sort(self, list_data):
@@ -552,6 +616,64 @@ class BaseAction():
         """
         list_data.sort(
             key=lambda x: (x['EXCHID'], x['STKID']))
+        return list_data
+
+    def etfcashrefillwait_sort(self,list_data):
+        """
+        排序 etfcashrefillwait
+        :param list_data:
+        :return:
+        """
+        list_data.sort(
+            key=lambda x: (x['EXCHID'],x['FUNDCODE'] ,x['STKID']))
+        return list_data
+
+    def unprocessedrightsinterests_sort(self,list_data):
+        """
+        排序 unprocessedrightsinterests 按SHAREDATE, EXCHID, REGID, STKID, DESKID, INTERESTFLAG
+        :param list_data:
+        :return:
+        """
+        list_data.sort(
+            key=lambda x: (x['SHAREDATE'],x['EXCHID'] ,x['REGID'],x['STKID'],x['DESKID'] ,x['INTERESTFLAG']))
+        return list_data
+
+    def custSellLimitTax_sort(self,list_data):
+        """
+        排序 custSellLimitTax 按EXCHID, OFFERREGID, STKID, CONTRACTNUM, KNOCKNUM
+        :param list_data:
+        :return:
+        """
+        list_data.sort(
+            key=lambda x: (x['EXCHID'],x['OFFERREGID'] ,x['STKID'],x['CONTRACTNUM'],x['KNOCKNUM'] ))
+        return list_data
+
+    def rc_cashborrowlog_sort(self,list_data):
+        """
+        排序 rc_cashborrowlog 按EXCHID,APPSHEETSERIALNO排序
+        :param list_data:
+        :return:
+        """
+        list_data.sort(
+            key=lambda x: (x['EXCHID'],x['APPSHEETSERIALNO'] ))
+        return list_data
+
+    def fundauditingerror_sort(self,list_data):
+        """
+        排序 fundauditingerror 按DESKID, EXCHID, OCCURTIME, REGID, STKID排序
+        :param list_data:
+        :return:
+        """
+        list_data.sort(key=lambda x: (x['EXCHID'],x['DESKID'],x['REGID'],x['STKID'] ))
+        return list_data
+
+    def fundquota_sort(self, list_data):
+        """
+        排序 fundquota 按 DATATYPE,EXCHID, RECKONINGNUM, INSTITUTIONTYPE, STKID排序
+        :param list_data:
+        :return:
+        """
+        list_data.sort(key=lambda x: (x['DATATYPE'], x['EXCHID'], x['RECKONINGNUM'], x['INSTITUTIONTYPE']))
         return list_data
 
 

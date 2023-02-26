@@ -12,11 +12,22 @@ tradinglog: ['KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME','OCCURTIME',
 
 regrights: ['OCCURTIME','POSTAMT']
 
+custchglog: ['CHANGETIME','SERIALNUM']
+
 stklisthis: ['OCCURTIME',]
 
 stklistextendhis: ['OCCURTIME',]
 
+fundquota: ['OCCURTIME',]
+
 stkinfo: ['INPUTTIME',]
+
+stkinfohis: ['INPUTTIME','OCCURTIME']
+
+etfcashrefillwait: ['OCCURTIME',]
+
+#投票股东大会信息
+votemettinginfo: ['MEETINGDATEBEGIN','MEETINGDATEEND']
 
 stkauditingerror: ['OCCURTIME','KNOCKTIME','BUSINESSDATE']
 
@@ -37,4 +48,11 @@ futureposition: ['DELIVERYDATE',]
 futuretradinglog: ['RECKONINGTIME', 'OCCURTIME', 'KNOCKTIME','POSTAMT','OPENDATE','SERIALNUM','SETTLEDATE']
 
 futuretradinglog1: ['RECKONINGTIME', 'OCCURTIME', 'KNOCKTIME','POSTAMT','OPENDATE','SERIALNUM','CONTRACTNUM','KNOCKCODE','SETTLEDATE']
+
 FutureClientCapitalDetail: ['OCCURTIME',]
+
+futurecombaction: ['SERIALNUM',]
+
+rc_cashborrowlog: ['ORDERTIME','CLOSEDATE','ROLLBACKDATE']
+
+fundauditingerror: ['OCCURTIME',]

@@ -1,0 +1,1 @@
+delete from newstkpurchaseinfo where exchid='1' and dbfid='CJK_TPV5';

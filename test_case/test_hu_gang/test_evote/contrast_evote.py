@@ -12,8 +12,13 @@ class ContrastBusiness(unittest.TestCase):
     沪港\\投票
     """
     yaml = BaseAction().read_yaml(path=PathConfig().hu_gang())['Evote']
+    ignore = BaseAction().read_yaml(path=PathConfig().table_ignore())
 
-    def test_shen_business(self):
+    def test_hg_evote(self):
+        '''
+        沪港\\投票
+        :return:
+        '''
         logger().info('-------------------------------')
         logger().info('开始执行：沪港\\投票 对比数据')
         excel_path = self.yaml['excelPath']
@@ -25,21 +30,38 @@ class ContrastBusiness(unittest.TestCase):
         exchangemessage_sql = "select * from exchangemessage where exchid={} and messagedate={} and " \
                       "messagetype in('H12','H06')".format('5',str(begintime[:8]))
 
-        exchangemessage_ignore = ('MESSAGEDATE','OCCURTIME','DATE3','DATE2','SERIALNUM')
+        votelistinfo_sql = " select * from votelistinfo where basicexchid='SH_GGT' "
+        votestkinfo_sql = " select * from votestkinfo  where basicexchid='SH_GGT'"
+        votemettinginfo_sql = " select * from  votemettinginfo where basicexchid='SH_GGT' "
+
+        exchangemessage_ignore = ('SERIALNUM', 'MESSAGEDATE', 'DATE2', 'DATE3', 'OCCURTIME')
+        votemettinginfo_ignore = self.ignore['votemettinginfo']
         # 获取数据库数据并排序
         exchangemessage_database = BaseAction().exchangemessage_sort(oracle.dict_data(exchangemessage_sql))
+        votelistinfo_database = BaseAction().votelistinfo_sort(oracle.dict_data(votelistinfo_sql))
+        votestkinfo_database = BaseAction().votestkinfo_sort(oracle.dict_data(votestkinfo_sql))
+        votemettinginfo_database = BaseAction().votemettinginfo_sort(oracle.dict_data(votemettinginfo_sql))
+
         # 获取excel数据并排序
         exchangemessage_excel = BaseAction().exchangemessage_sort(excel.read_excel('exchangemessage'))
+        votelistinfo_excel = BaseAction().votelistinfo_sort(excel.read_excel('votelistinfo'))
+        votestkinfo_excel = BaseAction().votestkinfo_sort(excel.read_excel('votestkinfo'))
+        votemettinginfo_excel = BaseAction().votemettinginfo_sort(excel.read_excel('votemettinginfo'))
         # 对比数据
         exchangemessage_result = BaseAction().compare_dict(exchangemessage_database,
-                                                           exchangemessage_excel, 'exchangemessage',*exchangemessage_ignore)
-
-        if not exchangemessage_result :
+                                                           exchangemessage_excel, 'exchangemessage',
+                                                           *exchangemessage_ignore)
+        votelistinfo_result = BaseAction().compare_dict(votelistinfo_database, votelistinfo_excel, 'votelistinfo')
+        votestkinfo_result = BaseAction().compare_dict(votestkinfo_database, votestkinfo_excel, 'votestkinfo')
+        votemettinginfo_result = BaseAction().compare_dict(votemettinginfo_database, votemettinginfo_excel,
+                                                           'votemettinginfo',*votemettinginfo_ignore)
+        finalreuslt = exchangemessage_result + votelistinfo_result + votestkinfo_result + votemettinginfo_result
+        if not finalreuslt:
             logger().info('沪港\\投票T日清算 对比数据无异常')
             assert True
         else:
             logger().error('沪港\\投票T日清算 对比数据异常')
-            assert False, exchangemessage_result
+            assert False, finalreuslt
 
 
 if __name__ == '__main__':

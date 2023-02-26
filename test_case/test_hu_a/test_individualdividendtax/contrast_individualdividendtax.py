@@ -9,13 +9,13 @@ from public_method.excel_operation import ExcelOperation
 
 class IndividualDividendTax(unittest.TestCase):
     """
-    沪A 股息红利税
+    沪A 股息红利税(必须当日申报冻结，不存在跨天冻结，跨天时，需先把senddate更新为交易日)
     """
     yaml = BaseAction().read_yaml(path=PathConfig().hu_a())['individualdividendtax']
 
     def test_individualdividendtax(self):
         """
-        沪A 股息红利税
+        沪A 股息红利税(必须当日申报冻结，不存在跨天冻结，跨天时，需先把senddate更新为交易日)
         :return:
         """
         logger().info('-------------------------------')

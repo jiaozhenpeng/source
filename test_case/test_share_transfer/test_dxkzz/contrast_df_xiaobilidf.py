@@ -29,12 +29,12 @@ class ContrastEtfSplit(unittest.TestCase):
         year = base.get_today_date()[:4]
 
         # 查询sql
-        stklist_sql = "select * from STKLIST where exchid='6' and stkid in('810018') and " \
+        stklist_sql = "select * from STKLIST where exchid='9' and stkid in('810018') and " \
                       "offerregid in('GZ11721600')"
-        tradinglog_sql = "select * from tradinglog{} where reckoningtime>={} and reckoningtime<={} and exchid= '6'  " \
+        tradinglog_sql = "select * from tradinglog{} where reckoningtime>={} and reckoningtime<={} and exchid= '9'  " \
                          "and stkid in ('810018') and briefid in('005_004_090','005_005_063'" \
                          ",'005_005_002')".format(year,begintime,endtime)
-        stklisthis_sql = "select * from STKLIST{} where occurtime={}  and exchid= '6'  " \
+        stklisthis_sql = "select * from STKLIST{} where occurtime={}  and exchid= '9'  " \
                          "and stkid in ('810018') and offerregid in('GZ11721600')".format(year,begintime)
 
         # 数据库数据

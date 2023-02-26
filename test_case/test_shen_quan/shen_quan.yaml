@@ -16,3 +16,16 @@ virtualregistrationrights:
   dbfPath: F:\source\用例数据\深权\虚拟股东分配
   sqlPath: F:\source\用例数据\深权\虚拟股东分配\futureinfo.sql
   excelPath: F:\source\用例数据\深权\虚拟股东分配\测试结果.xlsx
+
+
+# 深权\做市商手续费优惠
+sxfyh: #做市商手续费优惠
+  dbfPath: F:\source\用例数据\深权\做市商手续费优惠
+  excelPath: F:\source\用例数据\深权\做市商手续费优惠\测试结果.xlsx
+
+
+# F:\source\用例数据\深权\特殊资金自动上账
+specialcash: #特殊资金自动上账
+  dbfPath: F:\source\用例数据\深权\特殊资金自动上账
+  sqlPath: F:\source\用例数据\深权\特殊资金自动上账\futureinfo.sql
+  excelPath: F:\source\用例数据\深权\特殊资金自动上账\测试结果.xlsx

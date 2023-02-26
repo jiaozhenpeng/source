@@ -1,0 +1,1 @@
+delete from FUNDQUOTA where occurtime>=(select tradedate from sysconfig) and exchid in('1','3');

@@ -49,7 +49,7 @@ Overdue:
 PortfolioMargin:
   sqlPath: F:\source\用例数据\沪权\组合保证金\futureinfo.sql
   dbfPath: F:\source\用例数据\沪权\组合保证金
-  excelPath:
+  excelPath: F:\source\用例数据\沪权\组合保证金\测试结果.xlsx
 
 
 virtualregistrationrights:

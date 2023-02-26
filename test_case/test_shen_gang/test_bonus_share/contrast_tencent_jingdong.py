@@ -48,11 +48,11 @@ class ContrastTencentJingdong(unittest.TestCase):
         # 忽略字段
         stklist_ignore = ()
         tradinglog_ignore = self.ignore['tradinglog']
-        stkcheckin_ignore = ()
+        stkcheckin_ignore = self.ignore['stkcheckin']
         # 对比
         stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist')
         tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog', *tradinglog_ignore)
-        stkcheckin_result = base.compare_dict(stkcheckin_database, stkcheckin_excel, 'stkcheckin')
+        stkcheckin_result = base.compare_dict(stkcheckin_database, stkcheckin_excel, 'stkcheckin',*stkcheckin_ignore)
         # 断言
         final_result = stklist_result + tradinglog_result + stkcheckin_result
         if not final_result:

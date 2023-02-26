@@ -25,6 +25,16 @@ class BlockTrade(unittest.TestCase):
         dbf_config = BaseAction().read_yaml(path=PathConfig().dbf())
         path = os.path.join(dbf_config['savePath'], OracleDatabase().get_trade_date())
         shutil.copy(filepath, path)
+        sql_path = self.yaml['sqlPath']
+        sql = BaseAction().read_sql(sql_path)
+        oracle = OracleDatabase()
+        sql_result = oracle.update_sql(*sql)
+        if not sql_result:
+            logger().info('深A\V5投票 准备数据完成')
+            assert True
+        else:
+            logger().error('深A\V5投票 准备数据异常')
+            assert False, sql_result
 
 
 

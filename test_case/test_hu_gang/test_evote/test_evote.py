@@ -11,7 +11,7 @@ class OrdinaryTransaction(unittest.TestCase):
     沪港\投票\T日转入投票公告和投票议案
     """
     yaml = BaseAction().read_yaml(path=PathConfig().hu_gang())['Evote']
-    def test_ordinary_transaction(self):
+    def test_hg_evote(self):
         """
         准备沪港\T日转入投票公告和投票议案
         :return:

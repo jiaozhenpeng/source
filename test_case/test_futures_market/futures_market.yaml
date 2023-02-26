@@ -60,3 +60,11 @@ intelligent:
 
 # G市场
 
+
+
+#按配置分配子账户
+reg_product:
+  sqlPath: F:\source\用例数据\期货市场\按配置分配账户\futureinfo.sql
+  trddataPath: F:\source\用例数据\期货市场\按配置分配账户\trddata.txt
+  opttrddataPath: F:\source\用例数据\期货市场\按配置分配账户\opttrddata.txt
+  excelPath: F:\source\用例数据\期货市场\按配置分配账户\测试结果.xlsx

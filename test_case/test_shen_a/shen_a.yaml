@@ -201,7 +201,7 @@ lofbuysell:
 Evote:
   filePath: F:\source\用例数据\深A\V5投票
   excelPath: F:\source\用例数据\深A\V5投票\测试结果.xlsx
-
+  sqlPath: F:\source\用例数据\深A\V5投票\stkinfo.sql
 
 #信用保护合约
 XYBHHY:
@@ -227,6 +227,11 @@ individualtax:  #差异化股息红利税
   dbfPath: F:\source\用例数据\深A\股息红利税
   sqlPath: F:\source\用例数据\深A\股息红利税\stkinfo.sql
   excelPath: F:\source\用例数据\深A\股息红利税\测试结果.xlsx
+
+zjqdkz:  #资金前端控制
+  dbfPath: F:\source\用例数据\深A\资金前端控制
+  sqlPath: F:\source\用例数据\深A\资金前端控制\stkinfo.sql
+  excelPath: F:\source\用例数据\深A\资金前端控制\测试结果.xlsx
 
 
 Reits:  #公募reits
@@ -260,3 +265,53 @@ shuangchuangbond:
     dbfPath: F:\source\用例数据\深A\私募债\私募债换股
     sqlPath: F:\source\用例数据\深A\私募债\私募债换股\stkinfo.sql
     excelPath: F:\source\用例数据\深A\私募债\私募债换股\测试结果.xlsx
+
+# 沪深北ETF申赎
+HSBSH:
+  Tday:
+    dbfPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\T日
+    sqlPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\T日\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\T日\测试结果.xlsx
+
+  T1day:
+    dbfPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+1
+    excelPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+1\测试结果.xlsx
+
+  T2day:
+    dbfPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2
+    excelPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2\测试结果.xlsx
+
+
+# 权证行权-现金选择权
+XJXZQ:
+  Tday:  #权证登记
+    dbfPath: F:\source\用例数据\深A\权证行权\现金选择权\T日
+    sqlPath: F:\source\用例数据\深A\权证行权\现金选择权\T日\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\权证行权\现金选择权\T日\测试结果.xlsx
+
+  T1day:  # 行权申请
+    dbfPath: F:\source\用例数据\深A\权证行权\现金选择权\T+1日
+    excelPath: F:\source\用例数据\深A\权证行权\现金选择权\T+1日\测试结果.xlsx
+
+  T2day: # 行权回报交收通知
+    dbfPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2
+    excelPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2\测试结果.xlsx
+
+  T3day: # 行权回报交收结果
+    dbfPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2
+    excelPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2\测试结果.xlsx
+
+# 权证行权-股权激励
+GQJL:
+  Tday:  #权证登记
+    dbfPath: F:\source\用例数据\深A\权证行权\股权激励\T日
+    sqlPath: F:\source\用例数据\深A\权证行权\股权激励\T日\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\权证行权\股权激励\T日\测试结果.xlsx
+
+  T1day: # 行权回报交收通知
+    dbfPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2
+    excelPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2\测试结果.xlsx
+
+  T2day: # 行权回报交收结果
+    dbfPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2
+    excelPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2\测试结果.xlsx

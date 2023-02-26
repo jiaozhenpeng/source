@@ -20,6 +20,7 @@ class DbfOperation():
     t3 = OracleDatabase().get_trade_date(3)
     t5 = OracleDatabase().get_trade_date(5)
     lasttradedate1 = OracleDatabase().get_last_trade_date(1)
+    lasttradedate1 = OracleDatabase().get_last_trade_date(2)
 
     def __init__(self, path):
         self.dbf_file = dbf.Table(path, codepage='cp936')
@@ -397,6 +398,16 @@ class DbfOperation():
             cjrq = self.t
         return self.get_data(BDRQ=cjrq)
 
+    def bd7_file(self, cjrq=None):
+        if cjrq is None:
+            cjrq = self.t
+        return self.get_data(NTC_DATE =cjrq,DATE2 =self.lasttradedate1 )
+
+    def bd8_file(self, cjrq=None):
+        if cjrq is None:
+            cjrq = self.t
+        return self.get_data(ACP_DATE =cjrq,DATE =self.lasttradedate1 )
+
 
     def zjhz_file(self, qsrq=None, jsrq=None):
         """
@@ -581,8 +592,8 @@ class DbfOperation():
                     rec['JGQSRQ'], rec['JGJSRQ'], rec['JGQTRQ'] = None, None, tempdate
                 elif rec['JGYWLB'] in (
                         'DJBG', 'DJ00','FGS6','FGSD', 'ZTZC', 'ZTZR', 'ZTXS', 'ZTTZ', 'ZJQ0', 'ZJQ1', 'ZJQ2', 'TGZX', 'FJZG',
-                        'TZGF', 'GS4B', 'GSSG', 'XGJX', 'XGXS', 'GSZH', 'ZQZD',
-                        'ZQZZ','TG20','TG21','TG22','TG23') or (rec['JGYWLB'] == 'ZQKZ' and rec['JGJSSL'] > 0) or\
+                        'TZGF', 'GS4B', 'GSSG', 'XGJX', 'XGXS', 'GSZH', 'ZQZD','TGZF','TGSS','ZJQ0','ZJQ1','ZJQ2',
+                        'ZQZZ','TG20','TG21','TG22','TG23','TGXG','QZ06') or (rec['JGYWLB'] == 'ZQKZ' and rec['JGJSSL'] > 0) or\
                         (rec['JGYWLB'] == 'ZQHG' and rec['JGJSSL'] <= 0):
                     # 清算日期和交收日期和其他日期为空，成交日期、发送日期= T日
                     rec['JGQSRQ'], rec['JGJSRQ'], rec['JGQTRQ'] = None, None, None
@@ -752,7 +763,7 @@ class DbfOperation():
                 rec['WTRQ'], rec['QSRQ'], rec['JSRQ'], rec['FSRQ'] = cjrq, qsrq, jsrq, fsrq
                 if rec['YWLB'] in ('QPPF'):
                     rec['WTRQ'] = None
-                if rec['YWLB'] in ('ZT01', 'ZT02', 'ZT03', 'ZTFY'):
+                if rec['YWLB'] in ('ZT01', 'ZT02', 'ZT03'):
                     rec['JSRQ'] = cjrq
                 if rec['YWLB'] in ('QPTG', 'TGZX','TGDJ','SGZX'):
                     rec['WTRQ'], rec['JSRQ'] = None, cjrq
@@ -940,7 +951,22 @@ class DbfOperation():
     def sq_jsmx_file(self, cjrq=None):
         if cjrq is None:
             cjrq = self.t
-        return self.get_data(CJRQ=cjrq, QSRQ=cjrq, JSRQ=cjrq, FSRQ=cjrq)
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                if rec['YWLB'] in ('Q104', 'Q110'):
+                    rec['FSRQ'] = cjrq
+                    rec['QSRQ'] = cjrq
+                    rec['JSRQ'] = cjrq
+                else:
+                    rec['CJRQ'] = cjrq
+                    rec['QSRQ'] = cjrq
+                    rec['JSRQ'] = cjrq
+                    rec['FSRQ'] = cjrq
+            records.append(record)
+        table.close()
+        return records
 
     def sq_hycb_file(self, cjrq=None):
         if cjrq is None:
@@ -961,6 +987,11 @@ class DbfOperation():
         if cjrq is None:
             cjrq = self.t
         return self.get_data(QSRQ=cjrq, JSRQ=cjrq, FSRQ=cjrq)
+
+    def sq_zjbd_file(self, cjrq=None):
+        if cjrq is None:
+            cjrq = self.t
+        return self.get_data(JZRQ=cjrq, FSRQ=cjrq)
 
     def bjsjg_file(self, cjrq=None, qsrq=None, jsrq=None, fsrq=None):
         if cjrq is None:
@@ -1086,19 +1117,22 @@ class DbfOperation():
         table.close()
         return records
 
-    def bjsgb_file(self):
-        records = []
-        table = self.dbf_file.open(mode=dbf.READ_WRITE)
-        for record in table:
-            with record as rec:
-                if rec['GBLB'] == 'ZY':
-                    rec['GBRQ'] = self.replace_time(rec['GBRQ'], self.t)
-                elif rec['GBLB'] == 'QP':
-                    rec['GBRQ'] = self.replace_time(rec['GBRQ'], self.t)
-                    rec['GBRQ1'] = self.replace_time(rec['GBRQ'], self.t)
-            records.append(record)
-        table.close()
-        return records
+    # def bjsgb_file(self):
+    #     records = []
+    #     table = self.dbf_file.open(mode=dbf.READ_WRITE)
+    #     for record in table:
+    #         with record as rec:
+    #             if rec['GBLB'] == 'ZY':
+    #                 rec['GBRQ'] = self.replace_time(rec['GBRQ'], self.t)
+    #             elif rec['GBLB'] == 'QP':
+    #                 rec['GBRQ'] = self.replace_time(rec['GBRQ'], self.t)
+    #                 rec['GBRQ1'] = self.replace_time(rec['GBRQ'], self.t)
+    #             elif rec['GBLB'] == 'ZL':
+    #                 rec['GBRQ'] = self.replace_time(rec['GBRQ'], self.t)
+    #                 rec['GBRQ1'] = self.replace_time(rec['GBRQ'], self.t1)
+    #         records.append(record)
+    #     table.close()
+    #     return records
 
     def bjsds_file(self, cjrq=None):
         if cjrq is None:
@@ -1123,6 +1157,8 @@ class DbfOperation():
                 rec['GBRQ'] = self.replace_time(rec['GBRQ'], cjrq)
                 if rec['GBLB'] == 'QP':
                     rec['GBRQ1'] = self.replace_time(rec['GBRQ1'], cjrq)
+                elif rec['GBLB'] == 'ZL':
+                    rec['GBRQ1'] = self.replace_time(rec['GBRQ1'], self.t1)
             records.append(record)
         table.close()
         return records
