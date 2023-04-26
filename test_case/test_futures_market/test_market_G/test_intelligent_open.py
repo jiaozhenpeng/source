@@ -33,7 +33,7 @@ class FuturesOpen(unittest.TestCase):
             logger().error('trddata.txt文件创建失败')
             assert False, 'trddata.txt文件创建失败'
         txt_result2 = txt2.creat_txt('holddata')
-        if txt_result1 is False:
+        if txt_result2 is False:
             logger().error('holddata.txt文件创建失败')
             assert False, 'holddata.txt文件创建失败'
         # 执行SQL

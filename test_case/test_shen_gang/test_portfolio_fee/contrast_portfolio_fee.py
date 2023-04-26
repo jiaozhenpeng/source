@@ -44,9 +44,9 @@ class ContrastPortfolioFee(unittest.TestCase):
         unprocessedreckoningresulthis_excel = base.unprocessedreckoningresulthis_sort(
             excel.read_excel('unprocessedreckoningresulthis'))
         # 忽略字段
-        unprocessedreckoningresult_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE')
+        unprocessedreckoningresult_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE','FIRSTCASHSETTLEDATE')
         exchangerights_ignore = ()
-        unprocessedreckoningresulthis_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE')
+        unprocessedreckoningresulthis_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE','FIRSTCASHSETTLEDATE')
         # 对比
         unprocessedreckoningresult_result = base.compare_dict(unprocessedreckoningresult_database,
                                                               unprocessedreckoningresult_excel,

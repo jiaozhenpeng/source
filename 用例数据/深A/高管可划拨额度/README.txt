@@ -1,0 +1,5 @@
+TG91数据转入exchangerights表后，不进行任何处理。在初始化时会进行处理进stklistextend表中，不处理stklist，无日志，修改跟踪单TRACE_BUG_19061325
+
+time=19:22:09 161, cost=2.602, sid=608, index=0, sql=SELECT exchId, regId, deskId, stkId, occurQty FROM exchangeRights WHERE orderType = 'TG91' AND sendDate >=20190619000000 AND sendDate 
+time=19:22:09 161, cost=0.033, sid=608, sqlPrepare=@1b055b4, sql=UPDATE stklistExtend SET currentQty = ? WHERE exchId = ? AND regId = ? AND deskId = ? AND stkId = ? AND shareAttr = 'GG' AND listedStatus = '0';
+time=19:22:09 426, cost=124.574, sid=608, sql=INSERT INTO StkListExtend (exchId,acctId,custId,regId,offerRegId,stkId,deskId,shareAttr,listedStatus,currentQty,frozenQty,sellFrozenQty,usableQty,settleYear) VALUES('1','000011721200','000011721200','0117212000','0117212000','000001','077011','GG','0',1000,0,0,0,'0');

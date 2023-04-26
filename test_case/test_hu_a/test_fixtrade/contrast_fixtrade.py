@@ -30,7 +30,7 @@ class ContrastEtfSplit(unittest.TestCase):
         year = base.get_today_date()[:4]
 
         # 查询sql
-        registration_sql = "select * from registration where exchid in('0','5','X','B') and offerregid in('0019910214','0019910216')"
+        registration_sql = "select * from registration where exchid in('0','5','X','C') and offerregid in('0019910214','0019910216')"
         custchglog_sql = " select * from   custchglog{} where CHANGETIME>={}  and CHANGETIME<={} and   briefid" \
                          " in('006_003_020','006_003_019')".format(year,begintime,endtime)
         tradinglog_sql = "select * from tradinglog{} where reckoningtime>={} and reckoningtime<={} and briefid " \

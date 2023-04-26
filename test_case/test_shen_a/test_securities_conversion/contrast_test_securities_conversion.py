@@ -9,14 +9,14 @@ from public_method.excel_operation import ExcelOperation
 
 class ContrastSecuritiesConversion(unittest.TestCase):
     """
-    测试 证券转换
+    测试 深A/证券转换
     """
     yaml = BaseAction().read_yaml(path=PathConfig().shen_a())['SecuritiesConversion']
     ignore = BaseAction().read_yaml(path=PathConfig().table_ignore())
 
     def test_securities_conversion(self):
         '''
-        测试 证券转换
+        测试 深A/证券转换
         :return:
         '''
         logger().info('-------------------------------')

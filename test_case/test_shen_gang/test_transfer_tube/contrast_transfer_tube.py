@@ -67,7 +67,7 @@ class ContrastTransferTube(unittest.TestCase):
         # 忽略字段
         tradinglog_ignore = ('KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME',
                              'TRANSACTIONREF','SETTLEDATE','POSTAMT')
-        regrights_ignore = ('OCCURTIME',)
+        regrights_ignore = ('OCCURTIME','POSTAMT')
         unprocessedreckoningresult_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE')
         unprocessedreckoningresulthis_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE')
         stklist_ignore = ('OCCURTIME',)

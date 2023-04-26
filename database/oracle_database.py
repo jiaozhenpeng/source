@@ -215,8 +215,8 @@ if __name__ == '__main__':
     # print(oracle.select_sql(sql))
 
     # print(oracle.get_field_name(sql)[0])
-    print(oracle.dict_data(sql))
+    # print(oracle.dict_data(sql))
     # print(oracle.get_trade_date())
     # print(oracle.version_cts())
     # print(oracle.get_trade_date(1))
-    # print(oracle.get_last_update())
+    print(oracle.get_last_update())

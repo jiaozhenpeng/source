@@ -40,7 +40,7 @@ class ContrastEtfSplit(unittest.TestCase):
         # 数据库数据
         stklist_database = base.stklist_sort(oracle.dict_data(stklist_sql))
         tradinglog_database = base.tradinglog_sort(oracle.dict_data(tradinglog_sql))
-        stklistextendhid_database = base.stklistextend_sort(oracle.dict_data(stklist_sql))
+        stklistextendhid_database = base.stklistextend_sort(oracle.dict_data(stklistextendhis))
 
         # Excel数据
         tradinglog_excel = base.tradinglog_sort(excel.read_excel('tradinglog'))

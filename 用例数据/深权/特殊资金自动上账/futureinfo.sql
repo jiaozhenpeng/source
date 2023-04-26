@@ -10,4 +10,4 @@ values (2123, 'StkOptionSZLegalPersonAudit', '是否支持深圳个股期权法�
 
 insert into globalpara (SORTSERIAL, PARAID, PARANAME, DATATYPE, MAXLEN, MINLEN, DECLEN, PARAVALUE, VALUESCOPE, CONTENTS, DESCRIPTION, OPTFLAG, GLOBALPARATYPE, GRANTOPTLIST)
 values (2126, 'StkOptionSZPropSpecialAcctId', '深圳个股期权自营保留账户', 0, 80.0, null, null, '000000001215', 'TEXT', null, '设置系统内深圳个股期权自营券商保留资金账户,用于存放sq_zjbd中自营保证金账户上发生的结息/返佣的金额,依赖于全局参数2113', 1, '9', null);
-update account set previousamt=1000000,currentamt=1000000,usableamt=1000000,TUSABLEAMT=1000000,DEPOSITSUM=0 where acctid ='000000001215' and currencyid='00';
+update account set previousamt=1000000,currentamt=1000000,usableamt=1000000,TUSABLEAMT=1000000,DEPOSITSUM=0,EXCHANGECOMMISION=0 where acctid ='000000001215' and currencyid='00';

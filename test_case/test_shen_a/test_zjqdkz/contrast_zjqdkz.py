@@ -29,7 +29,7 @@ class ContrastEtfSplit(unittest.TestCase):
         base = BaseAction()
         year = base.get_today_date()[:4]
 
-        # 查询sql   只查034088持仓，034089持仓权证行权会变化
+        # 查询sql
         fundquota_sql = "select * from fundquota where exchid in('1','3') and  occurtime={} ".format(begintime,)
 
         # 数据库数据

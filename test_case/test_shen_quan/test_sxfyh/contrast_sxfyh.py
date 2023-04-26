@@ -33,8 +33,8 @@ class ContrastEtfSplit(unittest.TestCase):
         futuretradinglog_sql = "select * from futuretradinglog{} where reckoningtime>={} and reckoningtime<={} and exchid= 'Y'  " \
                          "and briefid in('208_002_040','208_001_040') ".format(year, begintime, endtime)
 
-        futuretradinglog_sql = "select * from futuretradinglog where  exchid= 'Y'  " \
-                         "and briefid in('208_002_040','208_001_040') "
+        # futuretradinglog_sql = "select * from futuretradinglog where  exchid= 'Y'  " \
+        #                  "and briefid in('208_002_040','208_001_040') "
         # 数据库数据
         futuretradinglog_database = base.futuretradinglog_sort2(oracle.dict_data(futuretradinglog_sql))
         print(futuretradinglog_database)

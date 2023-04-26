@@ -20,7 +20,7 @@ class DbfOperation():
     t3 = OracleDatabase().get_trade_date(3)
     t5 = OracleDatabase().get_trade_date(5)
     lasttradedate1 = OracleDatabase().get_last_trade_date(1)
-    lasttradedate1 = OracleDatabase().get_last_trade_date(2)
+    lasttradedate2 = OracleDatabase().get_last_trade_date(2)
 
     def __init__(self, path):
         self.dbf_file = dbf.Table(path, codepage='cp936')
@@ -184,7 +184,7 @@ class DbfOperation():
         for record in table:
             with record as rec:
                 rec['JYRQ'], rec['QSRQ'], rec['JSRQ'] = cjrq, qsrq, jsrq  # 011,037
-                if rec['YWLX'] in ('691', '605', '684', '685','692','693'):  # 根据业务类型判断，交易日期、清算日期、交收日期都是T日
+                if rec['YWLX'] in ('691', '684', '685','692','693'):  # 根据业务类型判断，交易日期、清算日期、交收日期都是T日
                     rec['JSRQ'] = cjrq
                 elif rec['YWLX'] in ('680', ):  # 根据业务类型判断jsrq
                     if rec['SQBH'] in ('70','77','79','80'):
@@ -195,10 +195,18 @@ class DbfOperation():
                         rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=14)).strftime('%Y%m%d')
                     elif rec['SQBH'] in ('36',):
                         rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=184)).strftime('%Y%m%d')
-                if rec['YWLX'] in ('655', '656'):  # 根据业务类型判断jsrq
+                elif rec['YWLX'] in ('655', '656'):  # 根据业务类型判断jsrq
                     rec['JSRQ'] = self.t
-                if rec['YWLX'] in ('419', ):  # 419股息红利税，无交易日期
+                elif rec['YWLX'] in ('419', ):  # 419股息红利税，无交易日期
                     rec['JYRQ'] = None
+                elif rec['YWLX'] in ('605', ) :  # 419股息红利税，无交易日期
+                    if rec['JYFS'] == '106':
+                        rec['JSRQ'],rec['QTRQ'] = cjrq,cjrq
+                    elif rec['JYFS'] == '105' and rec['JLLX']  == '002':
+                        rec['QTRQ'] = cjrq
+                    elif rec['JYFS'] == '105' and rec['JLLX']  == '003':
+                        rec['JYRQ'],rec['QTRQ'],rec['QSRQ'],rec['JSRQ'] = self.lasttradedate1,self.lasttradedate1,self.lasttradedate1,cjrq,
+
             records.append(record)
         table.close()
         return records
@@ -592,14 +600,14 @@ class DbfOperation():
                     rec['JGQSRQ'], rec['JGJSRQ'], rec['JGQTRQ'] = None, None, tempdate
                 elif rec['JGYWLB'] in (
                         'DJBG', 'DJ00','FGS6','FGSD', 'ZTZC', 'ZTZR', 'ZTXS', 'ZTTZ', 'ZJQ0', 'ZJQ1', 'ZJQ2', 'TGZX', 'FJZG',
-                        'TZGF', 'GS4B', 'GSSG', 'XGJX', 'XGXS', 'GSZH', 'ZQZD','TGZF','TGSS','ZJQ0','ZJQ1','ZJQ2',
+                        'TZGF', 'GS4B', 'GSSG', 'XGJX', 'XGXS', 'GSZH', 'ZQZD','TGZF','TGSS','ZJQ0','ZJQ1','ZJQ2','BJRK',
                         'ZQZZ','TG20','TG21','TG22','TG23','TGXG','QZ06') or (rec['JGYWLB'] == 'ZQKZ' and rec['JGJSSL'] > 0) or\
-                        (rec['JGYWLB'] == 'ZQHG' and rec['JGJSSL'] <= 0):
+                        (rec['JGYWLB'] == 'ZQHG' and rec['JGJSSL'] <= 0) or  (rec['JGYWLB'] == 'BJCK' and rec['JGJSSL'] == 0):
                     # 清算日期和交收日期和其他日期为空，成交日期、发送日期= T日
                     rec['JGQSRQ'], rec['JGJSRQ'], rec['JGQTRQ'] = None, None, None
                 elif rec['JGYWLB'] in ('QQSD',):  # 成交日期,其他日期为空，清算日期、交收日期、发送日期 = T日
                     rec['JGCJRQ'], rec['JGJSRQ'], rec['JGQTRQ'] = None, cjrq, None
-                elif rec['JGYWLB'] in ('QP90','TG90'):  # 发送日期 = T日,其他日期都是空
+                elif rec['JGYWLB'] in ('QP90','TG90','TG91','ZYMX','ZYBZ'):  # 发送日期 = T日,其他日期都是空
                     rec['JGCJRQ'], rec['JGJSRQ'], rec['JGQSRQ'],rec['JGQTRQ'] = None, None, None, None
                 elif rec['JGYWLB'] in ('CSTZ','CSXX','CSXX','JY01'):   #RTGS交收的，四个日期为T日，其他日期空
                     rec['JGJSRQ'],rec['JGQTRQ'] = cjrq,None
@@ -946,7 +954,24 @@ class DbfOperation():
             jsrq = self.t1
         if fsrq is None:
             fsrq = self.t
-        return self.get_data(MXCJRQ=cjrq, MXQSRQ=qsrq, MXJSRQ=jsrq, MXFSRQ=fsrq)
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                if rec['MXYWLB'] in ('BJCS',):
+                    rec['MXFSRQ'] = fsrq
+                    rec['MXQSRQ'] = qsrq
+                    rec['MXJSRQ'] = jsrq
+                    rec['MXCJRQ'] = cjrq
+                    rec['MXQTRQ'] = OracleDatabase().get_trade_date(3)
+                else:
+                    rec['MXCJRQ'] = cjrq
+                    rec['MXQSRQ'] = qsrq
+                    rec['MXJSRQ'] = jsrq
+                    rec['MXFSRQ'] = fsrq
+            records.append(record)
+        table.close()
+        return records
 
     def sq_jsmx_file(self, cjrq=None):
         if cjrq is None:

@@ -71,6 +71,8 @@ class TxtOperation():
 
 
 
+
+
         else:
             logger().error('未匹配到{}文本获取数据的方法'.format(txt_file))
             return False

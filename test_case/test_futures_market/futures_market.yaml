@@ -31,6 +31,12 @@ MarketF:
     txtPath: F:\source\用例数据\期货市场\F市场\期货\T日\trddata.txt
     excelPath: F:\source\用例数据\期货市场\F市场\期货\T日\测试结果.xlsx
 
+  IOexer:
+    sqlPath: F:\source\用例数据\期货市场\F市场\股指期权行权\futureinfo.sql
+    txtPath: F:\source\用例数据\期货市场\F市场\股指期权行权\optexerdata.txt
+    txtPath2: F:\source\用例数据\期货市场\F市场\股指期权行权\opttrddata.txt
+    excelPath: F:\source\用例数据\期货市场\F市场\股指期权行权\测试结果.xlsx
+
 # 冲抵保证金
 OffsetMargin:
   sqlPath: F:\source\用例数据\期货市场\冲抵保证金\globalconstcust.sql

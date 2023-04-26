@@ -1,10 +1,15 @@
-user: ctsdb # 数据库账号
-password: ctsdb # 数据库密码
-dsn: 192.168.2.225/ctsdb
+#user: ctsdb # 数据库账号
+#password: ctsdbj # 数据库密码
+#dsn: 192.168.2.225/ctsdb
 
-#user: qingsuan # 数据库账号
-#password: qingsuan # 数据库密码
-#dsn: 192.168.4.223/ctsdb
+
+#user: ctsdb # 数据库账号
+#password: ctsdb # 数据库密码
+#dsn: 172.22.16.32/ctsdb
+
+user: ctsdbbb # 数据库账号
+password: ctsdb # 数据库密码
+dsn: 172.22.20.4/ctsdb
 
 sql:
   tradedate: select tradedate from sysconfig # 获取交易日期sql

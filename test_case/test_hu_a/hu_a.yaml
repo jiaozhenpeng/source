@@ -314,11 +314,27 @@ jijintong1:
 
 #    公司债现券交易
 companybond:
-  trade:
-    dbfPath: F:\source\用例数据\沪A\公司债\公司债现券交易
-    txtPath: F:\source\用例数据\沪A\公司债\公司债现券交易\zqgh.txt
-    excelPath: F:\source\用例数据\沪A\公司债\公司债现券交易\测试结果.xlsx
-    sqlPath: F:\source\用例数据\沪A\公司债\公司债现券交易\stkinfo.sql
+  trade:   #611  001
+    dbfPath: F:\source\用例数据\沪A\公司债\公司债现券交易普通交易
+    txtPath: F:\source\用例数据\沪A\公司债\公司债现券交易普通交易\zqgh.txt
+    excelPath: F:\source\用例数据\沪A\公司债\公司债现券交易普通交易\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\公司债\公司债现券交易普通交易\stkinfo.sql
+  gstrade: #611  101
+    dbfPath: F:\source\用例数据\沪A\公司债\公司债现券交易固定收益平台交易
+    excelPath: F:\source\用例数据\沪A\公司债\公司债现券交易固定收益平台交易\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\公司债\公司债现券交易固定收益平台交易\stkinfo.sql
+  gsrtgstrade: #605  106
+    dbfPath: F:\source\用例数据\沪A\公司债\固定收益RTGS 债券交易
+    excelPath: F:\source\用例数据\沪A\公司债\固定收益RTGS 债券交易\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\公司债\固定收益RTGS 债券交易\stkinfo.sql
+  gsfdbtrade: #605  105
+    Tday:
+      dbfPath: F:\source\用例数据\沪A\公司债\固定收益平台实施非担保交收的债券交易\T日
+      excelPath: F:\source\用例数据\沪A\公司债\固定收益平台实施非担保交收的债券交易\T日\测试结果.xlsx
+      sqlPath: F:\source\用例数据\沪A\公司债\固定收益平台实施非担保交收的债券交易\T日\stkinfo.sql
+    T1day:
+      dbfPath: F:\source\用例数据\沪A\公司债\固定收益平台实施非担保交收的债券交易\T+1日
+      excelPath: F:\source\用例数据\沪A\公司债\固定收益平台实施非担保交收的债券交易\T+1日\测试结果.xlsx
 
 #   企业债可转债交易
 qybond:
@@ -335,6 +351,10 @@ treasury_bond:
     txtPath: F:\source\用例数据\沪A\国债\普通交易\zqgh.txt
     excelPath: F:\source\用例数据\沪A\国债\普通交易\测试结果.xlsx
     sqlPath: F:\source\用例数据\沪A\国债\普通交易\stkinfo.sql
+  xqtrade:  #国债固收平台现券交易
+    dbfPath: F:\source\用例数据\沪A\国债\国债现券交易结算明细数
+    excelPath: F:\source\用例数据\沪A\国债\国债现券交易结算明细数\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\国债\国债现券交易结算明细数\stkinfo.sql
 
 #信用保护凭证
 xybhpz:
@@ -374,3 +394,13 @@ IPO:
   shangshi: #正股上市日
     dbfPath: F:\source\用例数据\沪A\按值配售\T+n日
     excelPath: F:\source\用例数据\沪A\按值配售\T+n日\测试结果.xlsx
+
+REITS: #公募reits
+  gspttrade:
+    dbfPath: F:\source\用例数据\沪A\公募reits\reits固收平台交易
+    sqlPath: F:\source\用例数据\沪A\公募reits\reits固收平台交易\stkinfo.sql
+    excelPath: F:\source\用例数据\沪A\公募reits\reits固收平台交易\测试结果.xlsx
+
+
+
+

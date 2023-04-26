@@ -1,0 +1,1 @@
+delete from openorder where exchid='1' and contractnum='1';

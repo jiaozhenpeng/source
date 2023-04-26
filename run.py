@@ -27,7 +27,8 @@ def run_case():
                             description="测试版本{}".format(version),  # 报告中显示的描述信息
                             title="自动化测试报告")  # 报告的标题
     runner.run(testSuite)  # 执行测试计划
-    Email().send_email('清算自动化报告', '清算自动化数据准备完成', r'F:\source\report\reports.html')
+    #邮箱被限制，暂不发送邮件
+    # Email().send_email('清算自动化报告', '清算自动化数据准备完成', r'F:\source\report\reports.html')
 
 
 if __name__ == '__main__':

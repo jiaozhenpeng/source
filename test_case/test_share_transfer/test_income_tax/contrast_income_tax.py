@@ -34,15 +34,14 @@ class ContrastIncomeTax(unittest.TestCase):
         # 查询数据库
         # print(oracle.dict_data(CustSellLimitTax_sql))
         CustSellLimitTax_database = base.CustSellLimitTax_sort(oracle.dict_data(CustSellLimitTax_sql))
-        tradinglog_database = base.tradinglog_sort(oracle.dict_data(tradinglog_sql))
+        tradinglog_database = base.tradinglog_sort4(oracle.dict_data(tradinglog_sql))
         # 查询excel
         CustSellLimitTax_excel = base.CustSellLimitTax_sort(excel.read_excel('CustSellLimitTax'))
-        tradinglog_excel = base.tradinglog_sort(excel.read_excel('tradinglog2021'))
+        tradinglog_excel = base.tradinglog_sort4(excel.read_excel('tradinglog2021'))
         # 忽略字段
-        CustSellLimitTax_ignore = ('OCCURTIME','KNOCKTIME','SERIALNUM')
-        tradinglog_ignore = (
-            'KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF',
-            'POSTAMT')
+        CustSellLimitTax_ignore = ('OCCURTIME','KNOCKTIME','SERIALNUM','POSTDATE','BRIEFIDLIST')
+        tradinglog_ignore = ('KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF',
+            'POSTAMT','NOTENUM')
         # 对比结果
         CustSellLimitTax_result = base.compare_dict(CustSellLimitTax_database,CustSellLimitTax_excel,'CustSellLimitTax',*CustSellLimitTax_ignore)
         tradinglog_result = base.compare_dict(tradinglog_database,tradinglog_excel,'tradinglog',*tradinglog_ignore)

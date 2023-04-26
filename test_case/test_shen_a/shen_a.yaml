@@ -234,6 +234,11 @@ zjqdkz:  #资金前端控制
   excelPath: F:\source\用例数据\深A\资金前端控制\测试结果.xlsx
 
 
+gaoguan:  #高管可划拨额度
+  dbfPath: F:\source\用例数据\深A\高管可划拨额度
+  sqlPath: F:\source\用例数据\深A\高管可划拨额度\stkinfo.sql
+  excelPath: F:\source\用例数据\深A\高管可划拨额度\测试结果.xlsx
+
 Reits:  #公募reits
   TGQP: #基金清盘
     dbfPath: F:\source\用例数据\深A\公募reits\基金清盘
@@ -292,6 +297,7 @@ XJXZQ:
   T1day:  # 行权申请
     dbfPath: F:\source\用例数据\深A\权证行权\现金选择权\T+1日
     excelPath: F:\source\用例数据\深A\权证行权\现金选择权\T+1日\测试结果.xlsx
+    sqlPath: F:\source\用例数据\深A\权证行权\现金选择权\T日\stkinfo.sql
 
   T2day: # 行权回报交收通知
     dbfPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2
@@ -311,6 +317,22 @@ GQJL:
   T1day: # 行权回报交收通知
     dbfPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2
     excelPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2\测试结果.xlsx
+
+  T2day: # 行权回报交收结果
+    dbfPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2
+    excelPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2\测试结果.xlsx
+
+baojiahg:   #报价回购
+  BJRK:  #报价入库
+    dbfPath: F:\source\用例数据\深A\报价回购\报价入库
+    sqlPath: F:\source\用例数据\深A\报价回购\报价入库\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\报价回购\报价入库\测试结果.xlsx
+
+  BJCS: # 报价初始
+    Tday:
+      dbfPath: F:\source\用例数据\深A\报价回购\报价初始\Tday
+      excelPath: F:\source\用例数据\深A\报价回购\报价初始\Tday\测试结果.xlsx
+      sqlPath: F:\source\用例数据\深A\报价回购\报价初始\Tday\stkinfo.sql
 
   T2day: # 行权回报交收结果
     dbfPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2
