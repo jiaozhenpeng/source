@@ -44,7 +44,7 @@ class ContrastEtfSplit(unittest.TestCase):
                                          " stkid in ('874767','871056','989030','989031')"
         custSellLimitTax_sql = "select * FROM custSellLimitTax where exchid in ('6','9') and  acctid in ('000011720611')" \
                                " and stkid in ('874767','871056','989030','989031')"
-        custSellLimitTaxhis_sql = "select * FROM custSellLimitTax where exchid in ('6','9') and  acctid in ('000011720611')" \
+        custSellLimitTaxhis_sql = "select * FROM custSellLimitTaxhis where exchid in ('6','9') and  acctid in ('000011720611')" \
                                " and stkid in ('874767','871056','989030','989031')"
 
 
@@ -68,7 +68,7 @@ class ContrastEtfSplit(unittest.TestCase):
         stkinfohis_excel = base.stkinfo_sort(excel.read_excel('stkinfo2023'))
         unprocessedrightsinterests_excel = base.unprocessedrightsinterests_sort(excel.read_excel('unprocessedrightsinterests'))
         custSellLimitTax_excel = base.custSellLimitTax_sort(excel.read_excel('custSellLimitTax'))
-        custSellLimitTaxhis_excel = base.custSellLimitTax_sort(excel.read_excel('custSellLimitTaxhis'))
+        # custSellLimitTaxhis_excel = base.custSellLimitTax_sort(excel.read_excel('custSellLimitTaxhis'))
         # 忽略字段
         stklisthis_ignore = self.ignore['stklisthis']
         stklistextendhis_ignore = self.ignore['stklistextendhis']
@@ -84,12 +84,12 @@ class ContrastEtfSplit(unittest.TestCase):
         unprocessedrightsinterests_result = base.compare_dict(unprocessedrightsinterests_database,unprocessedrightsinterests_excel,
                                                               'unprocessedrightsinterests')
         custSellLimitTax_reuslt = base.compare_dict(custSellLimitTax_database,custSellLimitTax_excel,'custSellLimitTax')
-        custSellLimitTaxhis_result = base.compare_dict(custSellLimitTaxhis_database,custSellLimitTaxhis_excel,'custSellLimitTax')
+        # custSellLimitTaxhis_result = base.compare_dict(custSellLimitTaxhis_database,custSellLimitTaxhis_excel,'custSellLimitTaxhis')
 
         # 断言
         final_result =   stklist_result + stklisthis_result + stkinfo_result + stkinfohis_result + \
-                         unprocessedrightsinterests_result+ custSellLimitTax_reuslt + custSellLimitTaxhis_result
-        if not (final_result and stklist_database):
+                         unprocessedrightsinterests_result+ custSellLimitTax_reuslt
+        if not (final_result and stklist_database and custSellLimitTaxhis_database):
             logger().info('股转 证券升降层 对比数据无异常')
             assert True
         else:

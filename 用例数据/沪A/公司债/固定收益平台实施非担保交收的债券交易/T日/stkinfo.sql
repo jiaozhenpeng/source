@@ -33,3 +33,5 @@ values ('001', '0', 'C7', 'A0', ' ', 0, 0.00020000, -1.000, -1.000, '55^A0^AP', 
 insert into customertradingfee (CUSTOMERFEEID, EXCHID, STKTYPE, TRADETYPE, STKID, BSPERMIT, COMMISIONRATE, MAXCOMMISIONFEE, MINCOMMISIONFEE, GRANTOPTMODELIST, BEGINKNOCKAMT, ENDKNOCKAMT, COMMISIONID, CHARGETYPE, TODAYCHARGEFLAG, TRADETRANSRATE, MAXTRANSFEE, MINTRANSFEE, CREATDATE)
 values ('101', '0', 'C7', 'A0', ' ', 0, 0.00300000, -1.000, -1.000, '55^A0^AP', -1.000, -1.000, 'C7101', '0', '1', 0.00000000, -1.000, -1.000, 20230401105014);
 delete from stklist where exchid='0' and stkid in('165186','165187');
+delete from unprocessedreckoningresult where exchid='0' and stkid in('165186','165187');
+delete from unprocessedreckoningresulthis where exchid='0' and stkid in('165186','165187');

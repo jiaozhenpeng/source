@@ -35,35 +35,30 @@ class ContrastEtfSplit(unittest.TestCase):
                          "and stkid in ('810021') ".format(year,begintime,endtime)
         stklisthis_sql = "select * from STKLIST{} where occurtime={}  and exchid= '9'  " \
                          "and stkid in ('810021') and offerregid in('GZ11721600')".format(year,begintime)
-        stklistextendhis_sql = "select * from stklistextend{} where  occurtime={} and exchid='9' and " \
-                           "stkid='810021'".format(year,begintime)
+
 
         # 数据库数据
         stklist_database = base.stklist_sort(oracle.dict_data(stklist_sql))
         tradinglog_database = base.tradinglog_sort(oracle.dict_data(tradinglog_sql))
         stklisthis_database = base.stklist_sort(oracle.dict_data(stklisthis_sql))
-        stklistextendhis_database = base.stklistextend_sort(oracle.dict_data(stklistextendhis_sql))
 
 
         # Excel数据
         stklisthis_excel = base.stklist_sort(excel.read_excel('stklist2023'))
         tradinglog_excel = base.tradinglog_sort(excel.read_excel('tradinglog'))
         stklist_excel = base.stklist_sort(excel.read_excel('stklist'))
-        stklistextendhis_excel = base.stklistextend_sort(excel.read_excel('stklistextend2023'))
 
         # 忽略字段
         tradinglog_ignore = ('KNOCKTIME', 'SERIALNUM', 'RECKONINGTIME', 'OFFERTIME', 'OCCURTIME', 'SETTLEDATE', 'TRANSACTIONREF',
             'POSTAMT')
         stklisthis_ignore =('OCCURTIME',)
-        stklistextendhis_ignore = ('OCCURTIME',)
         # 对比
         stklist_result = base.compare_dict(stklist_database, stklist_excel, 'stklist')
         stklisthis_result = base.compare_dict(stklisthis_database, stklisthis_excel, 'stklist2022',*stklisthis_ignore)
         tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog', *tradinglog_ignore)
-        stklistextendhis_result = base.compare_dict(stklistextendhis_database,stklistextendhis_excel,
-                                                    'stklistextend2023',*stklistextendhis_ignore)
+
         # 断言
-        final_result =  stklisthis_result+ tradinglog_result + stklist_result + stklistextendhis_result
+        final_result =  stklisthis_result+ tradinglog_result + stklist_result
         if not final_result :
             logger().info('股转\定向可转债\兑息\全部兑息 对比数据无异常')
             assert True

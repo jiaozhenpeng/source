@@ -51,6 +51,16 @@ DirectionalConvertibleBond:
     dbfPath: F:\source\用例数据\沪A\定向可转债\转让
     excelPath: F:\source\用例数据\沪A\定向可转债\转让\测试结果.xlsx
 
+
+# 可转债
+ConvertibleBond:
+  # 转股
+  ShareConversion:
+    sqlPath: F:\source\用例数据\沪A\可转债转股\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\可转债转股
+    excelPath: F:\source\用例数据\沪A\可转债转股\测试结果.xlsx
+
+
 # 证券变动
 ChangesInSecurities:
   # 00B

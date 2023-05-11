@@ -29,10 +29,10 @@ class ContrastOrdinaryTransaction(unittest.TestCase):
 
         unprocessedreckoningresulthis_sql = "select * from unprocessedreckoningresulthis where EXCHID='5' and STKID " \
                                             "in ('00023','00257','00005','00001','00002','02880','01060') and REGID in " \
-                                            "('A117382000','A117392000','A117392001')  and knocktime>={}".format(begintime,)
+                                            "('A117382000','A117392000','A117392001','A117382001')  and knocktime>={}".format(begintime,)
         unprocessedreckoningresult_sql = "select * from unprocessedreckoningresult where EXCHID='5' and STKID " \
                                          "in ('00023','00257','00005','00001','00002','02880','01060') and REGID in " \
-                                         "('A117382000','A117392000','A117392001') and knocktime>={}".format(begintime,)
+                                         "('A117382000','A117392000','A117392001','A117382001') and knocktime>={}".format(begintime,)
         stklist_sql = "select * from STKLIST where EXCHID = '5' and REGID in( 'A117382000','A117382001','A117392000'," \
                       "'A117392001') and STKID in ('00023','00257','00005','00001','00002','02880','01060') and DESKID = '00W40'"
         # 获取数据库数据并排序
@@ -50,7 +50,7 @@ class ContrastOrdinaryTransaction(unittest.TestCase):
         stklist_excel = BaseAction().stklist_sort(excel.read_excel('stklist'))
         # 可以忽略的字段
         unprocessedreckoningresulthis_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE','OFFERTIME','FIRSTCASHSETTLEDATE')
-        unprocessedreckoningresult_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE','OFFERTIME')
+        unprocessedreckoningresult_ignore = ('KNOCKTIME','TRANSACTIONREF','SETTLEDATE','OFFERTIME','FIRSTCASHSETTLEDATE')
         stklist_ignore = ()
         # 对比数据
 

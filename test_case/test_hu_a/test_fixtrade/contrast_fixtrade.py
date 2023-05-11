@@ -35,16 +35,19 @@ class ContrastEtfSplit(unittest.TestCase):
                          " in('006_003_020','006_003_019')".format(year,begintime,endtime)
         tradinglog_sql = "select * from tradinglog{} where reckoningtime>={} and reckoningtime<={} and briefid " \
                          "in('006_003_020','006_003_019') ".format(year, begintime, endtime)
+        stklist_sql = " select * from stklist where exchid in('0','5','X','C') and offerregid in('0019910214','0019910216')"
 
         # 数据库数据
         registration_database = base.registration_sort(oracle.dict_data(registration_sql))
         custchglog_database = base.custchglog_sort(oracle.dict_data(custchglog_sql))
         tradinglog_database = base.tradinglog_sort(oracle.dict_data(tradinglog_sql))
+        stklist_database = base.stklist_sort(oracle.dict_data(stklist_sql))
 
         # Excel数据
         tradinglog_excel = base.tradinglog_sort(excel.read_excel('tradinglog'))
         registration_excel = base.registration_sort(excel.read_excel('registration'))
         custchglog_excel = base.custchglog_sort(excel.read_excel('custchglog'))
+        stklist_excel = base.stklist_sort(excel.read_excel('stklist'))
 
 
         # 忽略字段
@@ -55,9 +58,10 @@ class ContrastEtfSplit(unittest.TestCase):
         tradinglog_result = base.compare_dict(tradinglog_database, tradinglog_excel, 'tradinglog', *tradinglog_ignore)
         registration_result = base.compare_dict(registration_database, registration_excel, 'registration')
         custchglog_result = base.compare_dict(custchglog_database,custchglog_excel,'custchglog',*custchglog_ignore)
+        stklist_result = base.compare_dict(stklist_database,stklist_excel,'stklist')
 
         # 断言
-        final_result =   tradinglog_result + registration_result + custchglog_result
+        final_result =   tradinglog_result + registration_result + custchglog_result + stklist_result
         if not final_result :
             logger().info('沪A\指定交易 对比数据无异常')
             assert True

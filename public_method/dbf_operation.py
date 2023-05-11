@@ -161,7 +161,7 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                if rec['YWLX'] in ('419','830', '831'):  # 只有sbrq(申报日期)需要变更，419的RQ为减持日期
+                if rec['YWLX'] in ('419','830', '831','011'):  # 只有sbrq(申报日期)需要变更，419的RQ为减持日期
                     rec['SBRQ'] = cjrq
             records.append(record)
         table.close()
@@ -601,7 +601,7 @@ class DbfOperation():
                 elif rec['JGYWLB'] in (
                         'DJBG', 'DJ00','FGS6','FGSD', 'ZTZC', 'ZTZR', 'ZTXS', 'ZTTZ', 'ZJQ0', 'ZJQ1', 'ZJQ2', 'TGZX', 'FJZG',
                         'TZGF', 'GS4B', 'GSSG', 'XGJX', 'XGXS', 'GSZH', 'ZQZD','TGZF','TGSS','ZJQ0','ZJQ1','ZJQ2','BJRK',
-                        'ZQZZ','TG20','TG21','TG22','TG23','TGXG','QZ06') or (rec['JGYWLB'] == 'ZQKZ' and rec['JGJSSL'] > 0) or\
+                        'ZQZZ','TG20','TG21','TG22','TG23','TGXG','QZ06','FGCX') or (rec['JGYWLB'] == 'ZQKZ' and rec['JGJSSL'] > 0) or\
                         (rec['JGYWLB'] == 'ZQHG' and rec['JGJSSL'] <= 0) or  (rec['JGYWLB'] == 'BJCK' and rec['JGJSSL'] == 0):
                     # 清算日期和交收日期和其他日期为空，成交日期、发送日期= T日
                     rec['JGQSRQ'], rec['JGJSRQ'], rec['JGQTRQ'] = None, None, None
@@ -609,7 +609,7 @@ class DbfOperation():
                     rec['JGCJRQ'], rec['JGJSRQ'], rec['JGQTRQ'] = None, cjrq, None
                 elif rec['JGYWLB'] in ('QP90','TG90','TG91','ZYMX','ZYBZ'):  # 发送日期 = T日,其他日期都是空
                     rec['JGCJRQ'], rec['JGJSRQ'], rec['JGQSRQ'],rec['JGQTRQ'] = None, None, None, None
-                elif rec['JGYWLB'] in ('CSTZ','CSXX','CSXX','JY01'):   #RTGS交收的，四个日期为T日，其他日期空
+                elif rec['JGYWLB'] in ('CSTZ','CSXX','CSXX','JY01','ZYZJ'):   #RTGS交收的，四个日期为T日，其他日期空
                     rec['JGJSRQ'],rec['JGQTRQ'] = cjrq,None
                 elif rec['JGYWLB'] in ('ZQHG') and rec['JGJSSL'] > 0:   #其他日期空
                     rec['JGQTRQ'] = None

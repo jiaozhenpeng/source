@@ -11,7 +11,7 @@ class StockIndexOption(unittest.TestCase):
     """
     F市场\股指期权行权
     """
-    yaml = BaseAction().read_yaml(path=PathConfig().futures_market())['MarketF']['IOexer1']
+    yaml = BaseAction().read_yaml(path=PathConfig().futures_market())['MarketF']['IOexer']
 
     def test_stock_index_option(self):
         """

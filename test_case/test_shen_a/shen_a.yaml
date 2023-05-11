@@ -11,6 +11,12 @@ StockTradeVirtual:
   sqlPath: F:\source\用例数据\深A\股票买入虚拟股东\stkinfo.sql
   excelPath: F:\source\用例数据\深A\股票买入虚拟股东\测试结果.xlsx
 
+# 基金扩募
+fundkuomu:
+  dbfPath: F:\source\用例数据\深A\基金扩募
+  sqlPath: F:\source\用例数据\深A\基金扩募\stkinfo.sql
+  excelPath: F:\source\用例数据\深A\基金扩募\测试结果.xlsx
+
 # 深A/限售股转流通股
 restrictedCirculation:
   dbfPath: F:\source\用例数据\深A\限售股转流通股\sjsjg.dbf
@@ -113,17 +119,17 @@ GDR:
   # 交收失败
   DeliveryFailed:
     dbfPath: F:\source\用例数据\深A\GDR数据\交收失败
-    sqlPath: F:\source\用例数据\深A\GDR数据\交收失败\期初sql.sql
+    sqlPath: F:\source\用例数据\深A\GDR数据\交收失败\stkinfo.sql
     excelPath: F:\source\用例数据\深A\GDR数据\交收失败\测试结果.xlsx
   # 限售股
   RestrictedShares:
     dbfPath: F:\source\用例数据\深A\GDR数据\限售股
-    sqlPath: F:\source\用例数据\深A\GDR数据\限售股\限售股期初.sql
+    sqlPath: F:\source\用例数据\深A\GDR数据\限售股\stkinfo.sql
     excelPath: F:\source\用例数据\深A\GDR数据\限售股\测试结果.xlsx
   # 虚拟股东
   VirtualShareholders:
     dbfPath: F:\source\用例数据\深A\GDR数据\虚拟股东
-    sqlPath: F:\source\用例数据\深A\GDR数据\虚拟股东\虚拟股东期初sql.sql
+    sqlPath: F:\source\用例数据\深A\GDR数据\虚拟股东\stkinfo.sql
     excelPath: F:\source\用例数据\深A\GDR数据\虚拟股东\测试结果.xlsx
 
   # 名义持有明细股份管理 TG20,TG21,TG22,TG23,TG90
@@ -131,6 +137,20 @@ NominalHolding:
   dbfPath: F:\source\用例数据\深A\名义持有明细股份管理
   sqlPath: F:\source\用例数据\深A\名义持有明细股份管理\stkinfo.sql
   excelPath: F:\source\用例数据\深A\名义持有明细股份管理\测试结果.xlsx
+
+  # 卖空冲销 FGCX
+maikongcx:
+  dbfPath: F:\source\用例数据\深A\卖空冲销
+  sqlPath: F:\source\用例数据\深A\卖空冲销\stkinfo.sql
+  excelPath: F:\source\用例数据\深A\卖空冲销\测试结果.xlsx
+
+
+  # 债券质押式回购
+bondrepo:
+  xjdbp:  #现金担保品
+    dbfPath: F:\source\用例数据\深A\债券质押式回购\现金担保品
+    sqlPath: F:\source\用例数据\深A\债券质押式回购\现金担保品\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\债券质押式回购\现金担保品\测试结果.xlsx
 
   # 深圳实时代收付文件，dsfmx
 RealEraPayments:

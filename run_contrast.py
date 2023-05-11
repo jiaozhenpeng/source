@@ -5,7 +5,7 @@ import unittest
 from database.oracle_database import OracleDatabase
 from mail.mail import Email
 from test_case.HTMLTestRunner_cn import HTMLTestRunner
-
+import shutil
 
 def run_case():
     testCases = unittest.defaultTestLoader.discover(r'F:\source\test_case',pattern='contrast_*.py')
@@ -27,7 +27,8 @@ def run_case():
                             title="自动化测试报告")  # 报告的标题
     runner.run(testSuite)  # 执行测试计划
     # Email().send_email('清算自动化报告', '清算自动化数据对比完成', r'F:\source\report\reports.html')
-
+    today = OracleDatabase().get_last_update()
+    shutil.copy(r'F:\source\report\reports.html',r'F:\report\reports{}.html'.format(today))
 
 if __name__ == '__main__':
     run_case()

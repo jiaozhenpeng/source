@@ -5,6 +5,9 @@ import unittest
 from database.oracle_database import OracleDatabase
 from mail.mail import Email
 from test_case.HTMLTestRunner_cn import HTMLTestRunner
+import shutil
+from database.oracle_database import OracleDatabase
+
 
 
 def run_case():
@@ -29,6 +32,8 @@ def run_case():
     runner.run(testSuite)  # 执行测试计划
     #邮箱被限制，暂不发送邮件
     # Email().send_email('清算自动化报告', '清算自动化数据准备完成', r'F:\source\report\reports.html')
+    today = OracleDatabase().get_trade_date()
+    shutil.copy(r'F:\source\report\reports.html',r'F:\report\prreports{}.html'.format(today))
 
 
 if __name__ == '__main__':
