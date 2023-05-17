@@ -51,6 +51,24 @@ DirectionalConvertibleBond:
     dbfPath: F:\source\用例数据\沪A\定向可转债\转让
     excelPath: F:\source\用例数据\沪A\定向可转债\转让\测试结果.xlsx
 
+# 先行赔付
+xianxingpeifu:
+  # 权益登记日
+  rightsdate:
+    sqlPath: F:\source\用例数据\沪A\先行赔付\权益登记日\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\先行赔付\权益登记日
+    excelPath: F:\source\用例数据\沪A\先行赔付\权益登记日\测试结果.xlsx
+  # 赔付申报
+  order:
+    sqlPath: F:\source\用例数据\沪A\先行赔付\赔付申报\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\先行赔付\赔付申报
+    excelPath: F:\source\用例数据\沪A\先行赔付\赔付申报\测试结果.xlsx
+  #资金结算日
+  cash:
+    sqlPath: F:\source\用例数据\沪A\先行赔付\资金划付日\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\先行赔付\资金划付日
+    excelPath: F:\source\用例数据\沪A\先行赔付\资金划付日\测试结果.xlsx
+
 
 # 可转债
 ConvertibleBond:

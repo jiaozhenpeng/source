@@ -206,7 +206,8 @@ class DbfOperation():
                         rec['QTRQ'] = cjrq
                     elif rec['JYFS'] == '105' and rec['JLLX']  == '003':
                         rec['JYRQ'],rec['QTRQ'],rec['QSRQ'],rec['JSRQ'] = self.lasttradedate1,self.lasttradedate1,self.lasttradedate1,cjrq,
-
+                elif rec['YWLX'] in ('390', ) and rec['QSBZ'] == '400':  # 390其他资金划付  无交易日期
+                    rec['JYRQ'],rec['QTRQ'] = None,cjrq
             records.append(record)
         table.close()
         return records

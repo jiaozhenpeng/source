@@ -501,6 +501,16 @@ class BaseAction():
             key=lambda x: ( x['EXCHID'],x['DBFID'],x['STKID'], x['REGID'],x['ALLOTCOUNT'],x['ALLOTDATE'],x['STKTYPE']))
         return list_data
 
+    def newstkpurchaseinfo_sort1(self,list_data):
+        """
+        排序 newstkpurchaseinfo
+        :param list_data:
+        :return:
+        """
+        list_data.sort(
+            key=lambda x: ( x['BEGINALLOTCODE'],))
+        return list_data
+
     def newstkpurchase_sort(self,list_data):
         """
         排序 newstkpurchase
