@@ -70,6 +70,14 @@ xianxingpeifu:
     excelPath: F:\source\用例数据\沪A\先行赔付\资金划付日\测试结果.xlsx
 
 
+# 债券借贷
+zhaiquanjiedai:
+  # 初始交易
+  csjy:
+    sqlPath: F:\source\用例数据\沪A\债券借贷\初始交易\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\债券借贷\初始交易
+    excelPath: F:\source\用例数据\沪A\债券借贷\初始交易\测试结果.xlsx
+
 # 可转债
 ConvertibleBond:
   # 转股
@@ -78,6 +86,25 @@ ConvertibleBond:
     dbfPath: F:\source\用例数据\沪A\可转债转股
     excelPath: F:\source\用例数据\沪A\可转债转股\测试结果.xlsx
 
+# 送股
+BonusQty:
+  # 送股日
+  rights:
+    sqlPath: F:\source\用例数据\沪A\红股\权益发送日\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\红股\权益发送日
+    excelPath: F:\source\用例数据\沪A\红股\权益发送日\测试结果.xlsx
+  # 上市日
+  shangshi:
+    sqlPath: F:\source\用例数据\沪A\红股\上市日\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\红股\上市日
+    excelPath: F:\source\用例数据\沪A\红股\上市日\测试结果.xlsx
+
+
+# 红利
+dividend:
+  sqlPath: F:\source\用例数据\沪A\红利\stkinfo.sql
+  dbfPath: F:\source\用例数据\沪A\红利
+  excelPath: F:\source\用例数据\沪A\红利\测试结果.xlsx
 
 # 证券变动
 ChangesInSecurities:

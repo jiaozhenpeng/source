@@ -1,6 +1,6 @@
 import os
 import shutil
-from datetime import datetime
+import datetime
 
 import dbf
 
@@ -19,6 +19,11 @@ class DbfOperation():
     t2 = OracleDatabase().get_trade_date(2)
     t3 = OracleDatabase().get_trade_date(3)
     t5 = OracleDatabase().get_trade_date(5)
+    t7 = OracleDatabase().get_trade_date(7)
+    t14 = OracleDatabase().get_trade_date(14)
+    t28 = OracleDatabase().get_trade_date(28)
+
+
     lasttradedate1 = OracleDatabase().get_last_trade_date(1)
     lasttradedate2 = OracleDatabase().get_last_trade_date(2)
 
@@ -184,8 +189,17 @@ class DbfOperation():
         for record in table:
             with record as rec:
                 rec['JYRQ'], rec['QSRQ'], rec['JSRQ'] = cjrq, qsrq, jsrq  # 011,037
-                if rec['YWLX'] in ('691', '684', '685','692','693'):  # 根据业务类型判断，交易日期、清算日期、交收日期都是T日
+                if rec['YWLX'] in ('691', '684', '685','692','693','672'):  # 根据业务类型判断，交易日期、清算日期、交收日期都是T日
                     rec['JSRQ'] = cjrq
+                    if rec['GHLX'] == '101':
+                        if rec['ZQDM1'] == '208001':
+                            rec['QTRQ'] = (datetime.date.today()+datetime.timedelta(days=1)).strftime('%Y%m%d')
+                        elif rec['ZQDM1'] == '208007':
+                            rec['QTRQ'] = (datetime.date.today()+datetime.timedelta(days=7)).strftime('%Y%m%d')
+                        elif rec['ZQDM1'] == '208014':
+                            rec['QTRQ'] = (datetime.date.today()+datetime.timedelta(days=14)).strftime('%Y%m%d')
+                        elif rec['ZQDM1'] == '208028':
+                            rec['QTRQ'] = (datetime.date.today()+datetime.timedelta(days=28)).strftime('%Y%m%d')
                 elif rec['YWLX'] in ('680', ):  # 根据业务类型判断jsrq
                     if rec['SQBH'] in ('70','77','79','80'):
                         rec['QTRQ'] = (datetime.date.today()+datetime.timedelta(days=1)).strftime('%Y%m%d')
@@ -197,9 +211,9 @@ class DbfOperation():
                         rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=184)).strftime('%Y%m%d')
                 elif rec['YWLX'] in ('655', '656'):  # 根据业务类型判断jsrq
                     rec['JSRQ'] = self.t
-                elif rec['YWLX'] in ('419', ):  # 419股息红利税，无交易日期
+                elif rec['YWLX'] in ('419','351' ):  # 419股息红利税、红利，无交易日期
                     rec['JYRQ'] = None
-                elif rec['YWLX'] in ('605', ) :  # 419股息红利税，无交易日期
+                elif rec['YWLX'] in ('605', ) :  #
                     if rec['JYFS'] == '106':
                         rec['JSRQ'],rec['QTRQ'] = cjrq,cjrq
                     elif rec['JYFS'] == '105' and rec['JLLX']  == '002':
@@ -276,14 +290,23 @@ class DbfOperation():
             with record as rec:
                 rec['CJRQ'] = self.t
                 if rec['WDQLB'] in ('008', ):  # 根据业务类型判断jsrq
-                    if rec['CJXLH'] in ('70','77','79','80'):
+                    if rec['CJXLH'].strip() in ('70','77','79','80'):
                         rec['QTRQ'] = (datetime.date.today()+datetime.timedelta(days=1)).strftime('%Y%m%d')
-                    elif rec['CJXLH'] in ('72','74'):
+                    elif rec['CJXLH'].strip() in ('72','74'):
                         rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=7)).strftime('%Y%m%d')
-                    elif rec['CJXLH'] in ('76',):
+                    elif rec['CJXLH'].strip() in ('76',):
                         rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=14)).strftime('%Y%m%d')
-                    elif rec['CJXLH'] in ('36',):
+                    elif rec['CJXLH'].strip() in ('36',):
                         rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=184)).strftime('%Y%m%d')
+                elif rec['WDQLB'] in ('009', ): #债券借贷
+                    if rec['FZDM'].strip() == ('208001'):
+                        rec['QTRQ'] = (datetime.date.today()+datetime.timedelta(days=1)).strftime('%Y%m%d')
+                    elif rec['FZDM'].strip() == ('208007'):
+                        rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=7)).strftime('%Y%m%d')
+                    elif rec['FZDM'].strip() == ('208014'):
+                        rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=14)).strftime('%Y%m%d')
+                    elif rec['FZDM'].strip() == ('208028'):
+                        rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=28)).strftime('%Y%m%d')
             records.append(record)
         table.close()
         return records
@@ -392,7 +415,7 @@ class DbfOperation():
                 if rec['SJLX'] == '018':
                     rec['RQ'] = self.t1
                 else:
-                    rec['RQ'] = self.t  #020,锁定得最后一次变化  022
+                    rec['RQ'] = self.t  #020,锁定得最后一次变化  022,023
             records.append(record)
         table.close()
         return records
@@ -913,6 +936,12 @@ class DbfOperation():
                     rec['RQ1'] = self.t
                 elif rec['TZLB'] in ('020','030','050'):
                     rec['RQ1'],rec['RQ2'] = self.t5,self.lasttradedate1
+                elif rec['TZLB'] in ('005','008' ):
+                    if rec['ZQDM'].strip() in ('603392','603394') :
+                        rec['RQ1'] = self.t
+                    else:
+                        rec['RQ1'] = '20230426'
+
             records.append(record)
         table.close()
         return records
@@ -1474,5 +1503,8 @@ def creat_new_dbf(path):
 
 
 if __name__ == '__main__':
-    dbf_file = DbfOperation(r'D:\sjsfx.dbf')
-    dbf_file.delete_record()
+    # dbf_file = DbfOperation(r'D:\sjsfx.dbf')
+    # dbf_file.delete_record()
+    print((datetime.datetime.today()).strftime('%Y%m%d'))
+
+    print((datetime.datetime.today()+datetime.timedelta(days=1)).strftime('%Y%m%d'))
