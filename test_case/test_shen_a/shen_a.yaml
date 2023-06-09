@@ -306,6 +306,44 @@ HSBSH:
     dbfPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2
     excelPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2\测试结果.xlsx
 
+# 单市场ETF申赎
+DSCETFSH:
+  Tday:
+    dbfPath: F:\source\用例数据\深A\ETF申赎\单市场ETF申赎\T日
+    sqlPath: F:\source\用例数据\深A\ETF申赎\单市场ETF申赎\T日\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\ETF申赎\单市场ETF申赎\T日\测试结果.xlsx
+
+
+# 货币ETF申赎
+HBETFSH:
+  Tday:
+    dbfPath: F:\source\用例数据\深A\ETF申赎\货币ETF申赎\Tday
+    sqlPath: F:\source\用例数据\深A\ETF申赎\货币ETF申赎\Tday\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\ETF申赎\货币ETF申赎\Tday\测试结果.xlsx
+
+
+# 跨市ETF申赎
+KSETFSH:
+  Tday:
+    dbfPath: F:\source\用例数据\深A\ETF申赎\跨市ETF申赎\Tday
+    sqlPath: F:\source\用例数据\深A\ETF申赎\跨市ETF申赎\Tday\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\ETF申赎\跨市ETF申赎\Tday\测试结果.xlsx
+
+
+# 全现金申赎的ETF申赎  黄金 ETF、跨境 ETF、商品期货 ETF、现金债券 ETF 现金申购赎回
+XJETFSH:
+  Tday:
+    dbfPath: F:\source\用例数据\深A\ETF申赎\全现金申赎\Tday
+    sqlPath: F:\source\用例数据\深A\ETF申赎\全现金申赎\Tday\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\ETF申赎\全现金申赎\Tday\测试结果.xlsx
+
+
+# 全现金申赎的ETF申赎  现金债券 ETF
+XJZQETFSH:
+  Tday:
+    dbfPath: F:\source\用例数据\深A\ETF申赎\全现金申赎\现金债券ETF\Tday
+    sqlPath: F:\source\用例数据\深A\ETF申赎\全现金申赎\现金债券ETF\Tday\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\ETF申赎\全现金申赎\现金债券ETF\Tday\测试结果.xlsx
 
 # 权证行权-现金选择权
 XJXZQ:
@@ -357,3 +395,11 @@ baojiahg:   #报价回购
   T2day: # 行权回报交收结果
     dbfPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2
     excelPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2\测试结果.xlsx
+
+
+duixi:   #兑息
+  dangriduixi:  #当日兑息
+    dbfPath: F:\source\用例数据\深A\红股红利\兑息\兑息当日\T日
+    sqlPath: F:\source\用例数据\深A\红股红利\兑息\兑息当日\T日\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\红股红利\兑息\兑息当日\T日\测试结果.xlsx
+

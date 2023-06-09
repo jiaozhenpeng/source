@@ -1,0 +1,13 @@
+update sjsjg set jgzqdm='159920'
+update sjsjg set jgjydy='077011'
+update sjsjg set jgtgdy='077011'
+update sjsjg set jgzqzh='0999900007'
+update sjsjg set jgddbh='M400000001'
+update sjsjg set jgzxbh='0301000000000236'
+update sjsjg set jgzxbh='0301000000000235'
+pack
+browse
+update sjsjg set jgcjrq='20230526'
+update sjsjg set jgqsrq='20230529'
+update sjsjg set jgjsrq='20230530'
+update sjsjg set jgfsrq='20230530'

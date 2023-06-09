@@ -633,7 +633,7 @@ class DbfOperation():
                     rec['JGCJRQ'], rec['JGJSRQ'], rec['JGQTRQ'] = None, cjrq, None
                 elif rec['JGYWLB'] in ('QP90','TG90','TG91','ZYMX','ZYBZ'):  # 发送日期 = T日,其他日期都是空
                     rec['JGCJRQ'], rec['JGJSRQ'], rec['JGQSRQ'],rec['JGQTRQ'] = None, None, None, None
-                elif rec['JGYWLB'] in ('CSTZ','CSXX','CSXX','JY01','ZYZJ'):   #RTGS交收的，四个日期为T日，其他日期空
+                elif rec['JGYWLB'] in ('CSTZ','CSXX','CSXX','JY01','ZYZJ','SGXF','SGXZ','SHXF'):   #RTGS交收的，四个日期为T日，其他日期空
                     rec['JGJSRQ'],rec['JGQTRQ'] = cjrq,None
                 elif rec['JGYWLB'] in ('ZQHG') and rec['JGJSSL'] > 0:   #其他日期空
                     rec['JGQTRQ'] = None
@@ -676,7 +676,7 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                if rec['MXYWLB'] in('JY03','') :
+                if rec['MXYWLB'] in('JY03','SGXF','SGXZ','SHXF') :
                     rec['MXCJRQ'], rec['MXQSRQ'], rec['MXJSRQ'], rec['MXFSRQ'] = cjrq, qsrq, qsrq, fsrq
             records.append(record)
         table.close()

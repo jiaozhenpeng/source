@@ -380,6 +380,16 @@ class BaseAction():
             key=lambda x: (x['EXCHID'], x['REGID'],x['STKID'],  x['BRIEFID'], x['CONTRACTNUM'], x['KNOCKCODE'],x['RECKONINGAMT']))
         return list_data
 
+    def unprocessedreckoningresult_sort1(self, list_data):
+        '''
+        排序unprocessedreckoningresult表
+        :param list_data:
+        :return:
+        '''
+        list_data.sort(
+            key=lambda x: (x['CONTRACTNUM'], x['BRIEFID']))
+        return list_data
+
     def unduerepurchasebonds_sort(self, list_data):
         """
         排序 unduerepurchasebonds
@@ -429,6 +439,17 @@ class BaseAction():
         list_data.sort(
             key=lambda x: (x['EXCHID'], x['REGID'],x['STKID'],  x['BRIEFID'], x['CONTRACTNUM'], x['KNOCKCODE'],x['RECKONINGAMT']))
         return list_data
+
+    def unprocessedreckoningresulthis_sort1(self, list_data):
+        '''
+        排序unprocessedreckoningresulthis表
+        :param list_data:
+        :return:
+        '''
+        list_data.sort(
+            key=lambda x: ( x['CONTRACTNUM'], x['BRIEFID']))
+        return list_data
+
 
     def quoteRepoPledgeDtl_sort(self, list_data):
         """
