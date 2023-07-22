@@ -1006,6 +1006,7 @@ class DbfOperation():
     def sq_jsmx_file(self, cjrq=None):
         if cjrq is None:
             cjrq = self.t
+            jsrq = self.t1
         records = []
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
@@ -1014,6 +1015,11 @@ class DbfOperation():
                     rec['FSRQ'] = cjrq
                     rec['QSRQ'] = cjrq
                     rec['JSRQ'] = cjrq
+                elif rec['YWLB'] in ('Q201',):
+                    rec['CJRQ'] = cjrq
+                    rec['QSRQ'] = cjrq
+                    rec['JSRQ'] = jsrq
+                    rec['FSRQ'] = cjrq
                 else:
                     rec['CJRQ'] = cjrq
                     rec['QSRQ'] = cjrq
@@ -1210,7 +1216,7 @@ class DbfOperation():
         for record in table:
             with record as rec:
                 rec['GBRQ'] = self.replace_time(rec['GBRQ'], cjrq)
-                if rec['GBLB'] == 'QP':
+                if rec['GBLB'] in ('QP','ZZ'):  #权益分派和证券转换
                     rec['GBRQ1'] = self.replace_time(rec['GBRQ1'], cjrq)
                 elif rec['GBLB'] == 'ZL':
                     rec['GBRQ1'] = self.replace_time(rec['GBRQ1'], self.t1)

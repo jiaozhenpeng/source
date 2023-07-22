@@ -360,6 +360,16 @@ class BaseAction():
             key=lambda x: (x['BRIEFID'],x['MEMO'],x['HANDLINGFEE']))
         return list_data
 
+    def futuretradinglog_sort3(self, list_data):
+        '''
+        排序futuretradinglog表
+        :param list_data:
+        :return:
+        '''
+        list_data.sort(
+            key=lambda x: (x['STKID'],x['REGID'],x['SERIALNUM']))
+        return list_data
+
     def stkoptionsettlement_sort(self, list_data):
         '''
         排序stkoptionsettlement表

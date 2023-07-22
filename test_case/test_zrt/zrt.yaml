@@ -5,14 +5,14 @@ CJJYDYBBQR:
   sqlPath: F:\source\用例数据\转融通\出借交易单元报备\stkinfo.sql
   excelPath: F:\source\用例数据\转融通\出借交易单元报备\测试结果.xlsx
 
-
+#战略配售出借
 ZLPSCJ:
   tday:
     dbfPath: F:\source\用例数据\转融通\转融通出借\战略股份出借
     sqlPath: F:\source\用例数据\转融通\转融通出借\战略股份出借\stkinfo.sql
     excelPath: F:\source\用例数据\转融通\转融通出借\战略股份出借\测试结果.xlsx
 
-
+#转融券
 ZRQ_PT:
   tday:
     dbfPath: F:\source\用例数据\转融通\转融券\流通股转融券\新合约

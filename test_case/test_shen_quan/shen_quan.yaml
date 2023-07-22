@@ -29,3 +29,10 @@ specialcash: #特殊资金自动上账
   dbfPath: F:\source\用例数据\深权\特殊资金自动上账
   sqlPath: F:\source\用例数据\深权\特殊资金自动上账\futureinfo.sql
   excelPath: F:\source\用例数据\深权\特殊资金自动上账\测试结果.xlsx
+
+
+# F:\source\用例数据\深权\深权行权虚拟股东
+VirtualExer:
+  dbfPath: F:\source\用例数据\深权\深权行权虚拟股东
+  sqlPath: F:\source\用例数据\深权\深权行权虚拟股东\futureinfo.sql
+  excelPath: F:\source\用例数据\深权\深权行权虚拟股东\测试结果.xlsx

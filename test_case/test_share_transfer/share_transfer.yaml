@@ -211,3 +211,19 @@ shengjiang: #升降层
   dbfPath: F:\source\用例数据\股转\证券升降层
   sqlPath: F:\source\用例数据\股转\证券升降层\stkinfo.sql
   excelPath: F:\source\用例数据\股转\证券升降层\测试结果.xlsx
+
+
+chaifen: #证券拆分、扩股
+  dbfPath: F:\source\用例数据\股转\证券转换\扩股
+  sqlPath: F:\source\用例数据\股转\证券转换\扩股\stkinfo.sql
+  excelPath: F:\source\用例数据\股转\证券转换\扩股\测试结果.xlsx
+
+hebing: #证券合并、缩股
+  dbfPath: F:\source\用例数据\股转\证券转换\缩股
+  sqlPath: F:\source\用例数据\股转\证券转换\缩股\stkinfo.sql
+  excelPath: F:\source\用例数据\股转\证券转换\缩股\测试结果.xlsx
+
+zhuanhuan: #证券转换
+  dbfPath: F:\source\用例数据\股转\证券转换\吸收合并
+  sqlPath: F:\source\用例数据\股转\证券转换\吸收合并\stkinfo.sql
+  excelPath: F:\source\用例数据\股转\证券转换\吸收合并\测试结果.xlsx

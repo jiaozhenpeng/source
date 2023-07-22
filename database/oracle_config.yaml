@@ -1,6 +1,6 @@
 user: ctsdb # 数据库账号
 password: ctsdbj # 数据库密码
-dsn: 192.168.2.225/ctsdb
+dsn: 173.168.64.238/ctsdb
 
 
 #user: ctsdb # 数据库账号

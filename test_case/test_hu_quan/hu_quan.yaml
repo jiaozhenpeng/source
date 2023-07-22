@@ -62,3 +62,9 @@ specacct:
   dbfPath: F:\source\用例数据\沪权\特殊资金处理
   sqlPath: F:\source\用例数据\沪权\特殊资金处理\stkinfo.sql
   excelPath: F:\source\用例数据\沪权\特殊资金处理\测试结果.xlsx
+
+#行权子账户分配
+VirtualExer:
+  dbfPath: F:\source\用例数据\沪权\行权虚拟股东分配
+  sqlPath: F:\source\用例数据\沪权\行权虚拟股东分配\futureinfo.sql
+  excelPath: F:\source\用例数据\沪权\行权虚拟股东分配\测试结果.xlsx
