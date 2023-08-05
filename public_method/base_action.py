@@ -717,6 +717,44 @@ class BaseAction():
         list_data.sort(key=lambda x: (x['DATATYPE'], x['EXCHID'], x['RECKONINGNUM'], x['INSTITUTIONTYPE']))
         return list_data
 
+    def rc_LendDeskApply_sort(self, list_data):
+        """
+        排序 rc_LendDeskApply 按 EXCHID,  DESKID排序
+        :param list_data:
+        :return:
+        """
+        list_data.sort(key=lambda x: (x['EXCHID'], x['DESKID']))
+        return list_data
+
+
+    def rc_comsktlist_sort(self, list_data):
+        """
+        排序 rc_LendDeskApply 按 EXCHID,  STKID排序
+        :param list_data:
+        :return:
+        """
+        list_data.sort(key=lambda x: (x['EXCHID'], x['STKID']))
+        return list_data
+
+
+    def rc_LendDeskCfm_sort(self, list_data):
+        """
+        排序 rc_LendDeskCfm 按 EXCHID,  DESKID排序
+        :param list_data:
+        :return:
+        """
+        list_data.sort(key=lambda x: (x['EXCHID'], x['DESKID']))
+        return list_data
+
+    def rc_Lender_sort(self, list_data):
+        """
+        排序 rc_Lender 按 EXCHID,  OFFERREGID排序
+        :param list_data:
+        :return:
+        """
+        list_data.sort(key=lambda x: (x['EXCHID'], x['OFFERREGID']))
+        return list_data
+
 
 if __name__ == '__main__':
     print(BaseAction().read_yaml(path=r'../database/oracle_config.yaml'))

@@ -5,6 +5,21 @@ CJJYDYBBQR:
   sqlPath: F:\source\用例数据\转融通\出借交易单元报备\stkinfo.sql
   excelPath: F:\source\用例数据\转融通\出借交易单元报备\测试结果.xlsx
 
+
+# 独立出借人交易单元报备
+DLCJRJYDYBBQR:
+  dbfPath: F:\source\用例数据\转融通\独立出借人交易单元报备
+  sqlPath: F:\source\用例数据\转融通\独立出借人交易单元报备\stkinfo.sql
+  excelPath: F:\source\用例数据\转融通\独立出借人交易单元报备\测试结果.xlsx
+
+
+# 出借人资料报备
+CJRZLBBQR:
+  dbfPath: F:\source\用例数据\转融通\出借人资料报备
+  sqlPath: F:\source\用例数据\转融通\出借人资料报备\stkinfo.sql
+  excelPath: F:\source\用例数据\转融通\出借人资料报备\测试结果.xlsx
+
+
 #战略配售出借
 ZLPSCJ:
   tday:
@@ -42,3 +57,22 @@ DBPDZ:  #担保品对账
     dbfPath: F:\source\用例数据\转融通\担保品对账\担保证券对账
     sqlPath: F:\source\用例数据\转融通\担保品对账\担保证券对账\stkinfo.sql
     excelPath: F:\source\用例数据\转融通\担保品对账\担保证券对账\测试结果.xlsx
+
+
+DBZJJS: #担保资金结算
+  LXJS: #利息结算
+    dbfPath: F:\source\用例数据\转融通\担保资金结算\利息结算
+    excelPath: F:\source\用例数据\转融通\担保资金结算\利息结算\测试结果.xlsx
+  JCTQ: #缴存提取
+    dbfPath: F:\source\用例数据\转融通\担保资金结算\交存提取
+    excelPath: F:\source\用例数据\转融通\担保资金结算\交存提取\测试结果.xlsx
+
+
+DBZQJS: #担保证券结算
+  DBPJY: #担保品交易
+    dbfPath: F:\source\用例数据\转融通\担保证券结算\担保品买卖
+    sqlPath: F:\source\用例数据\转融通\担保证券结算\担保品买卖\stkinfo.sql
+    excelPath: F:\source\用例数据\转融通\担保证券结算\担保品买卖\测试结果.xlsx
+  JCTQ: #缴存提取
+    dbfPath: F:\source\用例数据\转融通\担保资金结算\交存提取
+    excelPath: F:\source\用例数据\转融通\担保资金结算\交存提取\测试结果.xlsx

@@ -56,3 +56,5 @@ futurecombaction: ['SERIALNUM',]
 rc_cashborrowlog: ['ORDERTIME','CLOSEDATE','ROLLBACKDATE']
 
 fundauditingerror: ['OCCURTIME',]
+
+rc_lender: ['OCCURTIME','OPTTIME']

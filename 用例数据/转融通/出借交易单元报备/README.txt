@@ -115,3 +115,38 @@ time=14:34:57 663, cost=0.129, sn=301141201000058294, sid=1121, index=0, sql=SEL
 time=14:34:57 664, cost=0.815, sn=301141201000058294, sid=355, sql=UPDATE Rc_lendDeskApply SET expOptId='301528',expTime=20190301143457;
 time=14:34:57 666, cost=0.653, sn=301141201000058294, sid=355, sql=INSERT INTO Syslog (occurTime,serialNum,optId,briefId,sysSetType,operationMAC,optLevel,optBranchId,memo) VALUES(20190301143457,2304005,'301528','001_004_002_008',0,'FCAA14CB20CE|100003','A0','000001','转融通出借交易单元报备');
 --------------------------- 03900372 ：更新出借交易单元导出信息 <2019-03-01 14:34:57.671,serialNum:301141201000058294> end ---------------------------;
+
+
+
+
+[2023-07-22 12:40:38.292]Socket=173.168.64.238@60407 clientId=525 serialNum=722123150000001721 state=0 time=2023-07-22 12:40:38.292
+head:	type=1390, len=676, MAC="70B5E8707235", srcAddr="173.168.64.238@60407", checkSum="17545", flags=2, serial="183", funcCode="03900683"
+request:
+	field_0:  recordcnt=4,  apitype="Stock",  apiversion="2.2.8.0",  terminalinfo="PC;IIP=NA;IPORT=NA;LIP=173.168.64.238;MAC=70B5E8707235;HD=417AZRZMS;PCN=JIAOZHENPENG;CPU=BFEBFBFF000A0671;PI=C^NTFS^138.25G;VOL=0005-2FC7",  compressflag=1,  
+	field_1:  dbfid="ZRTCJJYDYBBQR",  settlementcode="000099",  brokername="瑞银证券有限责任公司",  orderdate="20230722",  registrarcode="100226",  exchid="1",  deskid="00W40",  acctid="040000000000236072",  checkresult="成功",  sendtime=20230722,  optmode="A0",  optid="99990",  optpwd="GEdw7+Vh ",  
+	field_2:  settlementcode="000099",  brokername="瑞银证券有限责任公司",  orderdate="20230722",  registrarcode="100226",  exchid="0",  deskid="077011",  acctid="B001205100",  checkresult="成功",  sendtime=20230722,  
+	field_3:  settlementcode="000099",  brokername="瑞银证券有限责任公司",  orderdate="20230722",  registrarcode="100226",  exchid="1",  deskid="20140",  acctid="040000000000235987",  checkresult="成功",  sendtime=20230722,  
+	field_4:  settlementcode="000099",  brokername="瑞银证券有限责任公司",  orderdate="20230722",  registrarcode="100226",  exchid="0",  deskid="277300",  acctid="B001052400",  checkresult="成功",  sendtime=20230722,  
+
+--------------------------- 03900683 ：导入转融通清算数据 <2023-07-22 12:40:38.292, nano:76705484107800, serialNum:722123150000001721> begin ---------------------------;
+
+time=2023-07-22 12:40:38.293, nano=76705485498600, cost=0.007, sn=722123150000001721, sid=204, sqlPrepare=@3ba86faf, sql=INSERT INTO RC_LendDeskCFM(settlecode,settlecodeOrg,participantcode,fullName,brokername,productName,product,productregid,productCustodian,orderdate,exchId,deskId,acctId,optresult,senddate,lenderType) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+
+time=2023-07-22 12:40:38.294, nano=76705486094100, cost=0.563, sn=722123150000001721, sid=204, sqlExecute=@3ba86faf;
+
+time=2023-07-22 12:40:38.294, nano=76705486130900, cost=0.004, sn=722123150000001721, sid=204, sqlPrepare=@2f530c5c, sql=INSERT INTO RC_LendDeskCFM(settlecode,settlecodeOrg,participantcode,fullName,brokername,productName,product,productregid,productCustodian,orderdate,exchId,deskId,acctId,optresult,senddate,lenderType) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+
+time=2023-07-22 12:40:38.294, nano=76705486255000, cost=0.117, sn=722123150000001721, sid=204, sqlExecute=@2f530c5c;
+
+time=2023-07-22 12:40:38.294, nano=76705486272400, cost=0.003, sn=722123150000001721, sid=204, sqlPrepare=@54a3b8ce, sql=INSERT INTO RC_LendDeskCFM(settlecode,settlecodeOrg,participantcode,fullName,brokername,productName,product,productregid,productCustodian,orderdate,exchId,deskId,acctId,optresult,senddate,lenderType) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+
+time=2023-07-22 12:40:38.294, nano=76705486358300, cost=0.081, sn=722123150000001721, sid=204, sqlExecute=@54a3b8ce;
+
+time=2023-07-22 12:40:38.294, nano=76705486373900, cost=0.003, sn=722123150000001721, sid=204, sqlPrepare=@68b41e3a, sql=INSERT INTO RC_LendDeskCFM(settlecode,settlecodeOrg,participantcode,fullName,brokername,productName,product,productregid,productCustodian,orderdate,exchId,deskId,acctId,optresult,senddate,lenderType) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+
+time=2023-07-22 12:40:38.294, nano=76705486452700, cost=0.075, sn=722123150000001721, sid=204, sqlExecute=@68b41e3a;
+
+time=2023-07-22 12:40:38.297, nano=76705488671900, cost=2.201, sn=722123150000001721, sid=204, sql= UPDATE rc_LendDeskApply a  SET optResult = 'Y'  WHERE EXISTS (SELECT 'x'  FROM rc_LendDeskCfm b  WHERE b.exchId = a.exchId  AND b.deskId = a.deskId  AND b.sendDate = '20230722'  AND b.lenderType <> 0) ;
+
+--------------------------- 03900683 ：导入转融通清算数据 <2023-07-22 12:40:38.297, nano:76705488987100, serialNum:722123150000001721> end ---------------------------;
+
