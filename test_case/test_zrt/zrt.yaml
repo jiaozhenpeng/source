@@ -27,6 +27,13 @@ ZLPSCJ:
     sqlPath: F:\source\用例数据\转融通\转融通出借\战略股份出借\stkinfo.sql
     excelPath: F:\source\用例数据\转融通\转融通出借\战略股份出借\测试结果.xlsx
 
+#上海出借
+SHCJ:
+  tday:
+    dbfPath: F:\source\用例数据\转融通\转融通出借\上海出借
+    sqlPath: F:\source\用例数据\转融通\转融通出借\上海出借\stkinfo.sql
+    excelPath: F:\source\用例数据\转融通\转融通出借\上海出借\测试结果.xlsx
+
 #转融券
 ZRQ_PT:
   tday:

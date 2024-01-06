@@ -11,3 +11,9 @@ OrdinaryTrade:
     dbfPath: F:\source\用例数据\深B\普通交易\普通交易\T日
     sqlPath: F:\source\用例数据\深B\普通交易\普通交易\T日\stkinfo.sql
     excelPath: F:\source\用例数据\深B\普通交易\普通交易\T日\测试结果.xlsx
+
+
+individualtax:  #差异化股息红利税
+  dbfPath: F:\source\用例数据\深B\股息红利税
+  sqlPath: F:\source\用例数据\深B\股息红利税\stkinfo.sql
+  excelPath: F:\source\用例数据\深B\股息红利税\测试结果.xlsx

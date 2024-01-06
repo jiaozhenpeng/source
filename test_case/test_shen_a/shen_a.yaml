@@ -403,3 +403,7 @@ duixi:   #兑息
     sqlPath: F:\source\用例数据\深A\红股红利\兑息\兑息当日\T日\stkinfo.sql
     excelPath: F:\source\用例数据\深A\红股红利\兑息\兑息当日\T日\测试结果.xlsx
 
+HBSB:  #债券合并申报
+  dbfPath: F:\source\用例数据\深A\深圳债券合并申报
+  sqlPath: F:\source\用例数据\深A\深圳债券合并申报\stkinfo.sql
+  excelPath: F:\source\用例数据\深A\深圳债券合并申报\测试结果.xlsx

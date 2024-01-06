@@ -188,8 +188,8 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                rec['JYRQ'], rec['QSRQ'], rec['JSRQ'] = cjrq, qsrq, jsrq  # 011,037
-                if rec['YWLX'] in ('691', '684', '685','692','693','672'):  # 根据业务类型判断，交易日期、清算日期、交收日期都是T日
+                rec['JYRQ'], rec['QSRQ'], rec['JSRQ'] = cjrq, qsrq, jsrq  # 011,037,110(交收通知)
+                if rec['YWLX'] in ('691', '684', '685','692','693','672','109'):  # 根据业务类型判断，交易日期、清算日期、交收日期都是T日
                     rec['JSRQ'] = cjrq
                     if rec['GHLX'] == '101':
                         if rec['ZQDM1'] == '208001':
@@ -200,6 +200,17 @@ class DbfOperation():
                             rec['QTRQ'] = (datetime.date.today()+datetime.timedelta(days=14)).strftime('%Y%m%d')
                         elif rec['ZQDM1'] == '208028':
                             rec['QTRQ'] = (datetime.date.today()+datetime.timedelta(days=28)).strftime('%Y%m%d')
+                elif rec['YWLX'] in ('619'):  # 根据业务类型判断，交易日期、清算日期、交收日期都是T日
+                    rec['JSRQ'] = cjrq
+                    if rec['GHLX'] == '00C':
+                        if rec['ZQDM1'] == '206021':
+                            rec['QTRQ'] = (datetime.date.today()+datetime.timedelta(days=21)).strftime('%Y%m%d')
+                        elif rec['ZQDM1'] == '206007':
+                            rec['QTRQ'] = (datetime.date.today()+datetime.timedelta(days=7)).strftime('%Y%m%d')
+                        elif rec['ZQDM1'] == '206014':
+                            rec['QTRQ'] = (datetime.date.today()+datetime.timedelta(days=14)).strftime('%Y%m%d')
+                        elif rec['ZQDM1'] == '206001':
+                            rec['QTRQ'] = (datetime.date.today()+datetime.timedelta(days=1)).strftime('%Y%m%d')
                 elif rec['YWLX'] in ('680', ):  # 根据业务类型判断jsrq
                     if rec['SQBH'] in ('70','77','79','80'):
                         rec['QTRQ'] = (datetime.date.today()+datetime.timedelta(days=1)).strftime('%Y%m%d')
@@ -222,6 +233,11 @@ class DbfOperation():
                         rec['JYRQ'],rec['QTRQ'],rec['QSRQ'],rec['JSRQ'] = self.lasttradedate1,self.lasttradedate1,self.lasttradedate1,cjrq,
                 elif rec['YWLX'] in ('390', ) and rec['QSBZ'] == '400':  # 390其他资金划付  无交易日期
                     rec['JYRQ'],rec['QTRQ'] = None,cjrq
+                elif rec['YWLX'] in ('123','124' ) :  #
+                    if rec['JSFS'] == '101' :
+                        rec['JSRQ'] = '0'
+                    else :
+                        rec['JSRQ'] = cjrq
             records.append(record)
         table.close()
         return records
@@ -298,6 +314,15 @@ class DbfOperation():
                         rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=14)).strftime('%Y%m%d')
                     elif rec['CJXLH'].strip() in ('36',):
                         rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=184)).strftime('%Y%m%d')
+                elif rec['WDQLB'] in ('007', ): #协议回购
+                    if rec['BCSM'].strip() == ('ZZ0221499'):
+                        rec['QTRQ'] = (datetime.date.today()+datetime.timedelta(days=1)).strftime('%Y%m%d')
+                    elif rec['BCSM'].strip() == ('ZZ0222004'):
+                        rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=7)).strftime('%Y%m%d')
+                    elif rec['BCSM'].strip() == ('ZZ0222009'):
+                        rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=14)).strftime('%Y%m%d')
+                    elif rec['BCSM'].strip() in ('ZZ0221498','ZZ0222008'):
+                        rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=21)).strftime('%Y%m%d')
                 elif rec['WDQLB'] in ('009', ): #债券借贷
                     if rec['FZDM'].strip() == ('208001'):
                         rec['QTRQ'] = (datetime.date.today()+datetime.timedelta(days=1)).strftime('%Y%m%d')
@@ -610,11 +635,8 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                if rec['JGQTRQ'].replace(' ', '') and rec['JGCJRQ'].replace(' ',
-                                                                            ''):  # 只有其他日期和交易日期都存在时，才会计算其他日期和交易日期的差值
-                    temp = datetime.strptime(rec['JGQTRQ'], '%Y%m%d') - datetime.strptime(rec['JGCJRQ'],
-                                                                                          '%Y%m%d') + datetime.strptime(
-                        cjrq, '%Y%m%d')
+                if rec['JGQTRQ'].replace(' ', '') and rec['JGCJRQ'].replace(' ',''):  # 只有其他日期和交易日期都存在时，才会计算其他日期和交易日期的差值
+                    temp = datetime.datetime.strptime(rec['JGQTRQ'], '%Y%m%d') - datetime.datetime.strptime(rec['JGCJRQ'],'%Y%m%d') + datetime.datetime.strptime(cjrq, '%Y%m%d')
                     tempdate = temp.strftime('%Y%m%d')
                 # FJ01 成交日期 、清算日期、发送日期 = T日，交收日期为T+1,其他日期为空
                 rec['JGCJRQ'], rec['JGQSRQ'], rec['JGJSRQ'], rec['JGFSRQ'], rec['JGQTRQ'] = cjrq, qsrq, jsrq, fsrq, qtrq

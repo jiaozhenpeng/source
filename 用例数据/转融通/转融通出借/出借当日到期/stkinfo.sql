@@ -35,5 +35,5 @@ update  openorder  a  set  a.ordertime=(select    substr(b.tradedate,0,8)||subst
 update tradingresult  a  set  a.knocktime=(select    substr(b.tradedate,0,8)||substr(a.knocktime,9,14)       from sysconfig b );
 update tradingresult  a  set  a.ordertime=(select    substr(b.tradedate,0,8)||substr(a.ordertime,9,14)       from sysconfig b );
 update tradingresult  a  set  a.occurtime=(select    substr(b.tradedate,0,8)||substr(a.occurtime,9,14)       from sysconfig b );
- delete from rc_sharelendlog exchid='1' and stkid in('300033','300018');
+ delete from rc_sharelendlog where exchid='1' and stkid in('300033','300018');
 

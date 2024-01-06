@@ -6,7 +6,12 @@ tripartyrepo:
     sqlPath: F:\source\用例数据\沪A\上海三方回购\T日\stkinfo.sql
     excelPath: F:\source\用例数据\沪A\上海三方回购\T日\测试结果.xlsx
 
-
+# 协议回购
+xieyirepo:
+  Tday:
+    dbfPath: F:\source\用例数据\沪A\上海协议回购\初始交易
+    sqlPath: F:\source\用例数据\沪A\上海协议回购\初始交易\stkinfo.sql
+    excelPath: F:\source\用例数据\沪A\上海协议回购\初始交易\测试结果.xlsx
 
 # 合并申报
 Consolidated:
@@ -456,6 +461,26 @@ REITS: #公募reits
     sqlPath: F:\source\用例数据\沪A\公募reits\reits固收平台交易\stkinfo.sql
     excelPath: F:\source\用例数据\沪A\公募reits\reits固收平台交易\测试结果.xlsx
 
+ETFSH: #ETF申赎
+  kuajingT:
+    dbfPath: F:\source\用例数据\沪A\ETF申赎\跨境ETFT+0非担保交收\T日
+    sqlPath: F:\source\用例数据\沪A\ETF申赎\跨境ETFT+0非担保交收\T日\stkinfo.sql
+    excelPath: F:\source\用例数据\沪A\ETF申赎\跨境ETFT+0非担保交收\T日\测试结果.xlsx
 
 
+zxzcjhzr: #专项资产管理计划转让
+  Tday:
+    dbfPath: F:\source\用例数据\沪A\专项资产管理计划转让\T日
+    sqlPath: F:\source\用例数据\沪A\专项资产管理计划转让\T日\stkinfo.sql
+    excelPath: F:\source\用例数据\沪A\专项资产管理计划转让\T日\测试结果.xlsx
 
+
+warrent: #权证
+  warrent_C:  ## 股权激励行权
+    dbfPath: F:\source\用例数据\沪A\权证行权\股权激励
+    sqlPath: F:\source\用例数据\沪A\权证行权\股权激励\stkinfo.sql
+    excelPath: F:\source\用例数据\沪A\权证行权\股权激励\测试结果.xlsx
+  warrent_P:  ## 现金选择权行权
+    dbfPath: F:\source\用例数据\沪A\权证行权\现金选择权
+    sqlPath: F:\source\用例数据\沪A\权证行权\现金选择权\stkinfo.sql
+    excelPath: F:\source\用例数据\沪A\权证行权\现金选择权\测试结果.xlsx
