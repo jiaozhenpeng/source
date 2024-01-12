@@ -189,7 +189,7 @@ class DbfOperation():
         for record in table:
             with record as rec:
                 rec['JYRQ'], rec['QSRQ'], rec['JSRQ'] = cjrq, qsrq, jsrq  # 011,037,110(交收通知)
-                if rec['YWLX'] in ('691', '684', '685','692','693','672','109'):  # 根据业务类型判断，交易日期、清算日期、交收日期都是T日
+                if rec['YWLX'] in ('691', '684', '685','692','693','672','109','120','121'):  # 根据业务类型判断，交易日期、清算日期、交收日期都是T日
                     rec['JSRQ'] = cjrq
                     if rec['GHLX'] == '101':
                         if rec['ZQDM1'] == '208001':
@@ -647,6 +647,7 @@ class DbfOperation():
                 elif rec['JGYWLB'] in (
                         'DJBG', 'DJ00','FGS6','FGSD', 'ZTZC', 'ZTZR', 'ZTXS', 'ZTTZ', 'ZJQ0', 'ZJQ1', 'ZJQ2', 'TGZX', 'FJZG',
                         'TZGF', 'GS4B', 'GSSG', 'XGJX', 'XGXS', 'GSZH', 'ZQZD','TGZF','TGSS','ZJQ0','ZJQ1','ZJQ2','BJRK',
+                        'ZYRK',
                         'ZQZZ','TG20','TG21','TG22','TG23','TGXG','QZ06','FGCX') or (rec['JGYWLB'] == 'ZQKZ' and rec['JGJSSL'] > 0) or\
                         (rec['JGYWLB'] == 'ZQHG' and rec['JGJSSL'] <= 0) or  (rec['JGYWLB'] == 'BJCK' and rec['JGJSSL'] == 0):
                     # 清算日期和交收日期和其他日期为空，成交日期、发送日期= T日

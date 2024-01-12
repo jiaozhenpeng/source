@@ -466,6 +466,26 @@ ETFSH: #ETF申赎
     dbfPath: F:\source\用例数据\沪A\ETF申赎\跨境ETFT+0非担保交收\T日
     sqlPath: F:\source\用例数据\沪A\ETF申赎\跨境ETFT+0非担保交收\T日\stkinfo.sql
     excelPath: F:\source\用例数据\沪A\ETF申赎\跨境ETFT+0非担保交收\T日\测试结果.xlsx
+  huangjinshiwu:
+    dbfPath: F:\source\用例数据\沪A\ETF申赎\黄金ETF申赎\黄金ETF实物申赎
+    sqlPath: F:\source\用例数据\沪A\ETF申赎\黄金ETF申赎\黄金ETF实物申赎\stkinfo.sql
+    excelPath: F:\source\用例数据\沪A\ETF申赎\黄金ETF申赎\黄金ETF实物申赎\测试结果.xlsx
+  huangjinxianjin:
+    dbfPath: F:\source\用例数据\沪A\ETF申赎\黄金ETF申赎\黄金ETF现金申赎
+    sqlPath: F:\source\用例数据\沪A\ETF申赎\黄金ETF申赎\黄金ETF现金申赎\stkinfo.sql
+    excelPath: F:\source\用例数据\沪A\ETF申赎\黄金ETF申赎\黄金ETF现金申赎\测试结果.xlsx
+  kuashichangT:
+    dbfPath: F:\source\用例数据\沪A\ETF申赎\新建文件夹
+    sqlPath: F:\source\用例数据\沪A\ETF申赎\新建文件夹\stkinfo.sql
+    excelPath: F:\source\用例数据\沪A\ETF申赎\新建文件夹\测试结果.xlsx
+  danhichangT:
+    dbfPath: F:\source\用例数据\沪A\ETF申赎\单市场ETF
+    sqlPath: F:\source\用例数据\沪A\ETF申赎\单市场ETF\stkinfo.sql
+    excelPath: F:\source\用例数据\沪A\ETF申赎\单市场ETF\测试结果.xlsx
+  kuahichangT:
+    dbfPath: F:\source\用例数据\沪A\ETF申赎\跨市场ETF
+    sqlPath: F:\source\用例数据\沪A\ETF申赎\跨市场ETF\stkinfo.sql
+    excelPath: F:\source\用例数据\沪A\ETF申赎\跨市场ETF\测试结果.xlsx
 
 
 zxzcjhzr: #专项资产管理计划转让
