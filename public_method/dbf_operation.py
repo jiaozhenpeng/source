@@ -222,8 +222,8 @@ class DbfOperation():
                         rec['QTRQ'] = (datetime.date.today() + datetime.timedelta(days=184)).strftime('%Y%m%d')
                 elif rec['YWLX'] in ('655', '656'):  # 根据业务类型判断jsrq
                     rec['JSRQ'] = self.t
-                elif rec['YWLX'] in ('419','351' ):  # 419股息红利税、红利，无交易日期
-                    rec['JYRQ'] = None
+                elif rec['YWLX'] in ('419','351','390' ):  # 419股息红利税、红利，无交易日期
+                    rec['JYRQ'] = '0'
                 elif rec['YWLX'] in ('605', ) :  #
                     if rec['JYFS'] == '106':
                         rec['JSRQ'],rec['QTRQ'] = cjrq,cjrq
@@ -236,7 +236,9 @@ class DbfOperation():
                 elif rec['YWLX'] in ('123','124' ) :  #
                     if rec['JSFS'] == '101' :
                         rec['JSRQ'] = '0'
-                    else :
+                    elif rec['ZQDM1'] in ('511660','511990' ):
+                        rec['JSRQ'] = jsrq
+                    else:
                         rec['JSRQ'] = cjrq
             records.append(record)
         table.close()
@@ -482,6 +484,8 @@ class DbfOperation():
             with record as rec:
                 if rec['QSBZ'] in ('01D','01A','01B','01C','01E' ):  # 根据清算标志判断jsrq
                     rec['QSRQ'],rec['JSRQ'] = self.t,self.t
+                else:
+                    rec['QSRQ'], rec['JSRQ'] = qsrq, jsrq
             records.append(record)
         table.close()
         return records

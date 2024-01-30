@@ -159,6 +159,15 @@ bondrepo:
     dbfPath: F:\source\用例数据\深A\债券质押式回购\质押入库\非交易平台质押入库
     sqlPath: F:\source\用例数据\深A\债券质押式回购\质押入库\非交易平台质押入库\stkinfo.sql
     excelPath: F:\source\用例数据\深A\债券质押式回购\质押入库\非交易平台质押入库\测试结果.xlsx
+  ZYCK13:  # 固收平台质押出库
+    dbfPath: F:\source\用例数据\深A\债券质押式回购\质押出库\固收平台质押出库
+    sqlPath: F:\source\用例数据\深A\债券质押式回购\质押出库\固收平台质押出库\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\债券质押式回购\质押出库\固收平台质押出库\测试结果.xlsx
+  ZYCK04:  # 非交易平台质押出库（受信用保护债券及信用保护凭证质押出库）
+    dbfPath: F:\source\用例数据\深A\债券质押式回购\质押出库\非交易平台质押出库
+    sqlPath: F:\source\用例数据\深A\债券质押式回购\质押出库\非交易平台质押出库\stkinfo.sql
+    excelPath: F:\source\用例数据\深A\债券质押式回购\质押出库\非交易平台质押出库\测试结果.xlsx
+
 
   # 深圳实时代收付文件，dsfmx
 RealEraPayments:

@@ -462,30 +462,34 @@ REITS: #公募reits
     excelPath: F:\source\用例数据\沪A\公募reits\reits固收平台交易\测试结果.xlsx
 
 ETFSH: #ETF申赎
-  kuajingT:
+  kuajingT:  #跨境ETF
     dbfPath: F:\source\用例数据\沪A\ETF申赎\跨境ETFT+0非担保交收\T日
     sqlPath: F:\source\用例数据\沪A\ETF申赎\跨境ETFT+0非担保交收\T日\stkinfo.sql
     excelPath: F:\source\用例数据\沪A\ETF申赎\跨境ETFT+0非担保交收\T日\测试结果.xlsx
-  huangjinshiwu:
+  huangjinshiwu: #黄金ETF
     dbfPath: F:\source\用例数据\沪A\ETF申赎\黄金ETF申赎\黄金ETF实物申赎
     sqlPath: F:\source\用例数据\沪A\ETF申赎\黄金ETF申赎\黄金ETF实物申赎\stkinfo.sql
     excelPath: F:\source\用例数据\沪A\ETF申赎\黄金ETF申赎\黄金ETF实物申赎\测试结果.xlsx
-  huangjinxianjin:
+  huangjinxianjin: #黄金ETF
     dbfPath: F:\source\用例数据\沪A\ETF申赎\黄金ETF申赎\黄金ETF现金申赎
     sqlPath: F:\source\用例数据\沪A\ETF申赎\黄金ETF申赎\黄金ETF现金申赎\stkinfo.sql
     excelPath: F:\source\用例数据\沪A\ETF申赎\黄金ETF申赎\黄金ETF现金申赎\测试结果.xlsx
-  kuashichangT:
-    dbfPath: F:\source\用例数据\沪A\ETF申赎\新建文件夹
-    sqlPath: F:\source\用例数据\沪A\ETF申赎\新建文件夹\stkinfo.sql
-    excelPath: F:\source\用例数据\沪A\ETF申赎\新建文件夹\测试结果.xlsx
-  danhichangT:
+  danhichangT: #单市场
     dbfPath: F:\source\用例数据\沪A\ETF申赎\单市场ETF
     sqlPath: F:\source\用例数据\沪A\ETF申赎\单市场ETF\stkinfo.sql
     excelPath: F:\source\用例数据\沪A\ETF申赎\单市场ETF\测试结果.xlsx
-  kuahichangT:
+  kuahichangT: #跨市场
     dbfPath: F:\source\用例数据\沪A\ETF申赎\跨市场ETF
     sqlPath: F:\source\用例数据\沪A\ETF申赎\跨市场ETF\stkinfo.sql
     excelPath: F:\source\用例数据\沪A\ETF申赎\跨市场ETF\测试结果.xlsx
+  zhaiquanshiwuT: #
+    dbfPath: F:\source\用例数据\沪A\ETF申赎\债券ETF实物申赎
+    sqlPath: F:\source\用例数据\沪A\ETF申赎\债券ETF实物申赎\stkinfo.sql
+    excelPath: F:\source\用例数据\沪A\ETF申赎\债券ETF实物申赎\测试结果.xlsx
+  huobiT: #
+    dbfPath: F:\source\用例数据\沪A\ETF申赎\货币ETF申赎\T日
+    sqlPath: F:\source\用例数据\沪A\ETF申赎\货币ETF申赎\T日\stkinfo.sql
+    excelPath: F:\source\用例数据\沪A\ETF申赎\货币ETF申赎\T日\测试结果.xlsx
 
 
 zxzcjhzr: #专项资产管理计划转让
@@ -504,3 +508,8 @@ warrent: #权证
     dbfPath: F:\source\用例数据\沪A\权证行权\现金选择权
     sqlPath: F:\source\用例数据\沪A\权证行权\现金选择权\stkinfo.sql
     excelPath: F:\source\用例数据\沪A\权证行权\现金选择权\测试结果.xlsx
+
+qtzjjiesuan: #其他资金结算
+  dbfPath: F:\source\用例数据\沪A\其他资金结算
+  sqlPath: F:\source\用例数据\沪A\其他资金结算\stkinfo.sql
+  excelPath: F:\source\用例数据\沪A\其他资金结算\测试结果.xlsx
