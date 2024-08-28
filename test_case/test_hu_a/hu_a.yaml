@@ -41,6 +41,16 @@ OrdinaryTrading:
     sqlPath: F:\source\用例数据\沪A\普通买卖\股票买入虚拟股东\stkinfo.sql
     dbfPath: F:\source\用例数据\沪A\普通买卖\股票买入虚拟股东
     excelPath: F:\source\用例数据\沪A\普通买卖\股票买入虚拟股东\测试结果.xlsx
+# ETF买卖
+  etfbs:
+    sqlPath: F:\source\用例数据\沪A\普通买卖\ETF买卖\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\普通买卖\ETF买卖
+    excelPath: F:\source\用例数据\沪A\普通买卖\ETF买卖\测试结果.xlsx
+# 权证买卖
+  qzbs:
+    sqlPath: F:\source\用例数据\沪A\普通买卖\权证买卖\stkinfo.sql
+    dbfPath: F:\source\用例数据\沪A\普通买卖\权证买卖
+    excelPath: F:\source\用例数据\沪A\普通买卖\权证买卖\测试结果.xlsx
 
 
 # 定向可转债
@@ -513,3 +523,19 @@ qtzjjiesuan: #其他资金结算
   dbfPath: F:\source\用例数据\沪A\其他资金结算
   sqlPath: F:\source\用例数据\沪A\其他资金结算\stkinfo.sql
   excelPath: F:\source\用例数据\沪A\其他资金结算\测试结果.xlsx
+
+#   债券兑息包含减免值兑付
+DX:
+  DX:  #债券兑息
+    dbfPath: F:\source\用例数据\沪A\兑息\兑息
+    excelPath: F:\source\用例数据\沪A\兑息\兑息\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\兑息\兑息\stkinfo.sql
+  JMZDF:  #减免值兑付
+    dbfPath: F:\source\用例数据\沪A\兑息\减免值兑付
+    excelPath: F:\source\用例数据\沪A\兑息\减免值兑付\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\兑息\减免值兑付\stkinfo.sql
+
+DF:  #债券兑付
+    dbfPath: F:\source\用例数据\沪A\兑付
+    excelPath: F:\source\用例数据\沪A\兑付\测试结果.xlsx
+    sqlPath: F:\source\用例数据\沪A\兑付\stkinfo.sql

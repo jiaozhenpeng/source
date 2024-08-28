@@ -353,7 +353,11 @@ XJETFSH:
     dbfPath: F:\source\用例数据\深A\ETF申赎\全现金申赎\Tday
     sqlPath: F:\source\用例数据\深A\ETF申赎\全现金申赎\Tday\stkinfo.sql
     excelPath: F:\source\用例数据\深A\ETF申赎\全现金申赎\Tday\测试结果.xlsx
-
+#ETF买卖
+etfbs:
+  dbfPath: F:\source\用例数据\深A\ETF申赎\买卖
+  sqlPath: F:\source\用例数据\深A\ETF申赎\买卖\stkinfo.sql
+  excelPath: F:\source\用例数据\深A\ETF申赎\买卖\测试结果.xlsx
 
 # 全现金申赎的ETF申赎  现金债券 ETF
 XJZQETFSH:
@@ -381,6 +385,12 @@ XJXZQ:
   T3day: # 行权回报交收结果
     dbfPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2
     excelPath: F:\source\用例数据\深A\ETF申赎\沪深北ETF\t+2\测试结果.xlsx
+
+#权证买卖
+QZMM:
+  dbfPath: F:\source\用例数据\深A\权证行权\买卖
+  sqlPath: F:\source\用例数据\深A\权证行权\买卖\stkinfo.sql
+  excelPath: F:\source\用例数据\深A\权证行权\买卖\测试结果.xlsx
 
 # 权证行权-股权激励
 GQJL:

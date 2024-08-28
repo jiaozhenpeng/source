@@ -959,7 +959,7 @@ class DbfOperation():
         for record in table:
             with record as rec:
                 rec['TZRQ'] = self.t
-                if rec['TZLB'] in ('006','041'):
+                if rec['TZLB'] in ('006','041','009','010'):
                     rec['RQ1'] = self.t
                 elif rec['TZLB'] in ('020','030','050'):
                     rec['RQ1'],rec['RQ2'] = self.t5,self.lasttradedate1
