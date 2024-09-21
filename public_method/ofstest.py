@@ -17,8 +17,8 @@ cursor.execute(sql)
 date = cursor.fetchone()[0]  #取当前交易日
 newfiledate = str(date)[0:8]
 
-path = r'F:\开放式基金\文件模板'
-path2 = r'F:\开放式基金\import'
+path = r'F:\source\用例数据\开放式基金\清算文件'
+path2 = path2 = os.path.join('F:\测试生成数据',newfiledate,'开放式基金')
 
 if os.path.exists(path2):
     shutil.rmtree(path2)
@@ -37,6 +37,7 @@ for root,dirs,files in pathfiles:
         with open(filepath,'r') as f:
             a = f.read()
             final = a.replace('20220302',newfiledate)
+
 
         with open(filepath2,'w') as f:
             f.write(final)

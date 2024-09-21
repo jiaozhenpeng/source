@@ -49,12 +49,14 @@ class OfsOperation():
                         lines = f.readlines()
                         line_to_modify = 4
                         lines[line_to_modify] = lines[line_to_modify].replace('20220302',self.today)
+                        print(lines[133])
+                        for  line in lines[133:-1] :
+                            if(line[150:153]) == '122':
+                                line = line.replace('20220302',self.today)
+                                line = line.replace('20220301', self.lasttradedate1)
 
-
-
-
-
-
+                    # with open(filepath2, 'w') as f:
+                    #     f.write(lines)
 
     def modifytime(self):
         path2 = os.path.join('F:\测试生成数据',self.today,'开放式基金')
