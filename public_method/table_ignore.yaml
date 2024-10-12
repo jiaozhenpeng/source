@@ -58,3 +58,9 @@ rc_cashborrowlog: ['ORDERTIME','CLOSEDATE','ROLLBACKDATE']
 fundauditingerror: ['OCCURTIME',]
 
 rc_lender: ['OCCURTIME','OPTTIME']
+
+RC_STKRIGHTS: ['RECKONINGTIME','RIGHTSRCVDAY','OPTTIME','OPTID']
+
+rc_sharelendlog: ['ORDERTIME','CLOSEDATE','ROLLBACKDATE']
+
+rc_shareborrowlog: ['ORDERTIME','CLOSEDATE','ROLLBACKDATE']

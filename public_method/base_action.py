@@ -215,6 +215,17 @@ class BaseAction():
         list_data.sort(key=lambda x: (x['BRIEFID'], x['EXCHID']))
         return list_data
 
+    def tradinglog_sort5(self, list_data):
+        '''
+        特殊排序tradinglog表数据，只要briefid和市场
+        适应没有证券代码和合同号，并且记录较少的数据
+        沪银行买卖
+        :param :
+        :return:
+        '''
+        list_data.sort(key=lambda x: (x['BRIEFID'], x['MEMO']))
+        return list_data
+
     def account_sort(self, list_data):
         '''
         排序account表，根据字段currencyid,acctid
@@ -753,6 +764,34 @@ class BaseAction():
         :return:
         """
         list_data.sort(key=lambda x: (x['EXCHID'], x['OFFERREGID']))
+        return list_data
+
+
+    def rc_stkrights_sort(self, list_data):
+        """
+        排序 rc_stkrights 按 合约编号CONTRACTNO排序
+        :param list_data:
+        :return:
+        """
+        list_data.sort(key=lambda x: (x['CONTRACTNO'],))
+        return list_data
+
+    def rc_sharelendlog_sort(self, list_data):
+        """
+        排序 rc_sharelendlog 按 合约编号CONTRACTNO排序
+        :param list_data:
+        :return:
+        """
+        list_data.sort(key=lambda x: (x['CONTRACTNO'],))
+        return list_data
+
+    def rc_shareborrowlog_sort(self, list_data):
+        """
+        排序 rc_shareborrowlog 按 合约编号CONTRACTNO排序
+        :param list_data:
+        :return:
+        """
+        list_data.sort(key=lambda x: (x['CONTRACTNO'],))
         return list_data
 
 

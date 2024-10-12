@@ -1399,7 +1399,30 @@ class DbfOperation():
         for record in table:
             with record as rec:
                 QX = rec['QX']
-                rec['QSRQ'],rec['CJRQ'],rec['HYDQR'] = cjrq,cjrq,OracleDatabase().get_trade_date(QX)
+                if rec['HYBH'] in (2024082200002177,2024082200002183,2024082200002184,2024082200002185,
+                                   2024082200002186,2024082200002187,2024082200002190,2024082200002191,2024082200002193):
+                    rec['QSRQ'], rec['CJRQ'], rec['HYDQR'] = cjrq,cjrq,self.t1
+                else:
+                    rec['QSRQ'],rec['CJRQ'],rec['HYDQR'] = cjrq,cjrq,OracleDatabase().get_trade_date(QX)
+            records.append(record)
+        table.close()
+        return records
+
+
+    #转融通权益处理库
+    def zrtqyclk_file(self, cjrq=None):
+        if cjrq is None:
+            cjrq = self.t
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                if rec['QYBCHYH'] in (2024082200002177, 2024082200002183, 2024082200002184, 2024082200002185,
+                                   2024082200002186, 2024082200002187, 2024082200002190, 2024082200002191,
+                                   2024082200002193):
+                    rec['QSRQ'], rec['QYDZR'] = cjrq,self.t1
+                else:
+                    pass
             records.append(record)
         table.close()
         return records

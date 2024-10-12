@@ -83,3 +83,10 @@ DBZQJS: #担保证券结算
   JCTQ: #缴存提取
     dbfPath: F:\source\用例数据\转融通\担保资金结算\交存提取
     excelPath: F:\source\用例数据\转融通\担保资金结算\交存提取\测试结果.xlsx
+
+
+QYHY: #合约权益处理
+  PGQY: #配股权益
+    dbfPath: F:\source\用例数据\转融通\权益合约\配股权益
+    sqlPath: F:\source\用例数据\转融通\权益合约\配股权益\Rc_Shareborrowlog.sql
+    excelPath: F:\source\用例数据\转融通\权益合约\配股权益\测试结果.xlsx
