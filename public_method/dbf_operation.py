@@ -166,7 +166,7 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                if rec['YWLX'] in ('419','830', '831','011'):  # 只有sbrq(申报日期)需要变更，419的RQ为减持日期
+                if rec['YWLX'] in ('419','830', '831','011','413'):  # 只有sbrq(申报日期)需要变更，419的RQ为减持日期
                     rec['SBRQ'] = cjrq
             records.append(record)
         table.close()
@@ -601,6 +601,17 @@ class DbfOperation():
         table.close()
         return records
 
+    # 深圳限售股所得税
+    def szsds_file(self):
+        records = []
+        table = self.dbf_file.open(mode=dbf.READ_WRITE)
+        for record in table:
+            with record as rec:
+                rec['SDSCJRQ'],rec['SDSFSRQ'] = self.lasttradedate1,self.t
+            records.append(record)
+        table.close()
+        return records
+
     def sjszj_file(self, cjrq=None):
         if cjrq is None:
             cjrq = self.t
@@ -651,7 +662,7 @@ class DbfOperation():
                 elif rec['JGYWLB'] in (
                         'DJBG', 'DJ00','FGS6','FGSD', 'ZTZC', 'ZTZR', 'ZTXS', 'ZTTZ', 'ZJQ0', 'ZJQ1', 'ZJQ2', 'TGZX', 'FJZG',
                         'TZGF', 'GS4B', 'GSSG', 'XGJX', 'XGXS', 'GSZH', 'ZQZD','TGZF','TGSS','ZJQ0','ZJQ1','ZJQ2','BJRK',
-                        'ZYRK',
+                        'ZYRK', 'RTR1', 'RTR2','RTR3',
                         'ZQZZ','TG20','TG21','TG22','TG23','TGXG','QZ06','FGCX') or (rec['JGYWLB'] == 'ZQKZ' and rec['JGJSSL'] > 0) or\
                         (rec['JGYWLB'] == 'ZQHG' and rec['JGJSSL'] <= 0) or  (rec['JGYWLB'] == 'BJCK' and rec['JGJSSL'] == 0):
                     # 清算日期和交收日期和其他日期为空，成交日期、发送日期= T日
@@ -1094,7 +1105,7 @@ class DbfOperation():
         table = self.dbf_file.open(mode=dbf.READ_WRITE)
         for record in table:
             with record as rec:
-                if rec['JGYWLB'].strip() in ('36', '37', 'DZ', '24', '20','30','31','35'): #有部分类别读文件后，类型后有空格，需去空格后判断
+                if rec['JGYWLB'].strip() in ('36', '37', 'DZ', '24', '20','30','31','35','R1','R2'): #有部分类别读文件后，类型后有空格，需去空格后判断
                     rec['JGCJRQ'] = self.replace_time(rec['JGCJRQ'], cjrq)
                     rec['JGQSRQ'] = self.replace_time(rec['JGQSRQ'], qsrq)
                     rec['JGJSRQ'] = self.replace_time(rec['JGJSRQ'], jsrq)

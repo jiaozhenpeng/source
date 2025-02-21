@@ -1,0 +1,6 @@
+# 报表数据
+
+
+QFII:
+  sqlPath: F:\source\用例数据\沪权\普通开仓\futureinfo.sql
+  excelPath: F:\source\用例数据\沪权\普通开仓\测试结果.xlsx

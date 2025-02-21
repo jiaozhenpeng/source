@@ -137,6 +137,22 @@ class BaseAction():
                                       x['EXCEPTFROZENQTY'],x['NEWPRICE']))
         return list_data
 
+    def creditshareloghis_sort(self, list_data):
+        '''
+        排序creditshareloghis表数据根据exchid,regid,stkid,deskid
+        :return:
+        '''
+        list_data.sort(key=lambda x: (x['CREDITSHAREID'], x['ACCTID']))
+        return list_data
+
+    def creditsharereturnlog_sort(self, list_data):
+        '''
+        排序creditsharereturnlog表数据根据合同号
+        :return:
+        '''
+        list_data.sort(key=lambda x: (x['CONTRACTNUM'], x['ACCTID']))
+        return list_data
+
     def registration_sort(self, list_data):
         '''
         排序registration表数据根据exchid,regid

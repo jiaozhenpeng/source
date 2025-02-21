@@ -1,0 +1,1 @@
+delete from custselllimittax where exchid='1' and offerregid in('0117212000','0117252000');

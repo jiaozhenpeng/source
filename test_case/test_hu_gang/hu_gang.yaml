@@ -11,3 +11,11 @@ OrdinaryTransaction:
 Evote:
   dbfPath: F:\source\用例数据\沪港\投票\T日
   excelPath: F:\source\用例数据\沪港\投票\T日\测试结果.xlsx
+
+
+# 沪港\公司收购
+gssg:
+  gfzx: #股份注销
+    dbfPath: F:\source\用例数据\沪港\公司收购\公司收购股份注销
+    sqlPath: F:\source\用例数据\沪港\公司收购\公司收购股份注销\stkinfo.sql
+    excelPath: F:\source\用例数据\沪港\公司收购\公司收购股份注销\测试结果.xlsx

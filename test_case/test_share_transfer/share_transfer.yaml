@@ -227,3 +227,34 @@ zhuanhuan: #证券转换
   dbfPath: F:\source\用例数据\股转\证券转换\吸收合并
   sqlPath: F:\source\用例数据\股转\证券转换\吸收合并\stkinfo.sql
   excelPath: F:\source\用例数据\股转\证券转换\吸收合并\测试结果.xlsx
+
+# 融资融券
+CreditTrade:
+  # 融资买入
+  CCB:
+    sqlPath: F:\source\用例数据\股转\融资融券\融资买入\stkinfo.sql
+    dbfPath: F:\source\用例数据\股转\融资融券\融资买入
+    excelPath: F:\source\用例数据\股转\融资融券\融资买入\清算结果.xlsx
+  # 融券卖出
+  CSS:
+    sqlPath: F:\source\用例数据\股转\融资融券\融券卖出\stkinfo.sql
+    dbfPath: F:\source\用例数据\股转\融资融券\融券卖出
+    excelPath: F:\source\用例数据\股转\融资融券\融券卖出\清算结果.xlsx
+
+# 担保品买卖
+  CreditBS:
+    sqlPath: F:\source\用例数据\股转\融资融券\担保品买卖\stkinfo.sql
+    dbfPath: F:\source\用例数据\股转\融资融券\担保品买卖
+    excelPath: F:\source\用例数据\股转\融资融券\担保品买卖\清算结果.xlsx
+
+# 券源划拨
+  CreditQYHB:
+    sqlPath: F:\source\用例数据\股转\融资融券\券源划拨\stkinfo.sql
+    dbfPath: F:\source\用例数据\股转\融资融券\券源划拨
+    excelPath: F:\source\用例数据\股转\融资融券\券源划拨\测试结果.xlsx
+
+# 担保划拨
+  CreditDBHB:
+    sqlPath: F:\source\用例数据\股转\融资融券\担保划拨\stkinfo.sql
+    dbfPath: F:\source\用例数据\股转\融资融券\担保划拨
+    excelPath: F:\source\用例数据\股转\融资融券\担保划拨\测试结果.xlsx

@@ -434,3 +434,52 @@ HBSB:  #债券合并申报
   dbfPath: F:\source\用例数据\深A\深圳债券合并申报
   sqlPath: F:\source\用例数据\深A\深圳债券合并申报\stkinfo.sql
   excelPath: F:\source\用例数据\深A\深圳债券合并申报\测试结果.xlsx
+
+
+SZSDS:  #限售股所得税
+  dbfPath: F:\source\用例数据\深A\限售股所得税
+  sqlPath: F:\source\用例数据\深A\限售股所得税\stkinfo.sql
+  excelPath: F:\source\用例数据\深A\限售股所得税\测试结果.xlsx
+
+# 融资融券
+CreditTrade:
+  # 融资买入
+  CCB:
+    sqlPath: F:\source\用例数据\深A\融资融券\融资买入\stkinfo.sql
+    dbfPath: F:\source\用例数据\深A\融资融券\融资买入
+    excelPath: F:\source\用例数据\沪A\融资融券\融资买入\清算结果.xlsx
+  # 融券卖出
+  CSS:
+    sqlPath: F:\source\用例数据\深A\融资融券\融券卖出\stkinfo.sql
+    dbfPath: F:\source\用例数据\深A\融资融券\融券卖出
+    excelPath: F:\source\用例数据\深A\融资融券\融券卖出\清算结果.xlsx
+
+# 担保品买卖
+  CreditBS:
+    sqlPath: F:\source\用例数据\深A\融资融券\担保品买卖\stkinfo.sql
+    dbfPath: F:\source\用例数据\深A\融资融券\担保品买卖
+    excelPath: F:\source\用例数据\深A\融资融券\担保品买卖\清算结果.xlsx
+
+# 券源划拨
+  CreditQYHB:
+    sqlPath: F:\source\用例数据\深A\融资融券\券源划拨\stkinfo.sql
+    dbfPath: F:\source\用例数据\深A\融资融券\券源划拨
+    excelPath: F:\source\用例数据\深A\融资融券\券源划拨\测试结果.xlsx
+
+# 担保划拨
+  CreditDBHB:
+    sqlPath: F:\source\用例数据\深A\融资融券\担保划拨\stkinfo.sql
+    dbfPath: F:\source\用例数据\深A\融资融券\担保划拨
+    excelPath: F:\source\用例数据\深A\融资融券\担保划拨\测试结果.xlsx
+
+# 还券划拨
+  CreditHQHB:
+    sqlPath: F:\source\用例数据\深A\融资融券\还券划拨\stkinfo.sql
+    dbfPath: F:\source\用例数据\深A\融资融券\还券划拨
+    excelPath: F:\source\用例数据\深A\融资融券\还券划拨\测试结果.xlsx
+
+# 余券划转
+  CreditYQHZ:
+    sqlPath: F:\source\用例数据\深A\融资融券\余券划转\stkinfo.sql
+    dbfPath: F:\source\用例数据\深A\融资融券\余券划转
+    excelPath: F:\source\用例数据\深A\融资融券\余券划转\测试结果.xlsx
